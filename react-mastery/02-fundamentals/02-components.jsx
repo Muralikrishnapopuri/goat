@@ -57,6 +57,26 @@ function CounterFunctional() {
   );
 }
 
+function CounterFunctional2(){
+  const [count, setCount] = useState(0);
+
+  useEffect(()=>{
+    document.tite = `Count : ${count}`;
+    return ()=>{/*cleanup */}
+  },[count]
+
+);
+
+return (
+  <div>
+    <p>Count: {count}</p>
+    <button onclick={()=>setCount(prev => prev+1)}>Plus</button>
+
+  </div>
+
+)
+
+}
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // 📌 CLASS COMPONENT (Legacy — Know for Interviews)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -155,6 +175,44 @@ function Header() {
 
 function Footer() {
   return <footer><p>© 2024</p></footer>;
+}
+
+
+
+function App() {
+  const users = [
+    {id:1 , name: 'Murali', role:'Developer', avatar: '/murali.jpg'},
+    {id:1 , name: 'Murali', role:'Developer', avatar: '/murali.jpg'},
+    {id:1 , name: 'Murali', role:'Developer', avatar: '/murali.jpg'}
+
+  ]
+
+  return (
+    <div className="app">
+      <Header/>
+      <main>
+      {users.map(user=>(
+        <USerCard/>
+      ))} 
+      </main>
+<Footer/>
+
+
+
+    </div>
+  )
+}
+function Header(){
+  return (
+  <header><h1>app mine header</h1></header>
+  )
+}
+function Footer(){
+  return (
+    <div>
+     ---- Footer ------
+    </div>
+  )
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
