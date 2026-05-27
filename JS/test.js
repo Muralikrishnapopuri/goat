@@ -1,6 +1,10 @@
-let Str="New";
-let Arr = [];
-for(let initial=0;initial<Str.length;initial++){
-  Arr.push(Str[initial])
+function unkown(s) {
+  let startIndex = 0, endIndex = s.length - 1;
+  while (startIndex < endIndex) {
+    if (s[startIndex++] !== s[endIndex--]) {
+      return false
+    }
+  }
+  return true
 }
-console.log(Arr)
+console.log(unkown("raccarrr"))
