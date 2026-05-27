@@ -1,10 +1,17 @@
 function unkown(s) {
-  let startIndex = 0, endIndex = s.length - 1;
-  while (startIndex < endIndex) {
-    if (s[startIndex++] !== s[endIndex--]) {
-      return false
-    }
+  let reverse = ""
+  for (let last = s.length - 1; last >= 0; last--) {
+    reverse += s[last]
+
   }
-  return true
 }
-console.log(unkown("raccarrr"))
+console.log(unkown("reverse"))
+
+function reverseString(s) {
+  let r = "";
+  for (let i = s.length - 1; i >= 0; i--) {
+    r += s[i];
+  }
+  return r;
+}
+console.log(reverseString("reverse"))
