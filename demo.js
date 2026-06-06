@@ -1,132 +1,261 @@
-// JavaScript Practice: Core Examples & Snippets
+// JavaScript Practice: Advanced Level Examples
 
 // ==========================================
-// 1. Reverse a String
+// 1. Async Concurrency Limiter (Task Queue)
 // ==========================================
-
-// Method A: Using a classic loop (No built-in functions)
-function reverseStringClassic(str) {
-  let reversed = "";
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversed += str[i];
+// Limits the maximum number of asynchronous tasks running in parallel.
+class AsyncQueue {
+  constructor(concurrency) {
+    this.concurrency = concurrency;
+    this.running = 0;
+    this.queue = [];
   }
-  return reversed;
+
+  add(task) {
+    return new Promise((resolve, reject) => {
+      this.queue.push({ task, resolve, reject });
+      this.next();
+    });
+  }
+
+  next() {
+    if (this.running >= this.concurrency || this.queue.length === 0) return;
+
+    this.running++;
+    const { task, resolve, reject } = this.queue.shift();
+
+    task()
+      .then(resolve)
+      .catch(reject)
+      .finally(() => {
+        this.running--;
+        this.next();
+      });
+  }
 }
 
-// Method B: Using ES6 split-reverse-join shortcut
-const reverseStringShortcut = (str) => str.split("").reverse().join("");
-
-console.log("--- 1. Reverse String ---");
-console.log("Classic:", reverseStringClassic("antigravity")); // "ytivargitna"
-console.log("Shortcut:", reverseStringShortcut("antigravity")); // "ytivargitna"
-console.log();
-
-
-// ==========================================
-// 2. Remove Duplicates from an Array
-// ==========================================
-
-// Method A: Using a classic loop
-function removeDuplicatesClassic(arr) {
-  let uniqueArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (!uniqueArr.includes(arr[i])) {
-      uniqueArr.push(arr[i]);
-    }
-  }
-  return uniqueArr;
-}
-
-// Method B: Using Set (Modern ES6)
-const removeDuplicatesShortcut = (arr) => [...new Set(arr)];
-
-console.log("--- 2. Remove Duplicates ---");
-const duplicateArray = [1, 2, 2, 3, 4, 4, 4, 5, 1];
-console.log("Classic:", removeDuplicatesClassic(duplicateArray)); // [1, 2, 3, 4, 5]
-console.log("Shortcut:", removeDuplicatesShortcut(duplicateArray)); // [1, 2, 3, 4, 5]
-console.log();
-
-
-// ==========================================
-// 3. Find Max Number in Array
-// ==========================================
-
-// Method A: Iterative loop
-function findMaxClassic(arr) {
-  if (arr.length === 0) return null;
-  let max = arr[0];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > max) {
-      max = arr[i];
-    }
-  }
-  return max;
-}
-
-// Method B: Math.max with Spread Operator
-const findMaxShortcut = (arr) => Math.max(...arr);
-
-console.log("--- 3. Find Max ---");
-const numbers = [12, 5, 8, 130, 44];
-console.log("Classic:", findMaxClassic(numbers)); // 130
-console.log("Shortcut:", findMaxShortcut(numbers)); // 130
-console.log();
-
-
-// ==========================================
-// 4. Palindrome Checker
-// ==========================================
-
-// Method A: Two-pointer technique (Optimized, O(N) time, O(1) space)
-function isPalindromeClassic(str) {
-  let left = 0;
-  let right = str.length - 1;
-  while (left < right) {
-    if (str[left].toLowerCase() !== str[right].toLowerCase()) {
-      return false;
-    }
-    left++;
-    right--;
-  }
-  return true;
-}
-
-// Method B: ES6 Shortcut
-const isPalindromeShortcut = (str) => {
-  const cleanStr = str.toLowerCase();
-  return cleanStr === cleanStr.split("").reverse().join("");
+// Demo of Async Queue
+console.log("--- 1. Async Concurrency Queue ---");
+const queue = new AsyncQueue(2); // Allow maximum 2 concurrent tasks
+const delayTask = (id, delay) => () => {
+  console.log(`Task ${id} started...`);
+  return new Promise((resolve) => setTimeout(() => {
+    console.log(`Task ${id} completed.`);
+    resolve(id);
+  }, delay));
 };
 
-console.log("--- 4. Palindrome Checker ---");
-console.log("Classic (racecar):", isPalindromeClassic("racecar")); // true
-console.log("Classic (hello):", isPalindromeClassic("hello")); // false
-console.log("Shortcut (radar):", isPalindromeShortcut("radar")); // true
-console.log();
+// Queue tasks: tasks 1 & 2 start immediately; task 3 waits until one of them finishes.
+queue.add(delayTask(1, 400));
+queue.add(delayTask(2, 200));
+queue.add(delayTask(3, 100));
 
 
 // ==========================================
-// 5. Debounce Function (Practical Utility)
+// 2. Deep Clone with Circular References
 // ==========================================
+// Handles Maps, Sets, Dates, Regex, and avoids infinite loops on self-referencing objects.
+function deepClone(obj, hash = new WeakMap()) {
+  if (obj === null || typeof obj !== 'object') return obj;
+  if (obj instanceof Date) return new Date(obj);
+  if (obj instanceof RegExp) return new RegExp(obj.source, obj.flags);
 
-// Debouncing ensures a function doesn't run too frequently
-function debounce(func, delay) {
-  let timeoutId;
-  return function (...args) {
-    const context = this;
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func.apply(context, args);
-    }, delay);
-  };
+  // Return cached reference to prevent infinite recursion on circular refs
+  if (hash.has(obj)) return hash.get(obj);
+
+  let clone;
+  if (obj instanceof Map) {
+    clone = new Map();
+    hash.set(obj, clone);
+    obj.forEach((val, key) => clone.set(deepClone(key, hash), deepClone(val, hash)));
+    return clone;
+  }
+
+  if (obj instanceof Set) {
+    clone = new Set();
+    hash.set(obj, clone);
+    obj.forEach(val => clone.add(deepClone(val, hash)));
+    return clone;
+  }
+
+  // Handle standard objects and arrays
+  clone = Array.isArray(obj) ? [] : Object.create(Object.getPrototypeOf(obj));
+  hash.set(obj, clone);
+
+  const keys = Reflect.ownKeys(obj);
+  for (const key of keys) {
+    clone[key] = deepClone(obj[key], hash);
+  }
+
+  return clone;
 }
 
-console.log("--- 5. Debounce ---");
-const processChange = debounce(() => {
-  console.log("API request triggered! (Only runs after 500ms of inactivity)");
-}, 500);
+// Demo of Deep Clone
+setTimeout(() => {
+  console.log("\n--- 2. Deep Clone ---");
+  const original = {
+    number: 42,
+    date: new Date(),
+    set: new Set([1, 2, 3]),
+    nested: { a: 1 }
+  };
+  original.circular = original; // Self reference
 
-// Simulating multiple rapid calls (only the last one runs after 500ms)
-processChange();
-processChange();
-processChange();
-console.log("Called processChange() three times rapidly, waiting for trigger...");
+  const cloned = deepClone(original);
+  console.log("Is clone equal by reference?", original === cloned); // false
+  console.log("Is nested object cloned?", original.nested !== cloned.nested); // true
+  console.log("Circular reference verified:", cloned.circular.circular === cloned); // true
+}, 600);
+
+
+// ==========================================
+// 3. Reactive State Store using JS Proxy
+// ==========================================
+// Implements reactive state tracking. Automatically detects changes even in nested paths.
+function createReactiveStore(initialState, onChange) {
+  const validator = {
+    get(target, key, receiver) {
+      const value = Reflect.get(target, key, receiver);
+      // Recursively proxy nested objects/arrays to intercept deep changes
+      if (typeof value === 'object' && value !== null) {
+        return new Proxy(value, validator);
+      }
+      return value;
+    },
+    set(target, key, value, receiver) {
+      const oldValue = target[key];
+      if (oldValue !== value) {
+        const result = Reflect.set(target, key, value, receiver);
+        onChange(key, oldValue, value);
+        return result;
+      }
+      return true;
+    }
+  };
+  return new Proxy(initialState, validator);
+}
+
+// Demo of Reactive Store
+setTimeout(() => {
+  console.log("\n--- 3. Reactive State Store ---");
+  const store = createReactiveStore(
+    { user: { name: "Alice", details: { age: 25 } }, theme: "dark" },
+    (key, oldVal, newVal) => {
+      console.log(`State Changed -> Key: "${key}", Old: ${JSON.stringify(oldVal)}, New: ${JSON.stringify(newVal)}`);
+    }
+  );
+
+  store.theme = "light"; // Logs change
+  store.user.details.age = 26; // Logs change (deep detection)
+}, 700);
+
+
+// ==========================================
+// 4. Custom Promise Implementation
+// ==========================================
+// Demonstrates async execution queueing using native Microtasks.
+class MyPromise {
+  constructor(executor) {
+    this.state = 'pending';
+    this.value = undefined;
+    this.handlers = [];
+
+    const resolve = (value) => {
+      if (this.state !== 'pending') return;
+      if (value instanceof MyPromise) {
+        return value.then(resolve, reject);
+      }
+      this.state = 'fulfilled';
+      this.value = value;
+      this.handlers.forEach(h => queueMicrotask(h));
+    };
+
+    const reject = (error) => {
+      if (this.state !== 'pending') return;
+      this.state = 'rejected';
+      this.value = error;
+      this.handlers.forEach(h => queueMicrotask(h));
+    };
+
+    try {
+      executor(resolve, reject);
+    } catch (err) {
+      reject(err);
+    }
+  }
+
+  then(onFulfilled, onRejected) {
+    return new MyPromise((resolve, reject) => {
+      const handle = () => {
+        try {
+          if (this.state === 'fulfilled') {
+            if (typeof onFulfilled === 'function') {
+              resolve(onFulfilled(this.value));
+            } else {
+              resolve(this.value);
+            }
+          } else if (this.state === 'rejected') {
+            if (typeof onRejected === 'function') {
+              resolve(onRejected(this.value));
+            } else {
+              reject(this.value);
+            }
+          }
+        } catch (err) {
+          reject(err);
+        }
+      };
+
+      if (this.state === 'pending') {
+        this.handlers.push(handle);
+      } else {
+        queueMicrotask(handle);
+      }
+    });
+  }
+}
+
+// Demo of MyPromise
+setTimeout(() => {
+  console.log("\n--- 4. Custom Promise (MyPromise) ---");
+  const myPromise = new MyPromise((resolve) => {
+    setTimeout(() => resolve("Success!"), 100);
+  });
+
+  myPromise
+    .then((val) => {
+      console.log("MyPromise resolved:", val);
+      return "Next value";
+    })
+    .then((val2) => {
+      console.log("MyPromise chain resolved:", val2);
+    });
+}, 900);
+
+
+// ==========================================
+// 5. Infinite Currying
+// ==========================================
+// A curried function that adds numbers indefinitely until value/string conversion occurs.
+function sumInfinite(...args) {
+  const currentSum = args.reduce((a, b) => a + b, 0);
+  const fn = (...nextArgs) => sumInfinite(currentSum, ...nextArgs);
+  
+  // Evaluates the sum when object coercion occurs
+  fn.valueOf = () => currentSum;
+  fn.toString = () => String(currentSum);
+  
+  return fn;
+}
+
+// Demo of Infinite Currying
+setTimeout(() => {
+  console.log("\n--- 5. Infinite Currying ---");
+  const step1 = sumInfinite(1)(2);
+  const step2 = step1(3)(4);
+  const step3 = step2(5);
+  
+  console.log("Evaluated step1 (1 + 2):", +step1); // Coerce to number
+  console.log("Evaluated step2 (1 + 2 + 3 + 4):", +step2); // Coerce to number
+  console.log("Evaluated step3 (1 + 2 + 3 + 4 + 5):", +step3); // Coerce to number
+}, 1100);
