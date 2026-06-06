@@ -1,6 +1,10 @@
 # 🐘 SQL Mastery: Ultimate Interview & Learning Guide
 
+> [!TIP]
+> **Confused or overwhelmed by database concepts?** Start with the **[🎯 Ultimate SQL Interview-Cracking Blueprint](./00_ultimate_interview_cracking_blueprint.md)**. It breaks SQL down into the 5 core mental models and patterns you need to pass engineering interviews without getting lost in syntax.
+
 Welcome to the **SQL Mastery** curriculum! This repository is designed to take you from foundational concepts to advanced, enterprise-grade database engineering and optimization. Every section is tailored specifically to address **high-frequency interview questions**, **performance tuning tradeoffs**, and **architectural decisions**.
+
 
 ---
 
@@ -30,6 +34,7 @@ Click on any guide below to deep-dive into the corresponding concepts, syntax, e
 
 | File Name | Topic | High-Value Interview Targets |
 | :--- | :--- | :--- |
+| **[00_ultimate_interview_cracking_blueprint.md](./00_ultimate_interview_cracking_blueprint.md)** | 🎯 Quick Start SQL Interview Blueprint | **Logical execution order**, Venn diagram alternative, **Window functions comparison**, **5 Core coding templates**. |
 | **[01_fundamentals_and_filtering.md](./01_fundamentals_and_filtering.md)** | Fundamentals & Filtering | `SELECT`, `WHERE`, `LIKE`, `IN`, `BETWEEN`, `NULL` handling, `LIMIT`/`OFFSET` pagination, operator precedence. |
 | **[02_joins_and_set_operations.md](./02_joins_and_set_operations.md)** | Joins & Set Operations | `INNER`, `LEFT`/`RIGHT`, `FULL OUTER`, `CROSS`, `SELF` joins, `UNION` vs `UNION ALL`, `INTERSECT`, `EXCEPT`. Joins on non-key columns. |
 | **[03_aggregations_and_grouping.md](./03_aggregations_and_grouping.md)** | Aggregations & Grouping | `GROUP BY`, `HAVING` vs `WHERE`, aggregate functions (`COUNT(1)` vs `COUNT(col)` vs `COUNT(*)`), `STRING_AGG`/`GROUP_CONCAT`. |
