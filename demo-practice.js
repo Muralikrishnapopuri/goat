@@ -1,10 +1,10 @@
-const outer = ()=>{
-    let num = 5;
-    const inner = ()=>{
-        
-        console.log(num);
-    }
-    inner();
-}
+function funnew(greeting){
 
-outer();
+
+    console.log(greeting+"+"+this.name)
+}
+const person = {
+    name:"me"
+}
+funnew.call(person,"hello")
+
