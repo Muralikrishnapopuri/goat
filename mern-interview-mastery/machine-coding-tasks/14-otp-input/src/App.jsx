@@ -1,122 +1,170 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState, useEffect, useRef } from 'react';
+import './App.css';
+
+const MOCK_VALID_OTP = '202616';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [otp, setOtp] = useState(['', '', '', '', '', '']);
+  const [timeLeft, setTimeLeft] = useState(60); // 60 seconds timer
+  const [status, setStatus] = useState('idle'); // idle | checking | success | error
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const inputRefs = useRef([]);
+
+  // Focus initial digit input on mount
+  useEffect(() => {
+    if (inputRefs.current[0]) {
+      inputRefs.current[0].focus();
+    }
+  }, []);
+
+  // Expiry Countdown timer
+  useEffect(() => {
+    if (timeLeft === 0) return;
+    const timer = setInterval(() => {
+      setTimeLeft(prev => prev - 1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [timeLeft]);
+
+  const handleChange = (value, index) => {
+    // Only accept numeric inputs
+    if (value && isNaN(value)) return;
+
+    const newOtp = [...otp];
+    // Keep only the last character entered
+    newOtp[index] = value.substring(value.length - 1);
+    setOtp(newOtp);
+    setErrorMessage('');
+
+    // Auto focus next input block
+    if (value && index < 5 && inputRefs.current[index + 1]) {
+      inputRefs.current[index + 1].focus();
+    }
+  };
+
+  const handleKeyDown = (e, index) => {
+    // Detect Backspace event to shift focus left
+    if (e.key === 'Backspace') {
+      if (!otp[index] && index > 0 && inputRefs.current[index - 1]) {
+        const newOtp = [...otp];
+        newOtp[index - 1] = '';
+        setOtp(newOtp);
+        inputRefs.current[index - 1].focus();
+      } else {
+        const newOtp = [...otp];
+        newOtp[index] = '';
+        setOtp(newOtp);
+      }
+    }
+  };
+
+  const handlePaste = (e) => {
+    e.preventDefault();
+    const data = e.clipboardData.getData('text').trim();
+    
+    // Check if pasted value is numeric and fits length
+    if (data.length === 6 && !isNaN(data)) {
+      const splitDigits = data.split('');
+      setOtp(splitDigits);
+      // Focus the last input element
+      inputRefs.current[5].focus();
+    }
+  };
+
+  const verifyOTP = (e) => {
+    e.preventDefault();
+    const joined = otp.join('');
+    
+    if (joined.length < 6) {
+      setErrorMessage('Please enter all 6 verification digits.');
+      return;
+    }
+
+    setStatus('checking');
+    setTimeout(() => {
+      if (joined === MOCK_VALID_OTP) {
+        setStatus('success');
+      } else {
+        setStatus('error');
+        setErrorMessage('Verification failed. Invalid OTP code entered.');
+      }
+    }, 1500); // 1.5s verification delay
+  };
+
+  const handleResend = () => {
+    setOtp(['', '', '', '', '', '']);
+    setTimeLeft(60);
+    setStatus('idle');
+    setErrorMessage('');
+    if (inputRefs.current[0]) {
+      inputRefs.current[0].focus();
+    }
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="otp-container">
+      <header className="otp-header">
+        <div className="brand">
+          <span className="logo-icon">🔑</span>
+          <div>
+            <h1>SecureAuth OTP</h1>
+            <p className="subtitle">MERN Level - 6-Digit OTP Form, Clipboard Capture & Key Event Triggers</p>
+          </div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      </header>
 
-      <div className="ticks"></div>
+      <div className="otp-card card">
+        <h2>Enter Verification Code</h2>
+        <p className="description-text">We sent a verification code to your email. Enter the digits below to establish session credentials.</p>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+        {status === 'success' && <div className="alert alert-success">OTP Verified! Access granted to dashboard dashboard system.</div>}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        <form onSubmit={verifyOTP} className="otp-form">
+          <div className="otp-inputs-row" onPaste={handlePaste}>
+            {otp.map((digit, idx) => (
+              <input
+                key={idx}
+                type="text"
+                maxLength="1"
+                ref={el => inputRefs.current[idx] = el}
+                value={digit}
+                onChange={(e) => handleChange(e.target.value, idx)}
+                onKeyDown={(e) => handleKeyDown(e, idx)}
+                className={`otp-digit-input ${status === 'error' ? 'error-state' : ''}`}
+                disabled={status === 'checking' || status === 'success'}
+              />
+            ))}
+          </div>
+
+          <div className="timer-row">
+            {timeLeft > 0 ? (
+              <span className="expiry-timer">Code expires in: <strong>{timeLeft}s</strong></span>
+            ) : (
+              <div className="resend-wrapper">
+                <span className="expiry-timer red">Code expired</span>
+                <button type="button" className="resend-btn" onClick={handleResend}>Resend Code</button>
+              </div>
+            )}
+          </div>
+
+          <button 
+            type="submit" 
+            className="btn btn-primary btn-block submit-otp-btn"
+            disabled={status === 'checking' || status === 'success' || timeLeft === 0}
+          >
+            {status === 'checking' ? 'Validating Digits...' : 'Verify OTP Code'}
+          </button>
+        </form>
+
+        <div className="demo-credentials">
+          <h4>Demo OTP Code</h4>
+          <p>Standard Validation Key: <code>202616</code></p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
