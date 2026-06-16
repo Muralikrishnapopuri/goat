@@ -1,122 +1,176 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState, useEffect, useRef } from 'react';
+import './App.css';
+
+// Generating initial pool of mock articles
+const ARTICLE_POOL = Array.from({ length: 100 }, (_, i) => {
+  const id = i + 1;
+  const categories = ['Tech', 'Design', 'MERN', 'AI', 'System Design'];
+  const titles = [
+    'Exploring React 19 Server Components',
+    'Understanding NodeJS Event Loop Execution Phases',
+    'MongoDB Aggregation Best Practices for Production',
+    'Designing Low-Latency Distributed Caching Systems',
+    'How We Fixed a Multi-Tab JWT Token Synchronization Leak',
+    'Mastering CSS Grid Layouts for Glassmorphism Dashboards',
+    'A Deep Dive into Mongoose Populate vs Aggregate $lookup',
+    'Dockerizing Node App with Multi-Stage Build Configurations',
+    'Understanding Redis Pub/Sub Architecture Patterns',
+    'Writing Reusable Table Components in Clean React Code'
+  ];
+
+  return {
+    id,
+    title: `${titles[id % titles.length]} #${id}`,
+    category: categories[id % categories.length],
+    readTime: `${2 + (id % 8)} min read`,
+    likes: Math.round(10 + Math.random() * 980),
+    description: 'A comprehensive engineering guide detailing design decisions, production issues resolved, and performance benchmarks.',
+    author: `Author Dev #${(id % 12) + 1}`,
+    imageUrl: `https://images.unsplash.com/photo-${1500000000000 + (id * 100000)}?w=400&auto=format&fit=crop&q=60`
+  };
+});
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [items, setItems] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  
+  const loaderRef = useRef(null);
+
+  // Load items simulating network lag
+  const loadMoreItems = () => {
+    if (loading || !hasMore) return;
+    setLoading(true);
+
+    setTimeout(() => {
+      const pageSize = 8;
+      const startIndex = (page - 1) * pageSize;
+      const nextBatch = ARTICLE_POOL.slice(startIndex, startIndex + pageSize);
+
+      if (nextBatch.length > 0) {
+        setItems(prev => [...prev, ...nextBatch]);
+        setPage(prev => prev + 1);
+      } else {
+        setHasMore(false);
+      }
+      setLoading(false);
+    }, 1200); // 1.2s delay for professional async simulator feel
+  };
+
+  // Initial load
+  useEffect(() => {
+    loadMoreItems();
+  }, []);
+
+  // Intersection Observer to detect scroll threshold
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const target = entries[0];
+      if (target.isIntersecting && hasMore && !loading) {
+        loadMoreItems();
+      }
+    }, { threshold: 1.0 });
+
+    if (loaderRef.current) {
+      observer.observe(loaderRef.current);
+    }
+
+    return () => {
+      if (loaderRef.current) {
+        observer.unobserve(loaderRef.current);
+      }
+    };
+  }, [loading, hasMore, page]);
+
+  // Monitor scroll for back-to-top display
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handlePullToRefresh = () => {
+    setItems([]);
+    setPage(1);
+    setHasMore(true);
+    // Timeout to load initial batch
+    setTimeout(() => {
+      const initialBatch = ARTICLE_POOL.slice(0, 8);
+      setItems(initialBatch);
+      setPage(2);
+    }, 500);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="scroll-container">
+      <header className="scroll-header">
+        <div className="brand">
+          <span className="logo-icon">♾️</span>
+          <div>
+            <h1>ScrollFeed</h1>
+            <p className="subtitle">MERN Level - Infinite Scroll IntersectionObserver & Performance Optimization</p>
+          </div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
+        <button className="btn btn-secondary btn-sm" onClick={handlePullToRefresh}>
+          🔄 Refresh Feed
         </button>
-      </section>
+      </header>
 
-      <div className="ticks"></div>
+      {/* Item Feed */}
+      <div className="article-feed">
+        {items.map(item => (
+          <article key={item.id} className="article-card card">
+            <div className="article-image-wrapper">
+              {/* Fallback image style since unsplash URLs are mocks */}
+              <div className="placeholder-image-bg">
+                <span>{item.category}</span>
+              </div>
+            </div>
+            <div className="article-content">
+              <div className="article-meta">
+                <span className="badge-cat">{item.category}</span>
+                <span className="read-time">⏱️ {item.readTime}</span>
+              </div>
+              <h3 className="article-title">{item.title}</h3>
+              <p className="article-desc">{item.description}</p>
+              <div className="article-footer">
+                <span className="author-name">✍️ {item.author}</span>
+                <span className="likes-count">❤️ {item.likes}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      {/* Loading Trigger Element */}
+      <div ref={loaderRef} className="loader-trigger">
+        {loading && (
+          <div className="spinner-wrapper">
+            <div className="loading-spinner"></div>
+            <span>Fetching more architecture articles...</span>
+          </div>
+        )}
+        {!hasMore && (
+          <p className="end-message">☕ You have fully resolved all 100 expert articles. End of dataset.</p>
+        )}
+      </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {/* Scroll Top Button */}
+      {showScrollTop && (
+        <button className="scroll-top-btn" onClick={scrollToTop} title="Scroll to top">
+          ▲
+        </button>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
