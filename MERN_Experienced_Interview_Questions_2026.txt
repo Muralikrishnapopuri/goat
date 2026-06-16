@@ -1,0 +1,215 @@
+MERN STACK EXPERIENCED INTERVIEW QUESTIONS (2026)
+
+SECTION A : JavaScript
+
+1.  Explain Event Loop.
+2.  Single Thread vs Multi Thread.
+3.  Blocking vs Non Blocking I/O.
+4.  Callback Queue vs Microtask Queue.
+5.  Promise vs Async Await.
+6.  Promise.all vs allSettled vs race vs any.
+7.  call(), apply(), bind().
+8.  Closures.
+9.  Prototypes.
+10. Prototype Chain.
+11. Hoisting.
+12. TDZ.
+13. this keyword.
+14. Arrow Function vs Normal Function.
+15. Debouncing vs Throttling.
+16. Event Delegation.
+17. Shallow Copy vs Deep Copy.
+18. == vs ===.
+19. Map vs Filter vs Reduce.
+20. Memory leaks.
+21. Garbage Collection.
+22. Currying.
+23. Memoization.
+24. Generators.
+25. Polyfills.
+26. Output based questions.
+
+SECTION B : React
+
+1.  Virtual DOM.
+2.  Diffing Algorithm.
+3.  Reconciliation.
+4.  React Fiber.
+5.  React Rendering Process.
+6.  Props vs State.
+7.  Controlled vs Uncontrolled Components.
+8.  useState.
+9.  useEffect.
+10. Dependency Array.
+11. Cleanup Function.
+12. Why useEffect runs twice.
+13. useRef.
+14. useMemo.
+15. useCallback.
+16. React.memo.
+17. Context API.
+18. Context API vs Redux.
+19. Prop Drilling.
+20. Custom Hooks.
+21. React Router.
+22. Protected Routes.
+23. Lazy Loading.
+24. Code Splitting.
+25. Suspense.
+26. Error Boundaries.
+27. Portals.
+28. Fragments.
+29. StrictMode.
+30. Component Re-rendering.
+31. Performance Optimization.
+32. API Integration.
+33. Folder Structure.
+34. Project Architecture.
+
+SECTION C : Node.js
+
+1.  Node.js Architecture.
+2.  Event Loop.
+3.  EventEmitter.
+4.  Streams.
+5.  Buffers.
+6.  fs Module.
+7.  Process Object.
+8.  Child Process.
+9.  Cluster.
+10. Worker Threads.
+11. Middleware.
+12. Express Middleware.
+13. next().
+14. REST API.
+15. CRUD API.
+16. JWT Authentication.
+17. Authentication vs Authorization.
+18. Cookies vs Sessions vs JWT.
+19. Refresh Tokens.
+20. CORS.
+21. Helmet.
+22. Rate Limiting.
+23. File Upload.
+24. Nodemailer.
+25. Error Handling.
+26. Logging.
+27. Environment Variables.
+
+SECTION D : MongoDB
+
+1.  Collections.
+2.  Documents.
+3.  Embedded vs Referenced.
+4.  Indexing.
+5.  Compound Index.
+6.  Aggregation Pipeline.
+7.  Lookup.
+8.  Match.
+9.  Group.
+10. Sort.
+11. Skip.
+12. Limit.
+13. Transactions.
+14. Replication.
+15. Sharding.
+16. Schema Design.
+17. Mongoose.
+18. populate().
+19. lean().
+20. Virtual Fields.
+
+SECTION E : Authentication
+
+1.  JWT Flow.
+2.  Login Flow.
+3.  Refresh Token Flow.
+4.  Role Based Authentication.
+5.  Multi Role Authentication.
+6.  OTP Login.
+7.  Forgot Password.
+8.  Social Login.
+9.  Google OAuth.
+10. Session Management.
+
+MACHINE CODING TASKS
+
+1.  Todo CRUD.
+2.  Product CRUD.
+3.  Shopping Cart.
+4.  Login System.
+5.  Pagination.
+6.  Infinite Scroll.
+7.  Search with Debouncing.
+8.  Image Upload.
+9.  Dashboard.
+10. Reusable Table.
+11. Reusable Modal.
+12. Kanban Board.
+13. Chat UI.
+14. OTP Input.
+15. Accordion.
+16. Star Rating.
+17. Dark Mode.
+18. Protected Routes.
+19. Dynamic Forms.
+20. File Manager.
+
+PROJECT QUESTIONS
+
+1.  Explain your project.
+2.  Folder Structure.
+3.  Authentication Flow.
+4.  API Structure.
+5.  State Management.
+6.  Why Redux?
+7.  Why Context?
+8.  Database Design.
+9.  Deployment Process.
+10. Performance Improvements.
+11. Biggest Challenge.
+12. Production Bug Fixed.
+13. Team Collaboration.
+14. Git Workflow.
+15. CI/CD Pipeline.
+
+SCENARIO QUESTIONS
+
+1.  API called twice.
+2.  Component re-rendering.
+3.  JWT expired.
+4.  Server down.
+5.  API timeout.
+6.  Multiple users updating same data.
+7.  Render 100000 records.
+8.  Optimize slow dashboard.
+9.  File upload interrupted.
+10. Multiple browser tabs authentication.
+11. Search API optimization.
+12. Rate limiting implementation.
+13. Role based routing.
+14. Real time notifications.
+15. Prevent duplicate API calls.
+
+TRENDING QUESTIONS
+
+1.  Explain your entire authentication flow.
+2.  Write Event Loop output.
+3.  Build paginated API.
+4.  Implement debouncing.
+5.  Why useEffect called twice?
+6.  React.memo vs useMemo.
+7.  Context API vs Redux.
+8.  Explain JWT refresh token flow.
+9.  Explain CORS.
+10. Design e-commerce order API.
+11. Populate React UI from API.
+12. Optimize API calls.
+13. Explain project architecture.
+14. Explain database schema.
+15. Write reusable component.
+16. Handle multi-tab login.
+17. Explain production issue you solved.
+18. Explain deployment process.
+19. Git conflict resolution.
+20. Optimize React application.
