@@ -18,6 +18,18 @@ mern-interview-mastery/
 │   ├── 07-scenario-questions.md      # Memory leaks, Race conditions
 │   └── 08-trending-questions.md      # Server Components, Edge Runtimes
 │
+├── js-challenges/                   # 10 Core JavaScript Coding Polyfills
+│   ├── 01-debounce-throttle.js      # Debounce / Throttle decorators
+│   ├── 02-promise-polyfills.js      # Promise.all/allSettled/race/any
+│   ├── 03-array-methods.js          # map/filter/reduce/flat polyfills
+│   ├── 04-function-methods.js       # call/apply/bind context polyfills
+│   ├── 05-deep-clone.js             # Circular reference deep cloner
+│   ├── 06-memoize.js                # Custom Memoizer cache with TTL limits
+│   ├── 07-event-emitter.js          # Custom event listener EventEmitter
+│   ├── 08-flatten-object.js         # Object key flat/unflat traversals
+│   ├── 09-curry.js                  # Function Currying with placeholders (_)
+│   └── 10-task-runner.js            # Concurrency-limited promise queue runner
+│
 └── machine-coding-tasks/            # 20 Independent modular React Apps
     ├── 01-todo-crud/                # LocalStorage tasks list
     ├── 02-product-crud/             # Inventory list with detail modals
@@ -63,6 +75,20 @@ To run any of the tasks:
    ```bash
    npm run dev
    ```
+
+---
+
+## 💻 How to Run the JavaScript Challenges
+
+The JavaScript challenges are standard, standalone Node.js script files. You can run them directly in your terminal without any dependency installation.
+
+```bash
+# Example: Run the Debounce and Throttle polyfills
+node js-challenges/01-debounce-throttle.js
+
+# Example: Run the Concurrency-limited Task Runner
+node js-challenges/10-task-runner.js
+```
 
 ---
 
