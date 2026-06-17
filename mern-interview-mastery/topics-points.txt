@@ -1,0 +1,348 @@
+========================================================================
+             MERN STACK INTERVIEW MASTERY - STUDY GUIDE
+                      TOPICS, LINES, & POINTS
+========================================================================
+
+This guide provides a topic-wise breakdown, file mappings, key line locations,
+and critical senior-level MERN stack interview discussion points for all
+10 JavaScript Challenges and 20 React Machine Coding Tasks.
+
+------------------------------------------------------------------------
+PART 1: CORE JAVASCRIPT CHALLENGES (1-10)
+------------------------------------------------------------------------
+
+Challenge 01: Debounce and Throttle
+- File: js-challenges/01-debounce-throttle.js
+- Line Count: 98 lines
+- Key Line Placements:
+  * debounce function: Lines 18-40
+  * throttle function: Lines 51-71
+  * demonstration test suite: Lines 77-98
+- Core Interview Points:
+  * Closures: Preserving the outer function scope variables (timeoutId, lastRan, lastFunc) between executions.
+  * Context & Arguments Preservation: Using `func.apply(context, args)` to ensure `this` points to the correct executing scope and arguments are correctly forwarded.
+  * Leading vs. Trailing Edge: Debounce immediate flag triggers the function on the leading edge (immediately) instead of the trailing edge. Throttle executes immediately on the first call, then buffers subsequent calls.
+  * Browser Optimization: Crucial for optimization on paint-heavy events like scroll, resize, input search keyups to prevent thread blockage.
+
+Challenge 02: Polyfills for Promise Combinators
+- File: js-challenges/02-promise-polyfills.js
+- Line Count: 156 lines
+- Key Line Placements:
+  * promiseAll: Lines 11-37
+  * promiseAllSettled: Lines 43-71
+  * promiseRace: Lines 78-88
+  * promiseAny: Lines 94-119
+- Core Interview Points:
+  * Promise.all: Must return a promise; resolves only when all items resolve; rejects immediately if any item rejects. Needs to track completions via a counter rather than array length due to sparse arrays.
+  * Promise.allSettled: Never rejects; maps all inputs to status objects: `{ status: 'fulfilled', value }` or `{ status: 'rejected', reason }`.
+  * Promise.race: Attaches resolve/reject directly to the first settled input promise.
+  * Promise.any: Resolves on the first success; if all fail, rejects with an AggregateError containing all error messages.
+
+Challenge 03: Polyfills for High-Order Array Methods
+- File: js-challenges/03-array-methods.js
+- Line Count: 154 lines
+- Key Line Placements:
+  * Array.prototype.myMap: Lines 10-29
+  * Array.prototype.myFilter: Lines 34-55
+  * Array.prototype.myReduce: Lines 60-97
+  * Array.prototype.myFlat: Lines 103-127
+- Core Interview Points:
+  * Prototype Expansion: Modifying standard built-in prototypes requires validating `this` for null/undefined to match specification rules.
+  * Sparse Arrays handling: Using the `in` operator (e.g. `k in O`) to skip unassigned/empty indices, maintaining array sparsity.
+  * Reduce logic: Initial value check determines the accumulator starting state and loop indexing.
+  * Flat recursion: Uses depth parameter bounds to control flattening layers, recursively invoking reducing steps.
+
+Challenge 04: Function Bindings (call, apply, bind)
+- File: js-challenges/04-function-methods.js
+- Line Count: 98 lines
+- Key Line Placements:
+  * Function.prototype.myCall: Lines 10-25
+  * Function.prototype.myApply: Lines 31-46
+  * Function.prototype.myBind: Lines 52-70
+- Core Interview Points:
+  * Context Association: Temporarily attaching the function to the target object context argument (e.g., `context.fn = this`) to invoke it, then deleting the property.
+  * Symbol Collision Prevention: Using a unique ES6 `Symbol('fn')` key to prevent overwriting existing properties on the target object.
+  * Bind Currying: Returning a wrapper function closure that aggregates both pre-bound arguments and execution-time arguments.
+
+Challenge 05: Deep Clone
+- File: js-challenges/05-deep-clone.js
+- Line Count: 98 lines
+- Key Line Placements:
+  * deepClone base check: Lines 15-20
+  * WeakMap circular references handler: Lines 21-25
+  * Special objects (Date, RegExp, Map, Set): Lines 26-55
+  * Arrays/Objects traversal: Lines 56-66
+- Core Interview Points:
+  * Circular References: Solved using a `WeakMap` cache to keep references of already visited object instances, preventing infinite recursion loops.
+  * Special Data Structures: Deep copy requires handling dates (`new Date(val)`), regexes (`new RegExp(val)`), Maps, Sets, and maintaining prototypes with `Object.create(Object.getPrototypeOf(val))`.
+  * Reflect API: Using `Reflect.ownKeys()` to ensure symbol keys and non-enumerable properties are successfully deep-cloned.
+
+Challenge 06: Memoization with TTL Cache
+- File: js-challenges/06-memoize.js
+- Line Count: 68 lines
+- Key Line Placements:
+  * memoize base: Lines 16-19
+  * Key generation & Cache validation: Lines 20-38
+- Core Interview Points:
+  * Cache Registry: Uses a `Map` structure to store serialized argument keys mapped to computational outcomes.
+  * Time-To-Live (TTL): Records a creation timestamp on cached values; evaluates whether the difference exceeds TTL on retrieval and invalidates/evicts stale data.
+  * Resolver customization: Allows custom key generation functions instead of default stringification.
+
+Challenge 07: Event Emitter
+- File: js-challenges/07-event-emitter.js
+- Line Count: 113 lines
+- Key Line Placements:
+  * on / subscribe: Lines 20-34
+  * off / unsubscribe: Lines 42-49
+  * emit: Lines 57-65
+  * once: Lines 73-79
+- Core Interview Points:
+  * Publisher-Subscriber Pattern: Decouples events triggers from actions.
+  * Memory Management: Deletes keys from the events register when the last listener for a type unsubscribes.
+  * Listener execution safety: Cloning the listener Set using `Array.from()` during `emit()` to prevent index corruption if a listener unsubscribes itself mid-execution.
+  * Once Wrapper: Intercepts triggers with a wrapper function that unsubscribes itself immediately before calling the target callback.
+
+Challenge 08: Object Flatten and Unflatten
+- File: js-challenges/08-flatten-object.js
+- Line Count: 100 lines
+- Key Line Placements:
+  * flattenObject: Lines 15-32
+  * unflattenObject: Lines 40-65
+- Core Interview Points:
+  * Tree traversals: Recursively processes nested objects, concatenating object key paths with dots (e.g., `profile.personal.firstName`).
+  * Edge cases: Checking values for typeof object while avoiding arrays, regexes, nulls, and dates.
+  * Unflatten restoration: Splitting keys by `.` and programmatically drilling down/instantiating nested levels.
+
+Challenge 09: Function Currying
+- File: js-challenges/09-curry.js
+- Line Count: 78 lines
+- Key Line Placements:
+  * curry function: Lines 16-53
+- Core Interview Points:
+  * Arity Evaluation: Accessing the function's expected parameter count via `fn.length`.
+  * Placeholders matching: Implementing placeholder checks (`_`) to allow arguments to be supplied in any order, shifting subsequent calls to fill in the missing slots.
+  * Accumulation Closures: Returning nested currying execution contexts until the required non-placeholder argument length matches arity.
+
+Challenge 10: Concurrency-Limited Task Runner
+- File: js-challenges/10-task-runner.js
+- Line Count: 98 lines
+- Key Line Placements:
+  * push task: Lines 24-29
+  * _runNext scheduler: Lines 35-50
+- Core Interview Points:
+  * Thread Limit Simulation: Maintaining an active task counter (`activeCount`) and buffering excess task functions in a queue array.
+  * Promise Chaining: Resolving client-facing promises only when their queued tasks complete in their execution turn.
+  * Scheduler triggers: Executing `_runNext()` inside both the `push()` method (to boot tasks when capacity is open) and the `finally()` callback of running tasks (to dequeue and start the next).
+
+------------------------------------------------------------------------
+PART 2: REACT MACHINE CODING TASKS (1-20)
+------------------------------------------------------------------------
+
+Task 01: Advanced Task Management (Todo List)
+- File: machine-coding-tasks/01-todo-crud/src/App.jsx
+- Line Count: 371 lines
+- Key Line Placements:
+  * localStorage lazy initializer: Lines 5-13
+  * localStorage sync effect: Lines 29-31
+  * Filters and search execution: Lines 93-115
+  * Task editing inline state: Lines 289-321
+- Core Interview Points:
+  * State Initialization: Lazy state initialization `useState(() => JSON.parse(...))` avoids running disk-reads on every render cycle.
+  * Multi-dimensional filtering: Combining text search, status tabs, and priority dropdowns inside a single React render pipeline.
+
+Task 02: Premium Inventory Management (Product CRUD)
+- File: machine-coding-tasks/02-product-crud/src/App.jsx
+- Line Count: 391 lines
+- Key Line Placements:
+  * Form input change validations: Lines 36-62
+  * Add/Edit handlers: Lines 64-92
+  * Dynamic list rendering: Lines 231-300
+- Core Interview Points:
+  * Form State Management: Single-form state reuse for both creating and editing operations by tracking an `editingProduct` context.
+  * Validation rules: Ensuring valid price values, positive integers, and mandatory category allocations.
+
+Task 03: Premium Shopping Checkout Experience
+- File: machine-coding-tasks/03-shopping-cart/src/App.jsx
+- Line Count: 239 lines
+- Key Line Placements:
+  * Cart quantity update handler: Lines 36-47
+  * Promo coupon validation logic: Lines 53-68
+  * Derived state math calculations: Lines 71-76
+- Core Interview Points:
+  * Derived States: Calculating subtotals, tax figures, and discount sums directly in the render process rather than writing them into state variables (prevents desynchronization bugs).
+  * Stock validation limits: Restricting quantity updates between 1 and max available items count.
+
+Task 04: Premium Authentication & Session Management
+- File: machine-coding-tasks/04-login-system/src/App.jsx
+- Line Count: 241 lines
+- Key Line Placements:
+  * Password strength evaluation: Lines 23-45
+  * Form submission validation: Lines 53-75
+- Core Interview Points:
+  * Input Security: Checking password complexities on the fly using regex criteria (lowercase, uppercase, digit, symbol).
+  * UI state management during network loads: Disabling action buttons during simulated async operations.
+
+Task 05: Premium Table Pagination & Large Dataset Control
+- File: machine-coding-tasks/05-pagination/src/App.jsx
+- Line Count: 224 lines
+- Key Line Placements:
+  * Pagination computation & slicing: Lines 71-78
+  * Page navigator controls: Lines 188-216
+- Core Interview Points:
+  * Slicing large lists: Slicing the active data subset using `(currentPage - 1) * itemsPerPage` to `currentPage * itemsPerPage`.
+  * Index boundaries safety: Disabling previous/next triggers when navigating edge indices (first and last pages).
+
+Task 06: Infinite Scroll IntersectionObserver & Performance Optimization
+- File: machine-coding-tasks/06-infinite-scroll/src/App.jsx
+- Line Count: 176 lines
+- Key Line Placements:
+  * Mock fetch triggers: Lines 31-48
+  * IntersectionObserver setup: Lines 51-69
+  * Sentinel DOM Node assignment: Line 169
+- Core Interview Points:
+  * IntersectionObserver API: Efficiently detecting when a target sentinel element enters the viewport instead of binding scroll event listeners.
+  * Observer cleanups: Disconnecting the observer `observer.disconnect()` or `observer.unobserve(sentinel)` inside the useEffect cleanup phase to prevent memory leaks.
+
+Task 07: Search Debouncing, Regex Highlighting & Performance Cache
+- File: machine-coding-tasks/07-search-debounce/src/App.jsx
+- Line Count: 189 lines
+- Key Line Placements:
+  * Debounce implementation: Lines 32-41
+  * Regex highlight function: Lines 43-53
+  * Cache registry map: Lines 55-66
+- Core Interview Points:
+  * Frontend Search UX: Preventing rendering updates on every keystroke by using debouncing.
+  * Match Highlighting: Dynamically splitting strings with regular expressions `new RegExp(query, 'gi')` and returning wrapped `<mark>` components.
+
+Task 08: Drag & Drop Upload, File Reader & Progress Bar Integration
+- File: machine-coding-tasks/08-image-upload/src/App.jsx
+- Line Count: 221 lines
+- Key Line Placements:
+  * Drag events handling: Lines 48-65
+  * FileReader async base64 encoding: Lines 19-46
+  * Upload simulation progress interval: Lines 78-105
+- Core Interview Points:
+  * HTML5 Drag & Drop API: Customizing dropzone highlights by toggling state on dragenter/dragover and capturing files inside `e.dataTransfer.files`.
+  * FileReader integration: Asynchronously converting file binaries into base64 data URLs for immediate image previews before submission.
+
+Task 09: Premium Analytics, Live SVG Renderers & Layout Grids
+- File: machine-coding-tasks/09-dashboard/src/App.jsx
+- Line Count: 268 lines
+- Key Line Placements:
+  * Metrics derivation: Lines 32-47
+  * Interactive SVG calculations: Lines 116-175
+- Core Interview Points:
+  * Pure SVG Visualizations: Building fully responsive, library-free charts using `<svg>`, `<rect>`, and `<text>` nodes.
+  * Hover analysis: Triggering tooltip visibilities and coordinate overlays using React pointer events.
+
+Task 10: Reusable Generic Table Components with Custom Cell Renderers
+- File: machine-coding-tasks/10-reusable-table/src/App.jsx
+- Line Count: 240 lines
+- Key Line Placements:
+  * Sort handling function: Lines 61-75
+  * Dynamic rows mapper: Lines 188-228
+- Core Interview Points:
+  * Generic components architecture: Receiving columns descriptor arrays and row dataset lists.
+  * Custom Cell Renderers: Permitting custom column rendering callbacks (e.g. badges, actions) to customize layout behaviors.
+
+Task 11: Generic Reusable Modals with Backdrop Filters & Key Events
+- File: machine-coding-tasks/11-reusable-modal/src/App.jsx
+- Line Count: 161 lines
+- Key Line Placements:
+  * Modal sub-component: Lines 5-45
+  * ESC handler and Scroll locker: Lines 7-21
+- Core Interview Points:
+  * DOM Scrolling prevention: Locking background scrolling on modal mount (`document.body.style.overflow = 'hidden'`) and restoring it on unmount.
+  * Keyboard traps: Registering keydown events to intercept the `Escape` key and trigger closing events.
+
+Task 12: Drag & Drop Task Board with Column Status Managers (Kanban)
+- File: machine-coding-tasks/12-kanban-board/src/App.jsx
+- Line Count: 179 lines
+- Key Line Placements:
+  * Drag handlers setup: Lines 34-49
+  * Drop processing handler: Lines 51-62
+- Core Interview Points:
+  * Drag operations state transfers: Storing dragged item IDs inside the drag event payload using `e.dataTransfer.setData('text/plain', taskId)`.
+  * Column drop highlights: Handling dragging updates to provide instant visual column target feedbacks.
+
+Task 13: Asynchronous Message Streams with Auto-Scroll & Bot Simulation
+- File: machine-coding-tasks/13-chat-ui/src/App.jsx
+- Line Count: 142 lines
+- Key Line Placements:
+  * Auto-scrolling useEffect: Lines 30-33
+  * Mock bot reply timeout: Lines 44-59
+- Core Interview Points:
+  * Chat UX Auto-Scroll: Referencing the bottom anchor node via `useRef` and invoking `scrollIntoView({ behavior: 'smooth' })` when message list lengths expand.
+  * Bot response timers: Utilizing cleanup-guaranteed time-delayed replies.
+
+Task 14: 6-Digit OTP Form, Clipboard Capture & Key Event Triggers
+- File: machine-coding-tasks/14-otp-input/src/App.jsx
+- Line Count: 170 lines
+- Key Line Placements:
+  * Input value change & auto-advance: Lines 23-45
+  * Backspace input back-tracking: Lines 47-59
+  * Paste clipboard values handler: Lines 61-79
+- Core Interview Points:
+  * Focus Forwarding: Using an array of refs to trigger focus on adjacent input boxes (`refs.current[idx + 1].focus()`) when digits are inputted.
+  * Clipboard capture: Intercepting the `paste` event, parsing digits out of string contents, and distributing values across inputs.
+
+Task 15: Reusable Collapsible Panels, Key Bindings & Expand Modes (Accordion)
+- File: machine-coding-tasks/15-accordion/src/App.jsx
+- Line Count: 131 lines
+- Key Line Placements:
+  * Accordion mode logic (single vs multi): Lines 32-42
+  * Accessibility arrow keys handling: Lines 45-58
+- Core Interview Points:
+  * Arrow Keys focus traversals: Toggling focused accordion headers with ArrowUp and ArrowDown keys using refs arrays.
+  * Accessibility (a11y): Matching ARIA standards using `aria-expanded` and linking controls to content sections with `aria-controls` properties.
+
+Task 16: Generic Reusable Star Reviewers, Pointer Hover Bounds & Array Map Renders
+- File: machine-coding-tasks/16-star-rating/src/App.jsx
+- Line Count: 155 lines
+- Key Line Placements:
+  * Mouse enter/leave events logic: Lines 24-34
+- Core Interview Points:
+  * Star Rating Hover States: Distinguishing between a temporary hover index and a committed rating state.
+  * CSS Hook combinations: Leveraging combined states to style active vs. previewed stars.
+
+Task 17: React Context Providers, LocalStorage Caching & Dynamic Class Hooks
+- File: machine-coding-tasks/17-dark-mode/src/App.jsx
+- Line Count: 102 lines
+- Key Line Placements:
+  * ThemeContext setup: Lines 5-18
+  * Document class synchronization: Lines 24-31
+- Core Interview Points:
+  * Global Themes: Avoiding prop drilling via React context providers (`createContext`, `useContext`).
+  * Body class injections: Syncing theme states to `document.documentElement` or body classLists.
+
+Task 18: Route Guards, Role-Based Access Control & Callback Handlers
+- File: machine-coding-tasks/18-protected-routes/src/App.jsx
+- Line Count: 182 lines
+- Key Line Placements:
+  * ProtectedRoute layout component: Lines 20-33
+  * Dynamic user role simulations: Lines 35-50
+- Core Interview Points:
+  * Navigation Guards: Intercepting component rendering loops to check authentication statuses, redirecting failed requests to login views.
+  * Role Permissions: Verifying if user profiles match mandatory access clearance roles arrays.
+
+Task 19: JSON Schema-Driven Form Generation, Visibilities & JSON Outputs
+- File: machine-coding-tasks/19-dynamic-forms/src/App.jsx
+- Line Count: 207 lines
+- Key Line Placements:
+  * Schema definition mapping: Lines 5-60
+  * Conditional visibilities calculation: Lines 71-80
+- Core Interview Points:
+  * Schema parsing engines: Mapping input lists into standard dynamic form UI arrays.
+  * Conditional visibilities: Computing field visibilities on the fly by assessing form input values.
+
+Task 20: Hierarchical Directory Architectures, Breadcrumb Trails & Asset Operations
+- File: machine-coding-tasks/20-file-manager/src/App.jsx
+- Line Count: 198 lines
+- Key Line Placements:
+  * Hierarchical tree state: Lines 36-60
+  * Directory traversal & CRUD: Lines 62-92
+- Core Interview Points:
+  * File System representations: Modeling nested structures using JavaScript trees containing `{ id, name, type, children }` attributes.
+  * Breadcrumb navigations: Generating paths arrays and navigating to parents using item ID reference traversals.
+
+========================================================================

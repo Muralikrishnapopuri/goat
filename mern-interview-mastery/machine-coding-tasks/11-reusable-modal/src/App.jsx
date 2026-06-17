@@ -3,7 +3,7 @@ import './App.css';
 
 // Reusable Modal Component
 function Modal({ isOpen, onClose, title, children, footer }) {
-  // ESC keypress close handler
+  // KEY PLACEMENT: ESC keypress close listener and background scroll locker (Reference: topics-points.txt)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {

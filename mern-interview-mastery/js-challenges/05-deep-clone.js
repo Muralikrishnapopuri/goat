@@ -18,7 +18,7 @@ function deepClone(val, hash = new WeakMap()) {
     return val;
   }
 
-  // 2. Resolve circular reference records
+  // KEY PLACEMENT: WeakMap circular references handler (Reference: topics-points.txt)
   if (hash.has(val)) {
     return hash.get(val);
   }

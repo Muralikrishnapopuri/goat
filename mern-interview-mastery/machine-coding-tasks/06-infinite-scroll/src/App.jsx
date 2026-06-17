@@ -64,7 +64,7 @@ function App() {
     loadMoreItems();
   }, []);
 
-  // Intersection Observer to detect scroll threshold
+  // KEY PLACEMENT: Intersection Observer to detect scroll threshold & load more (Reference: topics-points.txt)
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const target = entries[0];
@@ -150,7 +150,7 @@ function App() {
         ))}
       </div>
 
-      {/* Loading Trigger Element */}
+      {/* KEY PLACEMENT: Loading Trigger Element / Sentinel DOM ref (Reference: topics-points.txt) */}
       <div ref={loaderRef} className="loader-trigger">
         {loading && (
           <div className="spinner-wrapper">

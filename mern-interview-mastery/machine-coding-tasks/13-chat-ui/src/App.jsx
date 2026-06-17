@@ -18,7 +18,7 @@ function App() {
 
   const viewportRef = useRef(null);
 
-  // Auto scroll viewport on new messages
+  // KEY PLACEMENT: Auto scroll viewport on new messages (Reference: topics-points.txt)
   useEffect(() => {
     if (viewportRef.current) {
       viewportRef.current.scrollTop = viewportRef.current.scrollHeight;
@@ -40,7 +40,7 @@ function App() {
     const normalizedInput = inputMessage.toLowerCase().trim();
     setInputMessage('');
 
-    // Trigger BOT response mock
+    // KEY PLACEMENT: Mock bot reply timeout & response selector (Reference: topics-points.txt)
     setIsTyping(true);
     setTimeout(() => {
       let replyText = "Interesting! To learn details, query terms like 'fiber' or 'indexing' to fetch MERN system docs.";
