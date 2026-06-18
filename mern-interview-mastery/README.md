@@ -16,7 +16,8 @@ mern-interview-mastery/
 │   ├── 05-authentication.md          # JWT, Session, OAuth, Cookies
 │   ├── 06-project-questions.md      # Scalability, Clean Code, CI/CD
 │   ├── 07-scenario-questions.md      # Memory leaks, Race conditions
-│   └── 08-trending-questions.md      # Server Components, Edge Runtimes
+│   ├── 08-trending-questions.md      # Server Components, Edge Runtimes
+│   └── 09-extra-advanced-topics.md  # GraphQL N+1, Microservices, System Design, Security
 │
 ├── js-challenges/                   # 10 Core JavaScript Coding Polyfills
 │   ├── 01-debounce-throttle.js      # Debounce / Throttle decorators
