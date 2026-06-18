@@ -438,3 +438,253 @@ function DataTable({ columns, data, loading, onRowClick, emptyMessage = 'No data
 > **State:** Keep state local, split contexts to avoid unnecessary re-renders, avoid deep nesting in state.
 >
 > **Profiling:** Use React DevTools Profiler to identify bottlenecks. Use Lighthouse for overall performance scoring."
+
+---
+
+## 21. React 19 Features & The React Compiler
+
+> "React 19 brings major updates, focusing on removing manual optimizations and simplifying async state management:
+>
+> 1. **React Compiler (React Forget):** A build-time tool that automatically memoizes components, props, and dependency arrays. It eliminates the need for manual `useMemo`, `useCallback`, and `React.memo` for performance tuning.
+> 2. **Server Actions:** Seamlessly invoke backend database functions directly from frontend forms.
+> 3. **`useActionState` (formerly `useFormState`):** Simulates pending states, returns the form response, and coordinates action execution.
+> 4. **`useFormStatus`:** A hook to read parent form status (e.g., pending state) from nested inputs or buttons.
+> 5. **`useOptimistic`:** Hook for rendering optimistic UI updates during async transactions.
+> 6. **The `use` Hook:** Read Promises and Context inline, allowing conditional context consumption.
+> 7. **Ref as a Prop:** Refs can now be passed as a standard prop; `forwardRef` is deprecated.
+>
+> **Action State Example:**
+> ```jsx
+> // React 19 Form Action usage
+> function ProfileForm() {
+>   const [state, formAction, isPending] = useActionState(updateProfile, null);
+>   return (
+>     <form action={formAction}>
+>       <input name="username" defaultValue={state?.username} />
+>       <SubmitButton />
+>     </form>
+>   );
+> }
+> function SubmitButton() {
+>   const { pending } = useFormStatus();
+>   return <button disabled={pending}>{pending ? 'Saving...' : 'Save'}</button>;
+> }
+> ```"
+
+---
+
+## 22. React Server Components (RSC) vs Client Components (RCC)
+
+| Feature | React Server Components (RSC) | Client Components (RCC) |
+|---|---|---|
+| **Execution Place** | Exclusively on the server | Initial load on server (SSR), interactive hydration on client |
+| **Bundle Size Impact** | Zero (dependencies are kept on the server) | Adds to client bundle size |
+| **Data Fetching** | Can query DB directly, write async/await directly | Uses `useEffect` / React Query to fetch via API endpoints |
+| **Direct Access** | File system, internal services, server-only environment variables | Browser APIs (local storage, window, document) |
+| **State & Effects** | **No** state (`useState`) or lifecycle effects (`useEffect`) | Fully supports state, effects, and event handlers |
+
+> **Interview answer:**
+> "RSCs and RCCs are not a replacement for SSR, but a complement. RSCs run only on the server, allowing us to fetch database data directly and keep massive dependencies (like Markdown parsers or date utilities) out of the client bundle. RCCs represent interactive UI parts marked with `'use client'` that run on the client, maintaining state and responding to browser events. By default in Next.js App Router, all components are RSCs unless marked otherwise."
+
+---
+
+## 23. CommonJS vs ES Modules (ESM) in Node.js
+
+| Aspect | CommonJS (CJS) | ES Modules (ESM) |
+|---|---|---|
+| **Syntax** | `const module = require('./module')` / `module.exports` | `import module from './module'` / `export default` |
+| **Loading** | Synchronous, blocking | Asynchronous, non-blocking |
+| **Evaluation** | Runtime | Static (at parse time) |
+| **`__dirname` / `__filename`** | Available globally | Unavailable (must construct via `import.meta.url`) |
+| **Tree Shaking** | Extremely difficult | Native support (static analysis allows dead code removal) |
+| **Dynamic Import** | `require()` anywhere | `import()` returns a promise |
+
+> **How to construct `__dirname` in ESM:**
+> ```js
+> import { fileURLToPath } from 'url';
+> import { dirname } from 'path';
+> const __filename = fileURLToPath(import.meta.url);
+> const __dirname = dirname(__filename);
+> ```
+>
+> **Interview answer:**
+> "CommonJS is the legacy module system in Node.js, loading modules synchronously at runtime. ESM is the modern JavaScript standard, analyzing module trees statically prior to execution. Static analysis enables bundlers to perform 'tree shaking' (dead-code elimination). Node.js supports ESM if you add `"type": "module"` in `package.json` or use the `.mjs` extension."
+
+---
+
+## 24. Node.js 20/22+ Native Features
+
+> "Recent Node.js releases focus on reducing third-party dependency creep by introducing native alternatives:
+>
+> 1. **Native Env File Loading:** Load `.env` files without `dotenv`.
+>    - Usage: `node --env-file=.env server.js`
+>    - Variables are accessed normally: `process.env.PORT`.
+> 2. **Native Test Runner (`node:test`):** Eliminates dependencies on Jest or Mocha for basic testing.
+>    - Usage:
+>      ```js
+>      import { test, describe } from 'node:test';
+>      import assert from 'node:assert';
+>      describe('Math service', () => {
+>        test('should add numbers correctly', () => {
+>          assert.strictEqual(2 + 2, 4);
+>        });
+>      });
+>      ```
+> 3. **Native Watch Mode:** Restarts the process on file changes without Nodemon.
+>    - Usage: `node --watch server.js`
+> 4. **Native WebSocket Client:** WebSockets are globally available (`globalThis.WebSocket`) in Node.js 22 without requiring the `ws` package."
+
+---
+
+## 25. Prevent NoSQL Injection in Express/Mongoose
+
+**Vulnerable Code:**
+```js
+// URL: /api/users/login?email[$ne]=admin@test.com&password[$ne]=secret
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body; // If passed query objects
+  const user = await User.findOne({ email, password }); // Matches any non-matching document!
+});
+```
+
+**Prevention Strategies:**
+> 1. **Sanitize user inputs:** Use `express-mongo-sanitize` middleware to strip out keys beginning with `$` or `.`.
+>    ```js
+>    const mongoSanitize = require('express-mongo-sanitize');
+>    app.use(mongoSanitize());
+>    ```
+> 2. **Explicit Type Casting:** Ensure fields are cast to strings or expected primitive types.
+>    ```js
+>    const email = String(req.body.email);
+>    const password = String(req.body.password);
+>    ```
+> 3. **Define strict Schema rules:** Mongoose enforces schema definitions. Avoid using `Schema.Types.Mixed` unnecessarily."
+
+---
+
+## 26. Redis Caching Strategies & Cache Stampede
+
+> "In high-traffic MERN apps, caching API responses in Redis is essential. We use two primary strategies:
+>
+> 1. **Cache-Aside (Lazy Loading):** Application checks Redis first → if miss, queries MongoDB → writes to Redis with a TTL (Time-To-Live) → returns response.
+> 2. **Cache Stampede (Cache Avalanche):** Occurs when a highly popular cache key expires, and thousands of concurrent requests attempt to query MongoDB simultaneously, overloading the database.
+>
+> **Prevention (Locking & Mutual Exclusion):**
+> - **Mutual Exclusion (Locking):** Use a distributed lock (e.g., Redlock) so only the first request queries the DB and updates the cache, while others wait or return stale data.
+> - **Background refresh:** Re-compute and refresh the cache in the background *before* the key actually expires.
+>
+> ```js
+> // Cache-Aside pattern with Lock mitigation
+> async function getCachedData(key, fetchFromDb, ttl = 300) {
+>   const cached = await redis.get(key);
+>   if (cached) return JSON.parse(cached);
+>
+>   // Set distributed lock key to prevent stampede
+>   const lockKey = `lock:${key}`;
+>   const acquiredLock = await redis.set(lockKey, 'locked', 'NX', 'PX', 5000);
+>   if (!acquiredLock) {
+>     // Wait a bit and retry cache check, or return empty/stale data
+>     await new Promise(r => setTimeout(r, 100));
+>     return getCachedData(key, fetchFromDb, ttl);
+>   }
+>
+>   try {
+>     const freshData = await fetchFromDb();
+>     await redis.set(key, JSON.stringify(freshData), 'EX', ttl);
+>     return freshData;
+>   } finally {
+>     await redis.del(lockKey);
+>   }
+> }
+> ```"
+
+---
+
+## 27. WebSockets vs Server-Sent Events (SSE)
+
+| Feature | WebSockets | Server-Sent Events (SSE) |
+|---|---|---|
+| **Communication** | Bidirectional (Duplex) | Unidirectional (Server-to-Client only) |
+| **Protocol** | Custom `ws://` or `wss://` (starts with HTTP upgrade) | Standard HTTP (`text/event-stream`) |
+| **Transport** | TCP | HTTP/1.1 or HTTP/2 |
+| **Reconnection** | Must be handled manually in JavaScript | Native auto-reconnection by the browser |
+| **Firewalls/Proxies** | Can be blocked by strict firewalls | Highly firewall-friendly (standard HTTP) |
+| **Best For** | Chat apps, multi-player games, collaborative editors | Dashboards, live feeds, notification ticks |
+
+> **Interview answer:**
+> "WebSockets are best when real-time, low-latency, two-way data streaming is required (like chats or gaming). SSE is an elegant, lightweight alternative when the client only needs to receive streams of notifications or events from the server (like dashboard updates). SSE operates over standard HTTP, has automatic reconnection out of the box, and handles proxy/firewall traversal seamlessly."
+
+---
+
+## 28. Optimistic vs Pessimistic Locking in MongoDB
+
+> "When multiple clients edit the same document concurrently, database conflicts occur.
+>
+> 1. **Optimistic Locking:** Assumes conflicts are rare. Each document has a version field (like `__v` in Mongoose). Updates only proceed if the version on the server matches the version fetched by the client. If not, the transaction fails, and the client is forced to refetch and retry.
+>    ```js
+>    // Mongoose automatic versioning under update
+>    const doc = await Product.findById(id);
+>    doc.price = 200;
+>    await doc.save(); // Fails with VersionError if modified elsewhere in between
+>    ```
+> 2. **Pessimistic Locking:** Assumes conflicts are common. Locks the document/record at read time, blocking other sessions from writing to it until the transaction commits.
+>    - MongoDB does not have a direct `SELECT FOR UPDATE` block. However, we can simulate it using a custom status field (e.g., `isLocked: true`) or by running updates within an ACID transaction session using a lock document.
+>
+> **Which to choose:** Use optimistic locking for web apps and APIs (lower overhead, avoids deadlocks). Use pessimistic locking only when data consistency is critical and conflicts are guaranteed (financial transaction settlement)."
+
+---
+
+## 29. JWT Revocation & Blacklisting in Production
+
+> "Because JWTs are stateless, they cannot be invalidated before their expiry time by default.
+>
+> **Production Revocation Strategies:**
+>
+> 1. **Redis Blacklist (Recommended):** When a user logs out, store their token ID (`jti`) or the token signature in Redis with a TTL equal to the token's remaining life. The auth middleware checks Redis on every request.
+> 2. **Database Token Versioning:** Store a `tokenVersion` counter on the `User` model. Include this counter in the JWT payload. To invalidate all tokens (e.g., force logout/password change), increment the counter in the DB. Tokens with the old version will fail verification.
+> 3. **Short Expirations:** Keep the access token expiry extremely short (e.g., 5-15 mins) to minimize the damage window of an un-revoked token, and handle regeneration via the refresh token flow.
+>
+> **Auth Middleware with Redis Blacklist Check:**
+> ```js
+> const authenticate = async (req, res, next) => {
+>   const token = req.headers.authorization?.split(' ')[1];
+>   if (!token) return res.status(401).json({ error: 'Access denied' });
+>
+>   try {
+>     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+>     // Check if blacklisted in Redis
+>     const isBlacklisted = await redis.get(`blacklist:${decoded.jti}`);
+>     if (isBlacklisted) return res.status(401).json({ error: 'Token is revoked' });
+>
+>     req.user = decoded;
+>     next();
+>   } catch (err) {
+>     res.status(401).json({ error: 'Invalid token' });
+>   }
+> };
+> ```"
+
+---
+
+## 30. Deep-Dive: MongoDB Execution Plan & Indexing Optimization
+
+> "To optimize slow database queries, we analyze the query's execution plan:
+>
+> **How to run:** `db.collection.find(query).explain('executionStats')`
+>
+> **Key Metrics to Inspect:**
+> 1. **WinningStage:**
+>    - `IXSCAN` (Index Scan): Excellent. The query uses an index.
+>    - `COLLSCAN` (Collection Scan): Dangerous. The query scans every document.
+> 2. **totalKeysExamined:** How many index entries were scanned. Ideally equal to `nReturned`.
+> 3. **totalDocsExamined:** How many documents were loaded into memory. If `winningStage` is `IXSCAN` but this value is high, the index is not fully selective or covers only part of the filter.
+> 4. **nReturned:** The number of documents returned.
+>
+> **Optimal Compound Indexing (The ESR Rule):**
+> When creating compound indexes, arrange fields in this exact order:
+> 1. **E**quality: Fields checked with exact values (e.g., `status: 'active'`).
+> 2. **S**ort: Fields used for sorting (e.g., `createdAt: -1`).
+> 3. **R**ange: Fields checked with operators like `$gt`, `$lt`, `$in` (e.g., `price: { $gte: 100 }`).
+>
+> *Note:* Placing a range field before a sort field forces MongoDB to perform an expensive in-memory sort."
+
