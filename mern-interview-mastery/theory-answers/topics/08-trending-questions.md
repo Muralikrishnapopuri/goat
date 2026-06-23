@@ -1,0 +1,32 @@
+# Trending Questions
+
+1. auth
+2. eventloop
+3. pagination
+4. debouncing
+5. strictmode
+6. memoization
+7. state
+8. refresh
+9. cors
+10. design
+11. fetching
+12. optimization
+13. architecture
+14. schema
+15. reusability
+16. tab-sync
+17. hotfix
+18. deployment
+19. conflict
+20. performance
+21. compiler
+22. rsc
+23. modules
+24. features
+25. security
+26. caching
+27. streaming
+28. locking
+29. revocation
+30. indexes

@@ -1,0 +1,22 @@
+# MongoDB
+
+1. collections
+2. documents
+3. embedding
+4. indexing
+5. compoundindexes
+6. pipeline
+7. lookup
+8. match
+9. group
+10. sort
+11. skip
+12. limit
+13. transactions
+14. replication
+15. sharding
+16. schema
+17. mongoose
+18. populate
+19. lean
+20. virtuals
