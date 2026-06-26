@@ -1,22 +1,41 @@
 # MongoDB
 
-1. collections
-2. documents
-3. embedding
-4. indexing
-5. compoundindexes
-6. pipeline
-7. lookup
-8. match
-9. group
-10. sort
-11. skip
-12. limit
-13. transactions
-14. replication
-15. sharding
-16. schema
-17. mongoose
-18. populate
-19. lean
-20. virtuals
+## 1. Collections
+
+## 2. Documents
+
+## 3. Embedded vs Referenced Relationships
+
+## 4. Database Indexing
+
+## 5. Compound Indexes
+
+## 6. Aggregation Pipeline
+
+## 7. $lookup Stage
+
+## 8. $match Stage
+
+## 9. $group Stage
+
+## 10. $sort Stage
+
+## 11. $skip Stage
+
+## 12. $limit Stage
+
+## 13. ACID Transactions
+
+## 14. Replication Sets
+
+## 15. Sharding and Horizontal Scaling
+
+## 16. NoSQL Schema Design
+
+## 17. Mongoose ODM
+
+## 18. Mongoose populate()
+
+## 19. Mongoose lean() Query Optimization
+
+## 20. Mongoose Virtual Fields
