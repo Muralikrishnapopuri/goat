@@ -505,6 +505,8 @@ function curriedAdd(a) {
 }
 curriedAdd(1)(2)(3); // 6
 
+
+
 // Generic curry utility
 function curry(fn) {
   return function curried(...args) {
@@ -515,9 +517,11 @@ function curry(fn) {
 
 const add = curry((a, b, c) => a + b + c);
 add(1)(2)(3);    // 6
-add(1, 2)(3);    // 6
+add(1, 2)(3);    // 6 three inner fucntion calls with one argu each 
 add(1)(2, 3);    // 6
 ```
+
+
 
 **Use case:** Creating reusable, partially applied functions — `const double = multiply(2)`.
 
