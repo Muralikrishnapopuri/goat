@@ -1,9 +1,19 @@
-function curry(fn){
-  return function curried(...args){
-    if(args.length >= fn.length) return fn(...args);
-    return (...nextargs)=> curried(...args,...nextargs);
-  }
+function logic(fn){
+    const cache = new Map();
+    return function innerlogic(...args){
+        const key = JSON.stringify(args);
+        if(cache.has(key)) return cache.get(key);
+
+        const result = fn(...args);
+         cache.set(key,result);
+         return result;
+    }
 }
-const add = curry((a,b,c)=> a +b + c);
-console.log(add(2)(3)(8));
-console.log(add(10,20)(30));
+const calcualatecashe = logic((n)=>{
+    console.log("computing,,")
+    return n*n;
+})
+console.log(calcualatecashe(2));
+console.log(calcualatecashe(2));
+
+
