@@ -1,19 +1,16 @@
-function logic(fn){
-    const cache = new Map();
-    return function innerlogic(...args){
-        const key = JSON.stringify(args);
-        if(cache.has(key)) return cache.get(key);
-
-        const result = fn(...args);
-         cache.set(key,result);
-         return result;
-    }
-}
-const calcualatecashe = logic((n)=>{
-    console.log("computing,,")
-    return n*n;
-})
-console.log(calcualatecashe(2));
-console.log(calcualatecashe(2));
-
-
+console.log("A");
+setTimeout(()=>{
+    console.log("B");
+},0);
+Promise.resolve().then(()=>{
+    console.log("C");
+});
+console.log("D");
+console.log("A");
+setTimeout(()=>{
+    console.log("B");
+},0);
+Promise.resolve().then(()=>{
+    console.log("C");
+});
+console.log("D");
