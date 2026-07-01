@@ -35,7 +35,7 @@ The **Event Loop** is the mechanism that allows JavaScript (single-threaded) to 
 **Interview answer:**
 > "The Event Loop is what enables JavaScript's asynchronous behavior despite being single-threaded. It continuously monitors the call stack — when it's empty, it first drains all microtasks (Promises), then picks one macrotask (setTimeout/IO) from the callback queue. This cycle repeats infinitely."
 
----
+---`
 
 ## 2. Single Thread vs Multi Thread
 
