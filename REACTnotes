@@ -1,0 +1,46 @@
+React -->
+
+1 virtual DOM
+ : lightweight js object
+ : every render react will react vdom 
+ : using diffing algorithm latest state updated  will update in real dom.
+ : diffing means compared between previous vdom and current render vdom then we get the changes so those changed will update real dom.
+2 Reconciliation
+ : this is a overall algorithm which includes diffing.
+ : with helps of KEYs the diffing will know the differneces and then compare  differences element trees old and new vdoms .
+ : then it commits the changes automatically into real dom.
+ 
+3. React Fiber
+ : which is the  re-implementation of reconciliation algorithm in react 16.
+ : it can split the rendering work into chunks.
+ : it will prioritize the operation like animations ui first and api fetch next.
+ : the process will puase and resume again later.
+4.React Render process
+ : Trigger -> using hooks state updated will trigger the new update .
+ : Render phase -> react call the component functions and it will build new virtual dom next get thew diffing changes .
+ : Commit Phase -> it will commit the new changes in to Real DOM.
+5. Props
+ :Props are read-only data passed from a parent component to a child component.
+6.Controlled & Uncontrolled components
+ : controlled component form element keep the value by the react state 
+ : but uncontrolled keep the form value browser dom state instead of react state using ref current value.
+7. UseState()
+ : it is a react hook used for only maintain the state for functional component.
+ : it has current state value and setter function .
+ : when the state changes then react will start the render.
+8. UseEffect()
+ : this react hook perform the side effect for the functional components . 
+ : it run before react render and commits has been finished into dom .
+ : it optionally retuns cleanup  function for clean the resources before the next effect run or before the component unmounts.
+ : dependency array is for component render trigger only specified states if available.
+9. Why useEffect Runs Twice
+In React 18 Strict Mode (development only), React intentionally mounts, unmounts, and mounts a component again to detect bugs caused by missing cleanup.
+10. UseRef()
+ : this hook will create a mutable object with current property .
+ : whenever this sytate will chnaged it does't trigger the re-render
+11. UseMemo()
+ : this react hook a memorized )( cashed ) the an expensive calculation.
+ : it re-calculate the result when one of its dependencies are changed.
+ : improving performance by avoiding unnecessary recalculation.
+12.
+
