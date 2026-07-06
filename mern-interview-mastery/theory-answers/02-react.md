@@ -44,7 +44,8 @@ React's algorithm to compare two VDOM trees efficiently. Instead of O(n³) gener
 
 ---
 
-## 3. Reconciliation
+## 3. Reconcilia
+tion
 
 **Reconciliation** is the process by which React updates the DOM. It's the overall algorithm that includes diffing.
 
