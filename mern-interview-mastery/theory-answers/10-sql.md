@@ -1,5 +1,7 @@
 # SECTION J: SQL & Relational Databases — Expert Answers
 
+![SQL Cheat Sheet](./images/sql-cheat-sheet.png)
+
 ---
 
 ## 1. Tables & Relationships
