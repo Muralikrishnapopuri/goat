@@ -39,8 +39,18 @@ In React 18 Strict Mode (development only), React intentionally mounts, unmounts
  : this hook will create a mutable object with current property .
  : whenever this sytate will chnaged it does't trigger the re-render
 11. UseMemo()
- : this react hook a memorized )( cashed ) the an expensive calculation.
+ : this react hook a memorized )( cashed ) an expensive calculation.
  : it re-calculate the result when one of its dependencies are changed.
  : improving performance by avoiding unnecessary recalculation.
-12.
+12.UseCallback()
+ : this hook memorize a function and it will return same function reference until one of its dependencies are changed.
+ : using this to avoid the new fucntion creation when the render phase .and improving the performance.
+13.React.memo (HOC)
+: this will check the child props are changed or not if props have't changed it will skip re-render.
+: if used usecallback hook then if this will get new props even callback still return the same function until the dependencies are changed.
+14. Context API
+ :context api is a built in feature in react.
+ : which helps to share data across multiple component without prop drilling.
+ : it has three parts which are - createContext()| create  - Provider | Data Share to children - useContext() | consumer
+15. 
 
