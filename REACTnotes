@@ -52,5 +52,45 @@ In React 18 Strict Mode (development only), React intentionally mounts, unmounts
  :context api is a built in feature in react.
  : which helps to share data across multiple component without prop drilling.
  : it has three parts which are - createContext()| create  - Provider | Data Share to children - useContext() | consumer
-15. 
+15. Propdrilling
+ : passing props through multiple nested components like parent to child and unto grandchild relation.
+16.Custom Hooks
+ :custom hooks nothing  function using use 'keyword' function name 
+ :it contains hooks and rules of hooks to maintain stateful logic across multiple components;\
+17 React Router Dom
+ : it is a library used thats enables client side different components navigation without reloading the pages.
+ : (BrowserRouter) -which is a parent component that enables routing using browser history API.
+ : (Routes)- this is a container it will checks the current url is avialable in the Routes from the first occurance only.
+ : (Route)- it maps the url to the react component with element and path attributes.
+ : (Link) - which is used for navigate pages without refreshing the pages.
+ : (useNavigate()) - helps to trigger the proggramitic navigation .
+ : (useParams())- this helps to get the url params values
+ : (useLocation()) -used for manupulation in url paths query - params -hash -states.
+18. Lazy Loading 
+ : it is a technique that enables the specififed components will load when it is needed only instead of load the all components at once.
+exmaple -->
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 
+const Home = lazy(() => import("./Home"));
+const Dashboard = lazy(() => import("./Dashboard"));
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  );
+}
+
+19.ErrorBounderries in react
+ : An ErrorBounderries is a Class Component that catches the javascripr error 	in it child components while rendering .
+ : only lifecycles methods can do these errorbounderries yet ,can't by hooks.
+ : getDerivedStateFromError() - this statis lifecycle method can runs when error occurs .
+ : ComponentDidCatch() - this lifecyles will runs after errors to logging the specific errors .
+20.
