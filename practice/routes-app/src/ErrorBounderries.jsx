@@ -27,4 +27,4 @@ class ErrorBounderries extends React.Component {
   }
 }  
 
-
+export default ErrorBounderries;
