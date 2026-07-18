@@ -93,4 +93,5 @@ function App() {
  : only lifecycles methods can do these errorbounderries yet ,can't by hooks.
  : getDerivedStateFromError() - this statis lifecycle method can runs when error occurs .
  : ComponentDidCatch() - this lifecyles will runs after errors to logging the specific errors .
-20.
+
+
