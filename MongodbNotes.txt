@@ -1,0 +1,7 @@
+Interview Explanation (30 seconds)
+"An index in MongoDB is a data structure that improves query performance by 
+allowing MongoDB to locate documents quickly instead of scanning the entire collection. 
+Without an index, MongoDB performs a collection scan, checking every document. 
+Common types include single-field indexes for faster lookups, unique indexes to prevent
+duplicate values, text indexes for full-text search, and TTL indexes to automatically delete
+expired documents."
