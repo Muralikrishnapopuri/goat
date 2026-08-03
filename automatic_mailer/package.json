@@ -1,0 +1,25 @@
+{
+  "name": "automatic-mailer",
+  "version": "1.0.0",
+  "description": "Automated, highly-personalized cold email outreach system for job applications",
+  "main": "send_jobs.js",
+  "scripts": {
+    "dry-run": "node send_jobs.js --dry-run",
+    "send": "node send_jobs.js --send",
+    "preview": "node send_jobs.js --dry-run"
+  },
+  "keywords": [
+    "email",
+    "outreach",
+    "job-application",
+    "nodemailer"
+  ],
+  "author": "Murali Krishna Popuri",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "mammoth": "^1.12.0",
+    "nodemailer": "^9.0.3",
+    "xlsx": "^0.18.5"
+  }
+}

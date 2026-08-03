@@ -1,0 +1,14 @@
+{
+  "name": "monorepo-demo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "start:web": "npm run start --workspace=apps/web",
+    "start:api": "npm run start --workspace=apps/api",
+    "start:all": "npm run start --workspaces --if-present"
+  }
+}

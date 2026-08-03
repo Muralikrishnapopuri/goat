@@ -1,0 +1,106 @@
+MURALI KRISHNA POPURI
+Full-Stack Developer
+Vijayawada, Andhra Pradesh | +91 9347796811 | popurimurali16@gmail.com | murali-portfolio-website.vercel.app
+LinkedIn: linkedin.com/in/murali-krishna-popuri | GitHub: github.com/Muralikrishnapopuri
+
+PROFESSIONAL SUMMARY
+Results-driven Full-Stack Developer with 2 years of professional experience building scalable desktop systems, real-time web
+applications, and hybrid offline-first restaurant ecosystems. Proficient in React, TypeScript, Node.js, Express, and SQL/NoSQL
+databases. Proven track record of architecting local network synchronization protocols, optimizing queries, and delivering highperformance.
+
+TECHNICAL SKILLS
+Programming Languages: JavaScript (ES6+), TypeScript, PHP, SQL (MySQL, PostgreSQL, SQLite), HTML5, CSS3
+Frontend & Desktop: React.js, Next.js, Electron, Redux, Tailwind CSS, Bootstrap, Handlebars (HBS)
+Backend & APIs: Node.js, Express.js, REST APIs, WebSockets, Node-Cron, Multer, Axios
+Databases & Tools: MongoDB, Redis, Git, GitHub, VS Code, Postman, WorkBench , phpmyadmin, Photoshop
+
+PROFESSIONAL EXPERIENCE
+YoungMinds Technology Solutions Pvt Ltd | Full-Stack Developer | biz.restosoftindia.in
+
+Feb 2025 – Present
+
+RestoSoft – Offline Desktop POS (Electron)
+
+•
+•
+•
+•
+•
+
+Built offline-first Windows POS (Electron, React/TS, Node/Express, SQLite) — full billing/KOT works with zero internet
+Designed LAN architecture: Main Computer as local server, cashier terminals + waiter app synced via local IP in real-time
+Built bi-directional cloud sync engine — auto upload/download, retry on failure, no duplicates
+Integrated silent thermal/network printing with auto bill print
+Hybrid design: local-DB speed + centralized multi-branch cloud management
+
+RestoSoft – Web Platform (Admin/Cashier/Waiter/Digital Menu)
+
+•
+•
+•
+•
+•
+•
+
+Built 4 role-based web apps — Admin, Cashier, Waiter, Digital Menu — covering Fine Dine, QSR, Takeaway, Home Delivery
+Implemented Admin SaaS settings panel to control/manage Cashier, Waiter, Digital Menu modules
+Developed KOT & Invoice logic with silent printing across multiple templates
+Built inventory & menu bulk upload system, daily sales reports
+Implemented live order updates via long polling, API rate limiting, AWS S3 uploads, WhatsApp integration (promotions/OTP)
+Stack: Node.js, Express, PHP, SQL
+
+Codtech IT Solutions Pvt Ltd | Full-Stack Developer Intern | interrn.netlify.app
+
+•
+•
+
+Developed a responsive beverage e-commerce application using React, Node.js, Express, and MongoDB with REST API
+integrations.
+Collaborated in an Agile team to write unit tests, review pull requests, and coordinate features using Git version control.
+
+Chegg India Pvt Ltd | Subject Matter Expert | chegg-certificates--teal.vercel.app
+
+•
+
+Sep 2024 – Oct 2024
+
+Oct 2022 – Jan 2023
+
+Resolved 150+ complex computer science and web development queries, providing detailed documentation and verified code
+snippets.
+
+PERSONAL PROJECTS
+Zestchat | React, Redux, Node.js, Express, PostgreSQL, Cloudinary, Node-Cron, GIFs/Emojis
+
+•
+•
+•
+•
+•
+
+Optimized server-side operations by building Express routes to support expiring guest credentials automatically.
+Leveraged Cloudinary and Sharp-based image optimization to securely store media and reduce network payload sizes.
+Managed background system health by scheduling Node-Cron tasks to automate the removal of expired sessions/users.
+Implemented interactive, real-time messaging features using Redux, including native support for GIFs and emoji pickers.
+
+Pixel Polish | React.js, HTML5 Canvas, Multer, Cloudinary, Express
+
+•
+•
+
+zestchat.vercel.app
+
+Designed a relational schema in PostgreSQL using pg connection pool, structuring data for optimized query execution.
+
+pixelpolish.vercel.app
+
+Developed a web photo editor with real-time client-side filters (brightness, contrast) using HTML5 Canvas under 50ms.
+Configured Express backend with Multer and Cloudinary API for high-performance image uploads and secure storage.
+
+EDUCATION
+Amrita Sai Institute of Science and Technology | Vijayawada, India
+Bachelor of Technology (B.Tech) in Computer Science | CGPA: 7.35
+
+2019 – 2023
+
+

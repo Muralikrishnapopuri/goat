@@ -1,0 +1,176 @@
+FULL STACK DEVELOPER – JOB APPLICATION EMAIL CHECKLIST
+
+Mandatory
+---------
+- Clear subject line
+  Example:
+  - Application for Full Stack Developer – Your Name
+  - Application for MERN Stack Developer – Your Name
+
+- Brief introduction
+  - Your name
+  - Years of experience (or "Fresher")
+  - Role you're applying for
+
+- 2–3 lines about yourself
+  Mention your tech stack and what you specialize in.
+
+- Why you're a good fit
+  Mention 2–4 relevant skills or achievements.
+
+- Resume attached (PDF)
+
+- Contact information
+  - Phone Number
+  - Email Address
+
+Professional Links (Highly Recommended)
+---------------------------------------
+- Portfolio Website ⭐ (Most Important)
+- GitHub Profile ⭐
+- LinkedIn Profile
+- LeetCode / HackerRank (Optional but valuable)
+- Personal Website (if different from portfolio)
+
+Projects
+--------
+Include links to your BEST 2–3 projects.
+
+For each project, briefly mention:
+- Project Name
+- Live Demo Link
+- GitHub Repository
+- Technologies Used
+- One-line description
+
+Example:
+- AI Resume Builder
+  Live: https://...
+  GitHub: https://...
+  Tech: React, Node.js, Express, MongoDB, OpenAI API
+
+Technical Skills
+----------------
+Mention only relevant skills.
+
+Frontend
+- React
+- Next.js
+- JavaScript
+- TypeScript
+- HTML
+- CSS
+- Tailwind CSS
+- Bootstrap
+
+Backend
+- Node.js
+- Express.js
+- REST APIs
+- GraphQL (if applicable)
+
+Database
+- MongoDB
+- PostgreSQL
+- MySQL
+- Firebase
+- Supabase
+
+Tools
+- Git
+- GitHub
+- Docker
+- Postman
+- Vercel
+- Netlify
+- Render
+
+Cloud (if applicable)
+- AWS
+- Azure
+- Google Cloud
+
+Other
+- Authentication (JWT, OAuth)
+- WebSockets
+- Stripe Payments
+- Redis
+- CI/CD
+
+Achievements (Optional)
+-----------------------
+Include if you have any:
+- Built X+ full-stack applications
+- Open-source contributions
+- Hackathon participation
+- Freelance work
+- Internship experience
+- Certifications
+
+Keep the Email Short
+--------------------
+Maximum:
+- 5–8 short sentences
+- One resume attachment
+- Portfolio + GitHub + LinkedIn links
+- Mention only your strongest skills
+
+Final Checklist
+---------------
+☐ Resume attached (PDF)
+☐ Portfolio link
+☐ GitHub profile
+☐ LinkedIn profile
+☐ Live project links
+☐ Correct job title
+☐ Correct company name
+☐ Professional email address
+☐ Phone number
+☐ No spelling mistakes
+
+Avoid
+-----
+✘ Sending more than one resume
+✘ Attaching unnecessary certificates
+✘ Writing long paragraphs
+✘ Listing every technology you've ever used
+✘ Sharing unfinished projects
+✘ Using unprofessional email addresses
+
+Recommended Order
+-----------------
+1. Greeting
+2. Introduction
+3. Role applying for
+4. Why you're a good fit
+5. Key tech stack
+6. Mention resume attached
+7. Portfolio, GitHub, LinkedIn
+8. Thank you
+9. Contact details
+
+What Recruiters Usually Check First
+-----------------------------------
+1. Resume
+2. Portfolio
+3. GitHub
+4. Live Projects
+5. Experience
+6. Tech Stack
+7. LinkedIn
+8. Communication quality of the email
+
+Priority Order (Most Important)
+-------------------------------
+⭐⭐⭐⭐⭐ Resume (PDF)
+⭐⭐⭐⭐⭐ Portfolio Website
+⭐⭐⭐⭐⭐ GitHub
+⭐⭐⭐⭐ LinkedIn
+⭐⭐⭐⭐ Live Projects
+⭐⭐⭐ Relevant Experience
+⭐⭐ Certifications (Optional)
+⭐ LeetCode/HackerRank (Optional)
+
+Goal
+----
+Help the recruiter quickly understand who you are, what technologies you work with, and where they can see your work—without making the email long or difficult to read.
