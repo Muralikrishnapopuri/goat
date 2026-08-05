@@ -88,7 +88,7 @@ const htmlBody = `
 
 const mailOptions = {
   from: `"Murali Krishna Popuri" <${SENDER_EMAIL}>`,
-  to: "popurimuralikrishna04@gmail.com", // Send preview first
+  to: "jobs@billionsunited.com",
   subject: subject,
   text: body,
   html: htmlBody,
@@ -101,9 +101,9 @@ const mailOptions = {
 };
 
 async function send() {
-  console.log("Sending Billions United preview email to popurimuralikrishna04@gmail.com...");
+  console.log("Sending email to jobs@billionsunited.com...");
   const info = await transporter.sendMail(mailOptions);
-  console.log("Billions United preview email sent successfully: ", info.messageId);
+  console.log("Email sent successfully: ", info.messageId);
 }
 
 send().catch((err) => {
