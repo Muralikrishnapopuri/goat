@@ -20,58 +20,94 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const rawTextContent = `JOB SEARCH LINKS — Full Stack Developer (1-3 yrs) — Hyderabad | Bengaluru | Vizag
-Updated: Aug 4, 2026
+const rawTextContent = `FREE & PAID LEARNING / CERTIFICATION RESOURCES
 
-=== DIRECT / VERIFIED OPENINGS ===
-Virinchi - React JS Developer (2-3 Yrs) - Hyderabad
-https://companies.naukri.com/virinchi-jobs/jobs
+=== FREE LEARNING PLATFORMS ===
+1. freeCodeCamp (Full Stack / React / JavaScript)
+https://www.freecodecamp.org/
 
-Virinchi - React Native Developer (2-3 Yrs) - Hyderabad
-https://companies.naukri.com/virinchi-jobs/jobs
+2. Great Learning Academy (Full Stack, React, Node.js, AI)
+https://www.mygreatlearning.com/academy
 
-Virinchi - PHP Developer (2-4 Yrs) - Hyderabad
-https://companies.naukri.com/virinchi-jobs/jobs
+3. Simplilearn SkillUp (Full Stack, MERN, React, AI)
+https://www.simplilearn.com/skillup-free-online-courses
 
-Dcoder - Full Stack Developer Node.js/React.js (1-5 Yrs) - Bengaluru
-Apply by email: careers@dcoder.tech
-https://jobs.techstars.com/companies/dcoder/jobs/71360764-full-stack-developer-nodejs
+4. Infosys Springboard (Full Stack, React, AI)
+https://infyspringboard.onwingspan.com/
 
-=== LIVE SEARCH LINKS (filter Experience: 1-3 yrs, sort by Date Posted) ===
-Naukri - Full Stack Developer - Hyderabad/Secunderabad
-https://www.naukri.com/full-stack-developer-jobs-in-hyderabad-secunderabad
+5. Microsoft Learn (Azure, AI, GitHub, Web Development)
+https://learn.microsoft.com/training/
 
-Naukri - Full Stack Developer - Bangalore
-https://www.naukri.com/full-stack-developer-jobs-in-bangalore
+6. Google Cloud Skills Boost (AI, Cloud, Generative AI)
+https://www.cloudskillsboost.google/
 
-Naukri - React Developer - Hyderabad/Secunderabad
-https://www.naukri.com/react-developer-jobs-in-hyderabad-secunderabad
+7. Oracle University (Oracle APEX, Java, OCI)
+https://education.oracle.com/
 
-Naukri - Node.js Developer - Hyderabad/Secunderabad
-https://www.naukri.com/nodejs-jobs-in-hyderabad-secunderabad
+8. SoloLearn (JavaScript, React, Web Development)
+https://www.sololearn.com/
 
-LinkedIn - Full Stack Developer - Hyderabad (posted last 24h, newest first)
-https://in.linkedin.com/jobs/search/?keywords=full%20stack%20developer&location=Hyderabad&f_TPR=r86400&sortBy=DD&f_E=2,3
+9. MindLuster (Web Development, React, AI)
+https://www.mindluster.com/
 
-LinkedIn - Full Stack Developer - Bengaluru (posted last 24h, newest first)
-https://in.linkedin.com/jobs/search/?keywords=full%20stack%20developer&location=Bengaluru&f_TPR=r86400&sortBy=DD&f_E=2,3
+10. Kaggle Learn (Python, ML, AI)
+https://www.kaggle.com/learn
 
-Glassdoor - React.js Developer - Hyderabad
-https://www.glassdoor.com/Job/hyderabad-reactjs-developer-jobs-SRCH_IL.0,9_IC2865319_KO10,27.htm
+11. Hugging Face Courses (LLMs, AI)
+https://huggingface.co/learn
 
-Wellfound - Full Stack Developer - Hyderabad
-https://wellfound.com/role/l/full-stack-developer/hyderabad
+12. DeepLearning.AI Short Courses (AI, LLMs, Agents)
+https://www.deeplearning.ai/short-courses/
 
-Cutshort - Full Stack Developer - Hyderabad
-https://cutshort.io/jobs/fullstack-developer-jobs-in-hyderabad
+=== PAID / CERTIFICATION PLATFORMS ===
+1. IBM Full Stack Software Developer Professional Certificate
+https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer
 
-=== SET UP DAILY ALERTS (1-3 yrs filter saved) ===
-LinkedIn: Search "Full Stack Developer" + city -> apply Experience Level filter (Associate/Mid-Senior) -> Create job alert -> Daily
-Naukri: Search + city -> set Experience filter to 1-3 -> click bell icon -> Create Alert`;
+2. Meta Front-End Developer Professional Certificate
+https://www.coursera.org/professional-certificates/meta-front-end-developer
+
+3. Meta Back-End Developer Professional Certificate
+https://www.coursera.org/professional-certificates/meta-back-end-developer
+
+4. Microsoft Full-Stack Developer Professional Certificate
+https://www.coursera.org/professional-certificates/microsoft-full-stack-developer
+
+5. Google AI Essentials
+https://www.coursera.org/learn/google-ai-essentials
+
+6. Google Cybersecurity Professional Certificate
+https://www.coursera.org/professional-certificates/google-cybersecurity
+
+7. DeepLearning.AI Generative AI Specializations
+https://www.coursera.org/partners/deeplearning-ai
+
+8. AWS Certified Developer – Associate
+https://aws.amazon.com/certification/certified-developer-associate/
+
+9. Microsoft Azure AI Engineer Associate (AI-102)
+https://learn.microsoft.com/certifications/azure-ai-engineer/
+
+10. Microsoft Azure Developer Associate (AZ-204)
+https://learn.microsoft.com/certifications/azure-developer/
+
+11. Oracle Java Professional Certification
+https://education.oracle.com/
+
+12. Udemy (React, MERN, Full Stack, AI)
+https://www.udemy.com/
+
+13. Codecademy Pro (Full Stack, React)
+https://www.codecademy.com/
+
+14. LinkedIn Learning
+https://www.linkedin.com/learning/
+
+15. edX Professional Certificates
+https://www.edx.org/professional-certificate`;
 
 function convertTextToHtml(text) {
   // Replace URLs with clickable anchors
-  let html = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+  let html = text.replace(/(https?:\/\/[^\s\)]+)/g, '<a href="$1" target="_blank">$1</a>');
   // Replace newlines with <br/>
   html = html.split('\n').join('<br/>');
   return `
@@ -84,13 +120,13 @@ function convertTextToHtml(text) {
 const mailOptions = {
   from: `"Murali Krishna Popuri" <${SENDER_EMAIL}>`,
   to: "popurimuralikrishna04@gmail.com",
-  subject: "JOB SEARCH LINKS — Full Stack Developer (1-3 yrs) — Hyderabad | Bengaluru | Vizag",
+  subject: "Free & Paid Learning / Certification Resources",
   text: rawTextContent,
   html: convertTextToHtml(rawTextContent),
 };
 
 async function send() {
-  console.log("Sending job search links list to popurimuralikrishna04@gmail.com...");
+  console.log("Sending learning resources email to popurimuralikrishna04@gmail.com...");
   const info = await transporter.sendMail(mailOptions);
   console.log("Email sent successfully: ", info.messageId);
 }

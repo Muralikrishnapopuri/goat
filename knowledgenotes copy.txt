@@ -1,0 +1,29 @@
+->node.js
+(Node.js – JavaScript runtime built on Chrome's V8 engine; lets you run JS outside the browser (on the server).
+
+May also ask (related):
+
+npm – package manager for Node.js, used to install libraries.
+Event Loop – mechanism that handles async operations in Node (non-blocking I/O).
+Non-blocking I/O – Node doesn't wait for one task to finish before starting another.
+Express.js – lightweight framework built on Node for creating APIs/servers.
+Callback – function passed as argument, executed after a task completes.
+Single-threaded – Node runs on one main thread but handles concurrency via event loop.)
+
+
+->java JavaScript
+(JavaScript – lightweight, interpreted programming language mainly used to make web pages interactive (runs in browser + server via Node).
+
+May also ask (related):
+
+ES6 – newer version of JS (2015) with features like let/const, arrow functions, classes.
+var vs let vs const – var = function-scoped/old; let = block-scoped, reassignable; const = block-scoped, not reassignable.
+Hoisting – JS moves variable/function declarations to the top of scope before execution.
+Closure – function that remembers variables from its outer scope even after that scope ends.
+Promise – object representing future completion/failure of an async operation.
+async/await – syntax to write async code that looks synchronous.
+DOM Manipulation – changing HTML/CSS using JS.
+== vs === – == compares value only; === compares value + type.)
+
+->HTML
+()
