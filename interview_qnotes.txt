@@ -67,6 +67,14 @@ How do you prioritize your work?
 
 i prioritize the work based on the urgency , business impact , depencencies , first i focus on critial issues or emergency tasks and i handle tasks based on deadlines make into smaller steps and commnicate with the team if there are any blockers and changing priorities.
 
+what makes you unique ?
+
+i think what makes me unique is that i'm not limited to just frontend or backend development.i like understanding the complete system and solving problems end to end .
+
+for example - in my previsous while on project i used diffrent technologies react node , batabased like sql lite and mysql approach , also integraiotn s liek swiggy z xzomato , razorpay . so at the same time , i very curious about the new technologies especially ai , whenver i heard about the ai latest news i liek to explore them and thinking the aboutthe how i can use them to build something better for the organization . 
+so , i'd like to say combination of end to end development , problem -dolveing m continuous curiosity makes me unique.
+
+
 
 
 
