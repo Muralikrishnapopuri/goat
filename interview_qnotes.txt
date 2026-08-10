@@ -1,0 +1,73 @@
+Redux 
+Fast API
+JWT
+outh 2.0
+rest api
+Graph QL
+next js
+ci/cd
+aws cloud services 
+python
+ngrok
+linux
+electron.js
+c
+gen ai vs agentic ai
+-->
+weekness-
+earlier on , i had been working over-engineer like over hard wokring to give the best solutions for my assigned tasks so even for the problems which i can't solve i try until i fix it so somtimes i fell like stressful becuase of these but fine i believe this will help me to grow in career . sometimes i do overthiking like what if heppend to my team if  did't  fix the problem like that i do overthinking.
+
+strength-
+ownership and reliability , whenever i working on a specific features i can see through , including the edge cases most people skip and i fully understand the feature which i gave me and i also adapt fast about the new tools . and i actively use ai powered coding assistance to make the development faster .
+
+why should hire u ?
+because , i bring the real , hands on experience and hard engineering problems , i've build offline pos platform which runs with zero internet dependency and also build cloud sync engine for multi branch data consistency without duplication . that kinda reliability i bringing to you team from the day one . 
+
+where do u see your self in 5 years ?
+
+in 5 years , i see myself as a senior full stack engineer and taking the ownership of end to end products and making the important architecture decisions.
+
+and i want to deepen my expertise in not only my current stack i want to expert in dsa and advacned engineering mathematical projects .
+
+beyond just writing code , i want to mentor junior developers , contribute to technical decisions and be the so responsible for my organization . 
+
+my goal is to continuously grow with the organization and become the someone the team can relay on me for technical expertise and leadership . 
+
+why did u resign or leave last job ?
+
+i'm so grateful for the experience i 've gained in my current role at youngminds . especially on restosoft and getting hands on experience and i have faces the real world business workflows .
+so at this stage , i'm looking for an opportunity  where i can work on larger-scale applications and take on more challeging technical problems and further strengthen my skills in modern technologies .
+
+so , my decision to move is maily driven by career growth , keep learning , a chance to take the technical responsibilities .
+
+
+whats motivates you ?
+i'm highly motivated by continuous innovation in technology . now adays what i've  learnt to day it will become outdated for tomorrow so , i like to learn latest tools and technologies . whenver i see new ai mpodels or techcnologies released by companies like anthropic , google , openai . i get excited to learn about them and think about what i can build with them andalso curiosity the opportunity to create sometihg new is really motivates me a lot.
+
+how do you handle pressure?
+
+in my previous , i break the problem into smaller targets and eah taregt has specific timeline which i can handle with perfection , also i communicate with team whenever i got stucked somewhere so this is how i can reduce my pressure.
+
+Describe yourself in three words. "Reliable, proactive, and adaptable."
+
+what is your greatest achievement ?
+
+my greatest achievement is building the offlien desktop application that is actually used in restaurants . and the challending part is making the billing and kot /invoice modules and it will work perfeclty without internet also cloud sync engine for realme comminication  between multiple systems on the restaurants so it wasn't just about the writing code i was solving ghr real wolrd prpblems and buildng the solution for that.
+
+can u work with the team ?
+
+yesdefinitely, i enjoy working in a team beacuse good communicatin and collaboration help us to solve problems faster and in my current role i work with developers , testers and other teams , while building restsoft features . i'm confortable sharing ideas and feedbacks , and tackign resposnsiblities . 
+
+salary expectation ?
+
+based on my roles and responsibilities as full stack developer i'm looking for a compesation  package so, i;m open to discussing the overall package and main priority is finding the right opportunity where i can grwo technically and contribute tot he team.
+...round 5-6 lpa.
+
+How do you prioritize your work?
+
+i prioritize the work based on the urgency , business impact , depencencies , first i focus on critial issues or emergency tasks and i handle tasks based on deadlines make into smaller steps and commnicate with the team if there are any blockers and changing priorities.
+
+
+
+
+
