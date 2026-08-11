@@ -213,3 +213,27 @@ career objective -->
 My career objective is to keep growing as a Full-Stack Developer by working on real, high-performance systems — the kind of work I've been doing for the past 2 years, building offline-first desktop applications and real-time sync systems for a restaurant tech platform.
 
 I want to keep sharpening my skills in React, Node.js, and both SQL and NoSQL databases, while taking on more complex architecture problems — things like optimizing performance and building reliable systems that scale. Long-term, I want to grow into a role where I can own bigger technical challenges and keep delivering high-quality, dependable software."
+
+RestoSoft – Offline Desktop POS (Electron)
+"I built an offline POS system for restaurants using Electron and React — it works with zero internet, handles full billing and KOT. I also designed the local network setup where the main computer acts as a server, and cashier + waiter devices sync with it in real-time. On top of that, I built a cloud sync engine that uploads and downloads data automatically, retries if it fails, and never creates duplicates."
+
+RestoSoft – Web Platform
+"I built 4 separate web apps — Admin, Cashier, Waiter, and Digital Menu — covering different restaurant types like fine dine, QSR, and delivery. I also built the billing and KOT logic with printing, an inventory upload system, daily sales reports, and integrated AWS S3 and WhatsApp for OTP and promotions."
+
+Codtech IT Solutions (Internship, Sep–Oct 2024)
+"I did a 2-month internship where I built a beverage e-commerce app using React, Node.js, and MongoDB. I also worked in an Agile team — writing tests and reviewing code with Git."
+
+Chegg India (Subject Matter Expert, Oct 2022–Jan 2023)
+"I worked as a Subject Matter Expert at Chegg, solving computer science and web development questions — over 150 of them. It helped me get strong at problem-solving and explaining complex logic clearly, which really built my fundamentals."
+
+Zestchat (Personal Project)
+"It's a real-time chat app I built using React, Node.js, and PostgreSQL. I designed the database schema, added auto-expiring guest logins, image uploads through Cloudinary, and real-time messaging with GIFs and emojis."
+
+Pixel Polish (Personal Project)
+"It's a web-based photo editor I built with React and HTML5 Canvas — it applies filters like brightness and contrast in real-time, under 50ms. I also set up the backend for image uploads using Cloudinary."
+
+Education
+"I did my B.Tech in Computer Science from Amrita Sai Institute of Science and Technology, Vijayawada, from 2019 to 2023, with a CGPA of 7.35."
+
+"How much experience do you have as of now?"
+"I have 2 years of experience — that includes my current full-time role at YoungMinds since Feb 2025, working on RestoSoft, plus earlier experience at Chegg solving computer science problems, which helped build my problem-solving foundation before I moved into full-time development."
