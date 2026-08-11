@@ -1,0 +1,162 @@
+# SQL Theoretical Interview Questions — 2026
+
+## Core Concepts
+
+**1. What is the difference between SQL and NoSQL?**
+SQL databases are relational, use fixed schemas, and enforce ACID properties. NoSQL databases (document, key-value, column, graph) are schema-flexible and prioritize scalability/availability, often trading strict consistency for it.
+
+**2. What are the different types of SQL commands?**
+- DDL (Data Definition): CREATE, ALTER, DROP, TRUNCATE
+- DML (Data Manipulation): INSERT, UPDATE, DELETE
+- DQL (Data Query): SELECT
+- DCL (Data Control): GRANT, REVOKE
+- TCL (Transaction Control): COMMIT, ROLLBACK, SAVEPOINT
+
+**3. What is normalization? Explain 1NF, 2NF, 3NF, BCNF.**
+Normalization organizes data to reduce redundancy and dependency.
+- 1NF: atomic columns, no repeating groups
+- 2NF: 1NF + no partial dependency on part of a composite key
+- 3NF: 2NF + no transitive dependency (non-key columns depend only on the key)
+- BCNF: stricter 3NF — every determinant is a candidate key
+
+**4. What is denormalization, and when would you use it?**
+Intentionally introducing redundancy (e.g., duplicating columns, pre-joining tables) to improve read performance, typically in reporting/analytics systems where reads far outnumber writes.
+
+**5. What is the difference between a primary key and a unique key?**
+Primary key: uniquely identifies each row, cannot be NULL, only one per table. Unique key: also enforces uniqueness but allows one NULL (in most DBs), and a table can have multiple.
+
+**6. What is a foreign key?**
+A column (or set of columns) that references the primary key of another table, enforcing referential integrity between the two tables.
+
+**7. What is a composite key?**
+A primary key made up of two or more columns that together uniquely identify a row.
+
+**8. What is a candidate key vs a super key?**
+A super key is any set of columns that uniquely identifies a row (may include extra columns). A candidate key is a minimal super key — no column can be removed without losing uniqueness.
+
+## Joins & Set Operations
+
+**9. Explain the different types of JOINs.**
+- INNER JOIN: only matching rows in both tables
+- LEFT JOIN: all rows from left + matches from right (NULL if no match)
+- RIGHT JOIN: all rows from right + matches from left
+- FULL OUTER JOIN: all rows from both, matched where possible
+- CROSS JOIN: Cartesian product of both tables
+- SELF JOIN: a table joined with itself
+
+**10. What is the difference between UNION and UNION ALL?**
+UNION removes duplicate rows and involves an implicit sort/dedup (slower). UNION ALL keeps all rows including duplicates (faster).
+
+**11. Difference between WHERE and HAVING?**
+WHERE filters rows before grouping/aggregation. HAVING filters groups after aggregation (used with GROUP BY).
+
+**12. What happens with a JOIN when one table has NULLs in the join column?**
+Rows with NULL in the join column won't match any row (NULL ≠ NULL in SQL), so they're excluded from INNER JOIN results and appear as unmatched in OUTER JOINs.
+
+## Keys, Constraints & Indexes
+
+**13. What is an index? How does it improve performance?**
+A separate data structure (commonly a B-tree) that allows the database to find rows without scanning the whole table, similar to a book's index. Speeds up reads at the cost of slower writes and extra storage.
+
+**14. Difference between clustered and non-clustered index?**
+A clustered index determines the physical storage order of table data (one per table). A non-clustered index is a separate structure with pointers back to the data (multiple allowed per table).
+
+**15. When should you avoid creating too many indexes?**
+On tables with heavy INSERT/UPDATE/DELETE activity, since every index must also be updated, slowing down writes and increasing storage.
+
+**16. What is a constraint? Name common types.**
+A rule enforced on table data: PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK, DEFAULT.
+
+**17. What is the difference between DELETE, TRUNCATE, and DROP?**
+- DELETE: removes rows (can filter with WHERE), logged, can be rolled back, triggers fire
+- TRUNCATE: removes all rows, minimal logging, faster, resets identity, cannot use WHERE
+- DROP: removes the entire table structure and data
+
+## Transactions & Concurrency
+
+**18. What are ACID properties?**
+Atomicity (all-or-nothing), Consistency (valid state transitions), Isolation (concurrent transactions don't interfere), Durability (committed data survives failures).
+
+**19. What is a transaction?**
+A sequence of operations executed as a single logical unit of work — either all succeed (COMMIT) or all fail (ROLLBACK).
+
+**20. What are the transaction isolation levels?**
+Read Uncommitted, Read Committed, Repeatable Read, Serializable — increasing levels of isolation, trading off concurrency for consistency guarantees.
+
+**21. What is a deadlock, and how can it be avoided?**
+Two or more transactions waiting on locks held by each other, none able to proceed. Avoided by consistent lock ordering, keeping transactions short, and using appropriate isolation levels.
+
+**22. What are dirty read, phantom read, and non-repeatable read?**
+- Dirty read: reading uncommitted data from another transaction
+- Non-repeatable read: re-reading a row gives a different value because another transaction updated it mid-transaction
+- Phantom read: re-running a query returns different rows because another transaction inserted/deleted matching rows
+
+## Views, Procedures, Triggers
+
+**23. What is a view? What are its advantages?**
+A virtual table defined by a query. Simplifies complex queries, provides an abstraction/security layer (restrict column access), and can present a consistent interface even if underlying tables change.
+
+**24. What is a materialized view, and how does it differ from a regular view?**
+A materialized view physically stores the query result and needs periodic refresh, unlike a regular view which recomputes on every access. Trades storage/staleness for query speed.
+
+**25. What is a stored procedure? Advantages over ad-hoc queries?**
+A precompiled set of SQL statements stored in the database, callable by name. Advantages: reduced network traffic, reusability, centralized logic, some performance benefit from precompilation.
+
+**26. What is a trigger? Give an example use case.**
+A block of SQL that automatically runs in response to INSERT/UPDATE/DELETE on a table. Example: auditing — automatically logging old values to a history table before an UPDATE.
+
+**27. What is the difference between a function and a stored procedure?**
+A function must return a value and can be used inside a SELECT statement; it typically can't modify data. A stored procedure may or may not return a value, can perform DML/DDL, and is called explicitly (EXEC/CALL).
+
+## Query Concepts
+
+**28. What is the difference between a subquery and a CTE (WITH clause)?**
+Functionally similar — both let you nest queries. A CTE is more readable, can be referenced multiple times in the same query, and supports recursion. Subqueries are often less readable when nested deeply and some optimizers treat them differently.
+
+**29. What is a correlated subquery?**
+A subquery that references a column from the outer query, so it re-executes once per row of the outer query (as opposed to an uncorrelated subquery, which runs once).
+
+**30. What is the difference between EXISTS and IN?**
+EXISTS checks for the presence of any matching row (stops at first match, works well with correlated subqueries and NULLs). IN compares a value against a list/subquery result; it can behave unexpectedly if the subquery returns NULLs.
+
+**31. What are window functions, and how do they differ from GROUP BY?**
+Window functions (ROW_NUMBER, RANK, LAG, SUM() OVER, etc.) compute a value across a set of rows related to the current row without collapsing the result set — unlike GROUP BY, which aggregates and reduces rows.
+
+**32. Difference between RANK(), DENSE_RANK(), and ROW_NUMBER()?**
+- ROW_NUMBER(): unique sequential number, no ties
+- RANK(): same rank for ties, but skips subsequent rank numbers
+- DENSE_RANK(): same rank for ties, no gaps in the ranking sequence
+
+**33. What is the order of execution of a SQL query?**
+FROM → JOIN → WHERE → GROUP BY → HAVING → SELECT → DISTINCT → ORDER BY → LIMIT/OFFSET
+(Written order — SELECT, FROM, WHERE... — differs from logical execution order.)
+
+**34. What is a self-join, and when is it useful?**
+Joining a table to itself, typically using aliases. Useful for hierarchical data — e.g., matching employees to their managers within the same Employees table.
+
+**35. What is the difference between CHAR and VARCHAR?**
+CHAR is fixed-length and pads with spaces; VARCHAR is variable-length and stores only the actual characters (plus a small length overhead). CHAR can be marginally faster for fixed-size data; VARCHAR saves space for variable-length data.
+
+## Performance & Design
+
+**36. How would you optimize a slow SQL query?**
+Check the execution plan, ensure proper indexing on filter/join columns, avoid SELECT *, avoid functions on indexed columns in WHERE clauses, reduce unnecessary joins/subqueries, and consider query rewriting or denormalization for reporting workloads.
+
+**37. What is query execution plan / EXPLAIN, and why is it useful?**
+A breakdown of how the database engine intends to execute a query — showing which indexes are used, join order, and estimated cost. Used to diagnose performance bottlenecks.
+
+**38. What is database sharding?**
+Splitting a large database horizontally across multiple servers/instances (by a shard key) to distribute load and storage beyond what a single server can handle.
+
+**39. What is the difference between OLTP and OLAP?**
+OLTP (Online Transaction Processing): optimized for many small, fast read/write transactions (e.g., an order system). OLAP (Online Analytical Processing): optimized for complex analytical queries over large historical datasets (e.g., a data warehouse).
+
+**40. What is a schema, and how is it different from a database?**
+A schema is the logical structure/blueprint (tables, relationships, constraints) within a database. A database is the actual container that may hold one or more schemas along with the data itself.
+
+---
+
+**Notes**
+- Q28–Q32 (subquery vs CTE, EXISTS vs IN, window functions, rank variants) are the most commonly probed "trips people up" set — worth being sharpest on these.
+- Q33 (logical execution order) is a favorite trick question — interviewers often ask "why can't I use a SELECT alias in WHERE?" which is answered directly by this.
+- Q17 (DELETE vs TRUNCATE vs DROP) and Q9 (JOIN types) are near-universal opener questions.
