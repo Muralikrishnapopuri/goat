@@ -207,3 +207,9 @@ both , depending on whats needed , i take initiative on the pieces i own like my
 **Easy Memory:**
 **Verification → Correctly built?**
 **Validation → Correct product?**
+
+
+career objective -->
+My career objective is to keep growing as a Full-Stack Developer by working on real, high-performance systems — the kind of work I've been doing for the past 2 years, building offline-first desktop applications and real-time sync systems for a restaurant tech platform.
+
+I want to keep sharpening my skills in React, Node.js, and both SQL and NoSQL databases, while taking on more complex architecture problems — things like optimizing performance and building reliable systems that scale. Long-term, I want to grow into a role where I can own bigger technical challenges and keep delivering high-quality, dependable software."
