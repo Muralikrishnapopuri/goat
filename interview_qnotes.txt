@@ -176,19 +176,45 @@ both , depending on whats needed , i take initiative on the pieces i own like my
 
 **C is a fast, general-purpose programming language that provides low-level memory control and is widely used for system-level and embedded programming.**
 
+# Database
+
+## 21. SQL
+
+**SQL (Structured Query Language) is a language used to store, retrieve, update, and manage data in relational databases.**
+
+**Example:** MySQL, PostgreSQL, and SQLite use SQL.
+
+## 22. SQLite
+
+**SQLite is a lightweight, serverless relational database that stores the entire database in a single file.**
+
+**Example:** It is commonly used in mobile apps, desktop applications, and offline-first applications.
+
+## 23. PostgreSQL
+
+**PostgreSQL is an open-source, powerful relational database management system known for reliability, advanced SQL features, and scalability.**
+
+**Example:** It is commonly used for web applications, backend systems, and large-scale applications.
+
+### Easy Difference
+
+**SQL → Language**
+**SQLite → Lightweight database**
+**PostgreSQL → Powerful relational database**
+
 # AI Concepts
 
-## 21. Predictive AI
+## 24. Predictive AI
 
 **Predictive AI uses data and machine learning to predict future outcomes or events.**
 
 **Example:** Predicting customer demand or detecting possible fraud.
 
-## 22. Generative AI
+## 25. Generative AI
 
 **Generative AI creates new content such as text, images, audio, video, or code based on patterns learned from data.**
 
-## 23. Agentic AI
+## 26. Agentic AI
 
 **Agentic AI refers to AI systems that can plan, make decisions, use tools, and take actions to achieve a goal.**
 
@@ -207,6 +233,7 @@ both , depending on whats needed , i take initiative on the pieces i own like my
 **Easy Memory:**
 **Verification → Correctly built?**
 **Validation → Correct product?**
+
 
 
 career objective -->

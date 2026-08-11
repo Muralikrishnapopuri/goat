@@ -1,10 +1,3 @@
-1.Differences between different databases ?
-Sql : 
--Relational Database, stores data in tables ( Rwo and Columns)
--using for Management Sites , e_commerce
-sqlite : 
-uses sql , light weight relations db and stores same in tables
-using for desktop applications , small local projects without need of cloud servers
 
 =========================================
 
