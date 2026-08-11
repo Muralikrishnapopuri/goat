@@ -103,4 +103,8 @@ Bachelor of Technology (B.Tech) in Computer Science | CGPA: 7.35
 
 2019 – 2023
 
+CERTIFICATIONS & TRAINING
+• Foundations of Prompt Engineering — AWS Training & Certification | Completed August 2026
+• Full Stack Developer Course — Simplilearn | Completed August 2026 | Certificate Code: 10568287
+
 
