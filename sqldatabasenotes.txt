@@ -5,3 +5,440 @@ Sql :
 sqlite : 
 uses sql , light weight relations db and stores same in tables
 using for desktop applications , small local projects without need of cloud servers
+
+=========================================
+
+# SQL Interview Questions 2026 — Answers
+
+Assumed schema unless a question implies otherwise:
+- `Employees(emp_id, name, salary, dept_id, manager_id, join_date)`
+- `Departments(dept_id, dept_name)`
+- `Orders(order_id, customer_id, product_id, order_date, amount)`
+- `Sales(sale_date, amount)`
+- `Logins(user_id, login_date)`
+
+---
+
+**1. Second highest salary**
+```sql
+SELECT MAX(salary) AS second_highest
+FROM Employees
+WHERE salary < (SELECT MAX(salary) FROM Employees);
+```
+
+**2. Find duplicate records**
+```sql
+SELECT name, salary, dept_id, COUNT(*)
+FROM Employees
+GROUP BY name, salary, dept_id
+HAVING COUNT(*) > 1;
+```
+
+**3. Remove duplicate records**
+```sql
+DELETE FROM Employees
+WHERE emp_id NOT IN (
+  SELECT MIN(emp_id)
+  FROM Employees
+  GROUP BY name, salary, dept_id
+);
+```
+
+**4. Top 5 highest salaries**
+```sql
+SELECT * FROM Employees
+ORDER BY salary DESC
+LIMIT 5;
+```
+
+**5. Nth highest salary** (N = 4 example)
+```sql
+SELECT DISTINCT salary
+FROM Employees
+ORDER BY salary DESC
+LIMIT 1 OFFSET 3;  -- N-1
+```
+Or portable version:
+```sql
+SELECT salary FROM (
+  SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+  FROM Employees
+) t WHERE rnk = 4;
+```
+
+**6. Departments and total salary expenditure**
+```sql
+SELECT d.dept_name, SUM(e.salary) AS total_salary
+FROM Employees e
+JOIN Departments d ON e.dept_id = d.dept_id
+GROUP BY d.dept_name;
+```
+
+**7. Employees joined in last 6 months**
+```sql
+SELECT * FROM Employees
+WHERE join_date >= DATEADD(MONTH, -6, GETDATE());
+-- MySQL: WHERE join_date >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+```
+
+**8. Employees not in any department**
+```sql
+SELECT * FROM Employees
+WHERE dept_id IS NULL;
+```
+
+**9. Total employees per department**
+```sql
+SELECT dept_id, COUNT(*) AS emp_count
+FROM Employees
+GROUP BY dept_id;
+```
+
+**10. Pivot: department-wise employee count**
+```sql
+SELECT
+  SUM(CASE WHEN dept_id = 1 THEN 1 ELSE 0 END) AS dept1,
+  SUM(CASE WHEN dept_id = 2 THEN 1 ELSE 0 END) AS dept2,
+  SUM(CASE WHEN dept_id = 3 THEN 1 ELSE 0 END) AS dept3
+FROM Employees;
+```
+
+**11. Unpivot data**
+```sql
+SELECT emp_id, 'Q1' AS quarter, q1_sales AS sales FROM SalesPivot
+UNION ALL
+SELECT emp_id, 'Q2', q2_sales FROM SalesPivot
+UNION ALL
+SELECT emp_id, 'Q3', q3_sales FROM SalesPivot;
+```
+
+**12. Month-over-month revenue growth**
+```sql
+SELECT
+  month,
+  revenue,
+  revenue - LAG(revenue) OVER (ORDER BY month) AS mom_growth
+FROM MonthlyRevenue;
+```
+
+**13. Running total of sales by date**
+```sql
+SELECT sale_date, amount,
+  SUM(amount) OVER (ORDER BY sale_date) AS running_total
+FROM Sales;
+```
+
+**14. Find gaps in a sequence of numbers**
+```sql
+SELECT (t1.id + 1) AS gap_start
+FROM Numbers t1
+LEFT JOIN Numbers t2 ON t1.id + 1 = t2.id
+WHERE t2.id IS NULL
+ORDER BY gap_start;
+```
+
+**15. Longest streak of consecutive login days per user**
+```sql
+WITH ranked AS (
+  SELECT user_id, login_date,
+    DATE_SUB(login_date, INTERVAL ROW_NUMBER() OVER (
+      PARTITION BY user_id ORDER BY login_date) DAY) AS grp
+  FROM Logins
+)
+SELECT user_id, COUNT(*) AS streak_length
+FROM ranked
+GROUP BY user_id, grp
+ORDER BY streak_length DESC;
+```
+
+**16. First login date of each user**
+```sql
+SELECT user_id, MIN(login_date) AS first_login
+FROM Logins
+GROUP BY user_id;
+```
+
+**17. Last purchase of each customer**
+```sql
+SELECT customer_id, MAX(order_date) AS last_purchase
+FROM Orders
+GROUP BY customer_id;
+```
+
+**18. Customers who bought in all months**
+```sql
+SELECT customer_id
+FROM Orders
+GROUP BY customer_id
+HAVING COUNT(DISTINCT MONTH(order_date)) = 12;
+```
+
+**19. Products never ordered**
+```sql
+SELECT p.product_id, p.product_name
+FROM Products p
+LEFT JOIN Orders o ON p.product_id = o.product_id
+WHERE o.order_id IS NULL;
+```
+
+**20. Employees earning more than average salary**
+```sql
+SELECT * FROM Employees
+WHERE salary > (SELECT AVG(salary) FROM Employees);
+```
+
+**21. Employees earning more than their department average**
+```sql
+SELECT e.*
+FROM Employees e
+JOIN (
+  SELECT dept_id, AVG(salary) AS avg_sal
+  FROM Employees GROUP BY dept_id
+) d ON e.dept_id = d.dept_id
+WHERE e.salary > d.avg_sal;
+```
+
+**22. Rank employees within each department by salary**
+```sql
+SELECT emp_id, name, dept_id, salary,
+  RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) AS dept_rank
+FROM Employees;
+```
+
+**23. Top 3 salaries in each department**
+```sql
+SELECT * FROM (
+  SELECT *, DENSE_RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) AS rnk
+  FROM Employees
+) t
+WHERE rnk <= 3;
+```
+
+**24. Common records between two tables (INTERSECT)**
+```sql
+SELECT emp_id FROM TableA
+INTERSECT
+SELECT emp_id FROM TableB;
+```
+MySQL alternative:
+```sql
+SELECT a.emp_id FROM TableA a
+JOIN TableB b ON a.emp_id = b.emp_id;
+```
+
+**25. Records in one table but not another**
+```sql
+SELECT emp_id FROM TableA
+EXCEPT
+SELECT emp_id FROM TableB;
+```
+MySQL alternative:
+```sql
+SELECT a.* FROM TableA a
+LEFT JOIN TableB b ON a.emp_id = b.emp_id
+WHERE b.emp_id IS NULL;
+```
+
+**26. Split full name into first/last**
+```sql
+SELECT
+  SUBSTRING_INDEX(full_name, ' ', 1) AS first_name,
+  SUBSTRING_INDEX(full_name, ' ', -1) AS last_name
+FROM Employees;
+```
+
+**27. Concatenate first and last name**
+```sql
+SELECT CONCAT(first_name, ' ', last_name) AS full_name
+FROM Employees;
+```
+
+**28. Extract year, month, day from a date**
+```sql
+SELECT
+  YEAR(join_date) AS yr,
+  MONTH(join_date) AS mo,
+  DAY(join_date) AS dy
+FROM Employees;
+```
+
+**29. Calculate age from date of birth**
+```sql
+SELECT dob,
+  TIMESTAMPDIFF(YEAR, dob, CURDATE()) AS age
+FROM Employees;
+```
+
+**30. Number of working days in a month** (excluding weekends, given a calendar table `Numbers`)
+```sql
+SELECT COUNT(*) AS working_days
+FROM (
+  SELECT DATE_ADD('2026-08-01', INTERVAL n DAY) AS d
+  FROM Numbers
+  WHERE n < DAY(LAST_DAY('2026-08-01'))
+) t
+WHERE DAYOFWEEK(d) NOT IN (1, 7);
+```
+
+**31. Employees with the same salary**
+```sql
+SELECT salary, COUNT(*) 
+FROM Employees
+GROUP BY salary
+HAVING COUNT(*) > 1;
+```
+
+**32. Highest paid employee in each department**
+```sql
+SELECT * FROM (
+  SELECT *, RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) AS rnk
+  FROM Employees
+) t
+WHERE rnk = 1;
+```
+
+**33. All managers and their reporting employees**
+```sql
+SELECT m.name AS manager, e.name AS employee
+FROM Employees e
+JOIN Employees m ON e.manager_id = m.emp_id;
+```
+
+**34. Reverse a string**
+```sql
+SELECT REVERSE(name) FROM Employees;
+```
+
+**35. Frequency of each word in a text column**
+```sql
+-- Simplified for space-separated single-word column via a numbers/split approach
+-- Typically requires a recursive CTE or string-split function per DB
+WITH RECURSIVE split(word, rest) AS (
+  SELECT '', CONCAT(text_col, ' ') FROM TextTable
+  UNION ALL
+  SELECT SUBSTRING_INDEX(rest, ' ', 1),
+         SUBSTRING(rest, LOCATE(' ', rest) + 1)
+  FROM split WHERE rest != ''
+)
+SELECT word, COUNT(*) FROM split WHERE word != '' GROUP BY word;
+```
+
+**36. Rows where a column is NULL**
+```sql
+SELECT * FROM Employees WHERE manager_id IS NULL;
+```
+
+**37. Replace NULL values with a default**
+```sql
+SELECT emp_id, COALESCE(manager_id, 0) AS manager_id
+FROM Employees;
+```
+
+**38. Trim spaces from beginning and end**
+```sql
+SELECT TRIM(name) FROM Employees;
+```
+
+**39. Most frequently ordered product**
+```sql
+SELECT product_id, COUNT(*) AS order_count
+FROM Orders
+GROUP BY product_id
+ORDER BY order_count DESC
+LIMIT 1;
+```
+
+**40. Year-over-year growth**
+```sql
+SELECT
+  year,
+  revenue,
+  revenue - LAG(revenue) OVER (ORDER BY year) AS yoy_growth
+FROM YearlyRevenue;
+```
+
+**41. Moving average of sales (3-day window)**
+```sql
+SELECT sale_date, amount,
+  AVG(amount) OVER (ORDER BY sale_date
+    ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS moving_avg_3d
+FROM Sales;
+```
+
+**42. Difference between two dates in days**
+```sql
+SELECT DATEDIFF(end_date, start_date) AS days_diff
+FROM SomeTable;
+```
+
+**43. Overlapping date ranges**
+```sql
+SELECT a.*, b.*
+FROM Bookings a
+JOIN Bookings b ON a.id < b.id
+  AND a.start_date <= b.end_date
+  AND b.start_date <= a.end_date;
+```
+
+**44. Second most frequent salary**
+```sql
+SELECT salary
+FROM Employees
+GROUP BY salary
+ORDER BY COUNT(*) DESC
+LIMIT 1 OFFSET 1;
+```
+
+**45. Employees earning between 10k and 20k**
+```sql
+SELECT * FROM Employees
+WHERE salary BETWEEN 10000 AND 20000;
+```
+
+**46. Delete records with duplicate values based on one column**
+```sql
+DELETE e1 FROM Employees e1
+JOIN Employees e2
+  ON e1.email = e2.email AND e1.emp_id > e2.emp_id;
+```
+
+**47. Insert only distinct records from another table**
+```sql
+INSERT INTO TargetTable
+SELECT DISTINCT * FROM SourceTable
+WHERE NOT EXISTS (
+  SELECT 1 FROM TargetTable t
+  WHERE t.emp_id = SourceTable.emp_id
+);
+```
+
+**48. Update salary by 10% for a specific department**
+```sql
+UPDATE Employees
+SET salary = salary * 1.10
+WHERE dept_id = 5;
+```
+
+**49. Employee name in UPPERCASE and lowercase**
+```sql
+SELECT UPPER(name) AS upper_name, LOWER(name) AS lower_name
+FROM Employees;
+```
+
+**50. Generate a series of dates between two given dates**
+```sql
+WITH RECURSIVE date_series AS (
+  SELECT '2026-01-01' AS dt
+  UNION ALL
+  SELECT DATE_ADD(dt, INTERVAL 1 DAY)
+  FROM date_series
+  WHERE dt < '2026-01-31'
+)
+SELECT dt FROM date_series;
+
+---
+
+**Notes**
+- Syntax shown is mostly MySQL-flavored; window functions (RANK, DENSE_RANK, LAG, moving avg) work the same in PostgreSQL/SQL Server with minor date-function differences.
+- Q5, Q23, Q32, Q44 are the classic "Nth highest / rank per group" pattern — know `RANK()` vs `DENSE_RANK()` vs `ROW_NUMBER()` cold, that's the most commonly probed distinction.
+- Q15 (streak) and Q14 (gaps) use the "row number minus date" trick — a very common interview pattern worth memorizing.
