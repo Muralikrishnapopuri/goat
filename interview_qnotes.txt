@@ -1,18 +1,4 @@
-Redux 
-Fast API
-JWT
-outh 2.0
-rest api
-Graph QL
-next js
-ci/cd
-aws cloud services 
-python
-ngrok
-linux
-electron.js
-c
-gen ai vs agentic ai
+
 -->
 weekness-
 earlier on , i had been working over-engineer like over hard wokring to give the best solutions for my assigned tasks so even for the problems which i can't solve i try until i fix it so somtimes i fell like stressful becuase of these but fine i believe this will help me to grow in career . sometimes i do overthiking like what if heppend to my team if  did't  fix the problem like that i do overthinking.
@@ -83,3 +69,141 @@ both , depending on whats needed , i take initiative on the pieces i own like my
 
 
 
+# Technical Definitions — Interview Preparation
+
+## 1. Redux
+
+**Redux is a state management library used to store and manage application state in a predictable way.**
+
+## 2. FastAPI
+
+**FastAPI is a modern Python framework used to build fast and scalable web APIs.**
+
+## 3. JWT
+
+**JWT (JSON Web Token) is a signed token used to securely transfer information between a client and server, commonly for authentication.**
+
+## 4. OAuth 2.0
+
+**OAuth 2.0 is an authorization framework that allows an application to access a user's resources without sharing the user's password.**
+
+## 5. Authentication
+
+**Authentication:** Verifies the user's identity.
+**Example:** Login with username/password.
+
+## 6. Authorization
+
+**Authorization:** Determines what an authenticated user can access.
+**Example:** Admin can delete users, but a normal user cannot.
+
+## 7. REST API
+
+**REST API is an API style that uses HTTP methods like GET, POST, PUT, PATCH, and DELETE to work with resources.**
+
+## 8. GraphQL
+
+**GraphQL is an API query language that allows clients to request exactly the data they need.**
+
+## 9. SOAP API
+
+**SOAP is a protocol that uses XML-based messages for communication between applications.**
+
+## 10. WebSocket API
+
+**WebSocket is a communication protocol that provides a persistent two-way connection between the client and server for real-time communication.**
+
+## 11. gRPC
+
+**gRPC is a high-performance framework that allows applications or services to call methods on another service.**
+
+## 12. Webhook
+
+**A webhook is a mechanism where one application automatically sends data to another application when a specific event occurs.**
+
+## 13. Next.js
+
+**Next.js is a React framework for building full-stack web applications with features like routing, server-side rendering, and server-side functionality.**
+
+## 14. CI/CD
+
+**CI/CD is a development process that automates code integration, testing, building, and deployment.**
+
+**Typical Flow:**
+**Feature Branch → Commit → Push → Merge Request/Pull Request → CI → Build/Test → Code Review → Merge → CD → Deploy**
+
+**CI — Continuous Integration:** Automatically builds and tests code changes when developers push or merge code.
+
+**CD — Continuous Delivery/Deployment:** Automates preparing or deploying successfully tested code to environments such as staging or production.
+
+## 15. AWS
+
+**AWS (Amazon Web Services) is a cloud platform that provides on-demand services such as servers, storage, databases, networking, security, and monitoring.**
+
+### Important AWS Services
+
+* **EC2:** Virtual servers used to run applications.
+* **S3:** Object storage for files, images, videos, and backups.
+* **RDS:** Managed relational databases such as MySQL and PostgreSQL.
+* **Lambda:** Runs code without managing servers.
+* **DynamoDB:** Managed NoSQL database.
+* **CloudFront:** CDN used to deliver content faster.
+* **Route 53:** DNS service for managing domains and routing traffic.
+* **VPC:** Private virtual network for AWS resources.
+* **IAM:** Manages users, roles, permissions, and access.
+* **CloudWatch:** Monitoring and logging service.
+* **API Gateway:** Service for creating and managing APIs.
+* **ECR:** Stores Docker container images.
+* **ECS:** Runs and manages containerized applications.
+
+## 16. Python
+
+**Python is a high-level programming language known for its simple syntax and wide range of applications, including web development, automation, AI, and data science.**
+
+## 17. ngrok
+
+**ngrok is a tunneling tool that creates a public URL for a locally running application.**
+
+## 18. Linux
+
+**Linux is an open-source operating system widely used for servers, cloud infrastructure, development, and embedded systems.**
+
+## 19. Electron.js
+
+**Electron is a framework for building cross-platform desktop applications using web technologies such as HTML, CSS, and JavaScript.**
+
+## 20. C
+
+**C is a fast, general-purpose programming language that provides low-level memory control and is widely used for system-level and embedded programming.**
+
+# AI Concepts
+
+## 21. Predictive AI
+
+**Predictive AI uses data and machine learning to predict future outcomes or events.**
+
+**Example:** Predicting customer demand or detecting possible fraud.
+
+## 22. Generative AI
+
+**Generative AI creates new content such as text, images, audio, video, or code based on patterns learned from data.**
+
+## 23. Agentic AI
+
+**Agentic AI refers to AI systems that can plan, make decisions, use tools, and take actions to achieve a goal.**
+
+### Easy Difference
+
+**Predictive AI → Predicts**
+**Generative AI → Creates**
+**Agentic AI → Acts**
+
+# Verification vs Validation
+
+**Verification:** Checks whether we are building the product correctly according to the specified requirements.
+
+**Validation:** Checks whether we are building the right product according to the user's or business needs.
+
+**Easy Memory:**
+**Verification → Correctly built?**
+**Validation → Correct product?**
