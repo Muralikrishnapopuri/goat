@@ -6,6 +6,9 @@ earlier on , i had been working over-engineer like over hard wokring to give the
 strength-
 ownership and reliability , whenever i working on a specific features i can see through , including the edge cases most people skip and i fully understand the feature which i gave me and i also adapt fast about the new tools . and i actively use ai powered coding assistance to make the development faster .
 
+last wokring day ?
+"My last working day isn't officially decided yet, since I haven't put in my formal resignation. But my service bond is already completed, so I'm free to resign anytime. I have a good relationship with my manager, so I'm confident about a smooth release — I've already completed proper documentation of my last project and gave a KT session to my juniors last week. So once I resign, I'm confident I'll be released within 30 days."
+
 why should hire u ?
 because , i bring the real , hands on experience and hard engineering problems , i've build offline pos platform which runs with zero internet dependency and also build cloud sync engine for multi branch data consistency without duplication . that kinda reliability i bringing to you team from the day one . 
 
