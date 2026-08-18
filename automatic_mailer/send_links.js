@@ -20,90 +20,24 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const rawTextContent = `FREE & PAID LEARNING / CERTIFICATION RESOURCES
+const rawTextContent = `LINKEDIN POST SEARCHES: BULK HIRING, DRIVES & WALK-INS
+Click these links to view real-time posts from HRs, companies, and agencies about bulk hires and recruitment drives.
 
-=== FREE LEARNING PLATFORMS ===
-1. freeCodeCamp (Full Stack / React / JavaScript)
-https://www.freecodecamp.org/
+=== LINKEDIN SEARCH LINKS FOR RECENT POSTS (SORTED BY DATE) ===
 
-2. Great Learning Academy (Full Stack, React, Node.js, AI)
-https://www.mygreatlearning.com/academy
+1. Bulk Hiring - Full Stack / React / Node (Hyderabad & Bengaluru)
+https://www.linkedin.com/search/results/content/?keywords=%22bulk%20hiring%22%20AND%20%28%22full%20stack%22%20OR%20%22react%22%20OR%20%22node%22%29%20AND%20%28%22hyderabad%22%20OR%20%22bangalore%22%29&sortBy=%22date_posted%22
 
-3. Simplilearn SkillUp (Full Stack, MERN, React, AI)
-https://www.simplilearn.com/skillup-free-online-courses
+2. Walk-in & Hiring Drives - Full Stack / React / Node (Hyderabad & Bengaluru)
+https://www.linkedin.com/search/results/content/?keywords=%28%22hiring%20drive%22%20OR%20%22walkin%22%20OR%20%22walk-in%22%29%20AND%20%28%22full%20stack%22%20OR%20%22react%22%20OR%20%22node%22%29%20AND%20%28%22hyderabad%22%20OR%20%22bangalore%22%29&sortBy=%22date_posted%22
 
-4. Infosys Springboard (Full Stack, React, AI)
-https://infyspringboard.onwingspan.com/
+3. Recruitment / Pool Drives - Full Stack / React / Node
+https://www.linkedin.com/search/results/content/?keywords=%28%22pool%20campus%22%20OR%20%22recruitment%20drive%22%29%20AND%20%28%22full%20stack%22%20OR%20%22react%22%20OR%20%22node%22%29&sortBy=%22date_posted%22
 
-5. Microsoft Learn (Azure, AI, GitHub, Web Development)
-https://learn.microsoft.com/training/
+4. Placement Institutions / Agency drives
+https://www.linkedin.com/search/results/content/?keywords=%22placement%20drive%22%20AND%20%28%22full%20stack%22%20OR%20%22react%22%29&sortBy=%22date_posted%22
 
-6. Google Cloud Skills Boost (AI, Cloud, Generative AI)
-https://www.cloudskillsboost.google/
-
-7. Oracle University (Oracle APEX, Java, OCI)
-https://education.oracle.com/
-
-8. SoloLearn (JavaScript, React, Web Development)
-https://www.sololearn.com/
-
-9. MindLuster (Web Development, React, AI)
-https://www.mindluster.com/
-
-10. Kaggle Learn (Python, ML, AI)
-https://www.kaggle.com/learn
-
-11. Hugging Face Courses (LLMs, AI)
-https://huggingface.co/learn
-
-12. DeepLearning.AI Short Courses (AI, LLMs, Agents)
-https://www.deeplearning.ai/short-courses/
-
-=== PAID / CERTIFICATION PLATFORMS ===
-1. IBM Full Stack Software Developer Professional Certificate
-https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer
-
-2. Meta Front-End Developer Professional Certificate
-https://www.coursera.org/professional-certificates/meta-front-end-developer
-
-3. Meta Back-End Developer Professional Certificate
-https://www.coursera.org/professional-certificates/meta-back-end-developer
-
-4. Microsoft Full-Stack Developer Professional Certificate
-https://www.coursera.org/professional-certificates/microsoft-full-stack-developer
-
-5. Google AI Essentials
-https://www.coursera.org/learn/google-ai-essentials
-
-6. Google Cybersecurity Professional Certificate
-https://www.coursera.org/professional-certificates/google-cybersecurity
-
-7. DeepLearning.AI Generative AI Specializations
-https://www.coursera.org/partners/deeplearning-ai
-
-8. AWS Certified Developer – Associate
-https://aws.amazon.com/certification/certified-developer-associate/
-
-9. Microsoft Azure AI Engineer Associate (AI-102)
-https://learn.microsoft.com/certifications/azure-ai-engineer/
-
-10. Microsoft Azure Developer Associate (AZ-204)
-https://learn.microsoft.com/certifications/azure-developer/
-
-11. Oracle Java Professional Certification
-https://education.oracle.com/
-
-12. Udemy (React, MERN, Full Stack, AI)
-https://www.udemy.com/
-
-13. Codecademy Pro (Full Stack, React)
-https://www.codecademy.com/
-
-14. LinkedIn Learning
-https://www.linkedin.com/learning/
-
-15. edX Professional Certificates
-https://www.edx.org/professional-certificate`;
+Tip: Once you open any of the links above, you can filter by "Date Posted" (e.g., "Past 24 hours" or "Past Week") in LinkedIn to see only the freshest drives.`;
 
 function convertTextToHtml(text) {
   // Replace URLs with clickable anchors
@@ -120,13 +54,13 @@ function convertTextToHtml(text) {
 const mailOptions = {
   from: `"Murali Krishna Popuri" <${SENDER_EMAIL}>`,
   to: "popurimuralikrishna04@gmail.com",
-  subject: "Free & Paid Learning / Certification Resources",
+  subject: "LinkedIn Bulk Hiring, Walk-in & Pool Drive Post Searches",
   text: rawTextContent,
   html: convertTextToHtml(rawTextContent),
 };
 
 async function send() {
-  console.log("Sending learning resources email to popurimuralikrishna04@gmail.com...");
+  console.log("Sending LinkedIn post search links to popurimuralikrishna04@gmail.com...");
   const info = await transporter.sendMail(mailOptions);
   console.log("Email sent successfully: ", info.messageId);
 }

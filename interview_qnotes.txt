@@ -32,7 +32,7 @@ so , my decision to move is maily driven by career growth , keep learning , a ch
 (yes , you speaking this murali krishna . one second please , let me move into a quiter place then we can talk properly . yess i;m good now please go head.)
 
 whats motivates you ?
-i'm highly motivated by continuous innovation in technology . now adays what i've  learnt to day it will become outdated for tomorrow so , i like to learn latest tools and technologies . whenver i see new ai mpodels or techcnologies released by companies like anthropic , google , openai . i get excited to learn about them and think about what i can build with them andalso curiosity the opportunity to create sometihg new is really motivates me a lot.
+i'm highly motivated by continuous innovation in technology . now adays what i've  learnt today it will become outdated for tomorrow so , i like to learn latest tools and technologies . whenver i see new ai mpodels or techcnologies released by companies like anthropic , google , openai . i get excited to learn about them and think about what i can build with them andalso curiosity the opportunity to create sometihg new is really motivates me a lot.
 
 how do you handle pressure?
 
@@ -54,7 +54,7 @@ yesdefinitely, i enjoy working in a team beacuse good communicatin and collabora
 salary expectation ?
 
 based on my roles and responsibilities as full stack developer i'm looking for a compesation  package so, i;m open to discussing the overall package and main priority is finding the right opportunity where i can grwo technically and contribute tot he team.
-...round 5-6 lpa.
+...round 3-5 lpa.
 
 How do you prioritize your work?
 
@@ -78,11 +78,11 @@ both , depending on whats needed , i take initiative on the pieces i own like my
 
 # Technical Definitions — Interview Preparation
 
-## 1. Redux
+## 1. Redux(library)
 
 **Redux is a state management library used to store and manage application state in a predictable way.**
 
-## 2. FastAPI
+## 2. FastAPI(python library\)
 
 **FastAPI is a modern Python framework used to build fast and scalable web APIs.**
 
@@ -129,7 +129,7 @@ both , depending on whats needed , i take initiative on the pieces i own like my
 **A webhook is a mechanism where one application automatically sends data to another application when a specific event occurs.**
 
 ## 13. Next.js
-
+ 
 **Next.js is a React framework for building full-stack web applications with features like routing, server-side rendering, and server-side functionality.**
 
 ## 14. CI/CD
