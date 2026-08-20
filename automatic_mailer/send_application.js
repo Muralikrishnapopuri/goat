@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 const path = require("path");
+const fs = require("fs");
 require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 const SENDER_EMAIL = process.env.SENDER_EMAIL || "popurimurali16@gmail.com";
@@ -20,84 +21,130 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const subject = "Application for Full Stack Developer (Bulk Hiring) — Murali Krishna Popuri";
+const subject = "Re: Candidate Information Response — Murali Krishna Popuri";
 
-const body = `Dear Hiring Team at Excel Tech Computers,
+const body = `Hi Team,
 
-I hope you are doing well.
+Thank you for reaching out. Here are my details as requested:
 
-I am writing to express my strong interest in the Full Stack Developer positions available through your bulk hiring program. With 2 years of professional experience building scalable desktop systems, real-time web applications, and hybrid offline-first databases, I am confident I can contribute effectively to your engineering projects.
+Candidate Information
+1. Full Name: Murali Krishna Popuri
+2. Mobile Number: +91 9347796811
+3. Email Address: popurimurali16@gmail.com
+4. LinkedIn Profile: https://linkedin.com/in/murali-krishna-popuri
+5. Current Location: Vijayawada / Hyderabad
+6. Preferred Location: Hyderabad / Bengaluru
+7. Open to PAN India / Remote?: Yes
 
-In my current role at YoungMinds Technology Solutions, I built the core desktop POS architecture for RestoSoft using Electron, React, TypeScript, Node.js, and SQLite, which operates with zero internet dependency. I also designed a real-time LAN-based synchronization system for multiple local devices and engineered a bi-directional cloud data sync engine.
+Professional Details
+8. Current Company: Young Minds Technologies and Solutions
+9. Current Designation: Full-Stack Developer
+10. Total IT Experience: 2 Years
+11. Relevant Experience: 2 Years (React, Node.js, PHP, SQL, TypeScript)
+12. Primary Technology / Skill: Full-Stack (React.js, Node.js, TypeScript)
+13. Secondary Skills: PHP, PostgreSQL, MySQL, SQLite, MongoDB, Electron.js, Redux, Tailwind, AWS
+14. Highest Qualification: B.Tech
+15. Graduation Year: 2023
 
-My technical stack is highly aligned with modern full-stack development:
-• Frontend: React.js, Next.js, Redux, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS.
-• Backend & APIs: Node.js, Express.js, PHP, REST APIs, WebSockets.
-• Databases & Tools: PostgreSQL, MySQL, SQLite, MongoDB, Redis, Git, GitHub.
+Compensation Details
+16. Current CTC: 1.8 LPA (₹15,000 / month)
+17. Expected CTC: 3.6 LPA (₹30,000 / month)
+18. Notice Period: 1 Month left (Negotiable - bond completed)
+19. Earliest Joining Date: Within 2 weeks (Negotiable)
 
-I am highly proactive, take complete ownership of my features, and focus on delivering robust, clean code. My notice period is 40 days (negotiable, current company bond is completed).
+Availability
+20. Are you currently serving notice?: Yes (Bond completed)
+21. Are you an Immediate Joiner?: Negotiable (Within 2 weeks)
+22. Are you currently holding any offer?: No
+23. If yes, Offer CTC: N/A
+24. Interview Availability: Flexible / Immediate
 
-I have attached my resume (MURALI-KRISHNA_Aug17.pdf) for your review. You can also view my details at:
-• Portfolio: https://murali-portfolio-website.vercel.app
-• GitHub: https://github.com/Muralikrishnapopuri
-• LinkedIn: https://linkedin.com/in/murali-krishna-popuri
+Recruitment Confirmation
+25. Are you actively looking for a job?: Yes
+26. Are you comfortable with your profile being shared with relevant hiring companies?: Yes
+27. Have you already been submitted/interviewed for the same opportunity through another recruiter?: No
 
-Thank you for your time and consideration. I would welcome the opportunity to discuss how my full-stack capabilities can support Excel Tech Computers.
+My portfolio link: https://murali-portfolio-website.vercel.app and GitHub: https://github.com/Muralikrishnapopuri.
 
-Best regards,
+I have attached my updated resume. Looking forward to hearing from you.
+
+Thanks,
 Murali Krishna Popuri
-Phone: +91 9347796811
-Email: popurimurali16@gmail.com`;
++91 9347796811`;
 
 const htmlBody = `
   <div style="font-family: Arial, sans-serif; font-size: 14px; color: #222; line-height: 1.6; max-width: 650px;">
-    <p>Dear Hiring Team at Excel Tech Computers,</p>
-    <p>I hope you are doing well.</p>
-    <p>I am writing to express my strong interest in the <strong>Full Stack Developer</strong> positions available through your <strong>bulk hiring program</strong>. With 2 years of professional experience building scalable desktop systems, real-time web applications, and hybrid offline-first databases, I am confident I can contribute effectively to your engineering projects.</p>
-    
-    <p>In my current role at YoungMinds Technology Solutions, I built the core desktop POS architecture for RestoSoft using Electron, React, TypeScript, Node.js, and SQLite, which operates with zero internet dependency. I also designed a real-time LAN-based synchronization system for multiple local devices and engineered a bi-directional cloud data sync engine.</p>
+    <p>Hi Team,</p>
+    <p>Thank you for reaching out. Here are my details as requested:</p>
 
-    <p>My technical stack is highly aligned with modern full-stack development:</p>
-    <ul>
-      <li><strong>Frontend:</strong> React.js, Next.js, Redux, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS.</li>
-      <li><strong>Backend &amp; APIs:</strong> Node.js, Express.js, PHP, REST APIs, WebSockets.</li>
-      <li><strong>Databases &amp; Tools:</strong> PostgreSQL, MySQL, SQLite, MongoDB, Redis, Git, GitHub.</li>
-    </ul>
+    <p><strong>Candidate Information</strong><br/>
+    1. Full Name: Murali Krishna Popuri<br/>
+    2. Mobile Number: +91 9347796811<br/>
+    3. Email Address: popurimurali16@gmail.com<br/>
+    4. LinkedIn Profile: <a href="https://linkedin.com/in/murali-krishna-popuri" target="_blank">linkedin.com/in/murali-krishna-popuri</a><br/>
+    5. Current Location: Vijayawada / Hyderabad<br/>
+    6. Preferred Location: Hyderabad / Bengaluru<br/>
+    7. Open to PAN India / Remote?: Yes</p>
 
-    <p>I am highly proactive, take complete ownership of my features, and focus on delivering robust, clean code. My notice period is 40 days (negotiable, current company bond is completed).</p>
+    <p><strong>Professional Details</strong><br/>
+    8. Current Company: Young Minds Technologies and Solutions<br/>
+    9. Current Designation: Full-Stack Developer<br/>
+    10. Total IT Experience: 2 Years<br/>
+    11. Relevant Experience: 2 Years (React, Node.js, PHP, SQL, TypeScript)<br/>
+    12. Primary Technology / Skill: Full-Stack (React.js, Node.js, TypeScript)<br/>
+    13. Secondary Skills: PHP, PostgreSQL, MySQL, SQLite, MongoDB, Electron.js, Redux, Tailwind, AWS<br/>
+    14. Highest Qualification: B.Tech<br/>
+    15. Graduation Year: 2023</p>
 
-    <p>I have attached my resume (MURALI-KRISHNA_Aug17.pdf) for your review. You can also view my details at:</p>
-    <ul>
-      <li><strong>Portfolio:</strong> <a href="https://murali-portfolio-website.vercel.app" target="_blank">murali-portfolio-website.vercel.app</a></li>
-      <li><strong>GitHub:</strong> <a href="https://github.com/Muralikrishnapopuri" target="_blank">github.com/Muralikrishnapopuri</a></li>
-      <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/murali-krishna-popuri" target="_blank">linkedin.com/in/murali-krishna-popuri</a></li>
-    </ul>
+    <p><strong>Compensation Details</strong><br/>
+    16. Current CTC: 1.8 LPA (₹15,000 / month)<br/>
+    17. Expected CTC: 3.6 LPA (₹30,000 / month)<br/>
+    18. Notice Period: 1 Month left (Negotiable - bond completed)<br/>
+    19. Earliest Joining Date: Within 2 weeks (Negotiable)</p>
 
-    <p>Thank you for your time and consideration. I would welcome the opportunity to discuss how my full-stack capabilities can support Excel Tech Computers.</p>
+    <p><strong>Availability</strong><br/>
+    20. Are you currently serving notice?: Yes (Bond completed)<br/>
+    21. Are you an Immediate Joiner?: Negotiable (Within 2 weeks)<br/>
+    22. Are you currently holding any offer?: No<br/>
+    23. If yes, Offer CTC: N/A<br/>
+    24. Interview Availability: Flexible / Immediate</p>
+
+    <p><strong>Recruitment Confirmation</strong><br/>
+    25. Are you actively looking for a job?: Yes<br/>
+    26. Are you comfortable with your profile being shared with relevant hiring companies?: Yes<br/>
+    27. Have you already been submitted/interviewed for the same opportunity through another recruiter?: No</p>
+
+    <p>My portfolio link: <a href="https://murali-portfolio-website.vercel.app" target="_blank">murali-portfolio-website.vercel.app</a> and GitHub: <a href="https://github.com/Muralikrishnapopuri" target="_blank">github.com/Muralikrishnapopuri</a>.</p>
+
+    <p>I have attached my updated resume. Looking forward to hearing from you.</p>
+
     <br/>
-    <p>Best regards,<br/>
+    <p>Thanks,<br/>
     <strong>Murali Krishna Popuri</strong><br/>
-    Phone: +91 9347796811<br/>
-    Email: popurimurali16@gmail.com</p>
+    +91 9347796811</p>
   </div>
 `;
 
+const resumeFile = fs.existsSync(path.join(__dirname, "MURALI-KRISHNA_Aug20.pdf"))
+  ? "MURALI-KRISHNA_Aug20.pdf"
+  : "MURALI-KRISHNA_Aug17.pdf";
+
 const mailOptions = {
   from: `"Murali Krishna Popuri" <${SENDER_EMAIL}>`,
-  to: "dev@exceltechcomputers.com",
+  to: "dltalenttechnology@gmail.com",
   subject: subject,
   text: body,
   html: htmlBody,
   attachments: [
     {
-      filename: "MURALI-KRISHNA_Aug17.pdf",
-      path: path.join(__dirname, "MURALI-KRISHNA_Aug17.pdf"),
+      filename: resumeFile,
+      path: path.join(__dirname, resumeFile),
     }
   ]
 };
 
 async function send() {
-  console.log("Sending email to dev@exceltechcomputers.com...");
+  console.log("Sending official response email to dltalenttechnology@gmail.com...");
   const info = await transporter.sendMail(mailOptions);
   console.log("Email sent successfully: ", info.messageId);
 }

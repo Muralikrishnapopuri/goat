@@ -1,0 +1,37 @@
+MURALI KRISHNA POPURI
+Full-Stack Developer | +91 9347796811 | popurimurali16@gmail.com
+Portfolio: https://murali-portfolio-website.vercel.app
+LinkedIn: https://linkedin.com/in/murali-krishna-popuri
+GitHub: https://github.com/Muralikrishnapopuri
+
+Date: August 18, 2026
+
+To,
+The Hiring Team & Talent Acquisition,
+The Depository Trust & Clearing Corporation (DTCC)
+
+Subject: Application for Full-Stack Developer Position — Murali Krishna Popuri
+
+Dear Hiring Team at DTCC,
+
+I am writing to express my enthusiastic interest in the Full-Stack Developer position at The Depository Trust & Clearing Corporation (DTCC). With 2 years of hands-on professional experience architecting mission-critical, real-time desktop POS solutions, distributed cloud synchronization engines, and high-performance web applications, I am eager to leverage my technical skill set to support DTCC's robust, secure financial market infrastructure.
+
+In my current role at YoungMinds Technology Solutions, I spearheaded the core software architecture for RestoSoft—an offline-first POS platform built with Electron, React, TypeScript, Node.js, and SQLite. A central achievement was designing a real-time LAN synchronization protocol that maintains zero-latency data consistency across cashier and waiter terminals without internet dependency. Additionally, I engineered a resilient, bi-directional cloud data synchronization engine handling automatic retries and conflict resolution to guarantee data integrity across multi-branch enterprise setups.
+
+My technical profile closely aligns with DTCC’s standards for software engineering excellence:
+• Frontend Development: Proficient in React.js, Next.js, Redux, TypeScript, JavaScript (ES6+), HTML5, CSS3, and Tailwind CSS for building responsive, intuitive user interfaces.
+• Backend & Distributed Systems: Hands-on experience with Node.js, Express.js, PHP, WebSockets for real-time streaming, and RESTful API architecture.
+• Databases & Data Integrity: Strong experience in PostgreSQL, MySQL, SQLite, MongoDB, and Redis caching.
+• Systems Architecture: Deep focus on data sync, rate limiting, secure middle-ware authentication (JWT/OAuth2), and high availability.
+
+DTCC's reputation for powering the global financial system with resilient, scalable, and innovative post-trade infrastructure deeply inspires me. Having completed my initial contract/bond commitment at YoungMinds, I am actively seeking a job switch to an organization where I can solve complex engineering challenges, write resilient code, and drive continuous technical value.
+
+My notice period is 40 days (negotiable for the right opportunity). I have attached my resume for your review and would welcome the opportunity to discuss how my full-stack experience can contribute to DTCC’s engineering goals.
+
+Thank you for your time and consideration.
+
+Sincerely,
+
+Murali Krishna Popuri
+Phone: +91 9347796811
+Email: popurimurali16@gmail.com

@@ -1,0 +1,37 @@
+MURALI KRISHNA POPURI
+Full-Stack Developer | +91 9347796811 | popurimurali16@gmail.com
+Portfolio: https://murali-portfolio-website.vercel.app
+LinkedIn: https://linkedin.com/in/murali-krishna-popuri
+GitHub: https://github.com/Muralikrishnapopuri
+
+Date: August 18, 2026
+
+To,
+The Hiring Team & Talent Acquisition,
+CBRE Group, Inc.
+
+Subject: Application for Full-Stack Developer Position — Murali Krishna Popuri
+
+Dear Hiring Team at CBRE,
+
+I am writing to express my strong interest in the Full-Stack Developer position at CBRE Group, Inc. With 2 years of professional experience building scalable web applications, real-time desktop systems, and distributed cloud synchronization platforms, I am excited about the prospect of contributing to CBRE’s world-class digital and technology solutions.
+
+In my current role at YoungMinds Technology Solutions, I built high-performance web applications (Admin SaaS, Cashier, Waiter, and Digital Menu portals) and led the engineering of RestoSoft—an offline-first POS platform developed with React, TypeScript, Node.js, Electron, and SQLite. I engineered a real-time LAN synchronization protocol for local terminals alongside a bi-directional cloud data sync engine that ensures automatic retries, conflict handling, and seamless multi-location data consistency.
+
+My technical experience aligns directly with CBRE's software development needs:
+• Frontend Excellence: Proficient in React.js, Next.js, Redux, TypeScript, JavaScript (ES6+), HTML5, CSS3, and Tailwind CSS for creating intuitive, responsive user experiences.
+• Scalable Backend Architecture: Hands-on expertise in Node.js, Express.js, PHP, WebSockets, and RESTful API integrations.
+• Database Management: Strong capabilities in PostgreSQL, MySQL, SQLite, MongoDB, and Redis caching for optimized query execution.
+• Cloud & Tools: Experienced with AWS S3, Vercel, Git version control, and Agile development workflows.
+
+CBRE's commitment to technological innovation in commercial real estate deeply motivates me. Having completed my initial contract/bond commitment at YoungMinds, I am actively seeking a job switch to an organization where I can deliver impactful, clean, and scalable code.
+
+My notice period is 40 days (negotiable for the right opportunity). I have attached my resume for your review and look forward to discussing how my full-stack capabilities can support CBRE’s engineering team.
+
+Thank you for your time and consideration.
+
+Sincerely,
+
+Murali Krishna Popuri
+Phone: +91 9347796811
+Email: popurimurali16@gmail.com
