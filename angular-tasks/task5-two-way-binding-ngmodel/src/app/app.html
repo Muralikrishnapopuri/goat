@@ -1,0 +1,59 @@
+<div class="container">
+  <header class="header">
+    <span class="badge">TASK 5 | Server Port 4205</span>
+    <h1>{{ title }}</h1>
+    <p class="subtitle">Banana in a Box [(ngModel)] vs React Controlled Inputs</p>
+  </header>
+
+  <div class="comparison-box">
+    <strong>💡 React vs Angular Two-Way Binding:</strong><br>
+    • React Controlled Input: <code class="code-pill">&lt;input value=&#123;val&#125; onChange=&#123;e =&gt; setVal(e.target.value)&#125; /&gt;</code><br>
+    • Angular [(ngModel)]: <code class="code-pill">&lt;input [(ngModel)]="val" /&gt;</code> (Requires <code class="code-pill">FormsModule</code>)
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+    <!-- Form Inputs with [(ngModel)] -->
+    <div class="card">
+      <h2 style="color: #38bdf8; margin-bottom: 1rem;">📝 Interactive Inputs</h2>
+
+      <div style="margin-bottom: 1rem;">
+        <label style="color: #94a3b8; font-size: 0.9rem;">Developer Name [(ngModel)]:</label>
+        <input type="text" class="input-field" [(ngModel)]="developerName" />
+      </div>
+
+      <div style="margin-bottom: 1rem;">
+        <label style="color: #94a3b8; font-size: 0.9rem;">Favorite Framework [(ngModel)]:</label>
+        <select class="input-field" [(ngModel)]="favoriteTech">
+          <option value="Angular">Angular (Framework)</option>
+          <option value="React">React (Library)</option>
+          <option value="Vue">Vue.js</option>
+          <option value="Next.js">Next.js</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 1rem;">
+        <label style="color: #94a3b8; font-size: 0.9rem;">Years of Experience: {{ experienceYears }}</label>
+        <input type="range" min="1" max="10" class="input-field" [(ngModel)]="experienceYears" />
+      </div>
+
+      <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+        <input type="checkbox" id="avail" [(ngModel)]="isAvailableForHire" style="width: 1.2rem; height: 1.2rem;" />
+        <label for="avail" style="color: #f8fafc; font-size: 0.95rem;">Available for immediate hire</label>
+      </div>
+
+      <button class="btn" style="background: rgba(255,255,255,0.1);" (click)="resetForm()">Reset Form</button>
+    </div>
+
+    <!-- Live Preview Card -->
+    <div class="card" style="border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.08);">
+      <h2 style="color: #a78bfa; margin-bottom: 1rem;">⚡ Live Synchronized State</h2>
+
+      <div style="padding: 1rem; background: rgba(15, 23, 42, 0.7); border-radius: 0.5rem; line-height: 1.8;">
+        <p>👤 <strong>Name:</strong> <span style="color: #60a5fa;">{{ developerName || 'N/A' }}</span></p>
+        <p>⚡ <strong>Tech Choice:</strong> <span style="color: #34d399;">{{ favoriteTech }}</span></p>
+        <p>💼 <strong>Experience:</strong> {{ experienceYears }} year(s)</p>
+        <p>🟢 <strong>Status:</strong> {{ isAvailableForHire ? 'Ready for Job Offers ✅' : 'Not Looking ❌' }}</p>
+      </div>
+    </div>
+  </div>
+</div>

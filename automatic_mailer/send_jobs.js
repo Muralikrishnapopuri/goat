@@ -198,10 +198,12 @@ function parseResume() {
 
   // Extract skills dynamically
   const allSkills = [
-    "React.js", "React", "Node.js", "Express.js", "Express",
-    "MongoDB", "MySQL", "PostgreSQL", "SQL Server", "SQL",
+    "React.js", "React", "Node.js", "Express.js", "Express", "Angular",
+    "MongoDB", "MySQL", "PostgreSQL", "SQL Server", "SQL", "Kafka",
     "TypeScript", "JavaScript", "HTML5", "CSS3", "HTML", "CSS",
-    "Docker", "Git", "REST API", "JWT", "OAuth",
+    "Docker", "Git", "REST API", "JWT", "OAuth", "Grafana",
+    "RAG", "LLM", "GitHub Copilot", "Claude AI", "Claude", "Copilot",
+    "ELK", "Elasticsearch", "Logstash", "Kibana",
     "Agile", "CI/CD", "Linux", "Responsive Design",
   ];
   const foundSkills = allSkills.filter((s) => lower.includes(s.toLowerCase()));
@@ -238,17 +240,17 @@ function parseResume() {
 }
 
 // ─── ATS Resume Tailoring Engine ────────────────────────────────
-// Uses ONLY Murali's genuine skills from MURALI-KRISHNA_Aug_03.pdf
+// Uses ONLY Murali's genuine skills
 function generateAtsTailoredResume(company, role, keywords) {
   const roleLower = role.toLowerCase();
   
   let topSkillsSection = "";
   if (roleLower.includes("frontend") || roleLower.includes("react")) {
-    topSkillsSection = "• Core Frontend: React.js, Next.js, TypeScript, JavaScript (ES6+), Redux, Tailwind CSS, HTML5, CSS3, Handlebars (HBS)\n• Architecture & UI: Component Lifecycle, State Management, HTML5 Canvas filters, Responsive Web UI/UX\n• Desktop & Backend: Electron, Node.js, Express.js, REST APIs, WebSockets\n• Databases & Tools: PostgreSQL, MongoDB, SQLite, Git, GitHub, Postman, Vercel";
+    topSkillsSection = "• Core Frontend: React.js, Next.js, Angular, TypeScript, JavaScript (ES6+), Redux, Tailwind CSS, HTML5, CSS3, Handlebars (HBS)\n• Architecture & UI: Component Lifecycle, State Management, HTML5 Canvas filters, Responsive Web UI/UX\n• AI & Tools: GitHub Copilot, Claude AI, Git, GitHub, Postman, Vercel, VS Code\n• Desktop & Backend: Electron, Node.js, Express.js, REST APIs, WebSockets, Kafka, Grafana, ELK Stack";
   } else if (roleLower.includes("backend") || roleLower.includes("node")) {
-    topSkillsSection = "• Core Backend: Node.js, Express.js, REST APIs, WebSockets, Webhooks, Node-Cron, Multer, Axios\n• Databases & Caching: PostgreSQL, MySQL, SQLite, MongoDB, Redis, Schema Design, Query Optimization\n• Frontend & Desktop: React.js, TypeScript, Next.js, Electron, Redux\n• Systems & DevOps: LAN Local Server Architecture, Bi-directional Cloud Sync, S3 Uploads, Git, Postman";
+    topSkillsSection = "• Core Backend: Node.js, Express.js, Kafka, REST APIs, WebSockets, Webhooks, Node-Cron, Multer, Axios\n• Databases & Caching: PostgreSQL, MySQL, SQLite, MongoDB, Redis, Schema Design, Query Optimization\n• AI, Search & Monitoring: RAG (Retrieval-Augmented Generation), LLMs, ELK Stack (Elasticsearch, Logstash, Kibana), Grafana, GitHub Copilot, Claude AI\n• Frontend & Desktop: React.js, Angular, TypeScript, Next.js, Electron, Redux, Git, Postman";
   } else {
-    topSkillsSection = "• Languages & Core: JavaScript (ES6+), TypeScript, PHP, SQL (MySQL, PostgreSQL, SQLite), HTML5, CSS3\n• Frontend & Desktop: React.js, Next.js, Electron, Redux, Tailwind CSS, Bootstrap\n• Backend & APIs: Node.js, Express.js, REST APIs, WebSockets, Node-Cron, Multer, Axios\n• Databases & Tools: MongoDB, Redis, Git, GitHub, VS Code, Postman, AWS S3, Vercel";
+    topSkillsSection = "• Languages & Core: JavaScript (ES6+), TypeScript, PHP, SQL (MySQL, PostgreSQL, SQLite), HTML5, CSS3\n• Frontend & Desktop: React.js, Next.js, Angular, Electron, Redux, Tailwind CSS, Bootstrap\n• Backend & APIs: Node.js, Express.js, Kafka, REST APIs, WebSockets, Node-Cron, Multer, Axios\n• Databases & Tools: MongoDB, Redis, RAG, LLMs, ELK Stack (Elasticsearch, Logstash, Kibana), Grafana, Git, GitHub, VS Code, Postman, GitHub Copilot, Claude AI";
   }
 
   return `MURALI KRISHNA POPURI
@@ -259,7 +261,7 @@ LinkedIn: linkedin.com/in/murali-krishna-popuri | GitHub: github.com/Muralikrish
 Target Role: ${role} — ${company}
 
 PROFESSIONAL SUMMARY
-Results-driven Full-Stack Developer with 2+ years of professional experience building scalable desktop systems, real-time web applications, and hybrid offline-first platforms. Proficient in React, TypeScript, Node.js, Express, and SQL/NoSQL databases. Proven track record of architecting local network synchronization protocols, optimizing queries, and delivering high-performance UIs.
+Results-driven Full-Stack Developer with 2+ years of professional experience building scalable desktop systems, real-time web applications, and hybrid offline-first platforms. Proficient in React, TypeScript, Node.js, Express, and SQL/NoSQL databases. Proven track record of leveraging AI tools like GitHub Copilot and Claude AI to accelerate development, architecting local network synchronization protocols, and delivering high-performance applications.
 
 TARGETED ATS TECHNICAL SKILLS
 ${topSkillsSection}
@@ -270,12 +272,14 @@ RestoSoft – Offline Desktop POS (Electron) & Web Platform
 • Built offline-first Windows POS (Electron, React/TS, Node/Express, SQLite) — full billing/KOT works with zero internet.
 • Designed LAN architecture: Main Computer as local server, cashier terminals + waiter app synced via local IP in real-time.
 • Built bi-directional cloud sync engine with auto upload/download, failure retry logic, and zero duplication.
+• Integrated Kafka message broker to handle real-time event streaming and synchronization between cashier and waiter POS terminals.
+• Set up ELK Stack (Elasticsearch, Logstash, Kibana) and Grafana dashboards to monitor logs, database latency, and server health.
 • Developed 4 role-based web applications (Admin, Cashier, Waiter, Digital Menu) supporting Fine Dine, QSR, and Takeaway.
 • Implemented live order updates via long polling, API rate limiting, AWS S3 uploads, and silent thermal printing.
 
 Codtech IT Solutions Pvt Ltd | Full-Stack Developer Intern | Sep 2024 – Oct 2024
-• Developed responsive beverage e-commerce platform using React, Node.js, Express, and MongoDB with REST API integrations.
-• Collaborated in Agile team using Git version control for code reviews and feature pull requests.
+• Developed responsive beverage e-commerce platform using React, Angular, Node.js, Express, and MongoDB with REST API integrations.
+• Collaborated in Agile team using Git version control with AI assistance (GitHub Copilot) for code reviews and feature pull requests.
 
 Chegg India Pvt Ltd | Subject Matter Expert | Oct 2022 – Jan 2023
 • Resolved 150+ complex computer science and web development queries with verified code snippets.
@@ -283,6 +287,7 @@ Chegg India Pvt Ltd | Subject Matter Expert | Oct 2022 – Jan 2023
 KEY PROJECTS
 Zestchat (Real-Time Messaging) | React, Redux, Node.js, Express, PostgreSQL, Cloudinary, Node-Cron
 • Live Demo: https://zestchat.vercel.app | Relational PostgreSQL schema using pg connection pool for optimized query execution.
+• Integrated an AI assistant leveraging RAG (Retrieval-Augmented Generation) and LLM (Claude AI API) to provide smart, context-aware query responses.
 • Built Express routes for guest credential expiration and scheduled Node-Cron background session cleanups.
 
 Pixel Polish (Web Photo Editor) | React.js, HTML5 Canvas, Express, Multer, Cloudinary

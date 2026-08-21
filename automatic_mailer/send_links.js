@@ -20,22 +20,24 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const rawTextContent = `LATEST JOB OPPORTUNITIES, NAUKRI/LINKEDIN LINKS & RECRUITER POSTS (AUGUST 20, 2026)
-Tailored for 2 Years Experience (React.js, Node.js, MERN Stack, PHP, SQL) in Hyderabad & Bengaluru.
+const rawTextContent = `LATEST JOB OPPORTUNITIES, NAUKRI/LINKEDIN LINKS & RECRUITER POSTS (AUGUST 21, 2026)
+Filtered for 2 Years Experience (React.js, Node.js, MERN Stack, PHP, SQL) in Hyderabad & Bengaluru.
 
 === 1. TODAY'S ACTIVE HIRING COMPANIES & VACANCIES ===
 
-1. Tealvue Software (Hyderabad)
+1. Techila Global Services (Hyderabad)
+• Role: Full Stack Developer (React / Node.js)
+• Focus: Cloud web applications & SaaS microservices
+• Apply on Indeed: https://in.indeed.com/cmp/Techila-Global-Services
+
+2. Jurix (Hyderabad)
+• Role: Full Stack Developer (React.js, Node.js, MongoDB)
+• Focus: Enterprise Web Applications
+• Apply on Cutshort: https://cutshort.io/
+
+3. Tealvue Software (Hyderabad)
 • Role: Full Stack Developer (React.js & Node.js)
 • Focus: Cloud SaaS platforms & API architecture
-
-2. Acefluency (Hyderabad)
-• Role: Full Stack Engineer (MERN Stack)
-• Focus: Scalable web applications & real-time features
-
-3. Neutara Technologies (Bengaluru)
-• Role: Full Stack Developer (React / Node / SQL)
-• Focus: Web application microservices
 
 4. Arnsoft Technologies (Hyderabad)
 • Role: Full Stack Developer (React.js & Node.js)
@@ -43,7 +45,7 @@ Tailored for 2 Years Experience (React.js, Node.js, MERN Stack, PHP, SQL) in Hyd
 
 5. Infosys (Hyderabad & Bengaluru)
 • Role: Full Stack Developer (React.js / Node.js)
-• Focus: Enterprise web solutions
+• Focus: Enterprise web solutions & client platforms
 
 
 === 2. LINKEDIN LIVE SEARCH FEEDS (PAST 24 HOURS ONLY) ===
@@ -106,7 +108,7 @@ function convertTextToHtml(text) {
 const mailOptions = {
   from: `"Murali Krishna Popuri" <${SENDER_EMAIL}>`,
   to: "popurimuralikrishna04@gmail.com",
-  subject: "Latest Job Opportunities, LinkedIn/Naukri Links & Recruiter Posts (August 20, 2026)",
+  subject: "Today's Latest Job Opportunities, LinkedIn/Naukri Links & Recruiter Posts (August 21, 2026)",
   text: rawTextContent,
   html: convertTextToHtml(rawTextContent),
 };

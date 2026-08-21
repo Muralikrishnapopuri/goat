@@ -1,0 +1,50 @@
+<div class="container">
+  <header class="header">
+    <span class="badge">TASK 2 | Server Port 4202</span>
+    <h1>{{ title }}</h1>
+    <p class="subtitle">Direct Mapping of ngOnInit, ngOnChanges, and ngOnDestroy to React useEffect</p>
+  </header>
+
+  <div class="comparison-box">
+    <strong>💡 Lifecycle Mapping Table:</strong><br>
+    • <code class="code-pill">ngOnInit()</code> ➔ <code class="code-pill">useEffect(() => &#123;&#125;, [])</code> (Mount)<br>
+    • <code class="code-pill">ngOnChanges(changes)</code> ➔ <code class="code-pill">useEffect(() => &#123;&#125;, [props])</code> (Prop updates)<br>
+    • <code class="code-pill">ngOnDestroy()</code> ➔ <code class="code-pill">useEffect(() => &#123; return () => cleanup() &#125;, [])</code> (Unmount)
+  </div>
+
+  <div class="card">
+    <h2>🎮 Interactive Controls</h2>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <button class="btn" (click)="incrementParentCounter()">
+        Update Prop value (Triggers ngOnChanges): {{ parentCounter }}
+      </button>
+      <button class="btn" [ngClass]="showChild ? 'btn-danger' : 'btn'" (click)="toggleChild()">
+        {{ showChild ? 'Destroy/Unmount Child (Triggers ngOnDestroy)' : 'Mount Child (Triggers ngOnInit)' }}
+      </button>
+    </div>
+
+    <!-- Child Component rendered dynamically -->
+    @if (showChild) {
+      <app-child-timer [counterProp]="parentCounter" [onLog]="addLog"></app-child-timer>
+    } @else {
+      <div style="padding: 1rem; background: rgba(239, 68, 68, 0.1); border: 1px dashed rgba(239, 68, 68, 0.4); border-radius: 0.5rem; margin-top: 1rem; color: #f87171;">
+        ❌ Child Component is unmounted!
+      </div>
+    }
+  </div>
+
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <h2 style="margin-bottom: 0;">📜 Real-Time Lifecycle Execution Log</h2>
+      <button class="btn btn-secondary" style="padding: 0.3rem 0.75rem; font-size: 0.85rem;" (click)="clearLogs()">Clear Logs</button>
+    </div>
+    
+    <div class="log-box">
+      @for (log of logs; track log.timestamp) {
+        <div class="log-item" [ngClass]="'log-' + log.type">
+          [{{ log.timestamp }}] {{ log.message }}
+        </div>
+      }
+    </div>
+  </div>
+</div>

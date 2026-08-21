@@ -1,0 +1,62 @@
+<div class="container">
+  <header class="header">
+    <span class="badge">TASK 1 | Server Port 4201</span>
+    <h1>{{ title }}</h1>
+    <p class="subtitle">Understanding Angular Templates, Property Binding, and Event Binding</p>
+  </header>
+
+  <div class="comparison-box">
+    <strong>💡 React vs Angular Mental Model:</strong><br>
+    In React: <code class="code-pill">return &lt;div onClick=&#123;handleClick&#125;&gt;&#123;name&#125;&lt;/div&gt;</code><br>
+    In Angular: <code class="code-pill">&lt;div (click)="handleClick()"&gt;&#123;&#123; name &#125;&#125;&lt;/div&gt;</code>
+  </div>
+
+  <!-- Section 1: String Interpolation -->
+  <div class="card">
+    <h2>1. String Interpolation <code>&#123;&#123; variable &#125;&#125;</code></h2>
+    <p>Displays class property variables directly in HTML:</p>
+    <div style="margin-top: 0.75rem; padding: 0.75rem; background: rgba(0,0,0,0.3); border-radius: 0.5rem;">
+      <p>👤 <strong>User:</strong> {{ userName }}</p>
+      <p>💼 <strong>Role:</strong> {{ userRole }}</p>
+      <p>⚡ <strong>Status:</strong> {{ isAccountActive ? 'ACTIVE ✅' : 'INACTIVE ❌' }}</p>
+    </div>
+  </div>
+
+  <!-- Section 2: Property Binding -->
+  <div class="card">
+    <h2>2. Property Binding <code>[property]="expression"</code></h2>
+    <p>Binds Angular component class values to HTML attributes/properties (Data flows IN):</p>
+    <div style="margin-top: 1rem; display: flex; gap: 1rem; align-items: center;">
+      <button class="btn" [disabled]="!isAccountActive">
+        Action Button (Disabled if Account Inactive)
+      </button>
+      <button class="btn btn-secondary" (click)="toggleAccountStatus()">
+        Toggle Status: {{ isAccountActive ? 'Deactivate' : 'Activate' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Section 3: Event Binding -->
+  <div class="card">
+    <h2>3. Event Binding <code>(event)="method()"</code></h2>
+    <p>Listens for DOM events and triggers class methods (Data flows OUT):</p>
+    <div style="margin-top: 1rem;">
+      <button class="btn" (click)="incrementCounter()">
+        ➕ Click Counter: {{ clickCount }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Section 4: Manual One-Way Binding -->
+  <div class="card">
+    <h2>4. Input Event Listening <code>(input)="onInputChange($event)"</code></h2>
+    <input 
+      type="text" 
+      class="input-field" 
+      [value]="inputText" 
+      (input)="onInputChange($event)" 
+      placeholder="Type something..."
+    />
+    <p style="margin-top: 0.75rem; color: #a78bfa;">Live Mirror output: <strong>{{ inputText }}</strong></p>
+  </div>
+</div>

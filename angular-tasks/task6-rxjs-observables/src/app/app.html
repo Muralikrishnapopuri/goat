@@ -1,0 +1,51 @@
+<div class="container">
+  <header class="header">
+    <span class="badge">TASK 6 | Server Port 4206</span>
+    <h1>{{ title }}</h1>
+    <p class="subtitle">RxJS Reactive Programming vs Promises / async-await</p>
+  </header>
+
+  <div class="comparison-box">
+    <strong>💡 Promise vs RxJS Observable Mental Shift:</strong><br>
+    • <strong>Promise:</strong> Emits a SINGLE value in the future, non-cancellable.<br>
+    • <strong>RxJS Observable:</strong> Emits a CONTINUOUS STREAM of multiple values over time, cancellable.<br>
+    • <strong>Async Pipe (<code class="code-pill">items$ | async</code>):</strong> Angular automatically subscribes and unsubscribes!
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+    <!-- Card 1: Live Stream Timer -->
+    <div class="card">
+      <h2 style="color: #38bdf8;">⏱️ Continuous RxJS Stream (1s Interval)</h2>
+      
+      <div style="padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 0.5rem; margin-bottom: 1rem;">
+        <p style="font-size: 1.1rem; color: #a78bfa;">
+          Raw Timer (<code class="code-pill">timer$ | async</code>): 
+          <strong>{{ timer$ | async }}s</strong>
+        </p>
+        <p style="font-size: 1.1rem; color: #34d399; margin-top: 0.5rem;">
+          Filtered Even Numbers (<code class="code-pill">evenTimer$ | async</code>): 
+          <strong>{{ evenTimer$ | async }}</strong>
+        </p>
+      </div>
+      <p style="font-size: 0.85rem; color: #94a3b8;">Manual subscription log: {{ manualLog }}</p>
+    </div>
+
+    <!-- Card 2: BehaviorSubject Reactive State -->
+    <div class="card">
+      <h2 style="color: #a78bfa;">📡 Reactive BehaviorSubject State</h2>
+      
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+        <input #itemInput type="text" class="input-field" placeholder="Add new stream item..." />
+        <button class="btn" (click)="addItem(itemInput)">Push</button>
+      </div>
+
+      <ul style="list-style: none;">
+        @for (item of items$ | async; track $index) {
+          <li style="padding: 0.5rem; background: rgba(255,255,255,0.05); margin-bottom: 0.4rem; border-radius: 0.4rem; border-left: 3px solid #8b5cf6;">
+            {{ item }}
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

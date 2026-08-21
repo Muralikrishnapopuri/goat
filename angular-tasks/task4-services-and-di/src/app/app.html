@@ -1,0 +1,18 @@
+<div class="container">
+  <header class="header">
+    <span class="badge">TASK 4 | Server Port 4204</span>
+    <h1>{{ title }}</h1>
+    <p class="subtitle">Shared Application State & Business Logic via Angular Services & DI</p>
+  </header>
+
+  <div class="comparison-box">
+    <strong>💡 React vs Angular Dependency Injection:</strong><br>
+    • React: Wraps components in <code class="code-pill">&lt;UserContext.Provider&gt;</code> and calls <code class="code-pill">useContext(UserContext)</code><br>
+    • Angular: Marks class with <code class="code-pill">@Injectable(&#123; providedIn: 'root' &#125;)</code> and injects into constructor <code class="code-pill">constructor(public userService: UserService)</code>
+  </div>
+
+  <div class="card">
+    <app-header></app-header>
+    <app-profile-editor></app-profile-editor>
+  </div>
+</div>

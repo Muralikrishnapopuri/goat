@@ -1,0 +1,41 @@
+<div class="container">
+  <header class="header">
+    <span class="badge">TASK 7 | Server Port 4207</span>
+    <h1>{{ title }}</h1>
+    <p class="subtitle">Declarative Routing, Router Link Active, & Protected CanActivate Guards</p>
+  </header>
+
+  <div class="comparison-box">
+    <strong>💡 React Router vs Angular Router:</strong><br>
+    • React: <code class="code-pill">&lt;NavLink to="/dashboard"&gt;</code> ➔ Angular: <code class="code-pill">&lt;a routerLink="/dashboard" routerLinkActive="active-link"&gt;</code><br>
+    • Protected Routes: React wrapper component ➔ Angular <code class="code-pill">canActivate: [authGuard]</code>
+  </div>
+
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <div>
+        <strong>Auth Status: </strong>
+        <span [style.color]="authService.isAuthenticated() ? '#34d399' : '#f87171'">
+          {{ authService.isAuthenticated() ? 'AUTHENTICATED ✅' : 'LOGGED OUT ❌' }}
+        </span>
+      </div>
+
+      <div>
+        @if (!authService.isAuthenticated()) {
+          <button class="btn" (click)="authService.login()">Log In</button>
+        } @else {
+          <button class="btn" style="background: rgba(239, 68, 68, 0.2); color: #f87171;" (click)="authService.logout()">Log Out</button>
+        }
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+      <a routerLink="/home" routerLinkActive="active-link" class="nav-link">Home (Public)</a>
+      <a routerLink="/dashboard" routerLinkActive="active-link" class="nav-link">Dashboard (Protected Guard)</a>
+    </nav>
+
+    <!-- Router Viewport Outlet (React <Outlet /> equivalent) -->
+    <router-outlet></router-outlet>
+  </div>
+</div>

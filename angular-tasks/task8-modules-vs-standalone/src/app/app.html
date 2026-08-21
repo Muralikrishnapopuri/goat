@@ -1,0 +1,62 @@
+<div class="container">
+  <header class="header">
+    <span class="badge">TASK 8 | Server Port 4208</span>
+    <h1>{{ title }}</h1>
+    <p class="subtitle">Classic NgModule Architecture vs Modern Standalone Components</p>
+  </header>
+
+  <div class="comparison-box">
+    <strong>💡 React vs Angular Modules vs Standalone:</strong><br>
+    • React: Direct file imports (<code class="code-pill">import Component from './Component'</code>)<br>
+    • Classic Angular: Explicit grouping in <code class="code-pill">@NgModule(&#123; declarations: [...], imports: [...] &#125;)</code><br>
+    • Modern Angular (v14+): <code class="code-pill">@Component(&#123; standalone: true, imports: [CommonModule] &#125;)</code> - behaves like React!
+  </div>
+
+  <div class="card">
+    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+      <button 
+        class="btn" 
+        [style.opacity]="selectedArchitecture === 'standalone' ? '1' : '0.5'"
+        (click)="setArchitecture('standalone')"
+      >
+        ✨ Modern Standalone Component (Angular 14+)
+      </button>
+
+      <button 
+        class="btn" 
+        style="background: rgba(255,255,255,0.1);"
+        [style.opacity]="selectedArchitecture === 'ngmodule' ? '1' : '0.5'"
+        (click)="setArchitecture('ngmodule')"
+      >
+        🏛️ Classic NgModule (Legacy / Enterprise)
+      </button>
+    </div>
+
+    @if (selectedArchitecture === 'standalone') {
+      <div style="padding: 1rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 0.5rem;">
+        <h3 style="color: #34d399; margin-bottom: 0.5rem;">✨ Standalone Architecture</h3>
+        <p style="margin-bottom: 0.5rem;">Components declare their own direct dependencies inside <code class="code-pill">imports: [...]</code>.</p>
+        <pre style="background: #0f172a; padding: 1rem; border-radius: 0.5rem; color: #a78bfa; font-size: 0.85rem; overflow-x: auto;">
+&#64;Component(&#123;
+  selector: 'app-user',
+  standalone: true,
+  imports: [CommonModule, FormsModule, UserCardComponent],
+  templateUrl: './user.component.html'
+&#125;)
+export class UserComponent &#123;&#125;</pre>
+      </div>
+    } @else {
+      <div style="padding: 1rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 0.5rem;">
+        <h3 style="color: #60a5fa; margin-bottom: 0.5rem;">🏛️ Classic NgModule Architecture</h3>
+        <p style="margin-bottom: 0.5rem;">Components must be registered inside an <code class="code-pill">@NgModule</code> class before they can be used.</p>
+        <pre style="background: #0f172a; padding: 1rem; border-radius: 0.5rem; color: #60a5fa; font-size: 0.85rem; overflow-x: auto;">
+&#64;NgModule(&#123;
+  declarations: [UserComponent, UserCardComponent],
+  imports: [CommonModule, FormsModule],
+  exports: [UserComponent]
+&#125;)
+export class UserModule &#123;&#125;</pre>
+      </div>
+    }
+  </div>
+</div>
