@@ -1,0 +1,219 @@
+JavaScript Methods – Simple Cheat Sheet
+
+ARRAY METHODS
+
+1. push()
+Adds item to the end. Returns new array length.
+
+let arr = [1, 2];
+let result = arr.push(3);
+
+console.log(arr);    // [1, 2, 3]
+console.log(result); // 3
+
+
+2. pop()
+Removes last item. Returns the removed item.
+
+let arr = [1, 2, 3];
+let result = arr.pop();
+
+console.log(arr);    // [1, 2]
+console.log(result); // 3
+
+
+3. unshift()
+Adds item to the beginning. Returns new array length.
+
+let arr = [2, 3];
+let result = arr.unshift(1);
+
+console.log(arr);    // [1, 2, 3]
+console.log(result); // 3
+
+
+4. shift()
+Removes first item. Returns the removed item.
+
+let arr = [1, 2, 3];
+let result = arr.shift();
+
+console.log(arr);    // [2, 3]
+console.log(result); // 1
+
+
+5. map()
+Creates a new array by changing every item.
+
+let arr = [1, 2, 3];
+let result = arr.map(x => x * 2);
+
+console.log(result); // [2, 4, 6]
+
+
+6. filter()
+Creates a new array containing only items that pass a condition.
+
+let arr = [1, 2, 3, 4];
+let result = arr.filter(x => x > 2);
+
+console.log(result); // [3, 4]
+
+
+7. reduce()
+Combines all items into one final value.
+
+let arr = [10, 20, 30];
+let result = arr.reduce((sum, x) => sum + x, 0);
+
+console.log(result); // 60
+
+
+8. find()
+Returns the first item that matches the condition.
+
+let arr = [10, 20, 30];
+let result = arr.find(x => x > 15);
+
+console.log(result); // 20
+
+
+9. findIndex()
+Returns the index of the first matching item.
+
+let arr = [10, 20, 30];
+let result = arr.findIndex(x => x > 15);
+
+console.log(result); // 1
+
+
+10. includes()
+Checks whether an item exists. Returns true or false.
+
+let arr = ["js", "react", "node"];
+let result = arr.includes("react");
+
+console.log(result); // true
+
+
+11. indexOf()
+Returns the index of the first matching value.
+
+let arr = ["a", "b", "c", "b"];
+let result = arr.indexOf("b");
+
+console.log(result); // 1
+
+
+12. lastIndexOf()
+Returns the index of the last matching value.
+
+let arr = ["a", "b", "c", "b"];
+let result = arr.lastIndexOf("b");
+
+console.log(result); // 3
+
+
+13. slice()
+Copies a portion of an array without changing the original.
+
+let arr = [10, 20, 30, 40];
+let result = arr.slice(1, 3);
+
+console.log(result); // [20, 30]
+
+
+14. splice()
+Adds/removes/replaces items and changes the original array.
+
+let arr = [10, 20, 30];
+let result = arr.splice(1, 1);
+
+console.log(result); // [20]
+console.log(arr);    // [10, 30]
+
+
+15. forEach()
+Runs a function for every item. Returns undefined.
+
+let arr = [1, 2, 3];
+let result = arr.forEach(x => console.log(x));
+
+console.log(result); // undefined
+
+
+16. join()
+Converts an array into a string.
+
+let arr = ["A", "B", "C"];
+let result = arr.join("-");
+
+console.log(result); // "A-B-C"
+
+
+STRING METHODS
+
+17. split()
+Converts a string into an array.
+
+let str = "A,B,C";
+let result = str.split(",");
+
+console.log(result); // ["A", "B", "C"]
+
+
+18. trim()
+Removes spaces from the beginning and end of a string.
+
+let str = "  hello  ";
+let result = str.trim();
+
+console.log(result); // "hello"
+
+
+19. toLowerCase()
+Converts a string to lowercase.
+
+let str = "HELLO";
+let result = str.toLowerCase();
+
+console.log(result); // "hello"
+
+
+20. toUpperCase()
+Converts a string to uppercase.
+
+let str = "hello";
+let result = str.toUpperCase();
+
+console.log(result); // "HELLO"
+
+
+SUPER-SHORT MEMORY
+
+push        → add end → length
+pop         → remove end → item
+
+unshift     → add start → length
+shift       → remove start → item
+
+map         → change every item → new array
+filter      → select items → new array
+reduce      → combine items → one value
+
+find        → find item → item
+findIndex   → find position → index
+includes    → check item → true/false
+indexOf     → find position → index
+lastIndexOf → find last position → index
+
+slice       → copy portion → new array
+splice      → modify array → removed items
+forEach     → perform action → undefined
+
+join        → array → string
+split       → string → array
+
+trim        → remove outer spaces → string
+toLowerCase → lowercase → string
+toUpperCase → uppercase → string

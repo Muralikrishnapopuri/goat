@@ -30,9 +30,11 @@
 
 // console.log(expcal(4));
 
+const arr = [10, 20];
 
-console.log([] == false);    
-console.log([] == ![]);       
-console.log({} == !{}); 
+const result = arr.push(30, 40);
+
+console.log(arr);    
+console.log(result);
 
 
