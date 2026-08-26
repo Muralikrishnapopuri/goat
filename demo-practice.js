@@ -84,12 +84,31 @@
 // console.log(valuee); 
 
 
-let arr = [10, 20, 30, 40,50,60,70,80];
 
-let result = arr.slice(-4,-1);
-
+// // let result = arr.slice(-4,-1);
 
 
-console.log(result); // [20, 30]
+
+// // console.log(result); // [20, 30]
 
 
+// const a = [1,2,3,4,5];
+
+// console.log(a.slice(3,4));
+// console.log(a.slice(-5));
+// console.log(a.slice(-4,-1));
+// console.log(a.slice(2));
+
+
+// console.log(a.splice(-2,1,33));
+// console.log(a);
+
+// // console.log(a.splice(2,2,2));
+
+// // console.log(a.splice(4,0,5));
+
+
+
+let name = null;
+
+console.log(name ?? "Guest");
