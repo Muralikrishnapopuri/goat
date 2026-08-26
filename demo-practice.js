@@ -109,6 +109,26 @@
 
 
 
-let name = null;
+// let name = null;
+// console.log(name+1)
 
-console.log(name ?? "Guest");
+// const findPalindrom = (s)=>{
+
+// let start = 0; 
+// let end = s.length-1;
+
+// while(start<end){
+//     if(s[start++]==s[end--]){
+// continue
+//     }else{
+//         return "NOt a Palindrom...";
+//     }
+
+
+    
+// }
+
+// return "its true palindrom,,"
+// }
+
+// console.log(findPalindrom("dogod"));
