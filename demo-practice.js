@@ -132,3 +132,28 @@
 // }
 
 // console.log(findPalindrom("dogod"));
+
+// function revers(s){
+//     let result= "";
+//     //
+
+//     for(let i =0;i<=s.length-1;i++){
+//         result = s[i]+result;
+//     }
+   
+// return result==s?"its a palindrom":"not a palindrom";
+// }
+// console.log(revers("palap"));
+
+
+function findMax(arr){
+let finalBig = 0;
+
+for(let i= 0; i<arr.length-1;i++){
+    if(arr[i]>finalBig){
+        finalBig=arr[i]
+    }
+}
+return finalBig
+}
+console.log(findMax([2,10,30,1,33,90,4]))
