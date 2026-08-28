@@ -146,14 +146,108 @@
 // console.log(revers("palap"));
 
 
-function findMax(arr){
-let finalBig = 0;
+// function findMax(arr){
+// let finalBig = 0;
 
-for(let i= 0; i<arr.length-1;i++){
-    if(arr[i]>finalBig){
-        finalBig=arr[i]
-    }
-}
-return finalBig
-}
-console.log(findMax([2,10,30,1,33,90,4]))
+// for(let i= 0; i<arr.length-1;i++){
+//     if(arr[i]>finalBig){
+//         finalBig=arr[i]
+//     }
+// }
+// return finalBig
+// }
+// console.log(findMax([2,10,30,1,33,90,4]))
+
+// const removeDup= (arr)=>{
+//     let result =[22,55];
+
+//     for(let i=0;i<arr.length;i++){
+//        let ifnotdup= true;
+
+//         for(let j=0;j<result.length;j++){
+//             if(arr[i]==result[j]){
+//                 ifnotdup = false;
+//             }
+//         }
+//         if(ifnotdup){
+//             result[result.length] = arr[i];
+//         }
+//     }
+//     return result;
+// }
+
+// console.log(removeDup([22,55,22,3,44,22,3,0,3,4]));
+
+// const anagramChecker = (s1,s2)=>{
+//     if(s1.length!=s2.length) return "Not a Anagram no length macthed";
+// let state = true;
+//     for(let i=0;i<s1.length;i++){
+//         for(let j=0;j<s2.length;j++){
+//             if(s1[i]==sr[j]) return state = false;
+//         }
+//     }
+    
+// }
+
+// console.log(anagramChecker("listen","silent"));
+
+// const fib = (n) => {
+//     if (n <= 0) return [];
+//     if (n === 1) return [0];
+//     let result = [0, 1];
+
+//     for (let i = 2; i < n; i++) {
+//         result[i] = result[i - 1] + result[i - 2];
+//     }
+//     return result;
+// }
+// console.log(fib(10));
+// const countVowels = (str)=>{
+//     let count = 0;
+//     let vowels = ["a","e","i","u","o"];
+//     for(let i=0;i<str.length;i++){
+//         // if(vowels.includes(str[i])){
+//         //     count++
+//         // }
+//         for(let j=0;j<vowels.length;j++){
+//             if(str[i]==vowels[j]){
+//                 count++;
+//             }
+//         }
+//     }
+//     return count;
+// }
+// console.log(countVowels("vowels"))
+
+
+// const flatArray = (arr, r=[])=>{
+
+//     for(let i=0;i<arr.length;i++){
+//         if(Array.isArray(arr[i])){
+//             flatArray(arr[i],r)
+//         }else{
+//             r[r.length]=arr[i];
+//         }
+//     }
+
+//     return r;
+ 
+// }
+// console.log(flatArray([10,11,[12,13,[14,15,[16]]],17,[18,19,[20]]]))
+
+
+// const sumTwo = (arr,macthNumber)=>{
+//     let total = [];
+//     for(let i=0;i<arr.length;i++){
+//         for(let j=i+1;j<arr.length;j++){
+//             if(arr[i]+arr[j]===macthNumber) {
+                
+//                 console.log(`Sum macthed - ${[arr[i],arr[j]]}`);
+//                 total.push([arr[i],arr[j]])
+//             }
+//         }
+//     }
+//     return total;
+// }
+// const result = sumTwo([1,2,3,4,5,5,6],10);
+//  console.log(flatArray(result));
