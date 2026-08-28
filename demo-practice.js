@@ -251,3 +251,28 @@
 // }
 // const result = sumTwo([1,2,3,4,5,5,6],10);
 //  console.log(flatArray(result));
+
+
+let arr= [1,2,3,5,6];
+
+//output = 4
+let arr2= [1,3,4,5,6];
+//output = 2;
+
+
+const findMIssingValue =(arr)=>{
+   
+   n = arr.length+1;
+   let s = (n*(n+1)/2);
+
+
+
+    for(let i=0;i<=arr.length;i++){
+s-=arr[i];
+    }
+
+    return s;
+    
+}
+
+console.log(findMIssingValue(arr));
