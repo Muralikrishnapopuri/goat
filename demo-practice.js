@@ -125,7 +125,7 @@
 //     }
 
 
-    
+
 // }
 
 // return "its true palindrom,,"
@@ -140,7 +140,7 @@
 //     for(let i =0;i<=s.length-1;i++){
 //         result = s[i]+result;
 //     }
-   
+
 // return result==s?"its a palindrom":"not a palindrom";
 // }
 // console.log(revers("palap"));
@@ -186,7 +186,7 @@
 //             if(s1[i]==sr[j]) return state = false;
 //         }
 //     }
-    
+
 // }
 
 // console.log(anagramChecker("listen","silent"));
@@ -231,7 +231,7 @@
 //     }
 
 //     return r;
- 
+
 // }
 // console.log(flatArray([10,11,[12,13,[14,15,[16]]],17,[18,19,[20]]]))
 
@@ -241,7 +241,7 @@
 //     for(let i=0;i<arr.length;i++){
 //         for(let j=i+1;j<arr.length;j++){
 //             if(arr[i]+arr[j]===macthNumber) {
-                
+
 //                 console.log(`Sum macthed - ${[arr[i],arr[j]]}`);
 //                 total.push([arr[i],arr[j]])
 //             }
@@ -253,26 +253,50 @@
 //  console.log(flatArray(result));
 
 
-let arr= [1,2,3,5,6];
-
-//output = 4
-let arr2= [1,3,4,5,6];
-//output = 2;
-
-
-const findMIssingValue =(arr)=>{
-   
-   n = arr.length+1;
-   let s = (n*(n+1)/2);
 
 
 
-    for(let i=0;i<=arr.length;i++){
-s-=arr[i];
-    }
+// const findMIssingValue = (arr) => {
 
-    return s;
+//     let n = arr.length + 1;
+//     let s = (n * (n + 1)) / 2;
+
+
+
+//     for (let i = 0; i < arr.length; i++) {
+//         s -= arr[i];
+//     }
+
+//     return s;
+
+// }
+
+
+// let arr = [1, 2, 3, 5, 6];
+
+
+// //output = 4
+// let arr2 = [1, 3, 4, 5, 6];//output = 2;
+
+// console.log(findMIssingValue(arr2));
+
+// let chars = "Muralikrishna"
+// //output 
+
+// const findCharsCount = (str) => {
+//     let result = {};//0
     
-}
+// for(let char of str){
+//     if(result[char]){
+//         result[char]++;
+//     }else{
+//         result[char] = 1;
+//     }
+// }
+//     return result;
 
-console.log(findMIssingValue(arr));
+// }
+
+// console.log(findCharsCount(chars));
+// input = "vamsi krishna"
+//output = "ismav anhsirk"
