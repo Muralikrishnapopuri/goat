@@ -300,3 +300,26 @@
 // console.log(findCharsCount(chars));
 // input = "vamsi krishna"
 //output = "ismav anhsirk"
+
+
+
+// const MergeArrays= (arr1,arr2)=>{
+//     let result=[],i=0,j=0;
+//     while(i<arr1.length && j<arr2.length){
+//         if(arr1[i]<arr2[j]){
+//             result[result.length]=arr1[i++];
+//         }else{
+//             result[result.length]=arr2[j++];
+//         }
+//     }
+//     while(i<arr1.length){
+//         result[result.length]=arr1[i++];
+
+//     }
+//     while(j<arr2.length){
+//         result[result.length]=arr2[j++];
+//     }
+//     return result
+// }
+// console.log(MergeArrays([1,3,5,8],[2,4,6,7,9]));
+
