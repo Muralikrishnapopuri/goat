@@ -323,3 +323,45 @@
 // }
 // console.log(MergeArrays([1,3,5,8],[2,4,6,7,9]));
 
+const findP1 = (d)=>{
+    
+
+for(let i=2;i*i<=d;i++){
+    if(d%i==0){
+return false;
+    }
+
+
+}
+return true;
+}
+
+
+
+const primerange = (start, end)=>{
+    let arrresult = [];
+
+    for(let i =start;i<=end;i++){
+     const r = findP1(i);
+     if(r==true){
+        arrresult[arrresult.length]=i;
+     }
+    }
+    return arrresult;
+}
+console.log(primerange(10,50));
+
+// const findP = (d)=>{
+//     let count = 0;
+//     for(let i = 1 ; i<=d;i++){
+//         if(d%i==0){
+//             count++
+            
+//         }
+//         if(count==2){
+//             return 'its prime.'
+//         }
+//     }
+//     return 'not a prime';
+// }
+// console.log(findP(5));
