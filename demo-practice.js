@@ -323,33 +323,33 @@
 // }
 // console.log(MergeArrays([1,3,5,8],[2,4,6,7,9]));
 
-const findP1 = (d)=>{
+// const findP1 = (d)=>{
     
 
-for(let i=2;i*i<=d;i++){
-    if(d%i==0){
-return false;
-    }
+// for(let i=2;i*i<=d;i++){
+//     if(d%i==0){
+// return false;
+//     }
 
 
-}
-return true;
-}
+// }
+// return true;
+// }
 
 
 
-const primerange = (start, end)=>{
-    let arrresult = [];
+// const primerange = (start, end)=>{
+//     let arrresult = [];
 
-    for(let i =start;i<=end;i++){
-     const r = findP1(i);
-     if(r==true){
-        arrresult[arrresult.length]=i;
-     }
-    }
-    return arrresult;
-}
-console.log(primerange(10,50));
+//     for(let i =start;i<=end;i++){
+//      const r = findP1(i);
+//      if(r==true){
+//         arrresult[arrresult.length]=i;
+//      }
+//     }
+//     return arrresult;
+// }
+// console.log(primerange(10,50));
 
 // const findP = (d)=>{
 //     let count = 0;
@@ -365,3 +365,76 @@ console.log(primerange(10,50));
 //     return 'not a prime';
 // }
 // console.log(findP(5));
+
+// const countchars = (str)=>{
+// const result = {};
+// for(let i=0;i<str.length;i++){
+//     result[str[i]]=(result[str[i]] || 0) + 1;
+// }
+// return result;
+// }
+// console.log(countchars("muralimurali"));
+
+
+
+
+// const findCommonValuesfromtwoarray=(arr1,arr2)=>{
+//     let result = [];
+
+//     for(let i=0;i<arr1.length;i++){
+//         for(let j=0;j<arr2.length;j++){
+//             if(arr1[i]==arr2[j]){
+//                 let exist = false;
+//                 for(let k =0;k<result.length;k++){
+//                     if(result[k]==arr1[i]){
+//                         exist = true;
+//                     }
+                   
+//                 }
+//                  if(!exist){
+//                          result[result.length]=arr1[i];
+//                     }
+                
+//             }
+//         }
+//     }
+//     return result;
+
+// }
+// console.log(findCommonValuesfromtwoarray([10,20,30,40,50],[4,5,40,50,60]));
+
+// const reverseArray = (arr)=>{
+
+//     let r= [];
+//     for(let i=arr.length-1;i>=0;i--){
+//         r[r.length]=arr[i];
+//     }
+//     return r;
+// }
+// console.log(reverseArray([1,2,3,4,5]));
+
+const groupBy = (arrOdObjects,p)=>{
+    let r= {};
+    for(let i=0;i<arrOdObjects.length;i++){
+        let groupbykey =arrOdObjects[i][p];
+
+        if(!r[groupbykey]){
+            r[groupbykey]=[];
+        }
+        r[groupbykey][r[groupbykey].length]=arrOdObjects[i];
+
+    
+    }
+    return r;
+}
+const users = [
+    {name:'krish',city:"hyd"},
+    {name:'murali',city:'hyd'},
+    {name:'goutham',city:'tirupati'},
+    {name:'murali',city:'hyd'},
+    {name:'krish',city:'tirupati'},
+    {name:'micheal',city:'vij'}
+
+]
+console.log(groupBy(users,'city'));
+
