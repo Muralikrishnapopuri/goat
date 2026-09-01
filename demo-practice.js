@@ -413,28 +413,28 @@
 // }
 // console.log(reverseArray([1,2,3,4,5]));
 
-const groupBy = (arrOdObjects,p)=>{
-    let r= {};
-    for(let i=0;i<arrOdObjects.length;i++){
-        let groupbykey =arrOdObjects[i][p];
+// const groupBy = (arrOdObjects,p)=>{
+//     let r= {};
+//     for(let i=0;i<arrOdObjects.length;i++){
+//         let groupbykey =arrOdObjects[i][p];
 
-        if(!r[groupbykey]){
-            r[groupbykey]=[];
-        }
-        r[groupbykey][r[groupbykey].length]=arrOdObjects[i];
+//         if(!r[groupbykey]){
+//             r[groupbykey]=[];
+//         }
+//         r[groupbykey][r[groupbykey].length]=arrOdObjects[i];
 
     
-    }
-    return r;
-}
-const users = [
-    {name:'krish',city:"hyd"},
-    {name:'murali',city:'hyd'},
-    {name:'goutham',city:'tirupati'},
-    {name:'murali',city:'hyd'},
-    {name:'krish',city:'tirupati'},
-    {name:'micheal',city:'vij'}
+//     }
+//     return r;
+// }
+// const users = [
+//     {name:'krish',city:"hyd"},
+//     {name:'murali',city:'hyd'},
+//     {name:'goutham',city:'tirupati'},
+//     {name:'murali',city:'hyd'},
+//     {name:'krish',city:'tirupati'},
+//     {name:'micheal',city:'vij'}
 
-]
-console.log(groupBy(users,'city'));
+// ]
+// console.log(groupBy(users,'city'));
 
