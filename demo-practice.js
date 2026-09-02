@@ -438,3 +438,23 @@
 // ]
 // console.log(groupBy(users,'city'));
 
+// const capitilizer_words = (str)=>{
+//     let r ='', newWord=true;
+
+//     for(let i=0;i<str.length;i++){
+//         if(str[i]==' '){
+//           newWord=true;
+//         }
+//         if(newWord && str[i]>='a' && str[i]<='z'){
+//             r+=String.fromCharCode(str.charCodeAt(i)-32);
+//             newWord=false;
+//         }
+//         else{
+//             r+=str[i];
+//             newWord = false;
+//         }
+//     }
+//     return r;
+// }
+// console.log(capitilizer_words('vamsi krishna'));
+
