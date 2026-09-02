@@ -474,7 +474,20 @@
 // }
 // console.log(removeDuplicates([30,30,50,60,50,70]))
 
-const isAnagram = (str1,str2)=>{
-    return str1.split('').sort().join('') === str2.split('').sort().join('');
-} 
-console.log(isAnagram('hello','leoh'))
+// const isAnagram = (str1,str2)=>{
+//     return str1.split('').sort().join('') === str2.split('').sort().join('');
+// } 
+// console.log(isAnagram('hello','leoh'))
+// const factorial = (n) => {
+//   return n <= 1 ? 1 : n * factorial(n - 1); //
+// };
+// console.log(factorial(5))
+// call-1 n=5 return hold 5*24=120
+//call-2 n=4 return hold (4*6 = 24)
+//call-3 n=3 return hold (3*(call-4 return) --> 3*2=6)
+//call-4 n=2 return hold (2*call-5 return ==> 2*1 =2)
+//call-5 n=1 return 1
+
+const arr = [1,2,3,4,5];
+const result = arr.reduce((acc,cur)=>{return acc+cur},0);
+console.log(result);
