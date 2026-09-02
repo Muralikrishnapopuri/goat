@@ -463,3 +463,18 @@
 // console.log(reversestr("rarar"));
 
 
+// const findMax = (arra)=>{
+//     return Math.max(...arra)
+// }
+// console.log(findMax([10,20,30,50]))
+
+
+// const removeDuplicates= (arr)=>{
+//     return [...new Set(arr)];
+// }
+// console.log(removeDuplicates([30,30,50,60,50,70]))
+
+const isAnagram = (str1,str2)=>{
+    return str1.split('').sort().join('') === str2.split('').sort().join('');
+} 
+console.log(isAnagram('hello','leoh'))
