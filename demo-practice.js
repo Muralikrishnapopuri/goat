@@ -457,4 +457,9 @@
 //     return r;
 // }
 // console.log(capitilizer_words('vamsi krishna'));
+// const reversestr = (str)=>{
+//    return str === str.split('').reverse().join('');    
+// }
+// console.log(reversestr("rarar"));
+
 
