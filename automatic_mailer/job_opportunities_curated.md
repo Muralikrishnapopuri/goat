@@ -7,7 +7,20 @@
 
 ---
 
-## 📬 DISPATCHED APPLICATIONS SUMMARY (TOTAL: 17 DIRECT HR APPLICATIONS)
+## 📬 DISPATCHED APPLICATIONS SUMMARY (TOTAL: 27 DIRECT HR APPLICATIONS)
+
+### NEWLY DISPATCHED FROM LINKEDIN FEED (SEPTEMBER 3, 2026):
+
+18. 🏢 Linkage IT — `shruti.gupta@linkageit.com` | Role: Full Stack Developer (React, TypeScript, Node.js) | Location: Hyderabad | Status: SENT ✅
+19. 🏢 Covenant Global Tech — `moses@covenantglobaltech.com` | Role: React & Full Stack Developer | Location: Remote/Hyd/Blr | Status: SENT ✅
+20. 🏢 Sanathana Analytics — `raviteja@sanathanaars.com` | Role: React Front-End Developer | Location: Hyderabad | Status: SENT ✅
+21. 🏢 Motivity Labs — `dikshith.nalapatla@motivitylabs.com` | Role: Fullstack Developer (React.js Focus) | Location: Hyderabad | Status: SENT ✅
+22. 🏢 SFTech / PetaData — `varshitham@petadata.ai` | Role: Full Stack Developer (AI & Data Integrations - React/Node/TS) | Location: Hyderabad | Status: SENT ✅
+23. 🏢 2Coms — `sushmita.r@2coms.com` | Role: Full Stack Developer (PHP, React, AI & Automation) | Location: Hyderabad | Status: SENT ✅
+24. 🏢 Potla Tech Solutions — `venkatarakesh1989@gmail.com` | Role: Full Stack Developer (React + Node.js) | Location: Hyderabad | Status: SENT ✅
+25. 🏢 Frenzoft — `kalai@frenzoft.com` | Role: React / Node.js Developer | Location: Hyderabad | Status: SENT ✅
+26. 🏢 RSA Tech Group — `sukumar.n@rsatechgroup.com` | Role: React / Node.js Developer | Location: Hyderabad | Status: SENT ✅
+27. 🏢 GyanNidhi Innovations — `sravani@gyannidhi.in` | Role: Full Stack Developer | Location: Hyderabad | Status: SENT ✅
 
 ### 1. 🏢 Innomax IT Solutions
 * **Role:** AI Developer Trainee / Web Developer (JavaScript, React.js, Node.js)

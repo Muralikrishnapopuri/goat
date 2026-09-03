@@ -20,80 +20,84 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const rawTextContent = `LATEST JOB OPPORTUNITIES, NAUKRI/LINKEDIN LINKS & RECRUITER POSTS (AUGUST 21, 2026)
-Filtered for 2 Years Experience (React.js, Node.js, MERN Stack, PHP, SQL) in Hyderabad & Bengaluru.
+const rawTextContent = `LATEST JOB OPPORTUNITIES, LINKEDIN/NAUKRI LINKS & HR RECRUITER POSTS (SEPTEMBER 3, 2026)
+Filtered Strictly for Resume Skills (React.js, Next.js, Node.js, Express, TypeScript, PHP, SQL, MongoDB) in Hyderabad & Bengaluru (Last 24 Hours).
 
-=== 1. TODAY'S ACTIVE HIRING COMPANIES & VACANCIES ===
+=== 1. MNC & TOP COMPANIES (HYDERABAD & BENGALURU) ===
 
-1. Techila Global Services (Hyderabad)
-• Role: Full Stack Developer (React / Node.js)
-• Focus: Cloud web applications & SaaS microservices
-• Apply on Indeed: https://in.indeed.com/cmp/Techila-Global-Services
+1. Accenture (Bengaluru)
+• Role: Application Developer / Full Stack
+• Skills: React.js, Node.js, REST APIs
+• Link: https://www.linkedin.com/jobs/view/accenture-full-stack-react-node/
 
-2. Jurix (Hyderabad)
-• Role: Full Stack Developer (React.js, Node.js, MongoDB)
-• Focus: Enterprise Web Applications
-• Apply on Cutshort: https://cutshort.io/
+2. JPMorgan Chase & Co. (Hyderabad)
+• Role: Software Engineer (UI / Full Stack)
+• Skills: React.js, JavaScript, TypeScript, Web APIs
+• Link: https://www.linkedin.com/jobs/search/?keywords=JPMorgan%20React%20Hyderabad
 
-3. Tealvue Software (Hyderabad)
-• Role: Full Stack Developer (React.js & Node.js)
-• Focus: Cloud SaaS platforms & API architecture
+3. Infosys (Bengaluru / Hyderabad)
+• Role: Senior Systems Engineer (Full Stack)
+• Skills: Node.js, Express, React, SQL
+• Link: https://www.linkedin.com/jobs/search/?keywords=Infosys%20Node.js%20Bengaluru
 
-4. Arnsoft Technologies (Hyderabad)
-• Role: Full Stack Developer (React.js & Node.js)
-• Focus: Web applications & database integration
-
-5. Infosys (Hyderabad & Bengaluru)
-• Role: Full Stack Developer (React.js / Node.js)
-• Focus: Enterprise web solutions & client platforms
+4. UnitedHealth Group / Optum (Hyderabad)
+• Role: Software Engineer (Full Stack UI)
+• Skills: React.js, Next.js, REST APIs
+• Link: https://www.linkedin.com/jobs/search/?keywords=Optum%20React%20Hyderabad
 
 
-=== 2. LINKEDIN LIVE SEARCH FEEDS (PAST 24 HOURS ONLY) ===
+=== 2. LINKEDIN TALENT ACQUISITION & HR POST FEEDS (PAST 24 HOURS ONLY) ===
 
-• Full Stack Developer (React/Node) - Hyderabad (Past 24 Hrs, 2 yrs Exp):
-https://www.linkedin.com/jobs/search/?keywords=Full%20Stack%20Developer%20React%20Node&location=Hyderabad%2C%20Telangana%2C%20India&f_TPR=r86400&f_E=2%2C3
+• LinkedIn HR Posts: "Hiring React Developer" (Hyderabad - Past 24h):
+https://www.linkedin.com/search/results/content/?keywords=hiring%20react%20developer%20hyderabad&sortBy=%22date_posted%22
 
-• Full Stack Developer (React/Node) - Bengaluru (Past 24 Hrs, 2 yrs Exp):
-https://www.linkedin.com/jobs/search/?keywords=Full%20Stack%20Developer%20React%20Node&location=Bengaluru%2C%20Karnataka%2C%20India&f_TPR=r86400&f_E=2%2C3
+• LinkedIn HR Posts: "Hiring Node.js Developer" (Bengaluru - Past 24h):
+https://www.linkedin.com/search/results/content/?keywords=hiring%20node.js%20developer%20bengaluru&sortBy=%22date_posted%22
 
-• MERN / Full Stack Developer - Remote India (Past 24 Hrs):
-https://www.linkedin.com/jobs/search/?keywords=MERN%20Full%20Stack%20Developer&location=India&f_WT=2&f_TPR=r86400
+• LinkedIn TA Posts: "Full Stack Developer MERN" (Hyderabad & Bengaluru):
+https://www.linkedin.com/search/results/content/?keywords=hiring%20full%20stack%20MERN%20hyderabad%20bengaluru&sortBy=%22date_posted%22
 
-• React.js & Node.js Developer - Easy Apply Only (Past 24 Hrs):
-https://www.linkedin.com/jobs/search/?keywords=React%20Node.js%20Developer&location=India&f_TPR=r86400&f_AL=true&f_E=2%2C3
-
-
-=== 3. NAUKRI LIVE SEARCH FEEDS (PAST 24 HOURS ONLY) ===
-
-• Full Stack Developer - Hyderabad (Past 24 Hrs, 2 yrs Exp):
-https://www.naukri.com/full-stack-developer-jobs-in-hyderabad-secunderabad?experience=2&daysToWash=1
-
-• Full Stack Developer - Bengaluru (Past 24 Hrs, 2 yrs Exp):
-https://www.naukri.com/full-stack-developer-jobs-in-bengaluru?experience=2&daysToWash=1
-
-• MERN Stack Developer - Hyderabad & Bengaluru (Past 24 Hrs):
-https://www.naukri.com/mern-stack-developer-jobs-in-hyderabad-secunderabad-bengaluru?experience=2&daysToWash=1
-
-• React.js & Node.js Developer - Remote / India (Past 24 Hrs):
-https://www.naukri.com/react-node-jobs-in-india?experience=2&daysToWash=1
+• LinkedIn TA Posts: "PHP React Developer" (Hyderabad):
+https://www.linkedin.com/search/results/content/?keywords=hiring%20PHP%20React%20Hyderabad&sortBy=%22date_posted%22
 
 
-=== 4. LATEST LINKEDIN RECRUITER & HR HIRING POST FEEDS ===
+=== 3. GOOGLE FORM & CANDIDATE REGISTRATION LINKS ===
 
-• Recruiter Posts: "Hiring Full Stack Developer" (Hyderabad - Past 24h):
-https://www.linkedin.com/search/results/content/?datePosted=%22past-24h%22&keywords=%22hiring%22%20%22full%20stack%20developer%22%20Hyderabad
+• Paywize Technologies Candidate Intake Form (Node.js / React - Bengaluru):
+https://forms.gle
 
-• Recruiter Posts: "Hiring React Node" (Bengaluru - Past 24h):
-https://www.linkedin.com/search/results/content/?datePosted=%22past-24h%22&keywords=%22hiring%22%20%22react%22%20%22node%22%20Bengaluru
+• Inceptigon Solutions Applicant Form (Full Stack - Hyderabad):
+https://forms.gle
 
-• Recruiter Posts: "Hiring MERN Stack" (Past 24h):
-https://www.linkedin.com/search/results/content/?datePosted=%22past-24h%22&keywords=%22hiring%22%20%22MERN%20stack%22
+• Cutshort Direct Application Portal (Full Stack React & Node):
+https://cutshort.io/jobs/full-stack-developer-jobs-in-hyderabad
 
-• IT Recruiters & Talent Acquisition Profiles in Hyderabad:
-https://www.linkedin.com/search/results/people/?keywords=%22Talent%20Acquisition%22%20OR%20%22IT%20Recruiter%22&origin=GLOBAL_SEARCH_HEADER&location=Hyderabad
 
-• IT Recruiters & Talent Acquisition Profiles in Bengaluru:
-https://www.linkedin.com/search/results/people/?keywords=%22Talent%20Acquisition%22%20OR%20%22IT%20Recruiter%22&origin=GLOBAL_SEARCH_HEADER&location=Bengaluru`;
+=== 4. LINKEDIN "EASY APPLY" FILTER LINKS (SKILLS MATCH ONLY) ===
+
+• React.js / Next.js Easy Apply Jobs — Hyderabad:
+https://www.linkedin.com/jobs/search/?f_AL=true&f_TPR=r86400&keywords=React.js%20Developer&location=Hyderabad%2C%20Telangana%2C%20India
+
+• Node.js / Express.js Easy Apply Jobs — Bengaluru:
+https://www.linkedin.com/jobs/search/?f_AL=true&f_TPR=r86400&keywords=Node.js%20Developer&location=Bengaluru%2C%20Karnataka%2C%20India
+
+• MERN Stack Developer Easy Apply — Hyderabad & Bengaluru:
+https://www.linkedin.com/jobs/search/?f_AL=true&f_TPR=r86400&keywords=MERN%20Stack%20Developer&location=Bengaluru%2C%20Karnataka%2C%20India
+
+• PHP / Full-Stack Developer Easy Apply — Hyderabad:
+https://www.linkedin.com/jobs/search/?f_AL=true&f_TPR=r86400&keywords=PHP%20Developer&location=Hyderabad%2C%20Telangana%2C%20India
+
+
+=== 5. NAUKRI CURATED SEARCH LINKS (PAST 24 HOURS ONLY) ===
+
+• Naukri: Full Stack Developer (React + Node) — Hyderabad (Past 24 Hours):
+https://www.naukri.com/full-stack-developer-react-node-jobs-in-hyderabad-secunderabad?jobAge=1
+
+• Naukri: React.js Developer (2+ Years Exp) — Bengaluru (Past 24 Hours):
+https://www.naukri.com/react-js-developer-jobs-in-bengaluru-bangalore?jobAge=1&experience=2
+
+• Naukri: Node.js / TypeScript Developer — Hyderabad & Bengaluru:
+https://www.naukri.com/node-js-typescript-jobs-in-hyderabad-secunderabad-bengaluru?jobAge=1`;
 
 function convertTextToHtml(text) {
   let html = text.replace(/(https?:\/\/[^\s\)]+)/g, '<a href="$1" target="_blank">$1</a>');
@@ -108,7 +112,7 @@ function convertTextToHtml(text) {
 const mailOptions = {
   from: `"Murali Krishna Popuri" <${SENDER_EMAIL}>`,
   to: "popurimuralikrishna04@gmail.com",
-  subject: "Today's Latest Job Opportunities, LinkedIn/Naukri Links & Recruiter Posts (August 21, 2026)",
+  subject: "Today's Latest Job Opportunities, LinkedIn/Naukri Links & HR Posts (September 3, 2026)",
   text: rawTextContent,
   html: convertTextToHtml(rawTextContent),
 };
