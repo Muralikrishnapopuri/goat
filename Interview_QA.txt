@@ -1,0 +1,37 @@
+Q1: Are you free to talk right now / take the interview now?
+A: (If busy) I'm actually in the middle of something right now, but this is important to me — could I take just 2 minutes to wrap up and call you right back? I'd love to give this conversation my full attention.
+(If free) Yes, I'm free — please go ahead.
+
+Q2: When are you available for the interview / are you free today?
+A: (If yes) Yes, today works for me — what time would suit you?
+(If not) Today's a bit tight for me — would tomorrow work instead? Morning or evening, whichever suits your schedule.
+
+Q3: What is your CTC and expected CTC?
+A: My current CTC is ₹1.8 LPA — I'm currently in a full-time role with a service bond structure. I'm expecting around ₹4-6 LPA, based on my experience and the market standard for this role.
+
+Q4a: Can you negotiate to 3 LPA?
+A: I understand there might be budget constraints. My expectation is based on the skills and hands-on experience I bring — including building production systems like offline-first architecture and cloud sync engines. That said, I'm open to discussing the overall package, including growth opportunities and structure, if there's flexibility there.
+
+Q4b: What's your notice period / are you serving it?
+A: My service bond is already completed, so I'm free to resign anytime. I haven't submitted my formal resignation yet, but I have a good relationship with my manager and I'm confident about a smooth release — I've already completed proper documentation and handed over knowledge to my team. Once I resign, I expect to be released within 30 days, possibly sooner.
+
+Q5: Which coding languages do you know?
+A: My primary language is JavaScript, along with TypeScript — I use both daily in my current role. I also work with PHP on the backend for some parts of our platform. Beyond that, I have working knowledge of Python and SQL for database work.
+
+Q6: What is your skill set?
+A: My core stack is JavaScript, TypeScript, React.js, Node.js, and Express.js — I use these daily for both frontend and backend development. I also work with Electron.js for desktop applications, and Redux for state management. On the database side, I've worked with both SQL databases like MySQL and PostgreSQL, and NoSQL with MongoDB. Beyond that, I have experience with REST APIs, WebSockets, JWT authentication, and I'm familiar with AWS S3 for cloud integrations. I've also used Git and GitHub for version control throughout my projects.
+
+Q7: Are you willing to relocate?
+A: Yes, I'm open to relocating — specifically to Hyderabad or Bengaluru.
+
+Q8: Do you know [a tool/skill you don't know]?
+A: I haven't worked with that specifically yet, but I'm a quick learner — when I needed to build RestoSoft's offline sync engine, I had to pick up new concepts like conflict resolution and retry logic on the job, and I got comfortable with it quickly. I'm confident I could do the same here if given the opportunity.
+
+Q9: What database skills do you have?
+A: I've worked with both relational and non-relational databases. On the SQL side, I've used MySQL and PostgreSQL — including designing schemas and writing optimized queries. On the NoSQL side, I've worked with MongoDB. I've also used Redis for caching in some parts of my projects, and I'm familiar with SQLite, which I used for the offline POS system I built.
+
+Q10: How would you handle a large database with heavy user traffic hitting the same endpoint repeatedly (API load + SQL query load)?
+A: For the API side, I'd add rate limiting per user or endpoint to prevent overload, along with caching frequently requested data using something like Redis, so we're not hitting the database for every single request. For the database side, I'd optimize queries first — proper indexing and avoiding N+1 queries — and if traffic is consistently high, I'd look at read replicas to spread out read-heavy load, and sharding if the dataset itself grows too large for a single database to handle efficiently. I actually applied a similar mindset with RestoSoft — I used API rate limiting and long polling to handle live order updates without overwhelming the server.
+
+Q11: Have you faced any difficult or challenging part in your previous work?
+A: Yes — one of the toughest parts was while developing RestoSoft, especially during migration from the old stack to the new one. The old system had a lot of existing issues, and the new API endpoints had different payload structures than what the old stack expected. So I was essentially building new features from scratch while simultaneously fixing bugs in the existing system — both at the same time, without breaking what was already working for live users. It taught me to be very careful with backward compatibility and thorough testing before pushing any change live.

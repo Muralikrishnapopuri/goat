@@ -285,7 +285,7 @@
 
 // const findCharsCount = (str) => {
 //     let result = {};//0
-    
+
 // for(let char of str){
 //     if(result[char]){
 //         result[char]++;
@@ -324,7 +324,7 @@
 // console.log(MergeArrays([1,3,5,8],[2,4,6,7,9]));
 
 // const findP1 = (d)=>{
-    
+
 
 // for(let i=2;i*i<=d;i++){
 //     if(d%i==0){
@@ -356,7 +356,7 @@
 //     for(let i = 1 ; i<=d;i++){
 //         if(d%i==0){
 //             count++
-            
+
 //         }
 //         if(count==2){
 //             return 'its prime.'
@@ -389,12 +389,12 @@
 //                     if(result[k]==arr1[i]){
 //                         exist = true;
 //                     }
-                   
+
 //                 }
 //                  if(!exist){
 //                          result[result.length]=arr1[i];
 //                     }
-                
+
 //             }
 //         }
 //     }
@@ -423,7 +423,7 @@
 //         }
 //         r[groupbykey][r[groupbykey].length]=arrOdObjects[i];
 
-    
+
 //     }
 //     return r;
 // }
@@ -488,7 +488,71 @@
 //call-4 n=2 return hold (2*call-5 return ==> 2*1 =2)
 //call-5 n=1 return 1
 
-const arr = [1,2,3,4,5];
-const result = arr.reduce((acc,cur)=>{return acc+cur},0);
-console.log(result);
+// const arr = [1,2,3,4,5];
+// const result = arr.reduce((acc,cur)=>{return acc+cur},0);
+// console.log(result);
+
+// const findDup = (arr)=>{
+
+//     let result = 0;
+//     for(let i=0;i<arr.length;i++){
+//         for(let j=i+1;j<arr.length;j++){
+//             if(arr[i]==arr[j]){
+
+//                 result=arr[i];
+//             }
+//         }
+//     }
+
+//     if(arr.length==0 || result==0){
+//         return -1
+//     }
+//      return result;
+// }
+// console.log(findDup([1,3,5,3,7]))
+// //i=0 , j=i+1 || i=1 , j=3 if(1==3) 
+// console.log(findDup([1,2,3]))
+// console.log(findDup([]))
+// console.log(findDup([9,9]))
+// console.log(findDup([4,1,2,4]))
+
+
+// const findBigOccurance = (str) => {
+//     let newarr = str.split(' ');
+//     let result = '';
+//     for (let i = 0; i < newarr.length; i++) {
+        
+//         if (result.length < newarr[i].length) {
+//             result = newarr[i];
+//         }
+       
+//     }
+//      return result;
+// }
+// console.log(findBigOccurance('a bb ccc dd e')); //'ccc'
+// console.log(findBigOccurance('aa bb')); //'aa'
+// console.log(findBigOccurance('')); //''
+// console.log(findBigOccurance('hello world')); //'hello'
+
+
+const arramanupulation = (arr)=>{
+    let obj = {};
+    for(let i=0;i<arr.length;i++){
+        if()
+    }
+
+    return result;
+}
+console.log(arramanupulation([[1,3], [2,6],[8,10]]));//[[1,6],[8,10]]
+console.log(arramanupulation([[1,2], [2,3]]));//[[1,3]]
+console.log(arramanupulation([[5,6], [1,2]]));//[[1,2],[5,6]]
+console.log(arramanupulation([]));//[]
+console.log(arramanupulation([ [2,6],[1,3],[8,10],[4,7]]));//[[1,6],[8,10]]
+
+
+
+
+
+
+
 
