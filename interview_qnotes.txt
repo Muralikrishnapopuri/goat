@@ -104,15 +104,15 @@ both , depending on whats needed , i take initiative on the pieces i own like my
 **Authorization:** Determines what an authenticated user can access.
 **Example:** Admin can delete users, but a normal user cannot.
 
-## 7. REST API
+## 7. REST API (Representational State Transfer )
 
-**REST API is an API style that uses HTTP methods like GET, POST, PUT, PATCH, and DELETE to work with resources.**
+**REST API is an API style that uses HTTP methods like GET, POST, PUT, PATCH, and DELETE to work with resource  request and reposne in JSON format.**
 
 ## 8. GraphQL
 
 **GraphQL is an API query language that allows clients to request exactly the data they need.**
 
-## 9. SOAP API
+## 9. SOAP API (Simple Object Access Protocol)
 
 **SOAP is a protocol that uses XML-based messages for communication between applications.**
 
