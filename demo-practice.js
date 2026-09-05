@@ -521,11 +521,11 @@
 //     let newarr = str.split(' ');
 //     let result = '';
 //     for (let i = 0; i < newarr.length; i++) {
-        
+
 //         if (result.length < newarr[i].length) {
 //             result = newarr[i];
 //         }
-       
+
 //     }
 //      return result;
 // }
@@ -535,24 +535,47 @@
 // console.log(findBigOccurance('hello world')); //'hello'
 
 
-const arramanupulation = (arr)=>{
-    let obj = {};
-    for(let i=0;i<arr.length;i++){
-        if()
-    }
+// const arramanupulation = (arr)=>{
+//     let obj = {};
+//     for(let i=0;i<arr.length;i++){
+//         for()
+//     }
 
-    return result;
-}
-console.log(arramanupulation([[1,3], [2,6],[8,10]]));//[[1,6],[8,10]]
-console.log(arramanupulation([[1,2], [2,3]]));//[[1,3]]
-console.log(arramanupulation([[5,6], [1,2]]));//[[1,2],[5,6]]
-console.log(arramanupulation([]));//[]
-console.log(arramanupulation([ [2,6],[1,3],[8,10],[4,7]]));//[[1,6],[8,10]]
-
+//     return result;
+// }
+// console.log(arramanupulation([[1,3], [2,6],[8,10]]));//[[1,6],[8,10]]
+// console.log(arramanupulation([[1,2], [2,3]]));//[[1,3]]
+// console.log(arramanupulation([[5,6], [1,2]]));//[[1,2],[5,6]]
+// console.log(arramanupulation([]));//[]
 
 
 
 
+// const zerolast = (arr) => {
+
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] == 0) {
+//             //index= 2
+//             for (let k = i; k < arr.length - 1; k++) {
+//                 let temp = arr[k];//0 / 2
+//                 arr[k] = arr[k+1];// arr[k] - (value : 0, index:2) = arr[k+1] - (value: 5 , index:3)
+//                 //index 2 --> 5 
+//                 //index 3 --> 5
+//                 arr[k + 1] = temp;// 
+//                 // index 3 --> 0
+//             }
+
+//         }
+//     };
+
+
+//     return arr;
+// }
+// console.log(zerolast([3, 5, 0, 5, 8, 0, 9, 8]));
+// //[3,5,0,5,8,0,9,8]
+
+//[3,5,5,0,8,0,9,8]
 
 
 

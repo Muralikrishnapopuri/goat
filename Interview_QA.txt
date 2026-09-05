@@ -1,5 +1,5 @@
 Q1: Are you free to talk right now / take the interview now?
-A: (If busy) I'm actually in the middle of something right now, but this is important to me — could I take just 2 minutes to wrap up and call you right back? I'd love to give this conversation my full attention.
+A: (If busy) I'm actually in the middle of something right now,— could I take just 2 minutes to wrap up and call you right back? I'd love to give this conversation my full attention.
 (If free) Yes, I'm free — please go ahead.
 
 Q2: When are you available for the interview / are you free today?
@@ -13,7 +13,7 @@ Q4a: Can you negotiate to 3 LPA?
 A: I understand there might be budget constraints. My expectation is based on the skills and hands-on experience I bring — including building production systems like offline-first architecture and cloud sync engines. That said, I'm open to discussing the overall package, including growth opportunities and structure, if there's flexibility there.
 
 Q4b: What's your notice period / are you serving it?
-A: My service bond is already completed, so I'm free to resign anytime. I haven't submitted my formal resignation yet, but I have a good relationship with my manager and I'm confident about a smooth release — I've already completed proper documentation and handed over knowledge to my team. Once I resign, I expect to be released within 30 days, possibly sooner.
+A: My service bond is already completed, so I'm free to resign anytime.aleady submitted my resignation letter to y manager but lwd is not officailly confirmed., but I have a good relationship with my manager and I'm confident about a smooth release — I've already completed proper documentation and handed over knowledge to my team. Once I resign, I expect to be released within 30 days, possibly sooner.
 
 Q5: Which coding languages do you know?
 A: My primary language is JavaScript, along with TypeScript — I use both daily in my current role. I also work with PHP on the backend for some parts of our platform. Beyond that, I have working knowledge of Python and SQL for database work.
