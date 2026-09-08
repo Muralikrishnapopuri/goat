@@ -1,0 +1,312 @@
+Q1: Are you free to talk right now / take the interview now?
+A: (If busy) I'm actually in the middle of something right now,— could I take just 2 minutes to wrap up and call you right back? I'd love to give this conversation my full attention.
+(If free) Yes, I'm free — please go ahead.
+
+Q2: When are you available for the interview / are you free today?
+A: (If yes) Yes, today works for me — what time would suit you?
+(If not) Today's a bit tight for me — would tomorrow work instead? Morning or evening, whichever suits your schedule.
+
+Q3: What is your CTC and expected CTC?
+A: My current CTC is ₹1.8 LPA — I'm currently in a full-time role with a service bond structure. I'm expecting around ₹4-6 LPA, based on my experience and the market standard for this role.
+
+Q4a: Can you negotiate to 3 LPA?
+A: I understand there might be budget constraints. My expectation is based on the skills and hands-on experience I bring — including building production systems like offline-first architecture and cloud sync engines. That said, I'm open to discussing the overall package, including growth opportunities and structure, if there's flexibility there.
+
+Q4b: What's your notice period / are you serving it?
+A: My service bond is already completed, so I'm free to resign anytime.aleady submitted my resignation letter to y manager but lwd is not officailly confirmed., but I have a good relationship with my manager and I'm confident about a smooth release — I've already completed proper documentation and handed over knowledge to my team. Once I resign, I expect to be released within 30 days, possibly sooner.
+
+Q5: Which coding languages do you know?
+A: My primary language is JavaScript, along with TypeScript — I use both daily in my current role. I also work with PHP on the backend for some parts of our platform. Beyond that, I have working knowledge of Python and SQL for database work.
+
+Q6: What is your skill set?
+A: My core stack is JavaScript, TypeScript, React.js, Node.js, and Express.js — I use these daily for both frontend and backend development. I also work with Electron.js for desktop applications, and Redux for state management. On the database side, I've worked with both SQL databases like MySQL and PostgreSQL, and NoSQL with MongoDB. Beyond that, I have experience with REST APIs, WebSockets, JWT authentication, and I'm familiar with AWS S3 for cloud integrations. I've also used Git and GitHub for version control throughout my projects.
+
+Q7: Are you willing to relocate?
+A: Yes, I'm open to relocating — specifically to Hyderabad or Bengaluru.
+
+Q8: Do you know [a tool/skill you don't know]?
+A: I haven't worked with that specifically yet, but I'm a quick learner — when I needed to build RestoSoft's offline sync engine, I had to pick up new concepts like conflict resolution and retry logic on the job, and I got comfortable with it quickly. I'm confident I could do the same here if given the opportunity.
+
+Q9: What database skills do you have?
+A: I've worked with both relational and non-relational databases. On the SQL side, I've used MySQL and PostgreSQL — including designing schemas and writing optimized queries. On the NoSQL side, I've worked with MongoDB. I've also used Redis for caching in some parts of my projects, and I'm familiar with SQLite, which I used for the offline POS system I built.
+
+Q10: How would you handle a large database with heavy user traffic hitting the same endpoint repeatedly (API load + SQL query load)?
+A: For the API side, I'd add rate limiting per user or endpoint to prevent overload, along with caching frequently requested data using something like Redis, so we're not hitting the database for every single request. For the database side, I'd optimize queries first — proper indexing and avoiding N+1 queries — and if traffic is consistently high, I'd look at read replicas to spread out read-heavy load, and sharding if the dataset itself grows too large for a single database to handle efficiently. I actually applied a similar mindset with RestoSoft — I used API rate limiting and long polling to handle live order updates without overwhelming the server.
+
+Q11: Have you faced any difficult or challenging part in your previous work?
+A: Yes — one of the toughest parts was while developing RestoSoft, especially during migration from the old stack to the new one. The old system had a lot of existing issues, and the new API endpoints had different payload structures than what the old stack expected. So I was essentially building new features from scratch while simultaneously fixing bugs in the existing system — both at the same time, without breaking what was already working for live users. It taught me to be very careful with backward compatibility and thorough testing before pushing any change live.
+
+
+
+-->
+weekness-
+earlier on , i had been working over-engineer like over hard wokring to give the best solutions for my assigned tasks so even for the problems which i can't solve i try until i fix it so somtimes i fell like stressful becuase of these but fine i believe this will help me to grow in career . sometimes i do overthiking like what if heppend to my team if  did't  fix the problem like that i do overthinking.
+
+strength-
+ownership and reliability , whenever i working on a specific features i can see through , including the edge cases most people skip and i fully understand the feature which i gave me and i also adapt fast about the new tools . and i actively use ai powered coding assistance to make the development faster .
+
+last wokring day ?
+"actually i ave already send the resigration letter to my manager but My last working day isn't officially decided yet,. But my service bond is already completed, so I'm free to resign anytime. I have a good relationship with my manager, so I'm confident about a smooth release — I've already completed proper documentation of my last project and gave a KT session to my juniors last week. So once I resign, I'm confident I'll be released within 30 days."
+
+why should hire u ?
+because , i bring the real , hands on experience and hard engineering problems , i've build offline pos platform which runs with zero internet dependency and also build cloud sync engine for multi branch data consistency without duplication . that kinda reliability i bringing to you team from the day one . 
+
+where do u see your self in 5 years ?
+
+in 5 years , i see myself as a senior full stack engineer and taking the ownership of end to end products and making the important architecture decisions.
+
+and i want to deepen my expertise in not only my current stack i want to expert in dsa and advacned engineering mathematical projects .
+
+beyond just writing code , i want to mentor junior developers , contribute to technical decisions and be the so responsible for my organization . 
+
+my goal is to continuously grow with the organization and become the someone the team can relay on me for technical expertise and leadership . 
+
+why did u resign or leave last job ?
+
+i'm so grateful for the experience i 've gained in my current role at youngminds . especially on restosoft and getting hands on experience and i have faces the real world business workflows .
+so at this stage , i'm looking for an opportunity  where i can work on larger-scale applications and take on more challeging technical problems and further strengthen my skills in modern technologies .
+
+so , my decision to move is maily driven by career growth , keep learning , a chance to take the technical responsibilities .
+
+(yes , you speaking this murali krishna . one second please , let me move into a quiter place then we can talk properly . yess i;m good now please go head.)
+
+whats motivates you ?
+i'm highly motivated by continuous innovation in technology . now adays what i've  learnt today it will become outdated for tomorrow so , i like to learn latest tools and technologies . whenver i see new ai mpodels or techcnologies released by companies like anthropic , google , openai . i get excited to learn about them and think about what i can build with them andalso curiosity the opportunity to create sometihg new is really motivates me a lot.
+
+how do you handle pressure?
+
+in my previous , i break the problem into smaller targets and eah taregt has specific timeline which i can handle with perfection , also i communicate with team whenever i got stucked somewhere so this is how i can reduce my pressure.
+
+Describe yourself in three words. "Reliable, proactive, and adaptable."
+
+what is your greatest achievement ?
+
+my greatest achievement is building the offlien desktop application that is actually used in restaurants . and the challending part is making the billing and kot /invoice modules and it will work perfeclty without internet also cloud sync engine for realme comminication  between multiple systems on the restaurants so it wasn't just about the writing code i was solving ghr real wolrd prpblems and buildng the solution for that.
+
+how can i tell that i dont have PF?
+"I don't have a PF account yet — my current company provides PF only after completing 2 years of service, and I haven't reached that mark yet. But I do have payslips, Form 16, and I'll be able to provide my experience letter as well for verification."
+
+can u work with the team ?
+
+yesdefinitely, i enjoy working in a team beacuse good communicatin and collaboration help us to solve problems faster and in my current role i work with developers , testers and other teams , while building restsoft features . i'm confortable sharing ideas and feedbacks , and tackign resposnsiblities . 
+
+salary expectation ?
+
+based on my roles and responsibilities as full stack developer i'm looking for a compesation  package so, i;m open to discussing the overall package and main priority is finding the right opportunity where i can grwo technically and contribute tot he team.
+...round 3-5 lpa.
+
+How do you prioritize your work?
+
+i prioritize the work based on the urgency , business impact , depencencies , first i focus on critial issues or emergency tasks and i handle tasks based on deadlines make into smaller steps and commnicate with the team if there are any blockers and changing priorities.
+
+what makes you unique ?
+
+i think what makes me unique is that i'm not limited to just frontend or backend development.i like understanding the complete system and solving problems end to end .
+
+for example - in my previsous while on project i used diffrent technologies react node , batabased like sql lite and mysql approach , also integraiotn s liek swiggy z xzomato , razorpay . so at the same time , i very curious about the new technologies especially ai , whenver i heard about the ai latest news i liek to explore them and thinking the aboutthe how i can use them to build something better for the organization . 
+so , i'd like to say combination of end to end development , problem -dolveing m continuous curiosity makes me unique.
+
+
+Are you a leader or a follower?
+both , depending on whats needed , i take initiative on the pieces i own like my asssigne task and known things and sometimes i rely on my team inputs for areas outside of my expertize .
+
+
+
+
+
+
+# Technical Definitions — Interview Preparation
+
+## 1. Redux(library)
+
+**Redux is a state management library used to store and manage application state in a predictable way.**
+
+## 2. FastAPI(python library\)
+
+**FastAPI is a modern Python framework used to build fast and scalable web APIs.**
+
+## 3. JWT
+
+**JWT (JSON Web Token) is a signed token used to securely transfer information between a client and server, commonly for authentication.**
+
+## 4. OAuth 2.0
+
+**OAuth 2.0 is an authorization framework that allows an application to access a user's resources without sharing the user's password.**
+
+## 5. Authentication
+
+**Authentication:** Verifies the user's identity.
+**Example:** Login with username/password.
+
+## 6. Authorization
+
+**Authorization:** Determines what an authenticated user can access.
+**Example:** Admin can delete users, but a normal user cannot.
+
+## 7. REST API
+
+**REST API is an API style that uses HTTP methods like GET, POST, PUT, PATCH, and DELETE to work with resources.**
+
+## 8. GraphQL
+
+**GraphQL is an API query language that allows clients to request exactly the data they need.**
+
+## 9. SOAP API
+
+**SOAP is a protocol that uses XML-based messages for communication between applications.**
+
+## 10. WebSocket API
+
+**WebSocket is a communication protocol that provides a persistent two-way connection between the client and server for real-time communication.**
+
+## 11. gRPC
+
+**gRPC is a high-performance framework that allows applications or services to call methods on another service.**
+
+## 12. Webhook
+
+**A webhook is a mechanism where one application automatically sends data to another application when a specific event occurs.**
+
+## 13. Next.js
+ 
+**Next.js is a React framework for building full-stack web applications with features like routing, server-side rendering, and server-side functionality.**
+
+## 14. CI/CD
+
+**CI/CD is a development process that automates code integration, testing, building, and deployment.**
+
+**Typical Flow:**
+**Feature Branch → Commit → Push → Merge Request/Pull Request → CI → Build/Test → Code Review → Merge → CD → Deploy**
+
+**CI — Continuous Integration:** Automatically builds and tests code changes when developers push or merge code.
+
+**CD — Continuous Delivery/Deployment:** Automates preparing or deploying successfully tested code to environments such as staging or production.
+
+## 15. AWS
+
+**AWS (Amazon Web Services) is a cloud platform that provides on-demand services such as servers, storage, databases, networking, security, and monitoring.**
+
+### Important AWS Services
+
+* **EC2:** Virtual servers used to run applications.
+* **S3:** Object storage for files, images, videos, and backups.
+* **RDS:** Managed relational databases such as MySQL and PostgreSQL.
+* **Lambda:** Runs code without managing servers.
+* **DynamoDB:** Managed NoSQL database.
+* **CloudFront:** CDN used to deliver content faster.
+* **Route 53:** DNS service for managing domains and routing traffic.
+* **VPC:** Private virtual network for AWS resources.
+* **IAM:** Manages users, roles, permissions, and access.
+* **CloudWatch:** Monitoring and logging service.
+* **API Gateway:** Service for creating and managing APIs.
+* **ECR:** Stores Docker container images.
+* **ECS:** Runs and manages containerized applications.
+
+## 16. Python
+
+**Python is a high-level programming language known for its simple syntax and wide range of applications, including web development, automation, AI, and data science.**
+
+## 17. ngrok
+
+**ngrok is a tunneling tool that creates a public URL for a locally running application.**
+
+## 18. Linux
+
+**Linux is an open-source operating system widely used for servers, cloud infrastructure, development, and embedded systems.**
+
+## 19. Electron.js
+
+**Electron is a framework for building cross-platform desktop applications using web technologies such as HTML, CSS, and JavaScript.**
+
+## 20. C
+
+**C is a fast, general-purpose programming language that provides low-level memory control and is widely used for system-level and embedded programming.**
+
+# Database
+
+## 21. SQL
+
+**SQL (Structured Query Language) is a language used to store, retrieve, update, and manage data in relational databases.**
+
+**Example:** MySQL, PostgreSQL, and SQLite use SQL.
+
+## 22. SQLite
+
+**SQLite is a lightweight, serverless relational database that stores the entire database in a single file.**
+
+**Example:** It is commonly used in mobile apps, desktop applications, and offline-first applications.
+
+## 23. PostgreSQL
+
+**PostgreSQL is an open-source, powerful relational database management system known for reliability, advanced SQL features, and scalability.**
+
+**Example:** It is commonly used for web applications, backend systems, and large-scale applications.
+
+### Easy Difference
+
+**SQL → Language**
+**SQLite → Lightweight database**
+**PostgreSQL → Powerful relational database**
+
+# AI Concepts
+
+## 24. Predictive AI
+
+**Predictive AI uses data and machine learning to predict future outcomes or events.**
+
+**Example:** Predicting customer demand or detecting possible fraud.
+
+## 25. Generative AI
+
+**Generative AI creates new content such as text, images, audio, video, or code based on patterns learned from data.**
+
+## 26. Agentic AI
+
+**Agentic AI refers to AI systems that can plan, make decisions, use tools, and take actions to achieve a goal.**
+
+### Easy Difference
+
+**Predictive AI → Predicts**
+**Generative AI → Creates**
+**Agentic AI → Acts**
+
+# Verification vs Validation
+
+**Verification:** Checks whether we are building the product correctly according to the specified requirements.
+
+**Validation:** Checks whether we are building the right product according to the user's or business needs.
+
+**Easy Memory:**
+**Verification → Correctly built?**
+**Validation → Correct product?**
+
+
+
+career objective -->
+My career objective is to keep growing as a Full-Stack Developer by working on real, high-performance systems — the kind of work I've been doing for the past 2 years, building offline-first desktop applications and real-time sync systems for a restaurant tech platform.
+
+I want to keep sharpening my skills in React, Node.js, and both SQL and NoSQL databases, while taking on more complex architecture problems — things like optimizing performance and building reliable systems that scale. Long-term, I want to grow into a role where I can own bigger technical challenges and keep delivering high-quality, dependable software."
+
+RestoSoft – Offline Desktop POS (Electron)
+"I built an offline POS system for restaurants using Electron and React — it works with zero internet, handles full billing and KOT. I also designed the local network setup where the main computer acts as a server, and cashier + waiter devices sync with it in real-time. On top of that, I built a cloud sync engine that uploads and downloads data automatically, retries if it fails, and never creates duplicates."
+
+RestoSoft – Web Platform
+"I built 4 separate web apps — Admin, Cashier, Waiter, and Digital Menu — covering different restaurant types like fine dine, QSR, and delivery. I also built the billing and KOT logic with printing, an inventory upload system, daily sales reports, and integrated AWS S3 and WhatsApp for OTP and promotions."
+
+Codtech IT Solutions (Internship, Sep–Oct 2024)
+"I did a 2-month internship where I built a beverage e-commerce app using React, Node.js, and MongoDB. I also worked in an Agile team — writing tests and reviewing code with Git."
+
+Chegg India (Subject Matter Expert, Oct 2022–Jan 2023)
+"I worked as a Subject Matter Expert at Chegg, solving computer science and web development questions — over 150 of them. It helped me get strong at problem-solving and explaining complex logic clearly, which really built my fundamentals."
+
+Zestchat (Personal Project)
+"It's a real-time chat app I built using React, Node.js, and PostgreSQL. I designed the database schema, added auto-expiring guest logins, image uploads through Cloudinary, and real-time messaging with GIFs and emojis."
+
+Pixel Polish (Personal Project)
+"It's a web-based photo editor I built with React and HTML5 Canvas — it applies filters like brightness and contrast in real-time, under 50ms. I also set up the backend for image uploads using Cloudinary."
+
+Education
+"I did my B.Tech in Computer Science from Amrita Sai Institute of Science and Technology, Vijayawada, from 2019 to 2023, with a CGPA of 7.35."
+
+"How much experience do you have as of now?"
+"I have 2 years of experience — that includes my current full-time role at YoungMinds since Feb 2025, working on RestoSoft, plus earlier experience at Chegg solving computer science problems, which helped build my problem-solving foundation before I moved into full-time development."
