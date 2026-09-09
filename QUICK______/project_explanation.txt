@@ -1,13 +1,13 @@
 RestoSoft - Project Explanation (Interview Ready)
 
 Opening line:
-I've contributed around 80% of the development work on RestoSoft - a restaurant platform with both a desktop billing system and a set of web applications.
+basically restosoft is a resuarant management platform I've contributed around 80% of the development work on RestoSoft -it have  both a desktop billing pos system and a set of web applications.
 
 1. Desktop POS Application (Electron-based)
 
 - Works completely without internet - built using Electron, which gives access to Windows OS-level drivers directly
 - Cloud sync engine - data automatically syncs from local SQLite to cloud MySQL once internet is available
-- Silent KOT and invoice printing over the same local network - no separate print agent needed, since Electron communicates directly with printers via IPC
+
 - Inventory management and menu management modules
 - Bulk menu upload feature
 - Daily sales reports
