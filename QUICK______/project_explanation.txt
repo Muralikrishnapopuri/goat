@@ -1,20 +1,20 @@
-RestoSoft - Project Explanation (Interview Ready)
+0RestoSoft - Project Explanation (Interview Ready)
 
 Opening line:
-basically restosoft is a resuarant management platform I've contributed around 80% of the development work on RestoSoft -it have  both a desktop billing pos system and a set of web applications.
+restosoft is basically restarant management platform that used by many clients for their restuarants in real time.
+I've contributed around 80% of the development work on RestoSoft - so it have both a desktop billing system and a set of web applications.
 
 1. Desktop POS Application (Electron-based)
 
-- Works completely without internet - built using Electron, which gives access to Windows OS-level drivers directly
+- Works completely without internet - which gives access to Windows OS-level drivers directly
 - Cloud sync engine - data automatically syncs from local SQLite to cloud MySQL once internet is available
-
 - Inventory management and menu management modules
 - Bulk menu upload feature
 - Daily sales reports
 - Multiple billing types - Dine In, Takeaway, Home Delivery, QSR - with both prepaid and postpaid options
 - WhatsApp OTP integration and automatic e-bill/invoice generation
 - Barcode scanner integration - scanning an item adds it directly to the cart
-- Swiggy and Zomato integration - orders come in through a hub (like Urban Piper) and get pulled directly into both the desktop POS and web cashier app, so the client manages all orders from one place
+- Swiggy and Zomato integration - orders come in through a hub (like Urban Piper) and get pulled directly into both the desktop POS and web cashier app, so the client manages all orders from one place and also i ahve used razor pay integraton services .
 
 2. Web Applications (Role-based)
 
@@ -31,10 +31,10 @@ basically restosoft is a resuarant management platform I've contributed around 8
 - Integrations: Razorpay, WhatsApp, Swiggy, Zomato (via Urban Piper), AWS S3
 
 Closing line:
-Working on a project this complex - spanning desktop, web, offline-first architecture, and multiple third-party integrations - has given me strong hands-on experience across the full stack, and a deep understanding of building reliable, real-world systems.
+this project has given me strong hands-on experience across the full stack, and a deep understanding of building reliable, real-world systems.
 
 Codtech IT Solutions (Internship)
-"During my internship, I built a responsive beverage e-commerce platform using React, Angular, Node.js, Express, and MongoDB, with REST API integrations for the core shopping features."
+"During my internship, I built a responsive beverage e-commerce platform using React, Node.js, Express, and MongoDB, with REST API integrations for the core shopping features."
 
 Chegg India (Subject Matter Expert)
 "At Chegg, I resolved over 150 complex computer science and web development queries, providing detailed documentation and verified code — it really strengthened my problem-solving and explanation skills."
