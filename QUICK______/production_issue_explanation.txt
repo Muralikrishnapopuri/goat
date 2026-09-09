@@ -1,0 +1,18 @@
+Start — Identify the problem
+
+"First, I'd check logs and monitoring to understand exactly where the issue is happening — is it the API, the database, or 
+the server itself? I'd also try to reproduce the issue to understand the pattern — is it happening under high traffic, or with specific queries?"
+
+Middle — Apply the right fix (pick based on the issue)
+Database read-heavy load → "I'd use replication — having read replicas so read requests are spread across multiple database copies instead of hitting one main database."
+Too many repeated API calls → "I'd apply rate limiting — restricting how many requests a user or endpoint can make in a given time, to prevent overload."
+Traffic spread across multiple servers → "I'd use a load balancer — it distributes incoming requests across multiple servers so no single server gets overwhelmed."
+Repeated expensive queries/data → "I'd add caching with Redis — storing frequently accessed data in memory so we don't hit the database every time."
+Slow queries → "I'd check indexing — making sure the right columns are indexed, since that dramatically speeds up search and filter queries."
+In-app repeated computation → "I'd use in-memory/node caching for data that doesn't change often, to avoid recalculating or re-fetching it every time."
+
+(Say 2-3 of these, not all — pick whichever fits the specific question they ask.)
+
+End — Prevent it from happening again
+
+"After fixing it, I'd add monitoring or alerts so we catch similar issues early next time, and document what caused it so the team knows how to handle it if it comes up again."

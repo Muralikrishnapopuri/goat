@@ -1,0 +1,47 @@
+RestoSoft - Project Explanation (Interview Ready)
+
+Opening line:
+I've contributed around 80% of the development work on RestoSoft - a restaurant platform with both a desktop billing system and a set of web applications.
+
+1. Desktop POS Application (Electron-based)
+
+- Works completely without internet - built using Electron, which gives access to Windows OS-level drivers directly
+- Cloud sync engine - data automatically syncs from local SQLite to cloud MySQL once internet is available
+- Silent KOT and invoice printing over the same local network - no separate print agent needed, since Electron communicates directly with printers via IPC
+- Inventory management and menu management modules
+- Bulk menu upload feature
+- Daily sales reports
+- Multiple billing types - Dine In, Takeaway, Home Delivery, QSR - with both prepaid and postpaid options
+- WhatsApp OTP integration and automatic e-bill/invoice generation
+- Barcode scanner integration - scanning an item adds it directly to the cart
+- Swiggy and Zomato integration - orders come in through a hub (like Urban Piper) and get pulled directly into both the desktop POS and web cashier app, so the client manages all orders from one place
+
+2. Web Applications (Role-based)
+
+- Admin - controls all settings, employee creation, permissions, and monitors everything centrally
+- Cashier (Web) - same core features as desktop POS, but browser-based and requires internet; also receives Swiggy/Zomato orders
+- Waiter - tablet-friendly, responsive app, optimized for speed with shortcut-based billing for quick order-taking
+- Digital Menu - customer-facing app, similar to Swiggy, where customers place orders directly from their mobile browser
+
+3. Tech Stack
+
+- Frontend/Desktop: React.js, TypeScript, Electron.js
+- Backend: Node.js, Express.js, PHP
+- Databases: SQLite (local), MySQL (cloud)
+- Integrations: Razorpay, WhatsApp, Swiggy, Zomato (via Urban Piper), AWS S3
+
+Closing line:
+Working on a project this complex - spanning desktop, web, offline-first architecture, and multiple third-party integrations - has given me strong hands-on experience across the full stack, and a deep understanding of building reliable, real-world systems.
+
+Codtech IT Solutions (Internship)
+"During my internship, I built a responsive beverage e-commerce platform using React, Angular, Node.js, Express, and MongoDB, with REST API integrations for the core shopping features."
+
+Chegg India (Subject Matter Expert)
+"At Chegg, I resolved over 150 complex computer science and web development queries, providing detailed documentation and verified code — it really strengthened my problem-solving and explanation skills."
+
+Zestchat (Personal Project)
+"Zestchat is a real-time chat app I built using React and Node.js. I designed the PostgreSQL schema, added auto-expiring guest logins, scheduled background jobs to clean up expired sessions, and implemented real-time messaging with GIF and emoji support."
+
+Pixel Polish (Personal Project)
+"Pixel Polish is a web-based photo editor I built with React and HTML5 Canvas — it applies filters like brightness and contrast in real-time, under 50ms. I also set up the backend with Multer and Cloudinary for fast, secure image uploads."
+
