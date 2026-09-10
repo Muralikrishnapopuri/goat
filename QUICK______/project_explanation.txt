@@ -1,4 +1,6 @@
 RestoSoft - Project Explanation (Interview Ready)
+what if he aska bout other projevcts wich i dont await pf that technology ?
+(My core strength is JavaScript and TypeScript, which naturally extends into React Native for cross-platform mobile development. I'm someone who picks up new stacks quickly — I learned Electron.js at that movement i 've learn very quckly  on the job— so I'd bring that same speed and adaptability to Android development and also initally i used to develop the adnriod apps and learning kotlin language ois my personal experince . .")
 
 Opening line:
 restosoft is basically restarant management platform that used by many clients for their restuarants in real time.
