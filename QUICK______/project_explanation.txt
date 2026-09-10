@@ -1,4 +1,4 @@
-0RestoSoft - Project Explanation (Interview Ready)
+RestoSoft - Project Explanation (Interview Ready)
 
 Opening line:
 restosoft is basically restarant management platform that used by many clients for their restuarants in real time.
