@@ -8,7 +8,7 @@ Always read extracted_resume.txt / Murali_Krishna_Popuri_Full_Stack_Dev.pdf befo
 
 Candidate Experience: 2+ Years Professional Experience + Internship
 Notice Period: Immediate Joiner / Serving Notice Period
-Resume PDF: /home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_Full_Stack_Dev.pdf
+Resume PDF: /home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_Resume.pdf
 
 Core Tech Stack Skills (Strict Match):
 - Frontend: React.js, Next.js, Angular, JavaScript (ES6+), TypeScript, HTML5, CSS3, Redux, Tailwind CSS, Bootstrap, Handlebars, Canvas.
@@ -51,17 +51,34 @@ Core Tech Stack Skills (Strict Match):
 3. NO EMOJIS (STRICTLY FORBIDDEN) in email subject lines or bodies.
 4. NO TEST EMAILS to popurimuralikrishna04@gmail.com during outreach.
 5. HUMAN-WRITTEN TONE: Professional, impressive, no generic AI clichés.
-6. ATTACH PDF RESUME: Murali_Krishna_Popuri_Full_Stack_Dev.pdf.
-7. Dispatch emails sequentially one-by-one.
+6. STRICT EXPERIENCE HONESTY (NEVER MENTION 8 YEARS OR SENIOR YEARS):
+   - Candidate True Experience: Strictly 2+ Years of Professional Experience + 8 Months of Hands-on Project Experience.
+   - NEVER QUOTE SENIOR YEARS: NEVER write phrases like "While your posting seeks 8+ years" or "Although you require 10 years" in the email or WhatsApp text. Recruiters who skim emails see the number "8 years" and mistakenly think the candidate is claiming 8 years!
+   - Always State Upfront:
+     * Total Experience: 2+ Years Professional Experience (+ 8 Months Project Experience)
+     * Core Stack: React.js, Next.js, Node.js, Express, TypeScript, REST APIs, SQL/NoSQL
+     * Notice Period: Immediate Joiner (0 days notice)
+   - NEVER lie or exaggerate experience under any circumstance.
+7. ATTACH PDF RESUME: /home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_Resume.pdf.
+8. Dispatch emails sequentially one-by-one.
 
 ==================================================
 6. HR WHATSAPP CONTACT HANDLING & MESSAGE FORMATTING
 ==================================================
 When recruiter posts contain a WhatsApp phone number:
-1. Email Handling: If HR email is present, send email via auto-mailer as normal.
-2. WhatsApp Contact Display: Display the phone number clearly.
-3. Ready-to-Copy WhatsApp Message: Below the phone number, provide a concise, tailored WhatsApp message (matching candidate's 2+ yrs experience, React/Node/Full-Stack skills, and immediate joiner status).
-4. NO EMOJIS: Keep WhatsApp text clean, professional, and free of emojis so the user can easily copy-paste and send manually.
+1. Provide recruiter phone number clearly.
+2. Ready-to-Copy WhatsApp Message Format (MANDATORY RULES):
+   - DO NOT MENTION EMAIL: Never say "I have sent my resume via email" or reference email inside the WhatsApp message text (the candidate sends this message directly on WhatsApp).
+   - NO EMOJIS: Keep the WhatsApp text clean, professional, and free of emojis.
+   - NO MENTION OF SENIOR YEARS: Strictly state: "I have 2+ years of professional full-stack development experience and 8 months of project experience in React.js, Node.js, and TypeScript." Do NOT mention 8 years or the job's senior requirements!
+   - Include Links: Always include GitHub, Portfolio, and LinkedIn links in the message.
+   - Structure:
+     * Greeting to recruiter.
+     * Mention the specific role / opening.
+     * State 2+ years professional experience (+ 8 months project experience) in the relevant tech stack.
+     * State immediate joiner status (serving notice period / 0 days notice).
+     * Provide Portfolio, GitHub, and LinkedIn links.
+     * Offer to share the PDF resume right there on WhatsApp.
 
 ==================================================
 7. PORTAL CAREER LINKS & WHATSAPP SUMMARY EMAIL RULE

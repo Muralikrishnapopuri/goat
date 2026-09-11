@@ -11,7 +11,7 @@ This document serves as the persistent, mandatory rulebook for finding job oppor
 * **Professional Role:** Full-Stack Developer (2+ Years Professional Experience + Internship)
 * **Status:** Immediate Joiner / Serving Notice Period
 * **Contact:** +91 9347796811 | `popurimurali16@gmail.com`
-* **Resume PDF:** `/home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_Full_Stack_Dev.pdf`
+* **Resume PDF:** `/home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_Resume.pdf`
 * **Portfolio & Links:**
   - Portfolio: `https://murali-portfolio-website.vercel.app`
   - GitHub: `https://github.com/Muralikrishnapopuri`
@@ -72,8 +72,16 @@ When processing LinkedIn feeds or job lists for email dispatch:
 3. **NO EMOJIS (STRICTLY FORBIDDEN):** Do NOT include any emojis inside email subject lines or email body content (plain text & HTML).
 4. **NO TEST EMAILS:** Do NOT send copy/test emails to `popurimuralikrishna04@gmail.com` during the outreach process. Send ONLY to target HR emails.
 5. **HUMAN-WRITTEN TONE:** Emails must sound natural, professional, and impressive. Avoid generic AI clichés ("I am thrilled", "I hope this finds you well", etc.).
-6. **PDF RESUME ATTACHMENT:** Always attach `Murali_Krishna_Popuri_Full_Stack_Dev.pdf`.
-7. **ONE-BY-ONE DISPATCH:** Send emails sequentially and log all successful dispatches.
+6. **STRICT EXPERIENCE HONESTY (NEVER MENTION 8 YEARS OR SENIOR YEARS):**
+   - **Candidate True Experience:** Strictly **2+ Years of Professional Experience + 8 Months of Hands-on Project Experience**.
+   - **NEVER QUOTE SENIOR YEARS:** NEVER write phrases like *"While your posting seeks 8+ years"* or *"Although you require 10 years"* in the email or WhatsApp text. Recruiters who skim emails see the number "8 years" and mistakenly think the candidate is falsely claiming 8 years!
+   - **Always State Upfront:**
+     - Total Experience: 2+ Years Professional Experience (+ 8 Months Project Experience)
+     - Core Stack: React.js, Next.js, Node.js, Express, TypeScript, REST APIs, SQL/NoSQL
+     - Notice Period: Immediate Joiner (0 days notice)
+   - NEVER lie or exaggerate experience under any circumstance.
+7. **PDF RESUME ATTACHMENT:** Always attach `/home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_Resume.pdf`.
+8. **ONE-BY-ONE DISPATCH:** Send emails sequentially and log all successful dispatches.
 
 ---
 
@@ -81,9 +89,18 @@ When processing LinkedIn feeds or job lists for email dispatch:
 When recruiter posts include a WhatsApp contact phone number:
 1. **Email Handling:** If an HR email is also provided, execute the auto-mailer application as described above.
 2. **WhatsApp Contact Display:** Provide the HR/recruiter phone number clearly.
-3. **Ready-to-Copy WhatsApp Message:** Generate a concise, professional, human-sounding WhatsApp outreach message tailored specifically to the JD and candidate's resume skills (React, Node, MERN, PHP, Full Stack).
+3. **Ready-to-Copy WhatsApp Message Format (MANDATORY RULES):**
+   - **DO NOT MENTION EMAIL:** Never say "I have sent my resume via email" or reference email inside the WhatsApp message text (the candidate sends this message directly on WhatsApp).
    - **NO EMOJIS:** Keep the WhatsApp text clean, professional, and free of emojis.
-   - **Structure:** State candidate name, experience (2+ years), core skills relevant to JD, immediate joiner status, portfolio link, and attached resume notice so the user can copy and paste directly into WhatsApp.
+   - **NO MENTION OF SENIOR YEARS:** Strictly state: *"I have 2+ years of professional full-stack development experience and 8 months of project experience in React.js, Node.js, and TypeScript."* Do NOT mention 8 years or the job's senior requirements!
+   - **Include Links:** Always include GitHub, Portfolio, and LinkedIn links in the message.
+   - **Structure:**
+     - Friendly greeting to the recruiter.
+     - Mention the role / opening seen on LinkedIn.
+     - State 2+ years of professional experience (+ 8 months project experience) in the relevant tech stack.
+     - State immediate joiner status (serving notice period / 0 days notice).
+     - Include Portfolio, GitHub, and LinkedIn links.
+     - Conclude with an offer to share the PDF resume right there on WhatsApp.
 
 ---
 
