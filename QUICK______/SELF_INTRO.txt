@@ -1,9 +1,8 @@
 i was started my career as engineer student, where I built a strong foundation in programming and problem-solving. 
 Early on, I worked as a Subject Matter Expert at Chegg India, resolving complex computer science and web development queries — 
-that really sharpened my fundamentals. From there, I moved into hands-on development with an internship at Codtech IT Solutions,
- where i got the experience on React and Node.js.
+that really sharpened my fundamentals. From there i moved to an internship for 2 months there i got the experience on React and Node.js.
 
-That experience led me to learn the whole full stack development so i own the course the for couple of months
+& That experience led me to learn the whole full stack development so i own the course for couple of months
 then i got a chance to work with real time projects at  YoungMinds Technology Solutions,
 where I've been working for the past 2 years as a Full-Stack Developer, where i'm part of the team building  restosoft ,
 restosoft is a restaurant management platform having one desktop app and role based web applications . 
@@ -25,4 +24,4 @@ and this is what i have learn through my full stack journey .
 really i want to so thankful for you to schedule this interview and 
 
 i'm ready to give best performance as you expected also knowing this company
- i'm so excited to know about team and contribute the delivery from the day one. thank you .
+i'm so excited to know about team and contribute the delivery from the day one. thank you .
