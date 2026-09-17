@@ -1,0 +1,138 @@
+[
+  {
+    "timestamp": "2026-09-02T16:00:00.000Z",
+    "recipientEmail": "careers@innomaxsol.com",
+    "company": "Innomax IT Solutions",
+    "role": "AI Developer Trainee / Web Developer (JavaScript, React.js, Node.js)",
+    "status": "SENT",
+    "messageId": "batch6-initial"
+  },
+  {
+    "timestamp": "2026-09-02T16:00:00.000Z",
+    "recipientEmail": "info@vidyavision.com",
+    "company": "Vidyavision.com",
+    "role": "Front-End UI Developer (React JS & Next JS)",
+    "status": "SENT",
+    "messageId": "batch6-initial"
+  },
+  {
+    "timestamp": "2026-09-02T16:00:00.000Z",
+    "recipientEmail": "sindoori@miyoglobal.com",
+    "company": "ThinkRisk / Miyo Global",
+    "role": "Full Stack Developer – Gen-AI (React.js, Full Stack, REST APIs, MySQL)",
+    "status": "SENT",
+    "messageId": "batch6-initial"
+  },
+  {
+    "timestamp": "2026-09-02T15:00:00.000Z",
+    "recipientEmail": "ritu@firstmileitinc.in",
+    "company": "FirstMile IT Services",
+    "role": "Full Stack Node JS Developer (React.js, Node.js, TypeScript)",
+    "status": "SENT",
+    "messageId": "batch5-initial"
+  },
+  {
+    "timestamp": "2026-09-02T15:00:00.000Z",
+    "recipientEmail": "nabi.hussain@brigosha.com",
+    "company": "Brigosha",
+    "role": "Full Stack Developer (React + Node.js / TypeScript / PostgreSQL)",
+    "status": "SENT",
+    "messageId": "batch5-initial"
+  },
+  {
+    "timestamp": "2026-09-02T15:00:00.000Z",
+    "recipientEmail": "info@emexotechnologies.com",
+    "company": "eMexo Technologies",
+    "role": "Software Engineer (React.js, Node.js, JavaScript, SQL, REST APIs)",
+    "status": "SENT",
+    "messageId": "batch5-initial"
+  },
+  {
+    "timestamp": "2026-09-02T14:00:00.000Z",
+    "recipientEmail": "neha@educohire.com",
+    "company": "Educohire",
+    "role": "Full Stack App Developer (React JS + PHP)",
+    "status": "SENT",
+    "messageId": "batch4-initial"
+  },
+  {
+    "timestamp": "2026-09-02T14:00:00.000Z",
+    "recipientEmail": "kranthi@theebg.com",
+    "company": "EBG Group",
+    "role": "Full Stack Developer (React / Node / JavaScript / SQL)",
+    "status": "SENT",
+    "messageId": "batch4-initial"
+  },
+  {
+    "timestamp": "2026-09-02T14:00:00.000Z",
+    "recipientEmail": "leadgenitsolutions8@gmail.com",
+    "company": "Lead Gen IT Solutions",
+    "role": "Web Developer (JavaScript, PHP, MySQL)",
+    "status": "SENT",
+    "messageId": "batch4-initial"
+  },
+  {
+    "timestamp": "2026-09-02T14:00:00.000Z",
+    "recipientEmail": "careers@proximsoft.com",
+    "company": "Proximsoft",
+    "role": "Website Developer (React, JavaScript, PHP, MySQL)",
+    "status": "SENT",
+    "messageId": "batch4-initial"
+  },
+  {
+    "timestamp": "2026-09-02T14:00:00.000Z",
+    "recipientEmail": "durga.j@betterfuturesolutions.com",
+    "company": "Better Future Solutions",
+    "role": "Senior Software Engineer – PHP Developer",
+    "status": "SENT",
+    "messageId": "batch4-initial"
+  },
+  {
+    "timestamp": "2026-09-02T14:00:00.000Z",
+    "recipientEmail": "career.bmcloud@gmail.com",
+    "company": "BM Cloud Consultancy",
+    "role": "Full Stack / Web Developer (React & Web Technologies)",
+    "status": "SENT",
+    "messageId": "batch4-initial"
+  },
+  {
+    "timestamp": "2026-09-02T14:00:00.000Z",
+    "recipientEmail": "tscgtechnologies2@gmail.com",
+    "company": "TSCG Technologies",
+    "role": "WordPress & E-commerce Developer",
+    "status": "SENT",
+    "messageId": "batch4-initial"
+  },
+  {
+    "timestamp": "2026-09-02T14:00:00.000Z",
+    "recipientEmail": "hiringteam@rayhawks.com",
+    "company": "Rayhawks Technology",
+    "role": "Software Analyst / Backend Developer",
+    "status": "SENT",
+    "messageId": "batch4-initial"
+  },
+  {
+    "timestamp": "2026-09-02T13:00:00.000Z",
+    "recipientEmail": "rashamdeep.kaur@programming.com",
+    "company": "Programming.com",
+    "role": "Senior Software Engineer (JavaScript, Node.js, React, TypeScript, AI)",
+    "status": "SENT",
+    "messageId": "batch3-initial"
+  },
+  {
+    "timestamp": "2026-09-02T13:00:00.000Z",
+    "recipientEmail": "info@qualifyitsolutions.com",
+    "company": "KOŚA / Qualify IT Solutions",
+    "role": "Mid-Level Full Stack Developer (React, Node, TS, PostgreSQL)",
+    "status": "SENT",
+    "messageId": "batch3-initial"
+  },
+  {
+    "timestamp": "2026-09-02T13:00:00.000Z",
+    "recipientEmail": "contact@toxintl.com",
+    "company": "TOX INTL",
+    "role": "Full Stack Developer (Cloud, AI & Automation)",
+    "status": "SENT",
+    "messageId": "batch3-initial"
+  }
+]

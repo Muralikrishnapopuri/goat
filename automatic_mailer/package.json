@@ -6,7 +6,8 @@
   "scripts": {
     "dry-run": "node send_jobs.js --dry-run",
     "send": "node send_jobs.js --send",
-    "preview": "node send_jobs.js --dry-run"
+    "preview": "node send_jobs.js --dry-run",
+    "history": "node send_jobs.js --history"
   },
   "keywords": [
     "email",

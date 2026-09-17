@@ -2,22 +2,28 @@
 
 /**
  * ============================================================
- *  Automated Job Outreach Mailer — send_jobs.js
+ *  🚀 Automated Job Outreach Mailer & Tracker — send_jobs.js
  * ============================================================
- *  Usage:
- *    node send_jobs.js --dry-run   → Preview all emails (saved to preview_emails.json)
- *    node send_jobs.js --send      → Send all emails via Gmail SMTP
+ *  Features:
+ *   • Multi-source job lead ingestion (.xlsx, .xls, .csv, .md, .docx, .json, CLI --add)
+ *   • Automated Resume PDF attachment (Murali_Krishna_Popuri_Full_Stack_Dev.pdf)
+ *   • Smart role-tailored outreach emails complying with recruiter checklist (mail_instructions.txt)
+ *   • Duplicate prevention & history tracking (sent_history.json)
+ *   • Anti-spam randomized delays (jitter) & rate limiting
+ *   • Rich HTML + plain text dual formatting
+ *   • Dry-run preview generator (preview_emails.json)
  * ============================================================
  */
 
-require("dotenv").config();
+const path = require("path");
+const fs = require("fs");
+require("dotenv").config({ path: path.join(__dirname, ".env") });
+
 const nodemailer = require("nodemailer");
 const XLSX = require("xlsx");
 const mammoth = require("mammoth");
-const fs = require("fs");
-const path = require("path");
 
-// ─── ANSI Color Helpers ────────────────────────────────────────
+// ─── ANSI Styling Helpers ──────────────────────────────────────
 const C = {
   reset: "\x1b[0m",
   bright: "\x1b[1m",
@@ -34,6 +40,7 @@ const C = {
   bgYellow: "\x1b[43m",
   bgBlue: "\x1b[44m",
   bgMagenta: "\x1b[45m",
+  bgCyan: "\x1b[46m",
 };
 
 const log = {
@@ -42,22 +49,21 @@ const log = {
   warn: (msg) => console.log(`${C.yellow}⚠ ${C.reset}${C.yellow}${msg}${C.reset}`),
   error: (msg) => console.log(`${C.red}✖ ${C.reset}${C.red}${msg}${C.reset}`),
   header: (msg) =>
-    console.log(
-      `\n${C.bgBlue}${C.white}${C.bright} ${msg} ${C.reset}\n`
-    ),
-  divider: () =>
-    console.log(`${C.dim}${"─".repeat(60)}${C.reset}`),
-  email: (idx, total, to, subject, status) => {
+    console.log(`\n${C.bgBlue}${C.white}${C.bright} ${msg} ${C.reset}\n`),
+  divider: () => console.log(`${C.dim}${"─".repeat(65)}${C.reset}`),
+  email: (idx, total, to, company, role, status, note = "") => {
     const tag =
       status === "sent"
         ? `${C.bgGreen}${C.white} SENT `
         : status === "draft"
         ? `${C.bgYellow}${C.white} DRAFT `
+        : status === "skip"
+        ? `${C.bgCyan}${C.white} SKIP `
         : `${C.bgRed}${C.white} FAIL `;
     console.log(
-      `${tag}${C.reset} ${C.dim}[${idx}/${total}]${C.reset} ${C.bright}${to}${C.reset}`
+      `${tag}${C.reset} ${C.dim}[${idx}/${total}]${C.reset} ${C.bright}${company}${C.reset} → ${C.cyan}${to}${C.reset}`
     );
-    console.log(`       ${C.dim}Subject:${C.reset} ${subject}`);
+    console.log(`       ${C.dim}Role:${C.reset} ${role} ${note ? `${C.yellow}(${note})${C.reset}` : ""}`);
   },
 };
 
@@ -66,31 +72,67 @@ const CONFIG = {
   senderEmail: process.env.SENDER_EMAIL || "popurimurali16@gmail.com",
   appPassword: process.env.GMAIL_APP_PASSWORD,
   senderName: "Murali Krishna Popuri",
-  delayMs: 3000, // 3-second delay between emails
+  senderPhone: "+91 9347796811",
+  portfolioUrl: "https://murali-portfolio-website.vercel.app",
+  githubUrl: "https://github.com/Muralikrishnapopuri",
+  linkedinUrl: "https://linkedin.com/in/murali-krishna-popuri",
+  projectZestchat: "https://zestchat.vercel.app",
+  projectPixelPolish: "https://pixelpolish.vercel.app",
+  baseDelayMs: 3000, // 3s base delay
+  jitterMs: 2000,    // 0-2s random jitter (3-5s total)
   previewFile: path.join(__dirname, "preview_emails.json"),
-  resumeFile: path.join(__dirname, "resume.txt"),
+  historyFile: path.join(__dirname, "sent_history.json"),
+  resumePdfFile: path.join(__dirname, "Murali_Krishna_Popuri_Full_Stack_Dev.pdf"),
+  resumeTxtFile: path.join(__dirname, "resume.txt"),
 };
 
-// ─── Supported Input Files ─────────────────────────────────────
-const SUPPORTED_EXTENSIONS = [".xlsx", ".xls", ".csv", ".docx"];
-
-// ─── Find the Input Data File ──────────────────────────────────
-function findInputFile() {
-  const files = fs.readdirSync(__dirname);
-  for (const ext of SUPPORTED_EXTENSIONS) {
-    const match = files.find(
-      (f) =>
-        f.toLowerCase().endsWith(ext) &&
-        !f.startsWith("~$") && // skip temp files
-        f.toLowerCase() !== "package.json"
-    );
-    if (match) return { file: path.join(__dirname, match), ext };
+// ─── Sent History Management ───────────────────────────────────
+function loadHistory() {
+  if (!fs.existsSync(CONFIG.historyFile)) {
+    return [];
   }
-  return null;
+  try {
+    const data = fs.readFileSync(CONFIG.historyFile, "utf-8");
+    return JSON.parse(data);
+  } catch (err) {
+    log.warn(`Could not read sent history: ${err.message}. Starting fresh.`);
+    return [];
+  }
 }
 
-// ─── Parse Excel / CSV ────────────────────────────────────────
-function parseExcel(filePath) {
+function saveHistory(history) {
+  try {
+    fs.writeFileSync(CONFIG.historyFile, JSON.stringify(history, null, 2), "utf-8");
+  } catch (err) {
+    log.error(`Failed to save sent history: ${err.message}`);
+  }
+}
+
+function recordSent(recipientEmail, company, role, messageId, status = "SENT") {
+  const history = loadHistory();
+  history.push({
+    timestamp: new Date().toISOString(),
+    recipientEmail: recipientEmail.toLowerCase().trim(),
+    company: company.trim(),
+    role: role.trim(),
+    status,
+    messageId,
+  });
+  saveHistory(history);
+}
+
+function isAlreadySent(email, history) {
+  if (!email) return false;
+  const normalized = email.toLowerCase().trim();
+  return history.some((h) => h.recipientEmail === normalized && h.status === "SENT");
+}
+
+// ─── Input Ingestion Engine ────────────────────────────────────
+
+/**
+ * Parses Excel (.xlsx, .xls) and CSV (.csv) files.
+ */
+function parseExcelOrCsv(filePath) {
   const workbook = XLSX.readFile(filePath);
   const sheetName = workbook.SheetNames[0];
   const sheet = workbook.Sheets[sheetName];
@@ -98,7 +140,6 @@ function parseExcel(filePath) {
 
   return rows
     .map((row) => {
-      // Flexible column name matching
       const company =
         row["Company Name"] ||
         row["company_name"] ||
@@ -112,6 +153,7 @@ function parseExcel(filePath) {
         row["email"] ||
         row["hr_email"] ||
         row["Recruiter Email"] ||
+        row["Target Email"] ||
         "";
       const jobLink =
         row["Job Link"] ||
@@ -127,6 +169,11 @@ function parseExcel(filePath) {
         row["Position"] ||
         row["Job Title"] ||
         row["role"] ||
+        "Full-Stack Developer";
+      const location =
+        row["Location"] ||
+        row["location"] ||
+        row["City"] ||
         "";
       const companyContext =
         row["Company Context"] ||
@@ -134,24 +181,88 @@ function parseExcel(filePath) {
         row["company_context"] ||
         row["Notes"] ||
         "";
+
       return {
-        company: company.trim(),
-        email: email.trim(),
-        jobLink: jobLink.trim(),
-        role: role.trim(),
-        companyContext: companyContext.trim(),
+        company: String(company).trim(),
+        email: String(email).trim(),
+        jobLink: String(jobLink).trim(),
+        role: String(role).trim(),
+        location: String(location).trim(),
+        companyContext: String(companyContext).trim(),
       };
     })
     .filter((r) => r.email && r.company);
 }
 
-// ─── Parse Docx ────────────────────────────────────────────────
+/**
+ * Parses Markdown (.md) lists (such as job_opportunities_curated.md).
+ */
+function parseMarkdown(filePath) {
+  const content = fs.readFileSync(filePath, "utf-8");
+  const entries = [];
+
+  // Match blocks like:
+  // ### 1. 🏢 Company Name
+  // * **Role:** Role Name
+  // * **Location:** Location
+  // * **Target Email:** `email@domain.com`
+  // * **Status:** ...
+  const sections = content.split(/###\s+\d+\.\s+🏢\s+/i);
+
+  for (const sec of sections) {
+    if (!sec.trim()) continue;
+    const lines = sec.split("\n");
+    const company = lines[0].replace(/\r$/, "").trim();
+
+    const roleMatch = sec.match(/\*\s+\*\*Role:\*\*\s*(.+)/i);
+    const emailMatch = sec.match(/\*\s+\*\*Target Email:\*\*\s*`?([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})`?/i);
+    const locationMatch = sec.match(/\*\s+\*\*Location:\*\*\s*(.+)/i);
+    const linkMatch = sec.match(/\*\s+\*\*Job Link:\*\*\s*(.+)/i) || sec.match(/(https?:\/\/[^\s\)]+)/i);
+
+    if (company && emailMatch) {
+      entries.push({
+        company: company,
+        email: emailMatch[1].trim(),
+        role: roleMatch ? roleMatch[1].trim() : "Full-Stack Developer",
+        location: locationMatch ? locationMatch[1].trim() : "Hyderabad / Bangalore",
+        jobLink: linkMatch ? linkMatch[1].trim() : "",
+        companyContext: "",
+      });
+    }
+  }
+
+  return entries;
+}
+
+/**
+ * Parses JSON (.json) input files.
+ */
+function parseJson(filePath) {
+  const content = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(content);
+  if (!Array.isArray(data)) {
+    throw new Error("JSON file must contain an array of job application objects.");
+  }
+  return data
+    .map((item) => ({
+      company: item.company || item.companyName || item["Company Name"] || "",
+      email: item.email || item.targetEmail || item.hrEmail || item["HR Email"] || "",
+      role: item.role || item.position || "Full-Stack Developer",
+      location: item.location || "",
+      jobLink: item.jobLink || item.link || "",
+      companyContext: item.companyContext || item.context || "",
+    }))
+    .filter((r) => r.email && r.company);
+}
+
+/**
+ * Parses Word (.docx) documents.
+ */
 async function parseDocx(filePath) {
   const buffer = fs.readFileSync(filePath);
   const result = await mammoth.extractRawText({ buffer });
   const text = result.value;
 
-  // Attempt structured parsing: each line = Company | Email | Link
   const lines = text
     .split("\n")
     .map((l) => l.trim())
@@ -159,18 +270,21 @@ async function parseDocx(filePath) {
 
   const entries = [];
   for (const line of lines) {
-    // Try pipe-separated or tab-separated
     const parts = line.includes("|") ? line.split("|") : line.split("\t");
     if (parts.length >= 2) {
       const emailPart = parts.find((p) => p.includes("@"));
       const linkPart = parts.find((p) => p.startsWith("http"));
       const companyPart = parts.find((p) => !p.includes("@") && !p.startsWith("http"));
+      const rolePart = parts.find((p) => p !== emailPart && p !== linkPart && p !== companyPart);
 
       if (emailPart && companyPart) {
         entries.push({
           company: companyPart.trim(),
           email: emailPart.trim(),
+          role: rolePart ? rolePart.trim() : "Full-Stack Developer",
           jobLink: linkPart ? linkPart.trim() : "",
+          location: "",
+          companyContext: "",
         });
       }
     }
@@ -178,244 +292,205 @@ async function parseDocx(filePath) {
   return entries;
 }
 
-// ─── Parse Resume ──────────────────────────────────────────────
-function parseResume() {
-  if (!fs.existsSync(CONFIG.resumeFile)) {
-    log.warn("resume.txt not found — using default skill summary.");
-    return {
-      raw: "",
-      skills: ["React.js", "Node.js", "Express.js", "MongoDB", "SQL", "TypeScript", "JavaScript", "HTML", "CSS"],
-      highlights: [
-        "Built production-level web platforms and REST APIs",
-        "Strong MERN stack experience",
-        "Immediate availability",
-      ],
-    };
+/**
+ * Parses single pipe-delimited text string passed via CLI.
+ * Format: "Company | Email | Role | Location"
+ */
+function parseSingleLead(leadStr) {
+  const parts = leadStr.split("|").map((p) => p.trim());
+  if (parts.length < 2) {
+    throw new Error('Single lead format must be: "Company | email@corp.com | [Role] | [Location]"');
   }
+  const company = parts[0];
+  const email = parts[1];
+  const role = parts[2] || "Full-Stack Developer";
+  const location = parts[3] || "";
 
-  const raw = fs.readFileSync(CONFIG.resumeFile, "utf-8");
-  const lower = raw.toLowerCase();
-
-  // Extract skills dynamically
-  const allSkills = [
-    "React.js", "React", "Node.js", "Express.js", "Express", "Angular",
-    "MongoDB", "MySQL", "PostgreSQL", "SQL Server", "SQL", "Kafka",
-    "TypeScript", "JavaScript", "HTML5", "CSS3", "HTML", "CSS",
-    "Docker", "Git", "REST API", "JWT", "OAuth", "Grafana",
-    "RAG", "LLM", "GitHub Copilot", "Claude AI", "Claude", "Copilot",
-    "ELK", "Elasticsearch", "Logstash", "Kibana",
-    "Agile", "CI/CD", "Linux", "Responsive Design",
+  return [
+    {
+      company,
+      email,
+      role,
+      location,
+      jobLink: "",
+      companyContext: "",
+    },
   ];
-  const foundSkills = allSkills.filter((s) => lower.includes(s.toLowerCase()));
+}
 
-  // Extract project highlights — handle both inline bullets and
-  // the format where • is on its own line with content on the next line
-  const highlights = [];
-  const rawLines = raw.split("\n");
-  for (let i = 0; i < rawLines.length; i++) {
-    const trimmed = rawLines[i].trim();
-    // Inline bullet: "• Built offline-first ..."
-    if (trimmed.startsWith("• ") && trimmed.length > 2) {
-      highlights.push(trimmed.replace(/^•\s*/, "").trim());
-    }
-    // Standalone bullet on its own line — grab the next non-empty line
-    else if (trimmed === "•" && i + 1 < rawLines.length) {
-      const next = rawLines[i + 1].trim();
-      if (next && next !== "•") {
-        highlights.push(next);
-        i++; // skip the content line we just consumed
-      }
-    }
-    // Dash-style bullet: "- Built something ..."
-    else if (trimmed.startsWith("- ") && trimmed.length > 2) {
-      highlights.push(trimmed.replace(/^-\s*/, "").trim());
+/**
+ * Auto-detects input file in directory if none specified.
+ */
+function findDefaultInputFile() {
+  const files = fs.readdirSync(__dirname);
+  const preferred = [
+    "job_applications.xlsx",
+    "job_applications.csv",
+    "job_opportunities_curated.md",
+  ];
+
+  for (const name of preferred) {
+    if (files.includes(name)) {
+      return { file: path.join(__dirname, name), ext: path.extname(name).toLowerCase() };
     }
   }
 
-  // Extract years of experience from professional summary
-  const yearsMatch = raw.match(/(\d+)\s*years?\s*(of)?\s*(professional)?\s*experience/i);
-  const yearsExp = yearsMatch ? yearsMatch[1] : null;
-
-  return { raw, skills: foundSkills, highlights: highlights.slice(0, 8), yearsExp };
-}
-
-// ─── ATS Resume Tailoring Engine ────────────────────────────────
-// Uses ONLY Murali's genuine skills
-function generateAtsTailoredResume(company, role, keywords) {
-  const roleLower = role.toLowerCase();
-  
-  let topSkillsSection = "";
-  if (roleLower.includes("frontend") || roleLower.includes("react")) {
-    topSkillsSection = "• Core Frontend: React.js, Next.js, Angular, TypeScript, JavaScript (ES6+), Redux, Tailwind CSS, HTML5, CSS3, Handlebars (HBS)\n• Architecture & UI: Component Lifecycle, State Management, HTML5 Canvas filters, Responsive Web UI/UX\n• AI & Tools: GitHub Copilot, Claude AI, Git, GitHub, Postman, Vercel, VS Code\n• Desktop & Backend: Electron, Node.js, Express.js, REST APIs, WebSockets, Kafka, Grafana, ELK Stack";
-  } else if (roleLower.includes("backend") || roleLower.includes("node")) {
-    topSkillsSection = "• Core Backend: Node.js, Express.js, Kafka, REST APIs, WebSockets, Webhooks, Node-Cron, Multer, Axios\n• Databases & Caching: PostgreSQL, MySQL, SQLite, MongoDB, Redis, Schema Design, Query Optimization\n• AI, Search & Monitoring: RAG (Retrieval-Augmented Generation), LLMs, ELK Stack (Elasticsearch, Logstash, Kibana), Grafana, GitHub Copilot, Claude AI\n• Frontend & Desktop: React.js, Angular, TypeScript, Next.js, Electron, Redux, Git, Postman";
-  } else {
-    topSkillsSection = "• Languages & Core: JavaScript (ES6+), TypeScript, PHP, SQL (MySQL, PostgreSQL, SQLite), HTML5, CSS3\n• Frontend & Desktop: React.js, Next.js, Angular, Electron, Redux, Tailwind CSS, Bootstrap\n• Backend & APIs: Node.js, Express.js, Kafka, REST APIs, WebSockets, Node-Cron, Multer, Axios\n• Databases & Tools: MongoDB, Redis, RAG, LLMs, ELK Stack (Elasticsearch, Logstash, Kibana), Grafana, Git, GitHub, VS Code, Postman, GitHub Copilot, Claude AI";
+  const supportedExts = [".xlsx", ".xls", ".csv", ".md", ".docx", ".json"];
+  for (const ext of supportedExts) {
+    const match = files.find(
+      (f) =>
+        f.toLowerCase().endsWith(ext) &&
+        !f.startsWith("~$") &&
+        f.toLowerCase() !== "package.json" &&
+        f.toLowerCase() !== "preview_emails.json" &&
+        f.toLowerCase() !== "sent_history.json"
+    );
+    if (match) return { file: path.join(__dirname, match), ext };
   }
-
-  return `MURALI KRISHNA POPURI
-Full-Stack Developer | 2+ Years Experience | Location: Open to Relocation (Hyderabad / Bangalore / Vizag)
-Phone: +91 9347796811 | Email: popurimurali16@gmail.com | Portfolio: murali-portfolio-website.vercel.app
-LinkedIn: linkedin.com/in/murali-krishna-popuri | GitHub: github.com/Muralikrishnapopuri
-
-Target Role: ${role} — ${company}
-
-PROFESSIONAL SUMMARY
-Results-driven Full-Stack Developer with 2+ years of professional experience building scalable desktop systems, real-time web applications, and hybrid offline-first platforms. Proficient in React, TypeScript, Node.js, Express, and SQL/NoSQL databases. Proven track record of leveraging AI tools like GitHub Copilot and Claude AI to accelerate development, architecting local network synchronization protocols, and delivering high-performance applications.
-
-TARGETED ATS TECHNICAL SKILLS
-${topSkillsSection}
-
-PROFESSIONAL EXPERIENCE
-YoungMinds Technology Solutions Pvt Ltd | Full-Stack Developer | Feb 2025 – Present
-RestoSoft – Offline Desktop POS (Electron) & Web Platform
-• Built offline-first Windows POS (Electron, React/TS, Node/Express, SQLite) — full billing/KOT works with zero internet.
-• Designed LAN architecture: Main Computer as local server, cashier terminals + waiter app synced via local IP in real-time.
-• Built bi-directional cloud sync engine with auto upload/download, failure retry logic, and zero duplication.
-• Integrated Kafka message broker to handle real-time event streaming and synchronization between cashier and waiter POS terminals.
-• Set up ELK Stack (Elasticsearch, Logstash, Kibana) and Grafana dashboards to monitor logs, database latency, and server health.
-• Developed 4 role-based web applications (Admin, Cashier, Waiter, Digital Menu) supporting Fine Dine, QSR, and Takeaway.
-• Implemented live order updates via long polling, API rate limiting, AWS S3 uploads, and silent thermal printing.
-
-Codtech IT Solutions Pvt Ltd | Full-Stack Developer Intern | Sep 2024 – Oct 2024
-• Developed responsive beverage e-commerce platform using React, Angular, Node.js, Express, and MongoDB with REST API integrations.
-• Collaborated in Agile team using Git version control with AI assistance (GitHub Copilot) for code reviews and feature pull requests.
-
-Chegg India Pvt Ltd | Subject Matter Expert | Oct 2022 – Jan 2023
-• Resolved 150+ complex computer science and web development queries with verified code snippets.
-
-KEY PROJECTS
-Zestchat (Real-Time Messaging) | React, Redux, Node.js, Express, PostgreSQL, Cloudinary, Node-Cron
-• Live Demo: https://zestchat.vercel.app | Relational PostgreSQL schema using pg connection pool for optimized query execution.
-• Integrated an AI assistant leveraging RAG (Retrieval-Augmented Generation) and LLM (Claude AI API) to provide smart, context-aware query responses.
-• Built Express routes for guest credential expiration and scheduled Node-Cron background session cleanups.
-
-Pixel Polish (Web Photo Editor) | React.js, HTML5 Canvas, Express, Multer, Cloudinary
-• Live Demo: https://pixelpolish.vercel.app | High-speed client-side image filters (brightness/contrast) using HTML5 Canvas under 50ms.
-
-EDUCATION
-B.Tech in Computer Science | Amrita Sai Institute of Science and Technology (2019 – 2023) | CGPA: 7.35`;
+  return null;
 }
 
-// ─── Email Generation Engine ───────────────────────────────────
-function generateEmail(company, jobLink, resume, role, companyContext, jobDescription) {
-  const expYears = resume.yearsExp || "2";
+// ─── Email Personalization Engine ──────────────────────────────
+function generateOutreachEmail(app) {
+  const { company, role, location, jobLink, companyContext } = app;
   const appliedRole = role || "Full-Stack Developer";
+  const roleLower = appliedRole.toLowerCase();
 
-  // ── Subject line (clear, actionable) ──
+  // ── 1. Clear, Standardized Subject Line ──
   const subject = `Application for ${appliedRole} – Murali Krishna Popuri`;
 
-  // ── Role-aware skill selection ──
-  const roleLower = appliedRole.toLowerCase();
-  let relevantStack;
-  if (roleLower.includes("frontend") || roleLower.includes("front-end") || roleLower.includes("react")) {
-    relevantStack = "React.js, Next.js, TypeScript, JavaScript, Redux, Tailwind CSS, HTML5, CSS3";
-  } else if (roleLower.includes("backend") || roleLower.includes("node")) {
-    relevantStack = "Node.js, Express.js, REST APIs, MongoDB, PostgreSQL, MySQL, Redis";
+  // ── 2. Tailored Tech Stack & Highlights based on Target Role ──
+  let techStackHighlight = "";
+  let roleSpecialization = "";
+
+  if (roleLower.includes("frontend") || roleLower.includes("react") || roleLower.includes("ui")) {
+    techStackHighlight = "React.js, Next.js, TypeScript, JavaScript (ES6+), Redux, Tailwind CSS, HTML5/CSS3, and REST APIs";
+    roleSpecialization = "building high-performance, responsive UI components, optimizing frontend performance, and state management";
+  } else if (roleLower.includes("backend") || roleLower.includes("node") || roleLower.includes("api")) {
+    techStackHighlight = "Node.js, Express.js, Kafka, PostgreSQL, MySQL, MongoDB, Redis, WebSockets, and RESTful APIs";
+    roleSpecialization = "architecting scalable backend APIs, database query optimization, event streaming with Kafka, and real-time socket services";
+  } else if (roleLower.includes("php") || roleLower.includes("wordpress")) {
+    techStackHighlight = "PHP, React.js, JavaScript (ES6+), MySQL, HTML5, CSS3, REST APIs, and responsive web platforms";
+    roleSpecialization = "full-stack development, database schema design, and custom web application engineering";
+  } else if (roleLower.includes("ai") || roleLower.includes("gen-ai") || roleLower.includes("llm")) {
+    techStackHighlight = "React.js, Node.js, TypeScript, REST APIs, PostgreSQL, Claude AI / OpenAI API integrations, and RAG architectures";
+    roleSpecialization = "leveraging modern Gen-AI coding tools (Claude, Cursor, GitHub Copilot) to accelerate delivery and integrating AI assistants into web platforms";
   } else {
-    relevantStack = "React.js, Node.js, TypeScript, Express, MongoDB, PostgreSQL, SQL";
+    // Default Full-Stack
+    techStackHighlight = "React.js, Node.js, Express, TypeScript, JavaScript (ES6+), PostgreSQL, MongoDB, and RESTful APIs";
+    roleSpecialization = "building responsive frontend interfaces and robust backend microservices from end to end";
   }
 
-  // ── Enthusiastic Hook tailored to Company & JD ──
-  const enthusiasmHook = companyContext
-    ? `I am extremely enthusiastic about ${company}'s work in ${companyContext}. Having built production-grade web systems and real-time synchronization engines, I am confident I am a perfect fit for this role.`
-    : `I am highly enthusiastic about ${company}'s products and engineering culture. My hands-on experience building production SaaS platforms makes me a strong fit for your team.`;
+  const locText = location ? ` in ${location}` : "";
+  const contextNote = companyContext ? ` I am especially inspired by ${company}'s work in ${companyContext}.` : "";
 
-  // ── Job link reference ──
-  const jobRef = jobLink
-    ? `I am writing to express my strong interest in the ${appliedRole} role at ${company} (${jobLink}).`
-    : `I am writing to express my strong interest in the ${appliedRole} role at ${company}.`;
+  // ── 3. Clean, High-Impact Plain Text Email Body (5-8 Sentences) ──
+  const plainBody = `Hi Hiring Team,
 
-  // ── Generate Tailored ATS Resume Text ──
-  const atsResumeText = generateAtsTailoredResume(company, appliedRole, jobDescription || companyContext);
+I am writing to express my strong interest in the ${appliedRole} position at ${company}${locText}.${contextNote}
 
-  // ── Build the email body ──
-  const body = `Dear Hiring Team,
+I am a Full-Stack Developer with 2+ years of professional experience specializing in ${techStackHighlight}. In my recent work at YoungMinds Technology Solutions, I engineered RestoSoft—an offline-first POS desktop & web ecosystem with real-time LAN synchronization, Kafka message brokering, and role-based web platforms.
 
-${jobRef}
+My technical focus centers on ${roleSpecialization}. I actively integrate modern AI development workflows (Claude, Cursor, GitHub Copilot) to ensure rapid, clean feature delivery.
 
-${enthusiasmHook}
+I am based in / open to on-site/hybrid opportunities${locText} and am currently serving my notice period, available as an immediate joiner.
 
-I'm Murali Krishna Popuri, a Full-Stack Developer with ${expYears}+ years of professional experience specializing in React, TypeScript, Node.js, and SQL/NoSQL databases.
-
-Key Highlights of My Experience:
-• Production SaaS & Offline POS: Built an offline-first Windows POS system using Electron, React, TypeScript, Node.js, and SQLite, alongside 4 role-based web platforms handling real-time data sync, long-polling, and microservices.
-• Stack Expertise: ${relevantStack}.
-• Performance & Real-Time: Architected relational PostgreSQL schemas, Canvas image processing under 50ms, and WebSockets/Node-Cron background services.
-
-Please find my customized ATS-friendly resume below and attached for your review.
-
-Portfolio: https://murali-portfolio-website.vercel.app
-GitHub: https://github.com/Muralikrishnapopuri
-LinkedIn: https://linkedin.com/in/murali-krishna-popuri
-
-Featured Live Projects:
-• Zestchat (Real-time Messaging): https://zestchat.vercel.app
-• Pixel Polish (Canvas Image Editor): https://pixelpolish.vercel.app
-
-============================================================
-📄 CUSTOM ATS-TAILORED RESUME SUMMARY FOR ${company.toUpperCase()}
-============================================================
-${atsResumeText}
-============================================================
-
-I'd welcome the opportunity to discuss how my full-stack skills and enthusiasm can contribute to ${company}'s team.
+My updated PDF resume (Murali_Krishna_Popuri_Full_Stack_Dev.pdf) is attached to this email. I look forward to discussing how my experience can benefit ${company}'s team.
 
 Best regards,
+
 Murali Krishna Popuri
-Phone: +91 9347796811
-Email: popurimurali16@gmail.com`;
+Phone: ${CONFIG.senderPhone}
+Email: ${CONFIG.senderEmail}
+Portfolio: ${CONFIG.portfolioUrl}
+GitHub: ${CONFIG.githubUrl}
+LinkedIn: ${CONFIG.linkedinUrl}
 
-  return { subject, body, atsResumeText };
-}
+Featured Live Projects:
+• Zestchat (Real-time Messaging & AI Assistant): ${CONFIG.projectZestchat}
+• Pixel Polish (Canvas Image Filter Studio): ${CONFIG.projectPixelPolish}`;
 
-// ─── Generate HTML Email ───────────────────────────────────────
-function generateHtmlBody(plainBody) {
-  const lines = plainBody.split("\n");
-  let html = "";
-  let inList = false;
+  // ── 4. Elegant HTML Email Body ──
+  const htmlBody = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2d3748; line-height: 1.6; margin: 0; padding: 0; }
+    .container { max-width: 620px; margin: 0 auto; padding: 20px; }
+    .greeting { font-size: 15px; margin-bottom: 12px; }
+    .paragraph { font-size: 14.5px; margin-bottom: 14px; color: #2d3748; }
+    .highlight-box { background: #f7fafc; border-left: 4px solid #3182ce; padding: 12px 16px; margin: 16px 0; border-radius: 0 6px 6px 0; }
+    .highlight-box p { margin: 4px 0; font-size: 14px; color: #4a5568; }
+    .signature { margin-top: 20px; border-top: 1px solid #e2e8f0; padding-top: 16px; }
+    .name { font-size: 16px; font-weight: 700; color: #1a202c; }
+    .links-row { margin-top: 8px; font-size: 13.5px; }
+    .link-item { color: #3182ce; text-decoration: none; font-weight: 600; margin-right: 12px; }
+    .link-item:hover { text-decoration: underline; }
+    .badge { display: inline-block; background: #ebf8ff; color: #2b6cb0; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-left: 6px; }
+    .projects { margin-top: 10px; font-size: 13.5px; color: #4a5568; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="greeting">Hi Hiring Team,</p>
+    
+    <p class="paragraph">
+      I am writing to express my strong interest in the <strong>${appliedRole}</strong> position at <strong>${company}</strong>${locText}.${contextNote}
+    </p>
 
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (trimmed.startsWith("•")) {
-      if (!inList) {
-        html += "<ul style=\"margin:8px 0;padding-left:20px;\">";
-        inList = true;
-      }
-      html += `<li style="margin:3px 0;color:#333;">${trimmed.replace(/^•\s*/, "")}</li>`;
-    } else {
-      if (inList) {
-        html += "</ul>";
-        inList = false;
-      }
-      if (trimmed === "") {
-        html += "<br/>";
-      } else {
-        html += `<p style="margin:4px 0;color:#222;line-height:1.5;">${trimmed}</p>`;
-      }
-    }
-  }
-  if (inList) html += "</ul>";
+    <p class="paragraph">
+      I am a <strong>Full-Stack Developer with 2+ years of professional experience</strong> specializing in <strong>${techStackHighlight}</strong>. At YoungMinds Technology Solutions, I engineered <em>RestoSoft</em>—an offline-first POS desktop & web ecosystem with real-time LAN synchronization, Kafka message brokering, and 4 role-based web platforms.
+    </p>
 
-  return `
-    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 14px; color: #222; max-width: 600px;">
-      ${html}
+    <div class="highlight-box">
+      <p>⚡ <strong>Key Focus:</strong> ${roleSpecialization}.</p>
+      <p>🚀 <strong>Status:</strong> Serving notice period / <span class="badge">Immediate Joiner</span> (Open to On-Site / Hybrid).</p>
     </div>
-  `;
+
+    <p class="paragraph">
+      My complete PDF resume (<strong>Murali_Krishna_Popuri_Full_Stack_Dev.pdf</strong>) is attached to this email for your review.
+    </p>
+
+    <div class="signature">
+      <div class="name">Murali Krishna Popuri</div>
+      <div style="font-size: 13.5px; color: #718096; margin-top: 2px;">
+        📞 ${CONFIG.senderPhone} &nbsp;|&nbsp; ✉️ <a href="mailto:${CONFIG.senderEmail}" style="color:#718096;">${CONFIG.senderEmail}</a>
+      </div>
+      <div class="links-row">
+        🌐 <a class="link-item" href="${CONFIG.portfolioUrl}" target="_blank">Portfolio</a>
+        💻 <a class="link-item" href="${CONFIG.githubUrl}" target="_blank">GitHub</a>
+        🔗 <a class="link-item" href="${CONFIG.linkedinUrl}" target="_blank">LinkedIn</a>
+      </div>
+      <div class="projects">
+        ⭐ <strong>Live Projects:</strong> 
+        <a href="${CONFIG.projectZestchat}" target="_blank" style="color:#3182ce; text-decoration:none;">Zestchat (Messaging & AI)</a> &bull; 
+        <a href="${CONFIG.projectPixelPolish}" target="_blank" style="color:#3182ce; text-decoration:none;">Pixel Polish (Image Editor)</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`;
+
+  return { subject, plainBody, htmlBody };
 }
 
-// ─── Delay Utility ─────────────────────────────────────────────
-function delay(ms) {
+// ─── Delay with Jitter Utility ─────────────────────────────────
+function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function randomDelay(baseMs = CONFIG.baseDelayMs, jitterMs = CONFIG.jitterMs) {
+  const totalMs = baseMs + Math.floor(Math.random() * jitterMs);
+  return sleep(totalMs);
 }
 
 // ─── Create Nodemailer Transport ───────────────────────────────
 function createTransport() {
   if (!CONFIG.appPassword || CONFIG.appPassword === "your_16_digit_app_password") {
-    log.error("GMAIL_APP_PASSWORD is not set in .env file!");
-    log.info(
-      "Generate one at: https://myaccount.google.com/apppasswords"
-    );
+    log.error("GMAIL_APP_PASSWORD is not set in .env!");
+    log.info("Generate one at: https://myaccount.google.com/apppasswords");
     process.exit(1);
   }
 
@@ -430,172 +505,279 @@ function createTransport() {
   });
 }
 
-// ─── DRY RUN Mode ──────────────────────────────────────────────
-async function dryRun(entries, resume) {
-  log.header("DRY RUN — Generating Email Previews");
-  log.info(`Found ${entries.length} recipient(s) to process.\n`);
+// ─── Attachments Verifier ──────────────────────────────────────
+function getAttachments() {
+  const attachments = [];
+  if (fs.existsSync(CONFIG.resumePdfFile)) {
+    attachments.push({
+      filename: path.basename(CONFIG.resumePdfFile),
+      path: CONFIG.resumePdfFile,
+    });
+  } else {
+    log.warn(`Resume PDF not found at: ${CONFIG.resumePdfFile}. Email will be sent without PDF attachment.`);
+  }
+  return attachments;
+}
 
+// ─── DRY RUN Mode ──────────────────────────────────────────────
+async function runDryRun(entries, force = false) {
+  log.header("🔍 DRY RUN — Generating & Validating Email Previews");
+  log.info(`Found ${entries.length} candidate recipient(s) to process.\n`);
+
+  const history = loadHistory();
   const previews = [];
+  let eligibleCount = 0;
+  let skippedCount = 0;
 
   for (let i = 0; i < entries.length; i++) {
-    const { company, email, jobLink, role, companyContext } = entries[i];
-    const { subject, body } = generateEmail(company, jobLink, resume, role, companyContext);
+    const app = entries[i];
+    const alreadySent = isAlreadySent(app.email, history);
+
+    if (alreadySent && !force) {
+      skippedCount++;
+      log.email(i + 1, entries.length, app.email, app.company, app.role, "skip", "Already contacted");
+      continue;
+    }
+
+    eligibleCount++;
+    const { subject, plainBody, htmlBody } = generateOutreachEmail(app);
 
     previews.push({
-      index: i + 1,
-      company,
-      recipientEmail: email,
-      jobLink: jobLink || "N/A",
+      index: eligibleCount,
+      company: app.company,
+      recipientEmail: app.email,
+      role: app.role,
+      location: app.location || "N/A",
+      jobLink: app.jobLink || "N/A",
       subject,
-      body,
+      attachment: fs.existsSync(CONFIG.resumePdfFile) ? path.basename(CONFIG.resumePdfFile) : "None",
+      body: plainBody,
     });
 
-    log.email(i + 1, entries.length, email, subject, "draft");
+    log.email(i + 1, entries.length, app.email, app.company, app.role, "draft");
     log.divider();
   }
 
   fs.writeFileSync(CONFIG.previewFile, JSON.stringify(previews, null, 2), "utf-8");
 
   console.log("");
-  log.success(`All ${previews.length} email draft(s) saved to: preview_emails.json`);
-  log.info("Review the file, then run:  node send_jobs.js --send");
+  log.success(`Generated ${previews.length} ready-to-send draft(s) in: preview_emails.json`);
+  if (skippedCount > 0) {
+    log.info(`Skipped ${skippedCount} recipient(s) already in sent history (use --force to override).`);
+  }
+  console.log("");
+  log.info("To dispatch these emails for real, run:");
+  console.log(`   ${C.bright}${C.green}npm run send${C.reset}  or  ${C.bright}${C.cyan}node send_jobs.js --send${C.reset}\n`);
 }
 
 // ─── SEND Mode ─────────────────────────────────────────────────
-async function sendEmails(entries, resume) {
-  log.header("SENDING EMAILS via Gmail SMTP");
+async function runSend(entries, force = false) {
+  log.header("🚀 SENDING OUTREACH EMAILS via Gmail SMTP");
 
   const transporter = createTransport();
 
-  // Verify SMTP connection
+  // Verify SMTP connection first
   try {
+    process.stdout.write("Verifying Gmail SMTP connection... ");
     await transporter.verify();
-    log.success("SMTP connection verified successfully.\n");
+    console.log(`${C.green}CONNECTED ✔${C.reset}\n`);
   } catch (err) {
+    console.log(`${C.red}FAILED ✖${C.reset}`);
     log.error(`SMTP verification failed: ${err.message}`);
     log.info("Check your SENDER_EMAIL and GMAIL_APP_PASSWORD in .env");
     process.exit(1);
   }
 
+  const attachments = getAttachments();
+  if (attachments.length > 0) {
+    log.success(`PDF Resume attached: ${attachments[0].filename} (${(fs.statSync(attachments[0].path).size / 1024).toFixed(1)} KB)`);
+  }
+
+  const history = loadHistory();
   let sent = 0;
+  let skipped = 0;
   let failed = 0;
 
   for (let i = 0; i < entries.length; i++) {
-    const { company, email, jobLink, role, companyContext } = entries[i];
-    const { subject, body } = generateEmail(company, jobLink, resume, role, companyContext);
-    const htmlBody = generateHtmlBody(body);
+    const app = entries[i];
+    const alreadySent = isAlreadySent(app.email, history);
+
+    if (alreadySent && !force) {
+      skipped++;
+      log.email(i + 1, entries.length, app.email, app.company, app.role, "skip", "Already contacted");
+      continue;
+    }
+
+    const { subject, plainBody, htmlBody } = generateOutreachEmail(app);
 
     const mailOptions = {
       from: `"${CONFIG.senderName}" <${CONFIG.senderEmail}>`,
-      to: email,
+      to: app.email,
       subject,
-      text: body,
+      text: plainBody,
       html: htmlBody,
+      attachments,
     };
 
     try {
-      await transporter.sendMail(mailOptions);
+      const info = await transporter.sendMail(mailOptions);
       sent++;
-      log.email(i + 1, entries.length, email, subject, "sent");
+      recordSent(app.email, app.company, app.role, info.messageId, "SENT");
+      log.email(i + 1, entries.length, app.email, app.company, app.role, "sent");
     } catch (err) {
       failed++;
-      log.email(i + 1, entries.length, email, subject, "fail");
+      recordSent(app.email, app.company, app.role, null, `FAILED: ${err.message}`);
+      log.email(i + 1, entries.length, app.email, app.company, app.role, "fail");
       log.error(`  Error: ${err.message}`);
     }
 
     log.divider();
 
-    // Delay between emails (skip after last)
+    // Anti-spam jitter delay between emails
     if (i < entries.length - 1) {
+      const waitTimeMs = CONFIG.baseDelayMs + Math.floor(Math.random() * CONFIG.jitterMs);
       process.stdout.write(
-        `${C.dim}  ⏳ Waiting ${CONFIG.delayMs / 1000}s before next email...${C.reset}\r`
+        `${C.dim}  ⏳ Waiting ${(waitTimeMs / 1000).toFixed(1)}s before next dispatch...${C.reset}\r`
       );
-      await delay(CONFIG.delayMs);
-      process.stdout.write("                                                \r");
+      await sleep(waitTimeMs);
+      process.stdout.write("                                                      \r");
     }
   }
 
-  // Summary
+  // Summary Report
   console.log("");
-  log.header("SEND SUMMARY");
-  log.success(`Sent:   ${sent}`);
-  if (failed > 0) log.error(`Failed: ${failed}`);
-  log.info(`Total:  ${entries.length}`);
+  log.header("📊 OUTREACH DISPATCH SUMMARY");
+  log.success(`Sent Successfully: ${sent}`);
+  if (skipped > 0) log.info(`Skipped (Duplicates): ${skipped}`);
+  if (failed > 0) log.error(`Failed Deliveries:    ${failed}`);
+  log.info(`Total Processed:      ${entries.length}`);
+  console.log("");
 }
 
-// ─── Main Entry Point ─────────────────────────────────────────
+// ─── HISTORY Mode ──────────────────────────────────────────────
+function showHistory() {
+  log.header("📋 SENT APPLICATIONS HISTORY");
+  const history = loadHistory();
+
+  if (history.length === 0) {
+    log.info("No outreach history recorded yet.");
+    return;
+  }
+
+  console.log(`Total outreach records: ${C.bright}${history.length}${C.reset}\n`);
+  history.forEach((h, idx) => {
+    const timeStr = new Date(h.timestamp).toLocaleString();
+    const tag = h.status === "SENT" ? `${C.green}✔ SENT${C.reset}` : `${C.red}✖ ${h.status}${C.reset}`;
+    console.log(
+      `${C.dim}[${idx + 1}]${C.reset} ${tag} | ${C.bright}${h.company}${C.reset} (${C.cyan}${h.recipientEmail}${C.reset})`
+    );
+    console.log(`    ${C.dim}Role:${C.reset} ${h.role} | ${C.dim}Date:${C.reset} ${timeStr}`);
+  });
+  console.log("");
+}
+
+// ─── CLI Entrypoint ───────────────────────────────────────────
 async function main() {
   console.log("");
   console.log(
-    `${C.bgMagenta}${C.white}${C.bright} 📧  AUTOMATIC JOB OUTREACH MAILER  ${C.reset}`
+    `${C.bgMagenta}${C.white}${C.bright} 📧  AUTOMATED JOB OUTREACH MAILER & TRACKER  ${C.reset}`
   );
   console.log(
-    `${C.dim}    Personalized cold emails for job applications${C.reset}`
+    `${C.dim}    Personalized cold applications with PDF Resume attachment & tracking${C.reset}`
   );
   console.log("");
 
-  // Parse CLI args
   const args = process.argv.slice(2);
-  const mode = args.includes("--send")
-    ? "send"
-    : args.includes("--dry-run")
-    ? "dry-run"
-    : null;
 
-  if (!mode) {
-    log.warn("No mode specified. Use one of:");
-    console.log(`   ${C.cyan}node send_jobs.js --dry-run${C.reset}  → Preview emails`);
-    console.log(`   ${C.cyan}node send_jobs.js --send${C.reset}     → Send emails`);
-    process.exit(0);
+  // Check for history flag
+  if (args.includes("--history") || args.includes("-h")) {
+    showHistory();
+    return;
   }
 
-  // Find and parse input file
-  log.info("Scanning for input data file...");
-  const inputResult = findInputFile();
+  // Determine mode
+  const isSend = args.includes("--send") || args.includes("-s");
+  const isDryRun = args.includes("--dry-run") || args.includes("-d") || args.includes("--preview");
+  const force = args.includes("--force") || args.includes("-f");
 
-  if (!inputResult) {
-    log.error(
-      "No input file found! Place an .xlsx, .xls, .csv, or .docx file in the automatic_mailer folder."
-    );
-    log.info('Expected columns: "Company Name", "HR Email" (or "Email"), "Job Link"');
-    process.exit(1);
-  }
+  // Determine input source
+  let entries = [];
+  const addIdx = args.indexOf("--add");
+  const inputIdx = args.indexOf("--input") !== -1 ? args.indexOf("--input") : args.indexOf("-i");
 
-  log.success(`Found: ${path.basename(inputResult.file)} (${inputResult.ext})`);
+  if (addIdx !== -1 && args[addIdx + 1]) {
+    const leadStr = args[addIdx + 1];
+    log.info(`Parsing single lead from CLI: "${leadStr}"`);
+    entries = parseSingleLead(leadStr);
+  } else if (inputIdx !== -1 && args[inputIdx + 1]) {
+    const customFile = path.resolve(process.cwd(), args[inputIdx + 1]);
+    if (!fs.existsSync(customFile)) {
+      log.error(`Specified input file does not exist: ${customFile}`);
+      process.exit(1);
+    }
+    const ext = path.extname(customFile).toLowerCase();
+    log.info(`Reading custom input file: ${path.basename(customFile)} (${ext})`);
 
-  let entries;
-  if (inputResult.ext === ".docx") {
-    entries = await parseDocx(inputResult.file);
+    if (ext === ".xlsx" || ext === ".xls" || ext === ".csv") {
+      entries = parseExcelOrCsv(customFile);
+    } else if (ext === ".md") {
+      entries = parseMarkdown(customFile);
+    } else if (ext === ".json") {
+      entries = parseJson(customFile);
+    } else if (ext === ".docx") {
+      entries = await parseDocx(customFile);
+    } else {
+      log.error(`Unsupported file extension: ${ext}`);
+      process.exit(1);
+    }
   } else {
-    entries = parseExcel(inputResult.file);
+    // Search for default input files
+    const found = findDefaultInputFile();
+    if (!found) {
+      log.error("No input data file found (.xlsx, .csv, .md, .docx, .json).");
+      console.log(`\nUsage examples:`);
+      console.log(`  ${C.cyan}node send_jobs.js --dry-run${C.reset}                        (Auto-detects file and previews)`);
+      console.log(`  ${C.cyan}node send_jobs.js --send${C.reset}                           (Auto-detects file and sends)`);
+      console.log(`  ${C.cyan}node send_jobs.js --input job_opportunities.md --dry-run${C.reset} (Preview markdown list)`);
+      console.log(`  ${C.cyan}node send_jobs.js --add "Acme Corp | hr@acme.com | React Dev | Hyderabad" --dry-run${C.reset}`);
+      console.log(`  ${C.cyan}node send_jobs.js --history${C.reset}                        (View all sent applications)`);
+      process.exit(1);
+    }
+
+    log.info(`Auto-detected input source: ${path.basename(found.file)} (${found.ext})`);
+    if (found.ext === ".xlsx" || found.ext === ".xls" || found.ext === ".csv") {
+      entries = parseExcelOrCsv(found.file);
+    } else if (found.ext === ".md") {
+      entries = parseMarkdown(found.file);
+    } else if (found.ext === ".json") {
+      entries = parseJson(found.file);
+    } else if (found.ext === ".docx") {
+      entries = await parseDocx(found.file);
+    }
   }
 
   if (!entries || entries.length === 0) {
-    log.error("No valid entries found in the input file.");
-    log.info('Ensure columns: "Company Name", "HR Email", "Job Link" are present.');
+    log.error("No valid job application records could be parsed.");
     process.exit(1);
   }
 
-  log.success(`Parsed ${entries.length} company record(s).`);
+  log.success(`Parsed ${entries.length} job lead(s).`);
 
-  // Parse resume
-  log.info("Reading resume for skill context...");
-  const resume = parseResume();
-  log.success(`Skills detected: ${resume.skills.join(", ")}`);
-  console.log("");
-
-  // Execute mode
-  if (mode === "dry-run") {
-    await dryRun(entries, resume);
-  } else {
-    await sendEmails(entries, resume);
+  if (!isSend && !isDryRun) {
+    log.warn("No execution mode flag passed. Defaulting to --dry-run preview.\n");
+    await runDryRun(entries, force);
+    return;
   }
 
-  console.log("");
+  if (isDryRun) {
+    await runDryRun(entries, force);
+  } else if (isSend) {
+    await runSend(entries, force);
+  }
 }
 
 main().catch((err) => {
-  log.error(`Fatal error: ${err.message}`);
+  log.error(`Fatal execution error: ${err.message}`);
   console.error(err);
   process.exit(1);
 });

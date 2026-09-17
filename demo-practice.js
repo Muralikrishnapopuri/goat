@@ -488,6 +488,89 @@
 //call-4 n=2 return hold (2*call-5 return ==> 2*1 =2)
 //call-5 n=1 return 1
 
-const arr = [1,2,3,4,5];
-const result = arr.reduce((acc,cur)=>{return acc+cur},0);
-console.log(result);
+// const arr = [1,2,3,4,5];
+// const result = arr.reduce((acc,cur)=>{return acc+cur},0);
+// console.log(result);
+
+// const secondLarge = (arr)=>{
+//     let first =-Infinity;
+//     let second =-Infinity;
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]>first){
+//             second =first;
+//             first=arr[i];
+//         }else if(arr[i]>second && second<first && arr[i]!=first){
+//             second=arr[i];
+//         }
+//     }
+
+//     return second;
+
+// }
+// console.log(secondLarge([2,4,6,8,7,12,23,56,66,-3,66,9]))
+
+// for(i=5;i>0;i--){
+//     for(j=0;j<i;j++){
+//         console.log(i,j);
+//     }
+
+// }
+
+// const call = (n)=>{
+// for(let i=0;i<n;i++){
+//     let row = "";
+//     for(let j=0;j<n;j++){
+//         row+=" *";
+//     }
+//     console.log(row);
+// }
+// }
+
+// // call(5);
+// const findCounterDigit=(n)=>{
+//     let counter=0;
+//     if(n==0){
+//         return 1;
+//     }
+//     n=Math.abs(n);
+// while(n>0){
+//     n=Math.floor(n/10);
+//     counter++
+// }
+// return counter;
+// }
+
+// console.log(findCounterDigit(-44544));
+
+// const palindrom=(n)=>{
+//     if(n<0) return false;
+//     let rev=0;
+//     let nCopy=n;
+//     while(n>0){
+//         let rem=n%10;
+//         rev=(10*rev)+rem;
+//         n=Math.floor(n/10);
+
+//     }
+//     return rev===nCopy;
+// }
+// console.log(palindrom(21212))
+
+// const reverseD=(D)=>{
+// let rev=0;
+// let DCopy =D;
+// D=Math.abs(D);
+
+// while(D>0){
+//     let lastvalue=D%10;
+//     rev=(10*rev)+lastvalue;
+//     D=Math.floor(D/10);
+
+// }
+// let limit = 2**31;
+// if(DCopy<-limit || DCopy>limit) return 0;
+
+// return (DCopy<0) ? -rev : rev;
+// }
+
+// console.log(reverseD(133214));
