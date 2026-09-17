@@ -25,20 +25,20 @@
 //     return input*input
 // }); 
 
-const secondLargeNo = (arr)=>{
-    let first = -Infinity;
-    let second = -Infinity;
-    for(let num of arr){
-        if(num>first){
-            second = first;
-            first = num
-        }else if(num>second && num!==first){
-            second = num
-        }
-    }
-    return second;
-}
-console.log(secondLargeNo([22,44,2,55,6,77]))
+// const secondLargeNo = (arr)=>{
+//     let first = -Infinity;
+//     let second = -Infinity;
+//     for(let num of arr){
+//         if(num>first){
+//             second = first;
+//             first = num
+//         }else if(num>second && num!==first){
+//             second = num
+//         }
+//     }
+//     return second;
+// }
+// console.log(secondLargeNo([22,44,2,55,6,77]))
 
 
 
@@ -593,4 +593,51 @@ console.log(secondLargeNo([22,44,2,55,6,77]))
 //[3,5,5,0,8,0,9,8]
 
 
+
+// const DupRemovedig = (arr)=>{
+//     let counter=0;
+//     for(let i=0;i<arr.length;i++){
+
+//         // 0 index to nth index
+//         if(arr[i]>arr[counter]){
+
+//             counter+=1;
+
+//             arr[counter]=arr[i];
+//         }
+//     }
+
+// return {"Unique values": counter , "Output Array": arr};
+// }
+// console.log(DupRemovedig([0,0,1,2,2,3,4,4,5])) ;
+// console.log(DupRemovedig([0,1,2,3,4,5,4,4,5])) ;
+
+// const removeAllOccuranceInArray = (arr,val)=>{
+//    let x=0;//pointer to remove and add unique array forward elements 
+//    for(let i=0;i<arr.length;i++){
+//     if(arr[i]!==val){
+//         arr[x]=arr[i];//2nd iteration true --> arr[x]=10 , arr[i]=3 then 10!=3 -> true arr becomes [3,3,5,3,4,5,5,76,6,76,3,5]
+//             x=x+1;    //3rd iteration true --> arr[x]=3 , arr[i]=5 then 3!=5 ->true arr becomes [3,5,5,3,4,5,5,76,6,76,3,5]
+//                       //4rth iteration true --> arr[x]=5 , arr[i]=3 then 5!=3 -> true arr becomes [3,5,3,3,4,5,5,76,6,76,3,5]
+                      
+//     }
+//    }
+//    return x;
+// }
+// console.log(removeAllOccuranceInArray([76,86,76.4,5,6,5,6,],76)); // Q: 8 ; 8-2 = 6;
+//  const findCountOfrest =(arr,val)=>{
+
+//  }
+//  console.log(findCountOfrest())
+
+// const reverseString=(str)=>{
+//     for(let i=0;i<str.length/2;i++){
+//         let temp=str[i];
+//         str[i]=str[str.length-1-i];
+//         str[str.length-1-i]=temp;
+//     }
+//     return str;
+// };
+
+// console.log(reverseString("HELLO"));
 
