@@ -1,0 +1,90 @@
+JOB SEARCH & AUTO MAILER STRICT INSTRUCTION RULES
+Candidate: Murali Krishna Popuri (+91 9347796811 | popurimurali16@gmail.com)
+
+==================================================
+1. RESUME PRE-READ & CANDIDATE SKILLS
+==================================================
+Always read extracted_resume.txt / Murali_Krishna_Popuri_Full_Stack_Dev.pdf before searching.
+
+Candidate Experience: 2+ Years Professional Experience + Internship
+Notice Period: Immediate Joiner / Serving Notice Period
+Resume PDF: /home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_Resume.pdf
+
+Core Tech Stack Skills (Strict Match):
+- Frontend: React.js, Next.js, Angular, JavaScript (ES6+), TypeScript, HTML5, CSS3, Redux, Tailwind CSS, Bootstrap, Handlebars, Canvas.
+- Backend: Node.js, Express.js, PHP, REST APIs, WebSockets, Microservices, Node-Cron, Multer, Axios.
+- Databases & Messaging: SQL (MySQL, PostgreSQL, SQLite), MongoDB, Redis, Kafka, ELK Stack, Grafana.
+- AI & Tools: RAG, LLM APIs (Claude, OpenAI), Cursor, Claude Code, GitHub Copilot, Git, VS Code, Postman.
+
+==================================================
+2. STRICT LOCATION & TIMEFRAME FILTERS
+==================================================
+- Locations: Hyderabad and Bengaluru ONLY (Strictly On-Site, Hybrid, or Remote with Hyd/Blr hub).
+- Recency: Last 24 hours ONLY (Strictly active hiring).
+
+==================================================
+3. ELIGIBLE JOB DESIGNATIONS
+==================================================
+- Full Stack Developer / Full Stack Engineer
+- React.js Developer / React Developer / Frontend Developer / UI Developer
+- Node.js Developer / Backend Developer / Backend Engineer
+- MERN Stack Developer / MEAN Stack Developer
+- JavaScript Developer / TypeScript Developer
+- Web Developer / Web Engineer
+- Software Engineer / Software Developer
+- SDE / SDE-1 / SDE-2 (Software Development Engineer)
+- Software Trainee / Associate Engineer
+- Any technical role matching candidate's React, Node, MERN, PHP, or Full Stack Web skills.
+
+==================================================
+4. COMPANY PRIORITIES
+==================================================
+- Priority 1: Top MNCs in Hyderabad & Bengaluru.
+- Priority 2: Mid-level product companies and established IT firms.
+- Priority 3: Fast-growing startups and active recruiter HR posts.
+
+==================================================
+5. AUTOMATED EMAIL OUTREACH RULES (AUTO MAILER)
+==================================================
+1. Extract HR target emails from job postings/feed.
+2. Read candidate resume and JD to craft customized cover emails.
+3. NO EMOJIS (STRICTLY FORBIDDEN) in email subject lines or bodies.
+4. NO TEST EMAILS to popurimuralikrishna04@gmail.com during outreach.
+5. HUMAN-WRITTEN TONE: Professional, impressive, no generic AI clichés.
+6. STRICT EXPERIENCE HONESTY (NEVER MENTION 8 YEARS OR SENIOR YEARS):
+   - Candidate True Experience: Strictly 2+ Years of Professional Experience + 8 Months of Hands-on Project Experience.
+   - NEVER QUOTE SENIOR YEARS: NEVER write phrases like "While your posting seeks 8+ years" or "Although you require 10 years" in the email or WhatsApp text. Recruiters who skim emails see the number "8 years" and mistakenly think the candidate is claiming 8 years!
+   - Always State Upfront:
+     * Total Experience: 2+ Years Professional Experience (+ 8 Months Project Experience)
+     * Core Stack: React.js, Next.js, Node.js, Express, TypeScript, REST APIs, SQL/NoSQL
+     * Notice Period: Immediate Joiner (0 days notice)
+   - NEVER lie or exaggerate experience under any circumstance.
+7. ATTACH PDF RESUME: /home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_Resume.pdf.
+8. Dispatch emails sequentially one-by-one.
+
+==================================================
+6. HR WHATSAPP CONTACT HANDLING & MESSAGE FORMATTING
+==================================================
+When recruiter posts contain a WhatsApp phone number:
+1. Provide recruiter phone number clearly.
+2. Ready-to-Copy WhatsApp Message Format (MANDATORY RULES):
+   - DO NOT MENTION EMAIL: Never say "I have sent my resume via email" or reference email inside the WhatsApp message text (the candidate sends this message directly on WhatsApp).
+   - NO EMOJIS: Keep the WhatsApp text clean, professional, and free of emojis.
+   - NO MENTION OF SENIOR YEARS: Strictly state: "I have 2+ years of professional full-stack development experience and 8 months of project experience in React.js, Node.js, and TypeScript." Do NOT mention 8 years or the job's senior requirements!
+   - Include Links: Always include GitHub, Portfolio, and LinkedIn links in the message.
+   - Structure:
+     * Greeting to recruiter.
+     * Mention the specific role / opening.
+     * State 2+ years professional experience (+ 8 months project experience) in the relevant tech stack.
+     * State immediate joiner status (serving notice period / 0 days notice).
+     * Provide Portfolio, GitHub, and LinkedIn links.
+     * Offer to share the PDF resume right there on WhatsApp.
+
+==================================================
+7. PORTAL CAREER LINKS & WHATSAPP SUMMARY EMAIL RULE
+==================================================
+When processing copied LinkedIn content:
+1. Extract all career portal application links (Google Forms, external career apply links).
+2. Extract all WhatsApp contact numbers and format ready-to-copy WhatsApp messages for each.
+3. Send a concise summary email containing ONLY these portal application links and WhatsApp contact details + ready-to-copy messages directly to: popurimuralikrishna04@gmail.com.
+4. Keep the summary email crisp and actionable without redundant text.

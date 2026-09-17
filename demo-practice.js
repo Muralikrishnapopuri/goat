@@ -25,6 +25,21 @@
 //     return input*input
 // }); 
 
+// const secondLargeNo = (arr)=>{
+//     let first = -Infinity;
+//     let second = -Infinity;
+//     for(let num of arr){
+//         if(num>first){
+//             second = first;
+//             first = num
+//         }else if(num>second && num!==first){
+//             second = num
+//         }
+//     }
+//     return second;
+// }
+// console.log(secondLargeNo([22,44,2,55,6,77]))
+
 
 
 
@@ -285,7 +300,7 @@
 
 // const findCharsCount = (str) => {
 //     let result = {};//0
-    
+
 // for(let char of str){
 //     if(result[char]){
 //         result[char]++;
@@ -324,7 +339,7 @@
 // console.log(MergeArrays([1,3,5,8],[2,4,6,7,9]));
 
 // const findP1 = (d)=>{
-    
+
 
 // for(let i=2;i*i<=d;i++){
 //     if(d%i==0){
@@ -356,7 +371,7 @@
 //     for(let i = 1 ; i<=d;i++){
 //         if(d%i==0){
 //             count++
-            
+
 //         }
 //         if(count==2){
 //             return 'its prime.'
@@ -389,12 +404,12 @@
 //                     if(result[k]==arr1[i]){
 //                         exist = true;
 //                     }
-                   
+
 //                 }
 //                  if(!exist){
 //                          result[result.length]=arr1[i];
 //                     }
-                
+
 //             }
 //         }
 //     }
@@ -423,7 +438,7 @@
 //         }
 //         r[groupbykey][r[groupbykey].length]=arrOdObjects[i];
 
-    
+
 //     }
 //     return r;
 // }

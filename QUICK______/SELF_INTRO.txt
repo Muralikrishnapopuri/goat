@@ -1,0 +1,27 @@
+i was started my career as engineer student, where I built a strong foundation in programming and problem-solving. 
+Early on, I worked as a Subject Matter Expert at Chegg India, resolving complex computer science and web development queries — 
+that really sharpened my fundamentals. From there i moved to an internship for 2 months there i got the experience on React and Node.js.
+
+& That experience led me to learn the whole full stack development so i own the course for couple of months
+then i got a chance to work with real time projects at  YoungMinds Technology Solutions,
+where I've been working for the past 2 years as a Full-Stack Developer, where i'm part of the team building  restosoft ,
+restosoft is a restaurant management platform having one desktop app and role based web applications . 
+during my time here i have build desktop pos offline cashier application with electrol.js,react.js which works completely zero internet dependency 
+and also it have cloud synchronization engine for data consistency to manage multiple systems data flow .
+which mean the data will automatically sync from sql lite to cloud my sql .
+
+my core skills are : java script , react,redux, node.js , express.js , sql & no sql database ( mysql , sqlite , mongodb ) , 
+and also fimilier with Typescript , python , websockets , jwt , redis,API integrations ,
+database & server load issues resolving techniques like - load balance , replication , rate limiting ,node cache so,
+i phase all type of trobleshooting in production level, coming to deployment i have used git , github , gitlab and aws. 
+
+and honestly , in current software industry what i have learn today it will become outdated for tomorrow so i also stay updated 
+with latest ai powered coding assistance , like LLM's, agentic ai models to make development faster and optimized code. 
+
+so i know full stack is not about only development i should to maintain and support the entire team from development to deployment 
+to give the best results by EOD  so i will take the full ownership for my assigned modules . 
+and this is what i have learn through my full stack journey .
+really i want to so thankful for you to schedule this interview and 
+
+i'm ready to give best performance as you expected also knowing this company
+i'm so excited to know about team and contribute the delivery from the day one. thank you .

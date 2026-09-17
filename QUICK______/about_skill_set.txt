@@ -1,0 +1,9 @@
+"My core strength is JavaScript and TypeScript — I use those daily with React, Node.js, and Express for full-stack development, 
+and Electron for desktop applications. On the database side, I work with both SQL — MySQL, PostgreSQL — and NoSQL like MongoDB,
+ along with Redis for caching.
+
+For APIs, I've built REST APIs, used WebSockets for real-time features, and implemented authentication with JWT. 
+I also use Git and GitHub for version control, and AWS S3 for cloud storage.
+
+Beyond that, I actively use AI tools like Claude and other LLM-based assistants in my daily development workflow — 
+it helps me code faster and solve problems more efficiently."
