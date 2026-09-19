@@ -82,7 +82,9 @@ const CONFIG = {
   jitterMs: 2000,    // 0-2s random jitter (3-5s total)
   previewFile: path.join(__dirname, "preview_emails.json"),
   historyFile: path.join(__dirname, "sent_history.json"),
-  resumePdfFile: path.join(__dirname, "Murali_Krishna_Popuri_Full_Stack_Dev.pdf"),
+  resumePdfFile: fs.existsSync(path.join(__dirname, "Murali_Krishna_Popuri_FullStack_Developer.pdf"))
+    ? path.join(__dirname, "Murali_Krishna_Popuri_FullStack_Developer.pdf")
+    : path.join(__dirname, "Murali_Krishna_Popuri_Full_Stack_Dev.pdf"),
   resumeTxtFile: path.join(__dirname, "resume.txt"),
 };
 
@@ -356,119 +358,89 @@ function generateOutreachEmail(app) {
   const appliedRole = role || "Full-Stack Developer";
   const roleLower = appliedRole.toLowerCase();
 
-  // ── 1. Clear, Standardized Subject Line ──
-  const subject = `Application for ${appliedRole} – Murali Krishna Popuri`;
+  // ── 1. Clean, Natural Subject Line ──
+  const subject = `${appliedRole} – Murali Krishna Popuri`;
 
-  // ── 2. Tailored Tech Stack & Highlights based on Target Role ──
+  // ── 2. Tailored Tech Stack based on Target Role ──
   let techStackHighlight = "";
-  let roleSpecialization = "";
 
   if (roleLower.includes("frontend") || roleLower.includes("react") || roleLower.includes("ui")) {
-    techStackHighlight = "React.js, Next.js, TypeScript, JavaScript (ES6+), Redux, Tailwind CSS, HTML5/CSS3, and REST APIs";
-    roleSpecialization = "building high-performance, responsive UI components, optimizing frontend performance, and state management";
+    techStackHighlight = "React.js, Next.js, TypeScript, JavaScript (ES6+), Redux, and Tailwind CSS";
   } else if (roleLower.includes("backend") || roleLower.includes("node") || roleLower.includes("api")) {
-    techStackHighlight = "Node.js, Express.js, Kafka, PostgreSQL, MySQL, MongoDB, Redis, WebSockets, and RESTful APIs";
-    roleSpecialization = "architecting scalable backend APIs, database query optimization, event streaming with Kafka, and real-time socket services";
+    techStackHighlight = "Node.js, Express.js, PostgreSQL, MySQL, SQLite, MongoDB, Redis, and REST/WebSocket APIs";
   } else if (roleLower.includes("php") || roleLower.includes("wordpress")) {
-    techStackHighlight = "PHP, React.js, JavaScript (ES6+), MySQL, HTML5, CSS3, REST APIs, and responsive web platforms";
-    roleSpecialization = "full-stack development, database schema design, and custom web application engineering";
-  } else if (roleLower.includes("ai") || roleLower.includes("gen-ai") || roleLower.includes("llm")) {
-    techStackHighlight = "React.js, Node.js, TypeScript, REST APIs, PostgreSQL, Claude AI / OpenAI API integrations, and RAG architectures";
-    roleSpecialization = "leveraging modern Gen-AI coding tools (Claude, Cursor, GitHub Copilot) to accelerate delivery and integrating AI assistants into web platforms";
+    techStackHighlight = "PHP, MySQL, React.js, JavaScript (ES6+), and REST APIs";
   } else {
     // Default Full-Stack
-    techStackHighlight = "React.js, Node.js, Express, TypeScript, JavaScript (ES6+), PostgreSQL, MongoDB, and RESTful APIs";
-    roleSpecialization = "building responsive frontend interfaces and robust backend microservices from end to end";
+    techStackHighlight = "React.js, Node.js, Express, TypeScript, JavaScript (ES6+), PostgreSQL, and MySQL";
   }
 
   const locText = location ? ` in ${location}` : "";
-  const contextNote = companyContext ? ` I am especially inspired by ${company}'s work in ${companyContext}.` : "";
 
-  // ── 3. Clean, High-Impact Plain Text Email Body (5-8 Sentences) ──
-  const plainBody = `Hi Hiring Team,
+  // ── 3. Natural, Human Plain Text Body ──
+  const plainBody = `Hi ${company} Team,
 
-I am writing to express my strong interest in the ${appliedRole} position at ${company}${locText}.${contextNote}
+I'm reaching out to apply for the ${appliedRole} role at ${company}${locText}.
 
-I am a Full-Stack Developer with 2+ years of professional experience specializing in ${techStackHighlight}. In my recent work at YoungMinds Technology Solutions, I engineered RestoSoft—an offline-first POS desktop & web ecosystem with real-time LAN synchronization, Kafka message brokering, and role-based web platforms.
+I'm a developer with 2 years of professional experience working with ${techStackHighlight}. In my current role at YoungMinds Technology Solutions, I built RestoSoft—an offline-first POS desktop system (Electron) with real-time LAN synchronization, SQLite/MySQL, and role-based web platforms.
 
-My technical focus centers on ${roleSpecialization}. I actively integrate modern AI development workflows (Claude, Cursor, GitHub Copilot) to ensure rapid, clean feature delivery.
+Here are quick links to my work and projects:
+• Portfolio: ${CONFIG.portfolioUrl}
+• GitHub: ${CONFIG.githubUrl}
+• LinkedIn: ${CONFIG.linkedinUrl}
+• Zestchat (Live Project): ${CONFIG.projectZestchat}
+• Pixel Polish (Live Project): ${CONFIG.projectPixelPolish}
 
-I am based in / open to on-site/hybrid opportunities${locText} and am currently serving my notice period, available as an immediate joiner.
+Regarding my availability: I am currently serving notice with an official Last Working Day of Nov 11, but I can get released earlier if needed as my manager is flexible (can join immediately). I am open to on-site/hybrid opportunities${locText}.
 
-My updated PDF resume (Murali_Krishna_Popuri_Full_Stack_Dev.pdf) is attached to this email. I look forward to discussing how my experience can benefit ${company}'s team.
+I have attached my resume for your review. Let me know if my background aligns with what you're looking for, and we can set up a short call.
 
-Best regards,
+Thanks,
 
 Murali Krishna Popuri
-Phone: ${CONFIG.senderPhone}
-Email: ${CONFIG.senderEmail}
-Portfolio: ${CONFIG.portfolioUrl}
-GitHub: ${CONFIG.githubUrl}
-LinkedIn: ${CONFIG.linkedinUrl}
++91 9347796811
+${CONFIG.senderEmail}`;
 
-Featured Live Projects:
-• Zestchat (Real-time Messaging & AI Assistant): ${CONFIG.projectZestchat}
-• Pixel Polish (Canvas Image Filter Studio): ${CONFIG.projectPixelPolish}`;
-
-  // ── 4. Elegant HTML Email Body ──
+  // ── 4. Clean, Human HTML Body (Standard Email Look, Zero Marketing Gimmicks) ──
   const htmlBody = `
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2d3748; line-height: 1.6; margin: 0; padding: 0; }
-    .container { max-width: 620px; margin: 0 auto; padding: 20px; }
-    .greeting { font-size: 15px; margin-bottom: 12px; }
-    .paragraph { font-size: 14.5px; margin-bottom: 14px; color: #2d3748; }
-    .highlight-box { background: #f7fafc; border-left: 4px solid #3182ce; padding: 12px 16px; margin: 16px 0; border-radius: 0 6px 6px 0; }
-    .highlight-box p { margin: 4px 0; font-size: 14px; color: #4a5568; }
-    .signature { margin-top: 20px; border-top: 1px solid #e2e8f0; padding-top: 16px; }
-    .name { font-size: 16px; font-weight: 700; color: #1a202c; }
-    .links-row { margin-top: 8px; font-size: 13.5px; }
-    .link-item { color: #3182ce; text-decoration: none; font-weight: 600; margin-right: 12px; }
-    .link-item:hover { text-decoration: underline; }
-    .badge { display: inline-block; background: #ebf8ff; color: #2b6cb0; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-left: 6px; }
-    .projects { margin-top: 10px; font-size: 13.5px; color: #4a5568; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #222222; line-height: 1.55; font-size: 14px; margin: 0; padding: 0; }
+    p { margin: 0 0 14px 0; }
+    ul { margin: 0 0 14px 0; padding-left: 20px; }
+    li { margin-bottom: 4px; }
+    a { color: #0066cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .sign { margin-top: 18px; line-height: 1.45; color: #333333; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <p class="greeting">Hi Hiring Team,</p>
-    
-    <p class="paragraph">
-      I am writing to express my strong interest in the <strong>${appliedRole}</strong> position at <strong>${company}</strong>${locText}.${contextNote}
-    </p>
+  <p>Hi ${company} Team,</p>
 
-    <p class="paragraph">
-      I am a <strong>Full-Stack Developer with 2+ years of professional experience</strong> specializing in <strong>${techStackHighlight}</strong>. At YoungMinds Technology Solutions, I engineered <em>RestoSoft</em>—an offline-first POS desktop & web ecosystem with real-time LAN synchronization, Kafka message brokering, and 4 role-based web platforms.
-    </p>
+  <p>I'm reaching out to apply for the ${appliedRole} role at ${company}${locText}.</p>
 
-    <div class="highlight-box">
-      <p>⚡ <strong>Key Focus:</strong> ${roleSpecialization}.</p>
-      <p>🚀 <strong>Status:</strong> Serving notice period / <span class="badge">Immediate Joiner</span> (Open to On-Site / Hybrid).</p>
-    </div>
+  <p>I'm a developer with 2 years of professional experience working with ${techStackHighlight}. In my current role at YoungMinds Technology Solutions, I built RestoSoft—an offline-first POS desktop system (Electron) with real-time LAN synchronization, SQLite/MySQL, and role-based web platforms.</p>
 
-    <p class="paragraph">
-      My complete PDF resume (<strong>Murali_Krishna_Popuri_Full_Stack_Dev.pdf</strong>) is attached to this email for your review.
-    </p>
+  <p>Here are quick links to my work and projects:</p>
+  <ul>
+    <li>Portfolio: <a href="${CONFIG.portfolioUrl}">${CONFIG.portfolioUrl}</a></li>
+    <li>GitHub: <a href="${CONFIG.githubUrl}">${CONFIG.githubUrl}</a></li>
+    <li>LinkedIn: <a href="${CONFIG.linkedinUrl}">${CONFIG.linkedinUrl}</a></li>
+    <li>Zestchat (Live): <a href="${CONFIG.projectZestchat}">${CONFIG.projectZestchat}</a></li>
+    <li>Pixel Polish (Live): <a href="${CONFIG.projectPixelPolish}">${CONFIG.projectPixelPolish}</a></li>
+  </ul>
 
-    <div class="signature">
-      <div class="name">Murali Krishna Popuri</div>
-      <div style="font-size: 13.5px; color: #718096; margin-top: 2px;">
-        📞 ${CONFIG.senderPhone} &nbsp;|&nbsp; ✉️ <a href="mailto:${CONFIG.senderEmail}" style="color:#718096;">${CONFIG.senderEmail}</a>
-      </div>
-      <div class="links-row">
-        🌐 <a class="link-item" href="${CONFIG.portfolioUrl}" target="_blank">Portfolio</a>
-        💻 <a class="link-item" href="${CONFIG.githubUrl}" target="_blank">GitHub</a>
-        🔗 <a class="link-item" href="${CONFIG.linkedinUrl}" target="_blank">LinkedIn</a>
-      </div>
-      <div class="projects">
-        ⭐ <strong>Live Projects:</strong> 
-        <a href="${CONFIG.projectZestchat}" target="_blank" style="color:#3182ce; text-decoration:none;">Zestchat (Messaging & AI)</a> &bull; 
-        <a href="${CONFIG.projectPixelPolish}" target="_blank" style="color:#3182ce; text-decoration:none;">Pixel Polish (Image Editor)</a>
-      </div>
-    </div>
+  <p>Regarding my availability: I am currently serving notice with an official Last Working Day of Nov 11, but I can get released earlier if needed as my manager is flexible (can join immediately). I am open to on-site/hybrid opportunities${locText}.</p>
+
+  <p>I have attached my resume for your review. Let me know if my background aligns with what you're looking for, and we can set up a short call.</p>
+
+  <div class="sign">
+    <strong>Murali Krishna Popuri</strong><br>
+    +91 9347796811<br>
+    <a href="mailto:${CONFIG.senderEmail}">${CONFIG.senderEmail}</a>
   </div>
 </body>
 </html>`;
@@ -506,8 +478,20 @@ function createTransport() {
 }
 
 // ─── Attachments Verifier ──────────────────────────────────────
-function getAttachments() {
+function getAttachments(company = "") {
   const attachments = [];
+  if (company) {
+    const safeComp = company.replace(/[^a-zA-Z0-9_-]/g, "_").replace(/_+/g, "_");
+    const tailoredPath = path.join(__dirname, "dist_resumes", `Murali_Krishna_Popuri_${safeComp}.pdf`);
+    if (fs.existsSync(tailoredPath)) {
+      attachments.push({
+        filename: path.basename(tailoredPath),
+        path: tailoredPath,
+      });
+      return attachments;
+    }
+  }
+
   if (fs.existsSync(CONFIG.resumePdfFile)) {
     attachments.push({
       filename: path.basename(CONFIG.resumePdfFile),
@@ -550,7 +534,7 @@ async function runDryRun(entries, force = false) {
       location: app.location || "N/A",
       jobLink: app.jobLink || "N/A",
       subject,
-      attachment: fs.existsSync(CONFIG.resumePdfFile) ? path.basename(CONFIG.resumePdfFile) : "None",
+      attachment: getAttachments(app.company).length > 0 ? getAttachments(app.company)[0].filename : "None",
       body: plainBody,
     });
 
@@ -616,7 +600,7 @@ async function runSend(entries, force = false) {
       subject,
       text: plainBody,
       html: htmlBody,
-      attachments,
+      attachments: getAttachments(app.company),
     };
 
     try {

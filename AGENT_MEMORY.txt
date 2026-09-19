@@ -1,0 +1,96 @@
+================================================================================
+🚀 ANTIGRAVITY AGENT MEMORY & SYSTEM HANDOVER GUIDE
+File: AGENT_MEMORY.txt
+Location: /home/murali-krishna/cluad/goat/AGENT_MEMORY.txt
+Related Directory: /home/murali-krishna/cluad/goat/automatic_mailer/
+Purpose: Comprehensive state memory for any new Antigravity session or machine.
+================================================================================
+
+1. CANDIDATE PROFILE & STRICT CONSTRAINTS (NEVER VIOLATE)
+--------------------------------------------------------------------------------
+• Candidate Name: Murali Krishna Popuri
+• Phone: +91 9347796811
+• Email: popurimurali16@gmail.com
+• Location: Vijayawada, India (Open to immediate relocation: Hyderabad / Bengaluru)
+• Portfolio: https://murali-portfolio-website.vercel.app
+• GitHub: https://github.com/Muralikrishnapopuri
+• LinkedIn: https://linkedin.com/in/murali-krishna-popuri
+• Experience: STRICTLY 2 YEARS (NEVER SAY "2+ YEARS").
+• Availability / Notice Period: Immediate Joiner (Official Last Working Day is Nov 11,
+  but completely negotiable for earlier release upon receiving an offer).
+
+2. LOCKED SKILL SET (STRICT TRUTH-BASE ONLY)
+--------------------------------------------------------------------------------
+Only use the following technologies in resumes, profiles, and email drafts:
+• Languages & Frameworks: JavaScript (ES6+), TypeScript, React.js, Next.js, Node.js, Express.js, Electron.js, Redux, PHP
+• Databases: MySQL, PostgreSQL, SQLite, MongoDB, Redis
+• APIs & Integration: REST APIs, WebSockets, Webhooks, JWT, OAuth2
+• AI Tooling: OpenAI API, Claude AI API, Agentic AI workflows, LLM-assisted development
+• Tools & Platforms: Git, GitHub, AWS S3, Postman, VS Code, CLI
+• Styling: Tailwind CSS, Bootstrap, HTML5, CSS3
+
+⛔ STRICT EXCLUSIONS:
+• NO Kafka
+• NO ELK Stack (Elasticsearch, Logstash, Kibana)
+• NO Grafana
+Never mention Kafka or ELK in any resume, script, or email.
+
+3. COLD EMAIL COMMUNICATION RULES (NO AI-GENERATED TONE)
+--------------------------------------------------------------------------------
+• DO NOT send emails that look AI-generated.
+• Avoid robotic cliches:
+  - NO "I am writing to express my strong interest in..."
+  - NO "I actively integrate agentic AI workflows..."
+  - NO "I look forward to discussing how my experience can benefit your team..."
+  - NO marketing cards, colorful badges, or emojis (⚡, 🚀, ⭐).
+• Use natural, direct, human developer phrasing:
+  - Greeting: "Hi [Company] Team,"
+  - Opening: "I'm reaching out to apply for the [Role] role at [Company]."
+  - Plain, clean paragraphs and natural sign-off that looks personally typed in Gmail.
+
+4. KEY SCRIPTS & FILES IN automatic_mailer/
+--------------------------------------------------------------------------------
+• automatic_mailer/generate_tailored_resume.js:
+  - Generates a per-company ATS-tailored 1-page PDF using headless Chrome in < 1.5s.
+  - Automatically re-orders skills and bullets based on target JD (Frontend, Backend, Full-Stack).
+  - Outputs to: automatic_mailer/dist_resumes/Murali_Krishna_Popuri_<Company>.pdf
+  - Command:
+    node generate_tailored_resume.js --company "CompanyName" --role "RoleTitle" --skills "Tech1, Tech2"
+
+• automatic_mailer/parse_companies_pdf.py:
+  - Parsed all 846 companies from "800+ IT companies master data for freshers.pdf".
+  - Extracted 106 verified direct email leads (31 Hyderabad tech hub leads).
+
+• automatic_mailer/companies_master.json:
+  - Complete structured directory of all 846 companies, career site URLs, and LinkedIn pages.
+
+• automatic_mailer/companies_email_leads.csv:
+  - All 106 companies with verified direct recruiter/HR contact emails.
+
+• automatic_mailer/companies_hyderabad_email_leads.csv:
+  - 31 Hyderabad tech companies with direct emails (AdOnMo, BlueSemi, WhistleDrive, Virtusa, Cyient, etc.).
+
+• automatic_mailer/ats_autofill_bookmarklet.js:
+  - 1-Click browser bookmarklet for manual career portals (Workday, Greenhouse, Lever, SmartRecruiters).
+  - Auto-fills Name, Email, Phone, Links, 2 Years Experience, and Notice Period in 1 second.
+
+• automatic_mailer/send_jobs.js:
+  - Node.js email outreach and history tracking engine using nodemailer.
+  - Automatically detects and attaches the tailored PDF from dist_resumes/ (or defaults to master PDF).
+  - Checks sent_history.json to prevent duplicate outreach.
+  - Commands:
+    - Dry-run (Safe preview): node send_jobs.js --input companies_hyderabad_email_leads.csv --dry-run
+    - Send for real:          node send_jobs.js --input companies_hyderabad_email_leads.csv --send
+    - Single lead:            node send_jobs.js --add "Company | email | role | Hyderabad" --send
+
+• automatic_mailer/preview_emails.json:
+  - Drafts generated during the last dry-run for review before sending.
+
+• automatic_mailer/sent_history.json:
+  - Audit trail of all dispatched emails to avoid duplicate messages.
+
+5. HOW TO CONTINUE IN A NEW SESSION / SYSTEM
+--------------------------------------------------------------------------------
+When starting in a fresh Antigravity session on another machine, simply prompt:
+"Read AGENT_MEMORY.txt in automatic_mailer and continue our job outreach workflow."
+================================================================================
