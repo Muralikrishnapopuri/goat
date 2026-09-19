@@ -1,26 +1,43 @@
 ================================================================================
-🚀 ANTIGRAVITY AGENT MEMORY & SYSTEM HANDOVER GUIDE
-File: AGENT_MEMORY.txt
-Location: /home/murali-krishna/cluad/goat/automatic_mailer/AGENT_MEMORY.txt
-Purpose: Comprehensive state memory for any new Antigravity session or machine.
+🚀 ANTIGRAVITY COMPREHENSIVE AGENT MEMORY & HANDOVER LOG
+File Location 1: /home/murali-krishna/cluad/goat/automatic_mailer/AGENT_MEMORY.txt
+File Location 2: /home/murali-krishna/cluad/goat/AGENT_MEMORY.txt
+Updated: September 19, 2026
+Author / Candidate: Murali Krishna Popuri
 ================================================================================
 
-1. CANDIDATE PROFILE & STRICT CONSTRAINTS (NEVER VIOLATE)
---------------------------------------------------------------------------------
-• Candidate Name: Murali Krishna Popuri
+This document is the single source of truth for all past actions, locked configurations,
+profile constraints, codebases, and instructions. Any Antigravity agent starting
+in a new session or machine MUST read and adhere strictly to this file.
+
+================================================================================
+1. 👤 CANDIDATE PROFILE & STRICT CONSTRAINTS (NEVER VIOLATE)
+================================================================================
+• Full Name: Murali Krishna Popuri
 • Phone: +91 9347796811
 • Email: popurimurali16@gmail.com
-• Location: Vijayawada, India (Open to immediate relocation: Hyderabad / Bengaluru)
+• Location: Vijayawada, Andhra Pradesh (Open to Immediate Relocation: Hyderabad / Bengaluru)
 • Portfolio: https://murali-portfolio-website.vercel.app
 • GitHub: https://github.com/Muralikrishnapopuri
 • LinkedIn: https://linkedin.com/in/murali-krishna-popuri
-• Experience: STRICTLY 2 YEARS (NEVER SAY "2+ YEARS").
-• Availability / Notice Period: Immediate Joiner (Official Last Working Day is Nov 11,
-  but completely negotiable for earlier release upon receiving an offer).
+• Featured Projects:
+  - Zestchat (Real-time Messaging & AI Assistant): https://zestchat.vercel.app
+  - Pixel Polish (Canvas Image Filter Studio): https://pixelpolish.vercel.app
 
-2. LOCKED SKILL SET (STRICT TRUTH-BASE ONLY)
---------------------------------------------------------------------------------
-Only use the following technologies in resumes, profiles, and email drafts:
+⚡ EXPERIENCE RULE:
+• STRICTLY 2 YEARS of experience.
+• NEVER write or say "2+ years" or "2.5 years". It is strictly "2 years".
+
+⚡ AVAILABILITY & NOTICE PERIOD RULE:
+• Status: Immediate Joiner.
+• Official Last Working Day (LWD): November 11.
+• Manager is flexible; candidate can immediately negotiate early release upon receiving an offer.
+• Phrasing in emails / forms: "Immediate Joiner (Official LWD: Nov 11, negotiable for early release upon offer)".
+
+================================================================================
+2. 🔒 LOCKED SKILL SET (STRICT TRUTH-BASE ONLY)
+================================================================================
+Only the following skills may be included in resumes, cover letters, and email outreach:
 • Languages & Frameworks: JavaScript (ES6+), TypeScript, React.js, Next.js, Node.js, Express.js, Electron.js, Redux, PHP
 • Databases: MySQL, PostgreSQL, SQLite, MongoDB, Redis
 • APIs & Integration: REST APIs, WebSockets, Webhooks, JWT, OAuth2
@@ -28,68 +45,115 @@ Only use the following technologies in resumes, profiles, and email drafts:
 • Tools & Platforms: Git, GitHub, AWS S3, Postman, VS Code, CLI
 • Styling: Tailwind CSS, Bootstrap, HTML5, CSS3
 
-⛔ STRICT EXCLUSIONS:
+⛔ STRICT EXCLUSIONS (COMPLETELY BANNED):
 • NO Kafka
 • NO ELK Stack (Elasticsearch, Logstash, Kibana)
 • NO Grafana
-Never mention Kafka or ELK in any resume, script, or email.
+Never include Kafka or ELK in any resume, email, script, or conversation.
 
-3. COLD EMAIL COMMUNICATION RULES (NO AI-GENERATED TONE)
---------------------------------------------------------------------------------
-• DO NOT send emails that look AI-generated.
-• Avoid robotic cliches:
-  - NO "I am writing to express my strong interest in..."
-  - NO "I actively integrate agentic AI workflows..."
-  - NO "I look forward to discussing how my experience can benefit your team..."
-  - NO marketing cards, colorful badges, or emojis (⚡, 🚀, ⭐).
-• Use natural, direct, human developer phrasing:
-  - Greeting: "Hi [Company] Team,"
-  - Opening: "I'm reaching out to apply for the [Role] role at [Company]."
-  - Plain, clean paragraphs and natural sign-off that looks personally typed in Gmail.
+================================================================================
+3. ✍️ COLD OUTREACH EMAIL RULES (AUTHENTIC HUMAN DEVELOPER TONE)
+================================================================================
+• DO NOT send emails that sound like AI or ChatGPT.
+• FORBIDDEN AI tropes:
+  - "I am writing to express my strong interest in..."
+  - "I actively integrate agentic AI workflows / deliver high-performance synergies..."
+  - "I look forward to discussing how my experience can benefit your team..."
+  - Marketing cards, colorful badges, or emojis (⚡, 🚀, ⭐).
+• REQUIRED HUMAN TONE:
+  - Direct, polite, developer-to-recruiter phrasing.
+  - Plain, clean paragraphs that look like they were typed in Gmail.
+  - Template structure:
+      Subject: [Role] – Murali Krishna Popuri
+      Greeting: Hi [Company] Team,
+      Opening: I'm reaching out to apply for the [Role] role at [Company].
+      Body: 2 years experience with [Tech], current work at YoungMinds building RestoSoft (Electron offline POS + LAN sync + MySQL/SQLite + role web apps).
+      Links: Portfolio, GitHub, LinkedIn, Zestchat, Pixel Polish.
+      Notice Period: Serving notice with official LWD of Nov 11, but manager is flexible so can get released earlier (immediate joiner). Open to Hyderabad.
+      Closing: Attached resume, happy to connect for a short call.
+      Sign-off: Murali Krishna Popuri | +91 9347796811 | popurimurali16@gmail.com
 
-4. KEY SCRIPTS & FILES IN THIS DIRECTORY
---------------------------------------------------------------------------------
-• generate_tailored_resume.js:
-  - Generates a per-company ATS-tailored 1-page PDF using headless Chrome in < 1.5s.
-  - Automatically re-orders skills and bullets based on target JD (Frontend, Backend, Full-Stack).
-  - Outputs to: dist_resumes/Murali_Krishna_Popuri_<Company>.pdf
-  - Command:
-    node generate_tailored_resume.js --company "CompanyName" --role "RoleTitle" --skills "Tech1, Tech2"
+================================================================================
+4. ⚡ 1-CLICK ATS AUTO-FILL BOOKMARKLET (MANUAL CAREER PORTALS)
+================================================================================
+Configured and verified for Workday, Greenhouse, Lever, SmartRecruiters, Ashby, etc.
+• Bookmark Name: ⚡ Auto-Fill Apply.
+• Bookmark URL:
+javascript:(function(){const C={fullName:"Murali Krishna Popuri",firstName:"Murali Krishna",lastName:"Popuri",email:"popurimurali16@gmail.com",phone:"+91 9347796811",city:"Vijayawada",preferredLocation:"Hyderabad / Bengaluru",experienceYears:"2",currentRole:"Full-Stack Developer",currentCompany:"YoungMinds Technology Solutions",noticePeriod:"Immediate (Official LWD: Nov 11, Negotiable)",portfolio:"https://murali-portfolio-website.vercel.app",github:"https://github.com/Muralikrishnapopuri",linkedin:"https://linkedin.com/in/murali-krishna-popuri",summary:"Full-Stack Developer with 2 years of experience specializing in React.js, Next.js, TypeScript, Node.js, Express, PostgreSQL, MongoDB, and Electron. Serving notice period with official LWD on Nov 11 (negotiable for early release)."};let count=0;function setV(el,v){if(!el||el.disabled||el.readOnly)return;if(el.value&&el.value.trim()===v.trim())return;el.focus();el.value=v;el.dispatchEvent(new Event('input',{bubbles:true}));el.dispatchEvent(new Event('change',{bubbles:true}));el.dispatchEvent(new Event('blur',{bubbles:true}));count++;}document.querySelectorAll("input, textarea, select").forEach(el=>{const d=`${el.name||""} ${el.id||""} ${el.placeholder||""} ${el.getAttribute("aria-label")||""} ${el.labels&&el.labels[0]?el.labels[0].innerText:""}`.toLowerCase();if(d.includes("full name")||d.includes("candidate_name")||d.includes("your name"))setV(el,C.fullName);else if(d.includes("first name")||d.includes("firstname"))setV(el,C.firstName);else if(d.includes("last name")||d.includes("lastname"))setV(el,C.lastName);else if(el.type==="email"||d.includes("email"))setV(el,C.email);else if(el.type==="tel"||d.includes("phone")||d.includes("mobile"))setV(el,C.phone);else if(d.includes("linkedin"))setV(el,C.linkedin);else if(d.includes("github"))setV(el,C.github);else if(d.includes("portfolio")||d.includes("website"))setV(el,C.portfolio);else if(d.includes("city"))setV(el,C.city);else if(d.includes("preferred location"))setV(el,C.preferredLocation);else if(d.includes("current company"))setV(el,C.currentCompany);else if(d.includes("current role")||d.includes("current title"))setV(el,C.currentRole);else if(d.includes("years of experience")||d.includes("total experience"))setV(el,C.experienceYears);else if(d.includes("notice period")||d.includes("availability")||d.includes("how soon"))setV(el,C.noticePeriod);else if(el.tagName.toLowerCase()==="textarea"&&(d.includes("cover letter")||d.includes("summary")))setV(el,C.summary);});const b=document.createElement("div");b.innerText=`✔ Auto-filled ${count} fields for Murali Krishna Popuri!`;b.style.cssText="position:fixed;top:15px;right:15px;background:#1a365d;color:#fff;padding:12px 18px;border-radius:8px;font-family:sans-serif;font-size:13px;font-weight:600;box-shadow:0 4px 15px rgba(0,0,0,0.25);z-index:999999;";document.body.appendChild(b);setTimeout(()=>b.remove(),4000);})();
 
-• parse_companies_pdf.py:
-  - Parsed all 846 companies from "800+ IT companies master data for freshers.pdf".
-  - Extracted 106 verified direct email leads (31 Hyderabad tech hub leads).
+• Code File: /home/murali-krishna/cluad/goat/automatic_mailer/ats_autofill_bookmarklet.js
 
-• companies_master.json:
-  - Complete structured directory of all 846 companies, career site URLs, and LinkedIn pages.
+================================================================================
+5. 📂 FILES, UTILITIES & ARCHITECTURE CREATED
+================================================================================
+All residing in /home/murali-krishna/cluad/goat/automatic_mailer/:
 
-• companies_email_leads.csv:
-  - All 106 companies with verified direct recruiter/HR contact emails.
+1. generate_tailored_resume.js:
+   - Compiles per-company ATS-friendly 1-page PDF using headless Google Chrome in < 1.5s.
+   - Strictly enforces 2 years experience, locked skills, zero Kafka/ELK, and LWD Nov 11 negotiable.
+   - Automatically prioritizes skills and re-orders bullets based on target role.
+   - Output destination: dist_resumes/Murali_Krishna_Popuri_<Company>.pdf
+   - Command:
+     node generate_tailored_resume.js --company "<Company>" --role "<Role>" --skills "<Keywords>"
 
-• companies_hyderabad_email_leads.csv:
-  - 31 Hyderabad tech companies with direct emails (AdOnMo, BlueSemi, WhistleDrive, Virtusa, Cyient, etc.).
+2. parse_companies_pdf.py:
+   - Extracted all data from "800+ IT companies master data for freshers.pdf".
+   - Total parsed: 846 companies, 106 email leads, 31 Hyderabad tech hub leads.
 
-• ats_autofill_bookmarklet.js:
-  - 1-Click browser bookmarklet for manual career portals (Workday, Greenhouse, Lever, SmartRecruiters).
-  - Auto-fills Name, Email, Phone, Links, 2 Years Experience, and Notice Period in 1 second.
+3. companies_master.json:
+   - Clean JSON database of all 846 companies with career portal links and LinkedIn pages.
 
-• send_jobs.js:
-  - Node.js email outreach and history tracking engine using nodemailer.
-  - Automatically detects and attaches the tailored PDF from dist_resumes/ (or defaults to master PDF).
-  - Checks sent_history.json to prevent duplicate outreach.
-  - Commands:
-    - Dry-run (Safe preview): node send_jobs.js --input companies_hyderabad_email_leads.csv --dry-run
-    - Send for real:          node send_jobs.js --input companies_hyderabad_email_leads.csv --send
-    - Single lead:            node send_jobs.js --add "Company | email | role | Hyderabad" --send
+4. companies_email_leads.csv:
+   - 106 company records with direct recruiter/HR emails.
 
-• preview_emails.json:
-  - Drafts generated during the last dry-run for review before sending.
+5. companies_hyderabad_email_leads.csv:
+   - 31 Hyderabad tech hub companies with direct emails (AdOnMo, BlueSemi, WhistleDrive, Virtusa, Cyient, etc.).
 
-• sent_history.json:
-  - Audit trail of all dispatched emails to avoid duplicate messages.
+6. batch_generate_resumes.js:
+   - Automated batch generator script that pre-compiled tailored ATS resumes for 32 top Hyderabad & Tier-1 tech companies.
 
-5. HOW TO CONTINUE IN A NEW SESSION / SYSTEM
---------------------------------------------------------------------------------
-When starting in a fresh Antigravity session on another machine, simply prompt:
-"Read AGENT_MEMORY.txt in automatic_mailer and continue our job outreach workflow."
+7. MANUAL_APPLY_PORTAL_GUIDE.md:
+   - Comprehensive portal application guide with direct career links, target roles, and tailored resume links for 32 top companies.
+
+8. dist_resumes/:
+   - Pre-compiled tailored resumes for 32 companies:
+     Zenoti, HighRadius, Darwinbox, ServiceNow, Salesforce, Broadridge, FactSet, ADP,
+     PayPal, Qualcomm, CBRE, DTCC, Cyient, Virtusa, AdOnMo, WhistleDrive, BlueSemi,
+     BrowserStack, Freshworks, Razorpay, Zoho, Zscaler, Zeta, Acko, Optum,
+     Persistent Systems, Deloitte, Capgemini, Cognizant, TCS, Infosys, Wipro.
+
+9. send_jobs.js:
+   - Central email dispatch and tracking CLI.
+   - Uses nodemailer + Gmail SMTP with duplicate guard via sent_history.json.
+   - Dynamically checks dist_resumes/ for the company-specific PDF; if missing, falls back to master PDF.
+   - Updated with 100% human developer email body.
+
+================================================================================
+6. 🚀 IMMEDIATE WORKFLOW COMMANDS
+================================================================================
+1. Dry-run preview (Safe, no emails sent):
+   node send_jobs.js --input companies_hyderabad_email_leads.csv --dry-run
+   (Inspect generated drafts in preview_emails.json)
+
+2. Real email dispatch:
+   node send_jobs.js --input companies_hyderabad_email_leads.csv --send
+
+3. Add & dispatch a single company lead:
+   node send_jobs.js --add "CompanyName | hr@company.com | Full-Stack Developer | Hyderabad" --send
+
+4. Generate custom resume for any new company:
+   node generate_tailored_resume.js --company "TargetCompany" --role "Full-Stack Developer" --skills "React, Node.js, PostgreSQL"
+
+================================================================================
+7. 🐙 GIT STATUS & SYNCING TO OTHER MACHINES
+================================================================================
+All changes were committed locally in commit: [main 32260df] "fvbhdshcd".
+To push to remote GitHub repository so another machine can pull:
+1. Generate token at https://github.com/settings/tokens (select 'repo' scope).
+2. Run:
+   git remote set-url origin https://<YOUR_TOKEN>@github.com/Muralikrishnapopuri/goat.git
+   git push
+
+On the other machine:
+   git pull origin main
 ================================================================================
