@@ -45,11 +45,15 @@ Only the following skills may be included in resumes, cover letters, and email o
 • Tools & Platforms: Git, GitHub, AWS S3, Postman, VS Code, CLI
 • Styling: Tailwind CSS, Bootstrap, HTML5, CSS3
 
-⛔ STRICT EXCLUSIONS (COMPLETELY BANNED):
+⛔ STRICT EXCLUSIONS (COMPLETELY BANNED ACROSS RESUMES & SEARCH FILTERS):
 • NO Kafka
 • NO ELK Stack (Elasticsearch, Logstash, Kibana)
 • NO Grafana
-Never include Kafka or ELK in any resume, email, script, or conversation.
+• NO Java (Spring Boot, Core Java, J2EE)
+• NO .NET (C#, ASP.NET, dotnet)
+• NO Python (Django, Flask, FastApi)
+• Never include Java or .NET even as secondary skills; strictly target pure JS/TS (React/Node/Express/MERN).
+• Search Locations: Strictly Hyderabad & Bengaluru (Bangalore).
 
 ================================================================================
 3. ✍️ COLD OUTREACH EMAIL RULES (AUTHENTIC HUMAN DEVELOPER TONE)
