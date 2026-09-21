@@ -423,7 +423,10 @@ const htmlContent = `<!DOCTYPE html>
 fs.writeFileSync(tempHtml, htmlContent, "utf-8");
 
 try {
-  const chromeCmd = `google-chrome --headless --disable-gpu --no-sandbox --print-to-pdf="${outputPdf}" "${tempHtml}"`;
+  const chromeExecutable = process.platform === "win32"
+    ? '"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"'
+    : "google-chrome";
+  const chromeCmd = `${chromeExecutable} --headless --disable-gpu --no-sandbox --print-to-pdf="${outputPdf}" "${tempHtml}"`;
   execSync(chromeCmd, { stdio: "pipe" });
 
   // Verify file was written
