@@ -56,26 +56,47 @@ Only the following skills may be included in resumes, cover letters, and email o
 • Search Locations: Strictly Hyderabad & Bengaluru (Bangalore).
 
 ================================================================================
-3. ✍️ COLD OUTREACH EMAIL RULES (AUTHENTIC HUMAN DEVELOPER TONE)
+3. ✍️ COLD OUTREACH EMAIL RULES (AUTHENTIC HUMAN DEVELOPER TONE — MANDATORY)
 ================================================================================
-• DO NOT send emails that sound like AI or ChatGPT.
-• FORBIDDEN AI tropes:
-  - "I am writing to express my strong interest in..."
-  - "I actively integrate agentic AI workflows / deliver high-performance synergies..."
-  - "I look forward to discussing how my experience can benefit your team..."
-  - Marketing cards, colorful badges, or emojis (⚡, 🚀, ⭐).
-• REQUIRED HUMAN TONE:
-  - Direct, polite, developer-to-recruiter phrasing.
-  - Plain, clean paragraphs that look like they were typed in Gmail.
-  - Template structure:
-      Subject: [Role] – Murali Krishna Popuri
-      Greeting: Hi [Company] Team,
-      Opening: I'm reaching out to apply for the [Role] role at [Company].
-      Body: 2 years experience with [Tech], current work at YoungMinds building RestoSoft (Electron offline POS + LAN sync + MySQL/SQLite + role web apps).
-      Links: Portfolio, GitHub, LinkedIn, Zestchat, Pixel Polish.
-      Notice Period: Serving notice with official LWD of Nov 11, but manager is flexible so can get released earlier (immediate joiner). Open to Hyderabad.
-      Closing: Attached resume, happy to connect for a short call.
-      Sign-off: Murali Krishna Popuri | +91 9347796811 | popurimurali16@gmail.com
+• STRICT NO EMOJIS: Never use emojis anywhere in the email (no ⚡, 🚀, ⭐, 🌐, 💻, 🔗, etc.).
+• PURE PROFESSIONAL FORMAT: Clean, polite, plain paragraphs as if typed directly in Gmail.
+• MANDATORY CONSTANT CONTENT FOR EVERY EMAIL:
+  1. RestoSoft / YoungMinds Context (2 lines):
+     "I am currently working as a Full-Stack Developer at YoungMinds Technology Solutions, where I build RestoSoft—an offline-first POS desktop system (Electron) with local LAN real-time synchronization and role-based web platforms."
+  2. Notice Period & Availability:
+     "I am currently serving my notice period with an official Last Working Day of Nov 11, but my manager is flexible and I can be released earlier to join immediately upon offer."
+  3. Current Location & Relocation:
+     "I am currently based in Vijayawada, Andhra Pradesh, and available to relocate immediately to [Target Location / Hyderabad / Bengaluru] for onsite or hybrid work."
+  4. Work Links (STRICTLY NO OTHER PERSONAL PROJECTS):
+     - Portfolio: https://murali-portfolio-website.vercel.app
+     - LinkedIn: https://linkedin.com/in/murali-krishna-popuri
+     - GitHub: https://github.com/Muralikrishnapopuri
+     - Zestchat (Sample web app for WebSockets): https://zestchat.vercel.app
+     (Do NOT mention Pixel Polish or other side projects)
+• STANDARD TEMPLATE:
+    Subject: Application for [Role] – Murali Krishna Popuri
+    Greeting: Hi [Company] Team,
+    Opening: I'm reaching out to apply for the [Role] position at [Company][in Location].
+    Body:
+    I am a developer with 2 years of professional experience working with [Target Tech Stack]. I am currently working as a Full-Stack Developer at YoungMinds Technology Solutions, where I build RestoSoft—an offline-first POS desktop system (Electron) with local LAN real-time synchronization and role-based web platforms.
+
+    Here are links to my work:
+    - Portfolio: https://murali-portfolio-website.vercel.app
+    - LinkedIn: https://linkedin.com/in/murali-krishna-popuri
+    - GitHub: https://github.com/Muralikrishnapopuri
+    - Zestchat (Sample web app for WebSockets): https://zestchat.vercel.app
+
+    Availability & Location:
+    I am currently based in Vijayawada, Andhra Pradesh, and available to relocate immediately to [Location] for onsite or hybrid work. I am serving my notice period with an official Last Working Day of Nov 11, but my manager is flexible and I can be released earlier to join immediately upon offer.
+
+    I have attached my resume ([Resume_Filename]) for your review. Please let me know if my background aligns with your requirements, and I would be happy to connect for a short call.
+
+    Best regards,
+
+    Murali Krishna Popuri
+    +91 9347796811
+    popurimurali16@gmail.com
+
 
 ================================================================================
 4. ⚡ 1-CLICK ATS AUTO-FILL BOOKMARKLET (MANUAL CAREER PORTALS)
@@ -156,8 +177,40 @@ To push to remote GitHub repository so another machine can pull:
 1. Generate token at https://github.com/settings/tokens (select 'repo' scope).
 2. Run:
    git remote set-url origin https://<YOUR_TOKEN>@github.com/Muralikrishnapopuri/goat.git
-   git push
-
-On the other machine:
-   git pull origin main
+================================================================================
+8. 🛡️ LATEST OUTREACH MANDATES & ANTI-SPAM SAFE PROTOCOL (SEPTEMBER 22, 2026)
+================================================================================
+CRITICAL OPERATING RULES FOR ANY FUTURE SESSION:
+1. NEVER SEND TWICE TO THE SAME EMAIL:
+   - Check sent_history.json before every dispatch. Never re-contact any address.
+2. EXPERIENCE > 3 YEARS & EXTRA TOOLS RULE:
+   - If the job posting asks for > 3 years experience or requires extra tools/skills outside the core stack:
+     STILL SEND EMAIL.
+   - Address it in the body with the exact bridge pitch:
+     "While my primary core stack is centered on React.js, Node.js, Express, JavaScript, TypeScript, and modern APIs, I have a fast learning curve and when collaborating with engineering teams I pick up new tools, libraries, and frameworks within a week. I am confident I will match your team's technical expectations and look forward to proving my capabilities in the technical interview."
+3. TAILOR EMAILS TO THE SPECIFIC JOB DESCRIPTION:
+   - Match the specific role, technologies, and company context from the JD.
+4. MANDATORY 2-LINE RESTOSOFT CONTEXT:
+   "I am currently working as a Full-Stack Developer at YoungMinds Technology Solutions, where I build RestoSoft—an offline-first POS desktop system (Electron) with local LAN real-time synchronization and role-based web platforms."
+5. EXACTLY 4 PERMITTED LINKS:
+   - Portfolio: https://murali-portfolio-website.vercel.app
+   - LinkedIn: https://linkedin.com/in/murali-krishna-popuri
+   - GitHub: https://github.com/Muralikrishnapopuri
+   - Zestchat (Sample web app for WebSockets): https://zestchat.vercel.app
+6. ATTACH RESUME PDF:
+   - /home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_FullStack_Developer.pdf
+7. STRICT ZERO EMOJIS:
+   - Strictly 0 emojis in subject line and email body.
+8. NOTICE PERIOD & RELOCATION:
+   - Immediate joiner (official Last Working Day of Nov 11, negotiable for immediate release upon offer).
+   - Based in Vijayawada, AP; ready to relocate immediately to Hyderabad or Bengaluru.
+9. ANTI-SPAM SAFE MAILER ENGINE (safe_mailer.js):
+   - Never send rapid bursts (e.g. 2-5 second loops trigger spam filters).
+   - Human randomized delay: 45 to 90 seconds between each email.
+   - Micro-batch cap: Max 10 emails per run.
+   - Daily safety ceiling: Max 35-45 cold emails per day from popurimurali16@gmail.com.
+   - Rotating subject lines to prevent hash clustering.
+   - Standard desktop headers (X-Mailer: Apple Mail, Importance: Normal, X-Priority: 3, explicit replyTo).
+   - Polite disregard footnote on every email:
+     "P.S. If you are not currently hiring for this role or are not the right person to reach out to, please feel free to disregard this note."
 ================================================================================

@@ -390,5 +390,77 @@
     "role": "Full-Stack Developer",
     "status": "SENT",
     "messageId": "<82e52836-baf1-d5d9-d7ed-65f754d1af27@gmail.com>"
+  },
+  {
+    "timestamp": "2026-09-22T05:52:11.268Z",
+    "recipientEmail": "careers@iprismtech.com",
+    "company": "iPrism Technologies",
+    "role": "React.js Developer",
+    "status": "SENT",
+    "messageId": "<21247ffd-5188-4306-0dd6-eec7083e6193@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_React_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-22T05:58:37.077Z",
+    "recipientEmail": "careers@iprismtech.com",
+    "company": "iPrism Technologies",
+    "role": "Node.js Developer",
+    "status": "SENT",
+    "messageId": "<6b0119eb-9c47-08dc-bb2a-3dd6fc23032e@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_Node_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-22T06:21:45.049Z",
+    "recipientEmail": "careers@mtouchlabs.com",
+    "company": "mTouch Labs",
+    "role": "Full Stack Developer",
+    "status": "SENT",
+    "messageId": "<1f60d41b-b99a-51d2-ec7a-23e48d30da99@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-22T07:01:40.066Z",
+    "recipientEmail": "contact@enterpi.com",
+    "company": "Enterpi Software Solutions",
+    "role": "Full Stack Developer",
+    "status": "SENT",
+    "messageId": "<d8e3668b-28ad-bd60-d119-7253fa67177d@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-22T07:04:53.541Z",
+    "recipientEmail": "info@dhatechnologies.com",
+    "company": "DHA Technologies",
+    "role": "Full Stack Developer",
+    "status": "SENT",
+    "messageId": "<dad6a3a3-9dcb-8bd2-909a-10f3c941354e@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-22T07:07:18.019Z",
+    "recipientEmail": "info@kkeydos.com",
+    "company": "KKEYDOS",
+    "role": "Full Stack Developer",
+    "status": "SENT",
+    "messageId": "<ef65dbc8-034b-aa2d-9044-8e485a608512@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-22T07:10:21.416Z",
+    "recipientEmail": "careers@zypedigital.com",
+    "company": "Zype Digital",
+    "role": "Full Stack Developer",
+    "status": "SENT",
+    "messageId": "<834e4358-a4a1-7a7c-2870-99759b96a18f@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-22T07:18:32.865Z",
+    "recipientEmail": "info@zenbyt.com",
+    "company": "Zenbyt Private Limited",
+    "role": "Full Stack Developer",
+    "status": "SENT",
+    "messageId": "<9cbf5fbd-2b3c-5d77-d621-2a1a5ed236d4@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
   }
 ]
