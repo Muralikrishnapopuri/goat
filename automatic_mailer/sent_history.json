@@ -1290,5 +1290,14 @@
     "status": "SENT",
     "messageId": "<f7d34367-301c-4a1d-d152-06189cc32768@gmail.com>",
     "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-23T09:43:30.906Z",
+    "recipientEmail": "isha.digirush@gmail.com",
+    "company": "Digi Rush Solutions",
+    "role": "Full Stack Developer",
+    "status": "SENT",
+    "messageId": "<c05b9092-2e63-6b66-29f7-ff933fa4528b@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
   }
 ]
