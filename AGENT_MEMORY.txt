@@ -20,9 +20,8 @@ in a new session or machine MUST read and adhere strictly to this file.
 • Portfolio: https://murali-portfolio-website.vercel.app
 • GitHub: https://github.com/Muralikrishnapopuri
 • LinkedIn: https://linkedin.com/in/murali-krishna-popuri
-• Featured Projects:
-  - Zestchat (Real-time Messaging & AI Assistant): https://zestchat.vercel.app
-  - Pixel Polish (Canvas Image Filter Studio): https://pixelpolish.vercel.app
+• Permitted Project Link: Zestchat (https://zestchat.vercel.app)
+• Attached Resume PDF Path: /home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_FullStack_Developer.pdf
 
 ⚡ EXPERIENCE RULE:
 • STRICTLY 2 YEARS of experience.
