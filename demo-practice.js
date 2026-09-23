@@ -589,3 +589,49 @@
 // }
 
 // console.log(reverseD(133214));
+
+
+//1. palindrom 
+// const palindrom = (str)=>{
+//     let Result = "";
+//     for(let i=str.length-1;i>=0;i--){ //5 
+//        console.log(i)
+//         Result+=str[i];
+//     }
+//     return Result===str;
+// }
+
+// console.log(palindrom("level"))
+// const palindrom = (str)=>{
+//     let start =0;//l
+//     let end = str.length-1;//l
+//     while(start<end){
+//         if(str[start]===str[end]){
+//             start++;
+//             end--;
+//         }else{
+//             return false;
+//         }
+
+//     }
+//     return true;
+
+// }
+
+// console.log(palindrom("noon"))
+
+// const reverseString=(str)=>{
+//     let arr = str.split('');
+//     let start = 0;
+//     let end = str.length-1;
+//     while(start<end){
+//         let temp = arr[start];
+//         arr[start]=arr[end];
+//         arr[end]=temp;
+
+//         start++;
+//         end--;
+//     }
+//     return arr.join('');
+// }
+// console.log(reverseString("vamsi"));
