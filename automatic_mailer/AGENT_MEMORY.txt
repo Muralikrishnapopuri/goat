@@ -1,3 +1,4 @@
+
 ================================================================================
 🚀 ANTIGRAVITY COMPREHENSIVE AGENT MEMORY & HANDOVER LOG
 File Location 1: /home/murali-krishna/cluad/goat/automatic_mailer/AGENT_MEMORY.txt
@@ -178,7 +179,7 @@ To push to remote GitHub repository so another machine can pull:
 2. Run:
    git remote set-url origin https://<YOUR_TOKEN>@github.com/Muralikrishnapopuri/goat.git
 ================================================================================
-8. 🛡️ LATEST OUTREACH MANDATES & ANTI-SPAM SAFE PROTOCOL (SEPTEMBER 22, 2026)
+8. 🛡️ LATEST OUTREACH MANDATES & ANTI-SPAM SAFE PROTOCOL (SEPTEMBER 22-23, 2026)
 ================================================================================
 CRITICAL OPERATING RULES FOR ANY FUTURE SESSION:
 1. NEVER SEND TWICE TO THE SAME EMAIL:
@@ -199,8 +200,10 @@ CRITICAL OPERATING RULES FOR ANY FUTURE SESSION:
    - Zestchat (Sample web app for WebSockets): https://zestchat.vercel.app
 6. ATTACH RESUME PDF:
    - /home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_FullStack_Developer.pdf
-7. STRICT ZERO EMOJIS:
+7. STRICT ZERO EMOJIS & 100% NATURAL HUMAN FORMAT:
    - Strictly 0 emojis in subject line and email body.
+   - Standard text-style formatting (looks like composed directly in Gmail/Apple Mail).
+   - No fancy cards, borders, or newsletter styles.
 8. NOTICE PERIOD & RELOCATION:
    - Immediate joiner (official Last Working Day of Nov 11, negotiable for immediate release upon offer).
    - Based in Vijayawada, AP; ready to relocate immediately to Hyderabad or Bengaluru.
@@ -213,4 +216,85 @@ CRITICAL OPERATING RULES FOR ANY FUTURE SESSION:
    - Standard desktop headers (X-Mailer: Apple Mail, Importance: Normal, X-Priority: 3, explicit replyTo).
    - Polite disregard footnote on every email:
      "P.S. If you are not currently hiring for this role or are not the right person to reach out to, please feel free to disregard this note."
+
 ================================================================================
+9. 📊 DISPATCH LOG FOR TODAY (SEPTEMBER 23, 2026) — 18 EMAILS TOTAL
+================================================================================
+• Batch 1 (Early Morning / Morning):
+  1. isha.digirush@gmail.com (Digi Rush Solutions - Full Stack Developer)
+  2. amylavarapu@ruggedmonitoring.com (Rugged Monitoring - SE-1, Hyderabad)
+  3. shyam.devarakonda@tidyhire.app (TidyHire - FrontEnd Developer, Hyderabad GCC)
+  4. nalini.s@calibreqa.in (Calibre QA - Frontend Developer)
+  5. a.radhika@ekloudservices.com (eKlouD Services - React Developer)
+  6. hr@thinkwires.com (Thinkwires - Frontend Developer)
+  7. hr@lotechpro.in (LoTech Pro - Full-Stack Developer)
+  8. Shereindiraahr@gmail.com (Shereindiraa HR - Web Developer)
+  9. Monisha@huquo.com (HUQUO - Full Stack Developer)
+  10. harini.d-m@capgemini.com (Capgemini - MERN Developer)
+
+• Batch 2 (Mid-Day):
+  11. rajika.pp94@gmail.com (MERN Dev Team - MERN Developer)
+  12. sakshi@theglobalskills.com (The Global Skills - Full Stack Engineer)
+  13. rekha.g@ekloudservices.com (eKlouD Services - Full Stack Developer)
+  14. sai@pronixinc.com (Pronix Inc - Full Stack AI Engineer)
+  15. aryaanshi.c@apideltech.com (Apidel Tech - Full Stack Developer)
+  16. Jashusinha.jmp02@gmail.com (Recruitment Team - UI Developer ReactJS)
+
+• Batch 3 (Bengaluru Feed):
+  17. hariharan@vunetsystems.com (VuNet Systems - Senior Frontend Engineer)
+  18. madanraj.c@techgrowglobal.com (Tech and Grow Global - Full Stack Engineer)
+
+Total Dispatched September 23: 18 / 45 (100% successful delivery, 0 duplicates, resume attached to all).
+
+================================================================================
+10. 📊 DISPATCH LOG FOR TODAY (SEPTEMBER 24, 2026)
+================================================================================
+• Format Used: Mandated Template from Email_template.pdf (Template 1 & 3: Application / Outreach to Recruiter)
+• Attachment in All: /home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_FullStack_Developer.pdf (81 KB)
+• Batch 1 (Early Morning):
+  1. hro@caltek.us (CALTEK Solutions Inc. - Frontend / Software Engineer) -> <1abd49f6-4a70-b002-1b43-c88ed1a18e84@gmail.com>
+  2. divyam@petadata.ai (SFTECH / PetaData - Full Stack / Product Developer) -> <23033a11-64f5-30c7-db41-296f669c2f70@gmail.com>
+
+• Batch 2 (Mid-Morning - Bengaluru Feed):
+  3. anusha.v@millims.com (Millennium IMS Private Limited - Frontend / UI Developer) -> <376643e3-398e-e84c-01f9-e7a04740f6f5@gmail.com>
+  4. smita@beansbit.com (Beansbit - Fullstack Developer) -> <38cf94bc-0718-33b8-d726-0d7ec550c0de@gmail.com>
+  5. ritika.k@techgrowglobal.com (Tech and Grow Global - Full Stack Engineer) -> <14122949-ca48-d5f9-590f-e276bea74293@gmail.com>
+
+• Batch 3 (Late Morning - Bengaluru/Hyderabad Feed):
+  6. shrikrishiv@gmail.com (ShriKrishiv HR - Solutions Engineer / Full-Stack Developer) -> <5630e8b3-45f5-56e1-cae6-0b10eec62a4a@gmail.com>
+  7. plokeshwari392@gmail.com (DXC Technology - Software Engineer / Full Stack Developer) -> <f5d30802-503d-1209-2109-5a31bc54ccdd@gmail.com>
+  8. Khushi.sah@successpact.com (SuccessPact - Full Stack Engineer) -> <d92feef6-e49e-d14b-27df-59ebbc1bf21f@gmail.com>
+  9. ananda.karthikeyan@aparajitha.com (Aparajitha - Software Engineer) -> <b77b3879-5553-88a2-2c5f-67d19c3481a3@gmail.com>
+  10. bhavya.k@techgrowglobal.com (Tech and Grow Global - Full Stack Engineer) -> <3121dfe4-8ebd-6ea4-7eb9-e63534d0b190@gmail.com>
+  11. mulugu.mahatej@adroitinnovative.com (Adroit Innovative - Full Stack / React Developer) -> <2328f6e6-8c13-b891-8f27-bf3f7b2cf352@gmail.com>
+  12. priyadharm004@gmail.com (Technical Recruitment Team - Full Stack / Front-End Engineer) -> <6e5c08a4-1cbf-d634-5bec-ee6c3bec23ae@gmail.com>
+
+• Batch 4 (Afternoon - Timeline Feed):
+  13. sthakare@dgntechnologies.com (DGN Technologies Inc. - React UI Developer) -> <ece0ab81-da31-e553-7301-20dacbb485e5@gmail.com>
+  14. pradhap.d@kudzuinfotech.com (Kudzu Infotech - UI Developer / React.js) -> <52925907-bb7e-3168-2c89-0a2efd3e7d78@gmail.com>
+  15. kpatel@deqode.com (Deqode - Software Developer) -> <d5d331ae-1e91-8510-97d3-333b40d3daf7@gmail.com>
+
+• Batch 5 (Late Afternoon - Bangalore/Hyderabad Feed):
+  16. malaroviyam.k@stancosolutions.com (Stanco Solutions - React JS Developer) -> <6bc0657b-7262-002b-d541-06a94a37958b@gmail.com>
+  17. careers@uplabh.com (Uplabh - Frontend Developer React) -> <bde765b5-f1ad-4d42-23b2-55a07d40e7a0@gmail.com>
+  18. rinku.sharma@publicissapient.com (Publicis Sapient - React Front End Developer) -> <e03f2df0-e78c-d8d3-a88e-c6fd7d26b82f@gmail.com>
+  19. ruchitha@auraplacements.com (Aura Placements - React.js Developer) -> <54d0383c-0db8-b800-b1ee-cabebd489292@gmail.com>
+  20. dhanya@recruiseglobal.com (Recruise Global - Full Stack Developer Node/React) -> <f4773d13-424c-14fd-ddef-d2ce741a3d92@gmail.com>
+  21. ankita.n@encred.io (Encred - Senior React JS Developer) -> <beb27afb-6810-b99f-0432-bff929c60e66@gmail.com>
+
+• Prevented Duplicates (Rule 1):
+  - sakshi@theglobalskills.com (Skipped - already sent on Sept 23)
+  - rajika.pp94@gmail.com (Skipped - already sent on Sept 23)
+  - anusha.v@millims.com (Skipped duplicate attempt - already sent in Batch 2)
+  - ritika.k@techgrowglobal.com (Skipped duplicate attempt - already sent in Batch 2)
+  - smita@beansbit.com (Skipped duplicate attempt - already sent in Batch 2)
+  - dhanuja@mnrsolutions.co.in (Skipped duplicate attempt - already sent in earlier batches)
+  - madanraj.c@techgrowglobal.com (Skipped duplicate attempt - already sent on Sept 23)
+  - pradhap.d@kudzuinfotech.com (Skipped duplicate attempt - already sent in Batch 4)
+
+Total Dispatched Today (Sept 24): 21 / 45 safe daily ceiling (100% success rate, 0 bounces, 0 duplicates).
+================================================================================
+
+
+
+
