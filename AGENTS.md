@@ -35,11 +35,12 @@ Even if previous conversation history is truncated or unavailable, every agent *
 - Before dispatching any email, always check `/home/murali-krishna/cluad/goat/automatic_mailer/sent_history.json`.
 - If an email has already been sent to that address (`status === "SENT"`), **SKIP** it immediately.
 
-### Rule 2: Experience > 3 Years or Extra Tools — Still Send with the Bridge Pitch
+### Rule 2: Experience > 3 Years or Extra Tools — Still Send with the Impressive Fast-Learning Pitch
 - If a job description asks for > 3 years of experience or requires extra tools outside the core stack:
   - **STILL SEND THE APPLICATION EMAIL.**
-  - Include the exact bridge pitch:
-    > *"While my primary core stack is centered on React.js, Node.js, Express, JavaScript, TypeScript, and modern APIs, I have a fast learning curve and when collaborating with engineering teams I pick up new tools, libraries, and frameworks within a week. I am confident I will match your team's technical expectations and look forward to proving my capabilities in the technical interview."*
+  - Articulate a fast learning curve in an impressive, confident engineering tone:
+    > *"While my core expertise is centered on React.js, Next.js, Node.js, Express, JavaScript, TypeScript, and modern APIs, I have an exceptionally steep learning curve. In fast-paced production environments, I have consistently ramped up on unfamiliar libraries, cloud tools, and frameworks within a week. I take pride in quickly bridging technical requirements and am confident I will match your team's technical expectations, which I would love to demonstrate in a technical interview."*
+
 
 ### Rule 3: Tailor Content to the Specific Job Description
 - Customize each email's text to mirror the specific role, technologies, and company requirements mentioned in the job post.

@@ -33,7 +33,8 @@ in a new session or machine MUST read and adhere strictly to this file.
 • Status: Immediate Joiner.
 • Official Last Working Day (LWD): November 11.
 • Manager is flexible; candidate can immediately negotiate early release upon receiving an offer.
-• Phrasing in emails / forms: "Immediate Joiner (Official LWD: Nov 11, negotiable for early release upon offer)".
+• Phrasing in emails / forms: "Immediate Joiner (Official LWD: Nov 11, negotiable for immediate early release upon offer)."
+• Enthusiastic Tone Mandate: Always show high enthusiasm and eagerness to contribute from day one, e.g.: "I am an immediate joiner (official Last Working Day of Nov 11, negotiable for immediate early release upon offer), deeply enthusiastic about contributing to your engineering team and building impactful products from day one."
 
 ================================================================================
 2. 🔒 LOCKED SKILL SET (STRICT TRUTH-BASE ONLY)
@@ -74,6 +75,8 @@ Only the following skills may be included in resumes, cover letters, and email o
      - GitHub: https://github.com/Muralikrishnapopuri
      - Zestchat (Sample web app for WebSockets): https://zestchat.vercel.app
      (Do NOT mention Pixel Polish or other side projects)
+  5. Impressive Rapid-Learning Pitch (When Job Mentions Skills Outside Main Core Stack):
+     "While my core expertise is centered on React.js, Next.js, Node.js, Express, JavaScript, TypeScript, and modern APIs, I have an exceptionally steep learning curve. In fast-paced production environments, I have consistently ramped up on unfamiliar libraries, cloud tools, and frameworks within a week. I take pride in quickly bridging technical requirements and am confident I will match your team's technical expectations, which I would love to demonstrate in a technical interview."
 • STANDARD TEMPLATE:
     Subject: Application for [Role] – Murali Krishna Popuri
     Greeting: Hi [Company] Team,
@@ -292,9 +295,64 @@ Total Dispatched September 23: 18 / 45 (100% successful delivery, 0 duplicates, 
   - madanraj.c@techgrowglobal.com (Skipped duplicate attempt - already sent on Sept 23)
   - pradhap.d@kudzuinfotech.com (Skipped duplicate attempt - already sent in Batch 4)
 
-Total Dispatched Today (Sept 24): 21 / 45 safe daily ceiling (100% success rate, 0 bounces, 0 duplicates).
+• Batch 6 (Late Evening - September 24):
+  22. careers@openskale.com (Openskale - Frontend Developer React.js/Next.js) -> <12c5659c-736e-f9fd-d406-7dbd64ed730a@gmail.com>
+  23. saiteja.kothwala@ariumsoft.com (Ariumsoft - Frontend Engineer React Native) -> <d55ff71e-a94c-b1f8-910a-7a87cfc06031@gmail.com>
+
+Total Dispatched September 24: 23 / 45 safe daily ceiling (100% success rate, 0 bounces, 0 duplicates).
+
 ================================================================================
+11. 📊 DISPATCH LOG FOR TODAY (SEPTEMBER 25, 2026)
+================================================================================
+• Format Used: Mandated Template from Email_template.pdf (Template 1 for <= 3 YOE, Template 3 for > 3 YOE)
+• Tone & Features:
+  - Strictly 2 years professional software engineering experience
+  - Immediate Joiner notice period with enthusiastic tone
+  - Impressive fast-learning pitch for secondary/non-main skills
+  - 2-line RestoSoft local LAN real-time sync context
+  - Attached resume: /home/murali-krishna/cluad/goat/automatic_mailer/Murali_Krishna_Popuri_FullStack_Developer.pdf (81 KB)
+  - Exactly 4 permitted links (Portfolio, LinkedIn, GitHub, Zestchat)
+  - Zero emojis throughout
+  - Anti-spam jitter delays (45s - 90s)
 
+• Batch 1 (Morning - Hyderabad Feed):
+  1. thripura.b@gopiverse.com (Gopiverse Universal IT Solutions - Full Stack Developer) -> <68a80675-e04c-3f0f-9ce6-034e7aa01b94@gmail.com>
+  2. hr@quickdines.in (Quickdines Private Limited - Mobile Application Developer) -> <5bf0b27e-413b-3f29-126a-eae61817a667@gmail.com>
+  3. info@youhired.cloud (YouHired - Full Stack Developer) -> <b29a5346-7afb-a92a-3e21-09b66a21947f@gmail.com>
+  4. himanshi.grover@pineqlab.com (PineQ Lab Technology - Full Stack / React Developer) -> <317ba255-4009-afdd-c679-95127fd33875@gmail.com>
+  5. kavithag@petadata.ai (SFTECH / Petadata - Full Stack Developer) -> <3e1ee325-7918-f2c2-f664-05f1cd069e65@gmail.com>
+  6. divya.r@techno-facts.com (Techno-Facts - Frontend Developer React JS) -> <544a2ad9-bead-bee5-8e8a-da847f7ff91d@gmail.com>
+  7. kasak.agarwal@altezzasys.com (AltezzaSys - Full-Stack Developer) -> <7aa33af7-ab20-0d77-d113-2bbd74f2b0b9@gmail.com>
+  8. mohammed.sohailabdul@randstadsourceright.com (Randstad - Full Stack Developer) -> <f38274bd-fa10-fdaa-bc7d-f854026cf1cf@gmail.com>
 
+• Batch 2 (Midday - Hyderabad & Remote Leads - 100% Sent):
+  9. praveenl@pronixinc.com (Pronix Inc - Full Stack AI Engineer) -> <2841632a-3144-85d5-bdad-9a8ae1da76d7@gmail.com>
+  10. Dixit.parekh@anciledigital.com (Ancile Digital - Full Stack Developer) -> <7822fe34-fa70-2466-52f4-a86bb607dfd6@gmail.com>
+  11. kanchan.kamankar@ampcustech.com (Ampcus Tech - Java & React Full Stack) -> <cd79bb3f-dbe9-5a26-6757-3e67d93396e8@gmail.com>
+  12. sharmila.b@voltoconsulting.com (Volto Consulting - SDE II React/Node) -> <64543034-a45a-eb03-846c-f555426568cf@gmail.com>
+  13. pavani.gollapalli@eversoftit.com (Eversoft Technologies - React/Python) -> <657fe51f-d64a-a17b-b8c9-1f23e5210cc2@gmail.com>
+  14. mohita@bbworks.in (bbworks - Java + React F2F Drive Hyderabad) -> <9060dbf3-9974-1793-5a28-ceb8161e5d69@gmail.com>
+  15. info@peit.in (PEIT Consultants - Full Stack Java/React) -> <8108c230-c478-15c6-3050-3b7ab899a59a@gmail.com>
+  16. e-chavi@aliqan.com (Aliqan Technologies - Java/React Full Stack) -> <45735fc3-f952-1cf2-0825-224ad65d1357@gmail.com>
+  17. mathan26mathan@gmail.com (Datatech Genius - Full Stack Developer) -> <02c9626b-81c4-c79e-24db-776e31aa2263@gmail.com>
 
+• Batch 3 (Afternoon - Bengaluru Focus - Complete):
+  18. sushmitha.c@careerxperts.com (CareerXperts - Full Stack Engineer, 2-5 YOE SaaS) -> <35990515-3f92-b261-4f63-eafa56499b9d@gmail.com>
+  19. rajeshwari.vh@careerxperts.com (CareerXperts - Full Stack React/Node) -> <1a66aad5-cee9-eaf1-9182-61c0f4cb6107@gmail.com>
+  - ritika.k@techgrowglobal.com (SKIPPED - Duplicate check verified in sent_history.json)
+  20. yogita.paliwal@xponentiums.com (Xponentium India - Full Stack React/GenAI) -> <63d25022-e8c8-4dfc-12c6-f290a07fe20c@gmail.com>
+  21. riyaraj@huquo.com (HuQuo - Full Stack AI Engineer) -> <c996b8b5-060b-d82e-f903-6a10c82e5973@gmail.com>
+  22. chandrashekharpm@greenbudstechnology.com (Greenbuds - Deloitte Client) -> <3321a184-18cb-bdd7-dd0b-906e4d2b9169@gmail.com>
+  - bsgowthamkumar@greenbudstechnology.com (SKIPPED - Duplicate check verified in sent_history.json)
+  23. deepa.r@vrdella.com (VR Della IT Services - Full Stack Developer) -> <a5209abf-c4a4-0a1b-16bc-333bd85a99f3@gmail.com>
+  24. mokandhari@teksystems.com (TEKsystems - Full Stack Developer React/APIs) -> <3fd30ca1-1696-27cd-6a81-dfb4f5b0b3e5@gmail.com>
+  25. Rajitha@globaldigitalresources.com (Global Digital Resources - Radwell MERN) -> <cf3412f3-ea6b-54a2-8fd0-42dd2ecf83ae@gmail.com>
+
+• Recruiter Contacts & Ready-to-Copy Messages Test Email:
+  - Sent to: popurimuralikrishna04@gmail.com
+  - Message ID: <c3407127-4fb7-431b-8ad1-74b1d2783129@gmail.com>
+  - Content: Consolidated 7 recruiter mobile contacts with short, ready-to-copy WhatsApp/SMS outreach messages.
+
+Total Dispatched Today (Sept 25): 25 / 45 safe daily ceiling (100% delivery rate, 0 bounces, 0 duplicate sends).
+================================================================================
 
