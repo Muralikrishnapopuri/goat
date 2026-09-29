@@ -65,6 +65,12 @@ Only these 4 links may appear in the email:
 - **STRICTLY ZERO EMOJIS** anywhere in the email subject or body.
 - Include a polite thank you note and complete contact signature.
 
+### Rule 8: 100% Natural Human-Typed Appearance (STRICTLY NO CSS STYLING)
+- **STRICTLY NO CSS STYLING:** No background colors, no shaded quote boxes (`background: #f6f8fa`), no colored borders (`border-left: 3px solid #0366d6`), no cards, no badges, and no marketing templates.
+- The email must look completely natural and human-typed directly from a standard email client (Gmail / Apple Mail).
+- Structure using only clean, unstyled paragraphs, standard hyperlinks, and clean plain text indentation.
+- **MANDATORY PRE-DISPATCH STEP:** Before sending any email, always first explicitly list the rules and verify compliance for the user.
+
 ---
 
 ## 4. Anti-Spam & Deliverability Protocol (Mandatory for safe_mailer.js)
