@@ -2316,5 +2316,140 @@
     "status": "SENT",
     "messageId": "<7372a5ba-2cfc-2c54-5480-6831fd91ea38@gmail.com>",
     "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T06:45:17.250Z",
+    "recipientEmail": "connect@octavolab.com",
+    "company": "OctavoLab",
+    "role": "Full Stack Engineer",
+    "status": "SENT",
+    "messageId": "<7ac65cb9-0ba9-d96b-ad2c-007120025107@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T06:46:18.475Z",
+    "recipientEmail": "aravind.m@abilioit.com",
+    "company": "Abilio IT",
+    "role": "AI Full Stack Engineer",
+    "status": "SENT",
+    "messageId": "<5dea6cfc-f650-344c-3048-1ca2f6d41129@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T06:47:17.621Z",
+    "recipientEmail": "mpraveen@satussmart.com",
+    "company": "Satus Smart Solutions",
+    "role": "Full Stack (MERN) Developer",
+    "status": "SENT",
+    "messageId": "<b80861cd-8bf8-1d09-5477-783e2368b9f4@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T06:48:09.473Z",
+    "recipientEmail": "officialuserecruitment@gmail.com",
+    "company": "Executive Recruitment",
+    "role": "MERN Stack / Fullstack Developer",
+    "status": "SENT",
+    "messageId": "<4355147e-507b-5757-af7f-3b3ea4306a04@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T06:49:11.622Z",
+    "recipientEmail": "siya.thakur@programming.com",
+    "company": "Programming.com",
+    "role": "Full Stack Engineer (React / Node / AWS)",
+    "status": "SENT",
+    "messageId": "<39aeb07f-adf5-b1df-fbb8-a0acf691e7b3@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T06:50:05.842Z",
+    "recipientEmail": "jaisika.batra@programming.com",
+    "company": "Programming.com",
+    "role": "Full Stack Engineer (Network Tech)",
+    "status": "SENT",
+    "messageId": "<7eb50bdb-f228-72d9-954d-e698ff8e07b2@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T06:51:01.085Z",
+    "recipientEmail": "info@uhvsoftwaresolutions.com",
+    "company": "UHV Software Solutions",
+    "role": "Full Stack Engineer",
+    "status": "SENT",
+    "messageId": "<cb205c54-7c4a-72e8-6be0-69bc82e10e05@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T06:52:02.405Z",
+    "recipientEmail": "varshithamm@petadata.ai",
+    "company": "PETADATA / SFTECH",
+    "role": "Full Stack Developer",
+    "status": "SENT",
+    "messageId": "<777f8fd4-dbed-bec0-a1dd-a39e3419daff@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T07:43:33.776Z",
+    "recipientEmail": "hrashish0612@gmail.com",
+    "company": "Sanki",
+    "role": "Full Stack Developer (React.js / Next.js / Node.js)",
+    "status": "SENT",
+    "messageId": "<feb716a6-09fb-ece5-d4b6-bfbb8a1ae0fa@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T07:44:40.919Z",
+    "recipientEmail": "hr@areteminds.com",
+    "company": "AreteMinds Technologies",
+    "role": "Frontend / Full Stack Developer (Next.js & TypeScript)",
+    "status": "SENT",
+    "messageId": "<5a657e8d-9853-7dd3-2085-4376885fcdeb@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T07:45:42.058Z",
+    "recipientEmail": "mounika.d@ideslabs.com",
+    "company": "Ides Labs",
+    "role": "Full Stack Engineer (Node.js / React / AWS)",
+    "status": "SENT",
+    "messageId": "<efa804a7-5e9f-b92a-164e-26a759b31373@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T07:46:41.369Z",
+    "recipientEmail": "ananth.kulkarni@valuelabs.com",
+    "company": "ValueLabs",
+    "role": "Fullstack Developer (Node.js & React)",
+    "status": "SENT",
+    "messageId": "<76edaa9b-7fe1-6ddd-c82c-748310d3ef61@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T07:47:38.591Z",
+    "recipientEmail": "tausif.talent@gmail.com",
+    "company": "Technology Recruitment",
+    "role": "Full-Stack Engineer (React & Modern APIs)",
+    "status": "SENT",
+    "messageId": "<4f0c2ced-5b7e-3dfc-8172-bc29a6c38078@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T07:48:30.780Z",
+    "recipientEmail": "kashish.sharma@cvent.com",
+    "company": "Cvent",
+    "role": "Fullstack Software Engineer (React / Next.js / Node.js)",
+    "status": "SENT",
+    "messageId": "<ea7c4b4d-6c0e-4c91-8823-225f244d19c9@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
+  },
+  {
+    "timestamp": "2026-09-29T07:49:28.734Z",
+    "recipientEmail": "arnapurna@albireorecruiters.in",
+    "company": "Albireo Recruiters",
+    "role": "Full Stack Engineer (React / TypeScript / AI Workflows)",
+    "status": "SENT",
+    "messageId": "<82c752db-a435-4925-ae40-76b38e62f3c5@gmail.com>",
+    "resumeAttachment": "Murali_Krishna_Popuri_FullStack_Developer.pdf"
   }
 ]
