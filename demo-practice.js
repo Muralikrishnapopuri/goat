@@ -654,3 +654,19 @@
 // };
 
 // console.log(maxProfit([7,1,5,3,6,4]));
+
+
+
+//input = "abcdefgh"
+
+// const charsshift = (str,n)=>{
+
+//     let result = [];
+//     for(let i=0;i<str.length;i++){
+
+//     }
+    
+// }
+// charsshift("abcrdef",3);
+// //                   
+
