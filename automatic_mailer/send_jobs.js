@@ -377,65 +377,66 @@ function generateOutreachEmail(app) {
 
   const locText = location ? ` in ${location}` : "";
 
-  // ── 3. Natural, Human Plain Text Body ──
+  // ── 3. Natural, Professional Plain Text Body (Zero Emojis, Authentic Tone) ──
+  const targetLoc = location || "Hyderabad / Bengaluru";
   const plainBody = `Hi ${company} Team,
 
-I'm reaching out to apply for the ${appliedRole} role at ${company}${locText}.
+I'm reaching out to apply for the ${appliedRole} position at ${company}${locText}.
 
-I'm a developer with 2 years of professional experience working with ${techStackHighlight}. In my current role at YoungMinds Technology Solutions, I built RestoSoft—an offline-first POS desktop system (Electron) with real-time LAN synchronization, SQLite/MySQL, and role-based web platforms.
+I am a developer with 2 years of professional experience working with ${techStackHighlight}. I am currently working as a Full-Stack Developer at YoungMinds Technology Solutions, where I build RestoSoft—an offline-first POS desktop system (Electron) with local LAN real-time synchronization and role-based web platforms.
 
-Here are quick links to my work and projects:
-• Portfolio: ${CONFIG.portfolioUrl}
-• GitHub: ${CONFIG.githubUrl}
-• LinkedIn: ${CONFIG.linkedinUrl}
-• Zestchat (Live Project): ${CONFIG.projectZestchat}
-• Pixel Polish (Live Project): ${CONFIG.projectPixelPolish}
+Here are links to my work:
+- Portfolio: ${CONFIG.portfolioUrl}
+- LinkedIn: ${CONFIG.linkedinUrl}
+- GitHub: ${CONFIG.githubUrl}
+- Zestchat (Sample web app for WebSockets): ${CONFIG.projectZestchat}
 
-Regarding my availability: I am currently serving notice with an official Last Working Day of Nov 11, but I can get released earlier if needed as my manager is flexible (can join immediately). I am open to on-site/hybrid opportunities${locText}.
+Availability & Location:
+I am currently based in Vijayawada, Andhra Pradesh, and available to relocate immediately to ${targetLoc} for onsite or hybrid work. I am serving my notice period with an official Last Working Day of Nov 11, but my manager is flexible and I can be released earlier to join immediately upon offer.
 
-I have attached my resume for your review. Let me know if my background aligns with what you're looking for, and we can set up a short call.
+I have attached my resume for your review. Please let me know if my background aligns with your requirements, and I would be happy to connect for a short call.
 
-Thanks,
+Best regards,
 
 Murali Krishna Popuri
 +91 9347796811
 ${CONFIG.senderEmail}`;
 
-  // ── 4. Clean, Human HTML Body (Standard Email Look, Zero Marketing Gimmicks) ──
+  // ── 4. Clean, Professional HTML Body (Zero Emojis, Pure Professional Standard) ──
   const htmlBody = `
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #222222; line-height: 1.55; font-size: 14px; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #222222; line-height: 1.6; font-size: 14px; margin: 0; padding: 0; }
     p { margin: 0 0 14px 0; }
     ul { margin: 0 0 14px 0; padding-left: 20px; }
-    li { margin-bottom: 4px; }
+    li { margin-bottom: 5px; }
     a { color: #0066cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .sign { margin-top: 18px; line-height: 1.45; color: #333333; }
+    .sign { margin-top: 20px; line-height: 1.5; color: #333333; }
   </style>
 </head>
 <body>
   <p>Hi ${company} Team,</p>
 
-  <p>I'm reaching out to apply for the ${appliedRole} role at ${company}${locText}.</p>
+  <p>I'm reaching out to apply for the ${appliedRole} position at ${company}${locText}.</p>
 
-  <p>I'm a developer with 2 years of professional experience working with ${techStackHighlight}. In my current role at YoungMinds Technology Solutions, I built RestoSoft—an offline-first POS desktop system (Electron) with real-time LAN synchronization, SQLite/MySQL, and role-based web platforms.</p>
+  <p>I am a developer with 2 years of professional experience working with ${techStackHighlight}. I am currently working as a Full-Stack Developer at YoungMinds Technology Solutions, where I build RestoSoft—an offline-first POS desktop system (Electron) with local LAN real-time synchronization and role-based web platforms.</p>
 
-  <p>Here are quick links to my work and projects:</p>
+  <p>Here are links to my work:</p>
   <ul>
     <li>Portfolio: <a href="${CONFIG.portfolioUrl}">${CONFIG.portfolioUrl}</a></li>
-    <li>GitHub: <a href="${CONFIG.githubUrl}">${CONFIG.githubUrl}</a></li>
     <li>LinkedIn: <a href="${CONFIG.linkedinUrl}">${CONFIG.linkedinUrl}</a></li>
-    <li>Zestchat (Live): <a href="${CONFIG.projectZestchat}">${CONFIG.projectZestchat}</a></li>
-    <li>Pixel Polish (Live): <a href="${CONFIG.projectPixelPolish}">${CONFIG.projectPixelPolish}</a></li>
+    <li>GitHub: <a href="${CONFIG.githubUrl}">${CONFIG.githubUrl}</a></li>
+    <li>Zestchat (Sample web app for WebSockets): <a href="${CONFIG.projectZestchat}">${CONFIG.projectZestchat}</a></li>
   </ul>
 
-  <p>Regarding my availability: I am currently serving notice with an official Last Working Day of Nov 11, but I can get released earlier if needed as my manager is flexible (can join immediately). I am open to on-site/hybrid opportunities${locText}.</p>
+  <p><strong>Availability &amp; Location:</strong><br>
+  I am currently based in Vijayawada, Andhra Pradesh, and available to relocate immediately to ${targetLoc} for onsite or hybrid work. I am serving my notice period with an official Last Working Day of Nov 11, but my manager is flexible and I can be released earlier to join immediately upon offer.</p>
 
-  <p>I have attached my resume for your review. Let me know if my background aligns with what you're looking for, and we can set up a short call.</p>
+  <p>I have attached my resume for your review. Please let me know if my background aligns with your requirements, and I would be happy to connect for a short call.</p>
 
   <div class="sign">
     <strong>Murali Krishna Popuri</strong><br>
