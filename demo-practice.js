@@ -562,7 +562,7 @@
 //     let rev=0;
 //     let nCopy=n;
 //     while(n>0){
-//         let rem=%10;
+//         let rem=n%10;
 //         rev=(10*rev)+rem;
 //         n=Math.floor(n/10);
 

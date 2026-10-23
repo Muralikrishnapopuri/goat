@@ -390,5 +390,21 @@
     "role": "Full-Stack Developer",
     "status": "SENT",
     "messageId": "<82e52836-baf1-d5d9-d7ed-65f754d1af27@gmail.com>"
+  },
+  {
+    "timestamp": "2026-09-22T15:53:50.735Z",
+    "recipientEmail": "popurimuralikrishna04@gmail.com",
+    "company": "Audax (Referral via Umasankar Patro)",
+    "role": "Senior Software Engineer (Web)",
+    "status": "SENT",
+    "messageId": "<a59a51d9-cb39-f798-026a-ecb2a3cb143f@gmail.com>"
+  },
+  {
+    "timestamp": "2026-09-22T16:00:37.287Z",
+    "recipientEmail": "umasankar.patro@audax.io",
+    "company": "Audax (Referral via Umasankar Patro)",
+    "role": "Senior Software Engineer (Web)",
+    "status": "SENT",
+    "messageId": "<a94643ab-7f72-0173-3dd2-9482fd637802@gmail.com>"
   }
 ]
